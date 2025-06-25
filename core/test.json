@@ -1,0 +1,78 @@
+{
+    "allWindows": [
+        {
+            "firstUsed": "12:45:44 PM",
+            "id": 48234500,
+            "lastUsed": "12:45:52 PM",
+            "name": "hrmware_v2",
+            "tittle": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:44 PM",
+                    "endTime": "12:45:45 PM"
+                },
+                {
+                    "startTime": "12:45:52 PM",
+                    "endTime": "",
+                    "duration": 9
+                }
+            ],
+            "totalUsege": 31,
+            "isActive": true
+        },
+        {
+            "firstUsed": "12:45:45 PM",
+            "id": 25165828,
+            "lastUsed": "12:45:50 PM",
+            "name": "Code",
+            "tittle": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "startTime": "12:45:45 PM",
+                    "endTime": "12:45:46 PM",
+                    "duration": 1
+                },
+                {
+                    "startTime": "12:45:47 PM",
+                    "endTime": "12:45:50 PM",
+                    "duration": 3
+                }
+            ],
+            "totalUsege": 5,
+            "isActive": false
+        },
+        {
+            "firstUsed": "12:45:46 PM",
+            "id": 71303169,
+            "lastUsed": "12:45:47 PM",
+            "name": "Mysql-workbench-bin",
+            "tittle": "MySQL Workbench",
+            "session": [
+                {
+                    "startTime": "12:45:46 PM",
+                    "endTime": "12:45:47 PM",
+                    "duration": 1
+                }
+            ],
+            "totalUsege": 1,
+            "isActive": false
+        },
+        {
+            "firstUsed": "12:45:50 PM",
+            "id": 58720260,
+            "lastUsed": "12:45:52 PM",
+            "name": "Google-chrome",
+            "tittle": "Guides: Authentication | Next.js - Google Chrome",
+            "session": [
+                {
+                    "startTime": "12:45:50 PM",
+                    "endTime": "12:45:52 PM",
+                    "duration": 2
+                }
+            ],
+            "totalUsege": 2,
+            "isActive": false
+        }
+    ]
+}

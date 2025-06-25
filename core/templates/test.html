@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cors</title>
+</head>
+<body>
+    <script defer>
+        const URL = "http://192.168.1.66:8000/tracker/";
+	    fetch(URL, {"method": "post"})
+        .then(async response => {
+            let data = await response.json();
+            return data;
+        })
+        .then(data => console.log(JSON.stringify(data)));
+    </script>
+</body>
+</html>
