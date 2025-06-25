@@ -1,9 +1,10 @@
+from uuid import uuid4
 from django.db import models
 
 
 class ActivityLogs(models.Model):
     id = models.BigAutoField(primary_key=True)
-    log_id = models.CharField(unique=True, max_length=255)
+    log_id = models.CharField(unique=True, max_length=255, default=uuid4())
     window_title = models.TextField()
     start_timestamp = models.DateTimeField()
     end_timestamp = models.DateTimeField()
@@ -18,37 +19,28 @@ class ActivityLogs(models.Model):
         "neutral": "neutral",
     }
 
-
     productivity_status = models.CharField(max_length=255, choices=PRODUCTIVITY_STATUS_CHOICES)
     user = models.ForeignKey('Users', models.CASCADE)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'activity_logs'
-
-
-# class AlembicVersion(models.Model):
-#     version_num = models.CharField(primary_key=True, max_length=32)
-
-#     class Meta:
-#         managed = False
-#         db_table = 'alembic_version'
 
 
 class Screenshots(models.Model):
     id = models.BigAutoField(primary_key=True)
-    uuid = models.CharField(unique=True, max_length=255)
-    user = models.ForeignKey('Users', models.DO_NOTHING)
+    uuid = models.CharField(unique=True, max_length=255, default=uuid4())
+    user = models.ForeignKey('Users', models.CASCADE)
     capture_time = models.DateTimeField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'screenshots'
 
 
 class TimeSegments(models.Model):
     id = models.BigAutoField(primary_key=True)
-    uuid = models.CharField(unique=True, max_length=255)
+    uuid = models.CharField(unique=True, max_length=255, default=uuid4())
     date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()
@@ -65,15 +57,14 @@ class TimeSegments(models.Model):
     segment_type = models.CharField(max_length=255, choices=SEGMENT_TYPE_CHOICES)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'time_segments'
 
 
 class TrackerAppCategories(models.Model):
     id = models.BigAutoField(primary_key=True)
-    uuid = models.CharField(unique=True, max_length=255)
+    uuid = models.CharField(unique=True, max_length=255, default=uuid4())
     name = models.CharField(unique=True, max_length=255)
-
 
     PRODUCTIVITY_STATUS_CHOICES = {
         "productive": "productive",
@@ -87,34 +78,39 @@ class TrackerAppCategories(models.Model):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'tracker_app_categories'
 
 
-class TrackerAppCategoriesMapping(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    app = models.ForeignKey('TrackerApps', models.DO_NOTHING)
-    category = models.ForeignKey(TrackerAppCategories, models.DO_NOTHING)
+# class TrackerAppCategoriesMapping(models.Model):
+#     id = models.BigAutoField(primary_key=True)
+#     app = models.ForeignKey('TrackerApps', models.CASCADE)
+#     category = models.ForeignKey(TrackerAppCategories, models.CASCADE)
 
-    class Meta:
-        managed = False
-        db_table = 'tracker_app_categories_mapping'
-        unique_together = (('app', 'category'),)
+#     class Meta:
+#         managed = True
+#         db_table = 'tracker_app_categories_mapping'
+#         unique_together = (('app', 'category'),)
 
 
 class TrackerApps(models.Model):
     id = models.BigAutoField(primary_key=True)
-    uuid = models.CharField(unique=True, max_length=255)
+    uuid = models.CharField(unique=True, max_length=255, default=uuid4())
     name = models.CharField(unique=True, max_length=255)
+    category: "TrackerAppCategories" = models.ForeignKey(
+        "TrackerAppCategories",
+        models.CASCADE,
+        related_name="apps"
+    )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'tracker_apps'
 
 
 class TrackerSummaries(models.Model):
     id = models.BigAutoField(primary_key=True)
-    summary_id = models.CharField(unique=True, max_length=255)
+    summary_id = models.CharField(unique=True, max_length=255, default=uuid4())
     summary_date = models.DateField()
     start_time = models.TimeField()
     last_seen_time = models.TimeField()
@@ -122,10 +118,10 @@ class TrackerSummaries(models.Model):
     productive_time = models.IntegerField()
     non_productive_time = models.IntegerField()
     away_time = models.IntegerField()
-    user = models.ForeignKey('Users', models.DO_NOTHING)
+    user = models.ForeignKey('Users', models.CASCADE)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'tracker_summaries'
 
 
@@ -146,5 +142,5 @@ class Users(models.Model):
     activation_confirm = models.IntegerField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'users'

@@ -1,7 +1,6 @@
 from django.urls import path
-
-from .views import BasicAPI
+from .views import TrackerAPIView
 
 urlpatterns = [
-    path("", BasicAPI.as_view(), name="basic-api"),
+    path("", TrackerAPIView.as_view(), name="tracker-api-view"),
 ]

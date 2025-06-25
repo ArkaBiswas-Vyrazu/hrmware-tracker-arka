@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    "tracker",
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Required to set in case of encountering new app
+# DEFAULT_TRACKER_CATEGORY will be used if value is found,
+# else TRACKER_CATEGORY_PLACEHOLDER will be used instead
+TRACKER_CATEGORY_PLACEHOLDER = "Development tool"
+DEFAULT_TRACKER_CATEGORY = os.environ.get("DEFAULT_TRACKER_CATEGORY")
+
+# TRACEBACK SETTINGS
+TRACEBACK_SHOW_LOCALS=True
+TRACEBACK_LOCALS_MAX_LENGTH=80
+ENABLE_TRACEBACK=True
+PRINT_TRACEBACK_INFO_TO_CONSOLE=False
