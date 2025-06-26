@@ -1,3 +1,5 @@
+import json
+
 from django.test import TestCase, Client
 from django.urls import reverse_lazy
 
@@ -88,15 +90,14 @@ class TestActivityLogCreate(TestCase):
             ]
         }
 
-        print("Using url ", url)
         response = c.post(url, data=data)
-        self.assertEqual(response.status_code, 200, msg=response.content)
+        self.assertEqual(response.status_code, 200, msg=json.dumps(response.json(), indent=4))
 
         self.assertEqual(ActivityLogs.objects.count(), len(data["allWindows"]))
         self.assertGreater(TrackerAppCategories.objects.count(), 0)
         
         tracker_apps = (
             TrackerApps.objects
-            .filter(name__in=[name for name in data["allWindows"].get("name")])
+            .filter(name__in=[data_item.get("name").strip().lower() for data_item in data["allWindows"]])
         )
         self.assertEqual(tracker_apps.count(), len(data["allWindows"]))
