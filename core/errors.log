@@ -1,0 +1,1920 @@
+Time recorded: 2025-06-27 07:54:59 AM
+[
+    {
+        "exc_type": "ValidationError",
+        "exc_value": "[ErrorDetail(string='Invalid input.', code='invalid')]",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 145,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7af8c83cc6b0>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "e": "ValidationError()",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 80,
+                "name": "get_main_data",
+                "locals": {
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "serializer": "\"ActivityLogsDataSerializer(data={'allWindows': [{'firstUsed': '12:45:44 PM', 'id\"+1408"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 07:57:50 AM
+[
+    {
+        "exc_type": "ValidationError",
+        "exc_value": "[ErrorDetail(string='Invalid input.', code='invalid')]",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 145,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x75765481fb60>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "e": "ValidationError()",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 80,
+                "name": "get_main_data",
+                "locals": {
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "serializer": "\"ActivityLogsDataSerializer(data={'allWindows': [{'firstUsed': '12:45:44 PM', 'id\"+1408"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 07:59:54 AM
+[
+    {
+        "exc_type": "ValidationError",
+        "exc_value": "[ErrorDetail(string='Invalid input.', code='invalid')]",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 145,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7ce84e6783b0>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "e": "ValidationError()",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 80,
+                "name": "get_main_data",
+                "locals": {
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "serializer": "\"ActivityLogsDataSerializer(data={'allWindows': [{'firstUsed': '12:45:44 PM', 'id\"+1408"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 09:23:18 AM
+[
+    {
+        "exc_type": "ProgrammingError",
+        "exc_value": "column \"user_id\" of relation \"time_segments\" does not exist\nLINE 1: ...rt_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\")...\n                                                             ^",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 205,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7fca52e51310>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "\"{'allWindows': [{'id': 56623108, 'firstUsed': '2:52:53 PM', 'lastUsed': '2:53:00\"+988",
+                    "activity_logs": "\"[{'id': 1, 'log_id': '6ff660b9-7b99-43a9-939b-0eb500cc985f', 'window_title': 'HR\"+830",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "\"{'id': 88080388, 'firstUsed': '2:52:58 PM', 'lastUsed': '2:53:00 PM', 'name': 'G\"+184",
+                    "extracted_data": "\"{'start_timestamp': datetime.datetime(2025, 6, 27, 2, 52, 58), 'end_timestamp': \"+281",
+                    "tracker_app": "<TrackerApps: TrackerApps object (3)>",
+                    "activity_log": "<ActivityLogs: ActivityLogs object (3)>",
+                    "e": "'ProgrammingError(\\'column \"user_id\" of relation \"time_segments\" does not exist\\\\nL'+139",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 149,
+                "name": "create_time_segments",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7fca52e51310>",
+                    "main_data": "\"{'allWindows': [{'id': 56623108, 'firstUsed': '2:52:53 PM', 'lastUsed': '2:53:00\"+988",
+                    "user": "<Users: test@example.com>",
+                    "data": "\"{'start_timestamp': datetime.datetime(2025, 6, 27, 2, 52, 53), 'end_timestamp': \"+156",
+                    "all_windows": "\"[{'start_timestamp': datetime.datetime(2025, 6, 27, 2, 52, 53), 'end_timestamp':\"+711",
+                    "idle_states": "\"[{'duration': 7, 'startTime': '2:53:05 PM', 'endTime': '2:53:09 PM'}, {'duration\"+58",
+                    "time_segments": "[]",
+                    "app_category": "<TrackerAppCategories: TrackerAppCategories object (1)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x7fca54034320>",
+                    "args": "()",
+                    "kwargs": "\"{'start_time': datetime.datetime(2025, 6, 27, 2, 52, 53), 'end_time': datetime.d\"+108",
+                    "name": "'create'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 663,
+                "name": "create",
+                "locals": {
+                    "self": "<repr-error 'column time_segments.user_id does not exist\\nLINE 1: ...ents\".\"duration\", \"time_segments\".\"segment_type\", \"time_segm...\\n                                                             ^'>",
+                    "kwargs": "\"{'start_time': datetime.datetime(2025, 6, 27, 2, 52, 53), 'end_time': datetime.d\"+108",
+                    "reverse_one_to_one_fields": "frozenset()",
+                    "obj": "<TimeSegments: TimeSegments object (None)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 902,
+                "name": "save",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "force_insert": "True",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "args": "()",
+                    "deferred_non_generated_fields": "set()"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1008,
+                "name": "save_base",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "raw": "False",
+                    "force_insert": "(<class 'tracker.models.TimeSegments'>,)",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "cls": "<class 'tracker.models.TimeSegments'>",
+                    "origin": "<class 'tracker.models.TimeSegments'>",
+                    "meta": "<Options for TimeSegments>",
+                    "context_manager": "<contextlib._GeneratorContextManager object at 0x7fca5259a870>",
+                    "parent_inserted": "False"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1169,
+                "name": "_save_table",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "raw": "False",
+                    "cls": "<class 'tracker.models.TimeSegments'>",
+                    "force_insert": "(<class 'tracker.models.TimeSegments'>,)",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "meta": "<Options for TimeSegments>",
+                    "pk_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "non_pks_non_generated": "'[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: '+255",
+                    "pk_val": "None",
+                    "pk_set": "False",
+                    "updated": "False",
+                    "fields": "'[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: '+255",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1210,
+                "name": "_do_insert",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "manager": "<django.db.models.manager.Manager object at 0x7fca5259a750>",
+                    "using": "'default'",
+                    "fields": "'[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: '+255",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "raw": "False"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x7fca5259a750>",
+                    "args": "([<TimeSegments: TimeSegments object (None)>],)",
+                    "kwargs": "\"{'fields': [<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.\"+367",
+                    "name": "'_insert'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 1868,
+                "name": "_insert",
+                "locals": {
+                    "self": "<repr-error 'column time_segments.user_id does not exist\\nLINE 1: ...ents\".\"duration\", \"time_segments\".\"segment_type\", \"time_segm...\\n                                                             ^'>",
+                    "objs": "[<TimeSegments: TimeSegments object (None)>]",
+                    "fields": "'[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: '+255",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "raw": "False",
+                    "using": "'default'",
+                    "on_conflict": "None",
+                    "update_fields": "None",
+                    "unique_fields": "None",
+                    "query": "<django.db.models.sql.subqueries.InsertQuery object at 0x7fca5259a900>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py",
+                "lineno": 1882,
+                "name": "execute_sql",
+                "locals": {
+                    "self": "\"<SQLInsertCompiler model=TimeSegments connection=<DatabaseWrapper vendor='postgr\"+39",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "opts": "<Options for TimeSegments>",
+                    "cols": "[]",
+                    "cursor": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7fca5259acc0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('732823d9-0848-4876-a6c4-18dbb229f7de'), datetime.date(2025, 6, 27), datet\"+62"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 122,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7fca5259acc0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('732823d9-0848-4876-a6c4-18dbb229f7de'), datetime.date(2025, 6, 27), datet\"+62"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 79,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7fca5259acc0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('732823d9-0848-4876-a6c4-18dbb229f7de'), datetime.date(2025, 6, 27), datet\"+62"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 92,
+                "name": "_execute_with_wrappers",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7fca5259acc0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('732823d9-0848-4876-a6c4-18dbb229f7de'), datetime.date(2025, 6, 27), datet\"+62",
+                    "many": "False",
+                    "executor": "'<bound method CursorWrapper._execute of <django.db.backends.postgresql.base.Curs'+41",
+                    "context": "\"{'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': \"+81"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 100,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7fca5259acc0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('732823d9-0848-4876-a6c4-18dbb229f7de'), datetime.date(2025, 6, 27), datet\"+62",
+                    "ignored_wrapper_args": "\"(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'c\"+90"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/utils.py",
+                "lineno": 91,
+                "name": "__exit__",
+                "locals": {
+                    "self": "<django.db.utils.DatabaseErrorWrapper object at 0x7fca52f18530>",
+                    "exc_type": "<class 'psycopg.errors.UndefinedColumn'>",
+                    "exc_value": "'UndefinedColumn(\\'column \"user_id\" of relation \"time_segments\" does not exist\\\\nLI'+138",
+                    "traceback": "<traceback object at 0x7fca525d36c0>",
+                    "dj_exc_type": "<class 'django.db.utils.ProgrammingError'>",
+                    "db_exc_type": "<class 'psycopg.ProgrammingError'>",
+                    "dj_exc_value": "'ProgrammingError(\\'column \"user_id\" of relation \"time_segments\" does not exist\\\\nL'+139"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 105,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7fca5259acc0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('732823d9-0848-4876-a6c4-18dbb229f7de'), datetime.date(2025, 6, 27), datet\"+62",
+                    "ignored_wrapper_args": "\"(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'c\"+90"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/psycopg/cursor.py",
+                "lineno": 97,
+                "name": "execute",
+                "locals": {
+                    "self": "'<django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=localhost user='+43",
+                    "query": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('732823d9-0848-4876-a6c4-18dbb229f7de'), datetime.date(2025, 6, 27), datet\"+62",
+                    "prepare": "None",
+                    "binary": "None"
+                }
+            }
+        ]
+    },
+    {
+        "exc_type": "UndefinedColumn",
+        "exc_value": "column \"user_id\" of relation \"time_segments\" does not exist\nLINE 1: ...rt_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\")...\n                                                             ^",
+        "syntax_error": null,
+        "is_cause": true,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 105,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7fca5259acc0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('732823d9-0848-4876-a6c4-18dbb229f7de'), datetime.date(2025, 6, 27), datet\"+62",
+                    "ignored_wrapper_args": "\"(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'c\"+90"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/psycopg/cursor.py",
+                "lineno": 97,
+                "name": "execute",
+                "locals": {
+                    "self": "'<django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=localhost user='+43",
+                    "query": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('732823d9-0848-4876-a6c4-18dbb229f7de'), datetime.date(2025, 6, 27), datet\"+62",
+                    "prepare": "None",
+                    "binary": "None"
+                }
+            }
+        ]
+    }
+]Time recorded: 2025-06-27 09:26:37 AM
+[
+    {
+        "exc_type": "IntegrityError",
+        "exc_value": "null value in column \"duration\" of relation \"time_segments\" violates not-null constraint\nDETAIL:  Failing row contains (1, 59e039c9-2efd-413c-a85a-2c89384bfb3f, 2025-06-27, 02:53:22, 02:56:31, null, neutral, 1).",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 205,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7df2d4e2b080>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "\"{'allWindows': [{'id': 56623108, 'firstUsed': '2:53:22 PM', 'lastUsed': '2:56:31\"+1054",
+                    "activity_logs": "\"[{'id': 1, 'log_id': '945cffdd-31bc-464b-af38-952db0458c1e', 'window_title': 'HR\"+814",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "\"{'id': 98566148, 'firstUsed': '2:56:15 PM', 'lastUsed': '2:56:17 PM', 'name': 't\"+183",
+                    "extracted_data": "\"{'start_timestamp': datetime.datetime(2025, 6, 27, 2, 56, 15), 'end_timestamp': \"+282",
+                    "tracker_app": "<TrackerApps: TrackerApps object (3)>",
+                    "activity_log": "<ActivityLogs: ActivityLogs object (3)>",
+                    "e": "'IntegrityError(\\'null value in column \"duration\" of relation \"time_segments\" viol'+150",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 149,
+                "name": "create_time_segments",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7df2d4e2b080>",
+                    "main_data": "\"{'allWindows': [{'id': 56623108, 'firstUsed': '2:53:22 PM', 'lastUsed': '2:56:31\"+1054",
+                    "user": "<Users: test@example.com>",
+                    "data": "\"{'start_timestamp': datetime.datetime(2025, 6, 27, 2, 53, 22), 'end_timestamp': \"+160",
+                    "all_windows": "\"[{'start_timestamp': datetime.datetime(2025, 6, 27, 2, 53, 22), 'end_timestamp':\"+714",
+                    "idle_states": "[{'duration': 7, 'startTime': '2:56:22 PM', 'endTime': '2:56:26 PM'}]",
+                    "time_segments": "[]",
+                    "app_category": "<TrackerAppCategories: TrackerAppCategories object (1)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x7df2d59bc290>",
+                    "args": "()",
+                    "kwargs": "\"{'start_time': datetime.datetime(2025, 6, 27, 2, 53, 22), 'end_time': datetime.d\"+112",
+                    "name": "'create'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 663,
+                "name": "create",
+                "locals": {
+                    "self": "<QuerySet []>",
+                    "kwargs": "\"{'start_time': datetime.datetime(2025, 6, 27, 2, 53, 22), 'end_time': datetime.d\"+112",
+                    "reverse_one_to_one_fields": "frozenset()",
+                    "obj": "<TimeSegments: TimeSegments object (None)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 902,
+                "name": "save",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "force_insert": "True",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "args": "()",
+                    "deferred_non_generated_fields": "set()"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1008,
+                "name": "save_base",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "raw": "False",
+                    "force_insert": "(<class 'tracker.models.TimeSegments'>,)",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "cls": "<class 'tracker.models.TimeSegments'>",
+                    "origin": "<class 'tracker.models.TimeSegments'>",
+                    "meta": "<Options for TimeSegments>",
+                    "context_manager": "<contextlib._GeneratorContextManager object at 0x7df2d458af60>",
+                    "parent_inserted": "False"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1169,
+                "name": "_save_table",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "raw": "False",
+                    "cls": "<class 'tracker.models.TimeSegments'>",
+                    "force_insert": "(<class 'tracker.models.TimeSegments'>,)",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "meta": "<Options for TimeSegments>",
+                    "pk_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "non_pks_non_generated": "'[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: '+255",
+                    "pk_val": "None",
+                    "pk_set": "False",
+                    "updated": "False",
+                    "fields": "'[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: '+255",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1210,
+                "name": "_do_insert",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "manager": "<django.db.models.manager.Manager object at 0x7df2d458a3c0>",
+                    "using": "'default'",
+                    "fields": "'[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: '+255",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "raw": "False"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x7df2d458a3c0>",
+                    "args": "([<TimeSegments: TimeSegments object (None)>],)",
+                    "kwargs": "\"{'fields': [<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.\"+367",
+                    "name": "'_insert'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 1868,
+                "name": "_insert",
+                "locals": {
+                    "self": "<QuerySet []>",
+                    "objs": "[<TimeSegments: TimeSegments object (None)>]",
+                    "fields": "'[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: '+255",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "raw": "False",
+                    "using": "'default'",
+                    "on_conflict": "None",
+                    "update_fields": "None",
+                    "unique_fields": "None",
+                    "query": "<django.db.models.sql.subqueries.InsertQuery object at 0x7df2d458b6e0>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py",
+                "lineno": 1882,
+                "name": "execute_sql",
+                "locals": {
+                    "self": "\"<SQLInsertCompiler model=TimeSegments connection=<DatabaseWrapper vendor='postgr\"+39",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "opts": "<Options for TimeSegments>",
+                    "cols": "[]",
+                    "cursor": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7df2d458bdd0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('59e039c9-2efd-413c-a85a-2c89384bfb3f'), datetime.date(2025, 6, 27), datet\"+66"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 122,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7df2d458bdd0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('59e039c9-2efd-413c-a85a-2c89384bfb3f'), datetime.date(2025, 6, 27), datet\"+66"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 79,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7df2d458bdd0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('59e039c9-2efd-413c-a85a-2c89384bfb3f'), datetime.date(2025, 6, 27), datet\"+66"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 92,
+                "name": "_execute_with_wrappers",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7df2d458bdd0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('59e039c9-2efd-413c-a85a-2c89384bfb3f'), datetime.date(2025, 6, 27), datet\"+66",
+                    "many": "False",
+                    "executor": "'<bound method CursorWrapper._execute of <django.db.backends.postgresql.base.Curs'+41",
+                    "context": "\"{'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': \"+81"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 100,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7df2d458bdd0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('59e039c9-2efd-413c-a85a-2c89384bfb3f'), datetime.date(2025, 6, 27), datet\"+66",
+                    "ignored_wrapper_args": "\"(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'c\"+90"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/utils.py",
+                "lineno": 91,
+                "name": "__exit__",
+                "locals": {
+                    "self": "<django.db.utils.DatabaseErrorWrapper object at 0x7df2d484b710>",
+                    "exc_type": "<class 'psycopg.errors.NotNullViolation'>",
+                    "exc_value": "'NotNullViolation(\\'null value in column \"duration\" of relation \"time_segments\" vi'+152",
+                    "traceback": "<traceback object at 0x7df2d45ed540>",
+                    "dj_exc_type": "<class 'django.db.utils.IntegrityError'>",
+                    "db_exc_type": "<class 'psycopg.IntegrityError'>",
+                    "dj_exc_value": "'IntegrityError(\\'null value in column \"duration\" of relation \"time_segments\" viol'+150"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 105,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7df2d458bdd0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('59e039c9-2efd-413c-a85a-2c89384bfb3f'), datetime.date(2025, 6, 27), datet\"+66",
+                    "ignored_wrapper_args": "\"(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'c\"+90"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/psycopg/cursor.py",
+                "lineno": 97,
+                "name": "execute",
+                "locals": {
+                    "self": "'<django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=localhost user='+43",
+                    "query": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('59e039c9-2efd-413c-a85a-2c89384bfb3f'), datetime.date(2025, 6, 27), datet\"+66",
+                    "prepare": "None",
+                    "binary": "None"
+                }
+            }
+        ]
+    },
+    {
+        "exc_type": "NotNullViolation",
+        "exc_value": "null value in column \"duration\" of relation \"time_segments\" violates not-null constraint\nDETAIL:  Failing row contains (1, 59e039c9-2efd-413c-a85a-2c89384bfb3f, 2025-06-27, 02:53:22, 02:56:31, null, neutral, 1).",
+        "syntax_error": null,
+        "is_cause": true,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 105,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x7df2d458bdd0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('59e039c9-2efd-413c-a85a-2c89384bfb3f'), datetime.date(2025, 6, 27), datet\"+66",
+                    "ignored_wrapper_args": "\"(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'c\"+90"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/psycopg/cursor.py",
+                "lineno": 97,
+                "name": "execute",
+                "locals": {
+                    "self": "'<django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=localhost user='+43",
+                    "query": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration'+96",
+                    "params": "\"(UUID('59e039c9-2efd-413c-a85a-2c89384bfb3f'), datetime.date(2025, 6, 27), datet\"+66",
+                    "prepare": "None",
+                    "binary": "None"
+                }
+            }
+        ]
+    }
+]Time recorded: 2025-06-27 09:31:37 AM
+[
+    {
+        "exc_type": "IntegrityError",
+        "exc_value": "null value in column \"duration\" of relation \"time_segments\" violates not-null constraint\nDETAIL:  Failing row contains (2, 218fe84f-b913-425e-9d23-e041221d9697, 2025-06-27, 03:01:13, 03:01:24, null, neutral, 1).",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 205,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x76d1092297f0>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 56623108, 'firstUsed': '3:01:13 PM', 'lastUsed': '3:01:24 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 3, 'startTime': '3:01:13 PM', 'endTime': '3:01:16 PM'}, {'duration': 1, 'startTime': '3:01:18 PM', 'endTime': '3:01:19 PM'}, {'duration': 1, 'startTime': '3:01:21 PM', 'endTime': '3:01:22 PM'}, {'duration': 13, 'startTime': '3:01:24 PM', 'endTime': ''}], 'totalUsage': 100, 'isActive': True}, {'id': 88080388, 'firstUsed': '3:01:16 PM', 'lastUsed': '3:01:18 PM', 'name': 'Google-chrome', 'title': 'powerMonitor | Electron - Google Chrome', 'session': [{'duration': 2, 'startTime': '3:01:16 PM', 'endTime': '3:01:18 PM'}], 'totalUsage': 2, 'isActive': False}, {'id': 65011716, 'firstUsed': '3:01:19 PM', 'lastUsed': '3:01:21 PM', 'name': 'Code', 'title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'session': [{'duration': 2, 'startTime': '3:01:19 PM', 'endTime': '3:01:21 PM'}], 'totalUsage': 2, 'isActive': False}, {'id': 98566148, 'firstUsed': '3:01:22 PM', 'lastUsed': '3:01:24 PM', 'name': 'teams-for-linux', 'title': 'Chat | Arka Biswas | Microsoft Teams', 'session': [{'duration': 2, 'startTime': '3:01:22 PM', 'endTime': '3:01:24 PM'}], 'totalUsage': 2, 'isActive': False}], 'idleStates': [{'duration': 7, 'startTime': '3:01:28 PM', 'endTime': '3:01:32 PM'}, {'duration': 5, 'startTime': '3:01:36 PM', 'endTime': '3:01:37 PM'}]}",
+                    "activity_logs": "[{'id': 4, 'log_id': 'b404e7ce-b56d-4c16-9c86-d2d6d0bd18ad', 'window_title': 'HRMWARE', 'start_timestamp': '2025-06-27T03:01:13Z', 'end_timestamp': '2025-06-27T03:01:24Z', 'duration': 100, 'is_active': True, 'productivity_status': 'neutral', 'app': 1, 'category': 1, 'user': 1}, {'id': 5, 'log_id': '3a9b8810-1913-484c-8b5b-93955bd92307', 'window_title': 'powerMonitor | Electron - Google Chrome', 'start_timestamp': '2025-06-27T03:01:16Z', 'end_timestamp': '2025-06-27T03:01:18Z', 'duration': 2, 'is_active': False, 'productivity_status': 'neutral', 'app': 2, 'category': 1, 'user': 1}, {'id': 6, 'log_id': '272c9a37-2287-4698-acb5-d0a7224ed3f1', 'window_title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'start_timestamp': '2025-06-27T03:01:19Z', 'end_timestamp': '2025-06-27T03:01:21Z', 'duration': 2, 'is_active': False, 'productivity_status': 'neutral', 'app': 4, 'category': 1, 'user': 1}, {'id': 7, 'log_id': '59616ca8-1225-424b-bd01-1bebe357e9a4', 'window_title': 'Chat | Arka Biswas | Microsoft Teams', 'start_timestamp': '2025-06-27T03:01:22Z', 'end_timestamp': '2025-06-27T03:01:24Z', 'duration': 2, 'is_active': False, 'productivity_status': 'neutral', 'app': 3, 'category': 1, 'user': 1}]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 98566148, 'firstUsed': '3:01:22 PM', 'lastUsed': '3:01:24 PM', 'name': 'teams-for-linux', 'title': 'Chat | Arka Biswas | Microsoft Teams', 'session': [{'duration': 2, 'startTime': '3:01:22 PM', 'endTime': '3:01:24 PM'}], 'totalUsage': 2, 'isActive': False}",
+                    "extracted_data": "{'start_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 22), 'end_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 24), 'duration': 2, 'is_active': False, 'window_title': 'Chat | Arka Biswas | Microsoft Teams', 'app': <TrackerApps: TrackerApps object (3)>, 'productivity_status': 'neutral', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "tracker_app": "<TrackerApps: TrackerApps object (3)>",
+                    "activity_log": "<ActivityLogs: ActivityLogs object (7)>",
+                    "e": "IntegrityError('null value in column \"duration\" of relation \"time_segments\" violates not-null constraint\\nDETAIL:  Failing row contains (2, 218fe84f-b913-425e-9d23-e041221d9697, 2025-06-27, 03:01:13, 03:01:24, null, neutral, 1).')",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 149,
+                "name": "create_time_segments",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x76d1092297f0>",
+                    "main_data": "{'allWindows': [{'id': 56623108, 'firstUsed': '3:01:13 PM', 'lastUsed': '3:01:24 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 3, 'startTime': '3:01:13 PM', 'endTime': '3:01:16 PM'}, {'duration': 1, 'startTime': '3:01:18 PM', 'endTime': '3:01:19 PM'}, {'duration': 1, 'startTime': '3:01:21 PM', 'endTime': '3:01:22 PM'}, {'duration': 13, 'startTime': '3:01:24 PM', 'endTime': ''}], 'totalUsage': 100, 'isActive': True}, {'id': 88080388, 'firstUsed': '3:01:16 PM', 'lastUsed': '3:01:18 PM', 'name': 'Google-chrome', 'title': 'powerMonitor | Electron - Google Chrome', 'session': [{'duration': 2, 'startTime': '3:01:16 PM', 'endTime': '3:01:18 PM'}], 'totalUsage': 2, 'isActive': False}, {'id': 65011716, 'firstUsed': '3:01:19 PM', 'lastUsed': '3:01:21 PM', 'name': 'Code', 'title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'session': [{'duration': 2, 'startTime': '3:01:19 PM', 'endTime': '3:01:21 PM'}], 'totalUsage': 2, 'isActive': False}, {'id': 98566148, 'firstUsed': '3:01:22 PM', 'lastUsed': '3:01:24 PM', 'name': 'teams-for-linux', 'title': 'Chat | Arka Biswas | Microsoft Teams', 'session': [{'duration': 2, 'startTime': '3:01:22 PM', 'endTime': '3:01:24 PM'}], 'totalUsage': 2, 'isActive': False}], 'idleStates': [{'duration': 7, 'startTime': '3:01:28 PM', 'endTime': '3:01:32 PM'}, {'duration': 5, 'startTime': '3:01:36 PM', 'endTime': '3:01:37 PM'}]}",
+                    "user": "<Users: test@example.com>",
+                    "data": "{'start_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 13), 'end_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 24), 'duration': 100, 'is_active': True, 'window_title': 'HRMWARE', 'app': 'hrmware_v2', 'productivity_status': 'neutral'}",
+                    "all_windows": "[{'start_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 13), 'end_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 24), 'duration': 100, 'is_active': True, 'window_title': 'HRMWARE', 'app': 'hrmware_v2', 'productivity_status': 'neutral'}, {'start_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 16), 'end_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 18), 'duration': 2, 'is_active': False, 'window_title': 'powerMonitor | Electron - Google Chrome', 'app': 'google-chrome', 'productivity_status': 'neutral'}, {'start_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 19), 'end_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 21), 'duration': 2, 'is_active': False, 'window_title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'app': 'code', 'productivity_status': 'neutral'}, {'start_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 22), 'end_timestamp': datetime.datetime(2025, 6, 27, 3, 1, 24), 'duration': 2, 'is_active': False, 'window_title': 'Chat | Arka Biswas | Microsoft Teams', 'app': 'teams-for-linux', 'productivity_status': 'neutral'}]",
+                    "idle_states": "[{'duration': 7, 'startTime': '3:01:28 PM', 'endTime': '3:01:32 PM'}, {'duration': 5, 'startTime': '3:01:36 PM', 'endTime': '3:01:37 PM'}]",
+                    "time_segments": "[]",
+                    "app_category": "<TrackerAppCategories: TrackerAppCategories object (1)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x76d10a338620>",
+                    "args": "()",
+                    "kwargs": "{'start_time': datetime.datetime(2025, 6, 27, 3, 1, 13), 'end_time': datetime.datetime(2025, 6, 27, 3, 1, 24), 'duration': None, 'segment_type': 'neutral', 'user': <Users: test@example.com>}",
+                    "name": "'create'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 663,
+                "name": "create",
+                "locals": {
+                    "self": "<QuerySet []>",
+                    "kwargs": "{'start_time': datetime.datetime(2025, 6, 27, 3, 1, 13), 'end_time': datetime.datetime(2025, 6, 27, 3, 1, 24), 'duration': None, 'segment_type': 'neutral', 'user': <Users: test@example.com>}",
+                    "reverse_one_to_one_fields": "frozenset()",
+                    "obj": "<TimeSegments: TimeSegments object (None)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 902,
+                "name": "save",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "force_insert": "True",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "args": "()",
+                    "deferred_non_generated_fields": "set()"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1008,
+                "name": "save_base",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "raw": "False",
+                    "force_insert": "(<class 'tracker.models.TimeSegments'>,)",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "cls": "<class 'tracker.models.TimeSegments'>",
+                    "origin": "<class 'tracker.models.TimeSegments'>",
+                    "meta": "<Options for TimeSegments>",
+                    "context_manager": "<contextlib._GeneratorContextManager object at 0x76d109262090>",
+                    "parent_inserted": "False"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1169,
+                "name": "_save_table",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "raw": "False",
+                    "cls": "<class 'tracker.models.TimeSegments'>",
+                    "force_insert": "(<class 'tracker.models.TimeSegments'>,)",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "meta": "<Options for TimeSegments>",
+                    "pk_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "non_pks_non_generated": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: date>, <django.db.models.fields.TimeField: start_time>, <django.db.models.fields.TimeField: end_time>, <django.db.models.fields.IntegerField: duration>, <django.db.models.fields.CharField: segment_type>, <django.db.models.fields.related.ForeignKey: user>]",
+                    "pk_val": "None",
+                    "pk_set": "False",
+                    "updated": "False",
+                    "fields": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: date>, <django.db.models.fields.TimeField: start_time>, <django.db.models.fields.TimeField: end_time>, <django.db.models.fields.IntegerField: duration>, <django.db.models.fields.CharField: segment_type>, <django.db.models.fields.related.ForeignKey: user>]",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1210,
+                "name": "_do_insert",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "manager": "<django.db.models.manager.Manager object at 0x76d109262210>",
+                    "using": "'default'",
+                    "fields": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: date>, <django.db.models.fields.TimeField: start_time>, <django.db.models.fields.TimeField: end_time>, <django.db.models.fields.IntegerField: duration>, <django.db.models.fields.CharField: segment_type>, <django.db.models.fields.related.ForeignKey: user>]",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "raw": "False"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x76d109262210>",
+                    "args": "([<TimeSegments: TimeSegments object (None)>],)",
+                    "kwargs": "{'fields': [<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: date>, <django.db.models.fields.TimeField: start_time>, <django.db.models.fields.TimeField: end_time>, <django.db.models.fields.IntegerField: duration>, <django.db.models.fields.CharField: segment_type>, <django.db.models.fields.related.ForeignKey: user>], 'returning_fields': [<django.db.models.fields.BigAutoField: id>], 'using': 'default', 'raw': False}",
+                    "name": "'_insert'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 1868,
+                "name": "_insert",
+                "locals": {
+                    "self": "<QuerySet []>",
+                    "objs": "[<TimeSegments: TimeSegments object (None)>]",
+                    "fields": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: date>, <django.db.models.fields.TimeField: start_time>, <django.db.models.fields.TimeField: end_time>, <django.db.models.fields.IntegerField: duration>, <django.db.models.fields.CharField: segment_type>, <django.db.models.fields.related.ForeignKey: user>]",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "raw": "False",
+                    "using": "'default'",
+                    "on_conflict": "None",
+                    "update_fields": "None",
+                    "unique_fields": "None",
+                    "query": "<django.db.models.sql.subqueries.InsertQuery object at 0x76d109262180>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py",
+                "lineno": 1882,
+                "name": "execute_sql",
+                "locals": {
+                    "self": "<SQLInsertCompiler model=TimeSegments connection=<DatabaseWrapper vendor='postgresql' alias='default'> using='default'>",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "opts": "<Options for TimeSegments>",
+                    "cols": "[]",
+                    "cursor": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\") VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING \"time_segments\".\"id\"'",
+                    "params": "(UUID('218fe84f-b913-425e-9d23-e041221d9697'), datetime.date(2025, 6, 27), datetime.time(3, 1, 13), datetime.time(3, 1, 24), None, 'neutral', 1)"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 122,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\") VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING \"time_segments\".\"id\"'",
+                    "params": "(UUID('218fe84f-b913-425e-9d23-e041221d9697'), datetime.date(2025, 6, 27), datetime.time(3, 1, 13), datetime.time(3, 1, 24), None, 'neutral', 1)"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 79,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\") VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING \"time_segments\".\"id\"'",
+                    "params": "(UUID('218fe84f-b913-425e-9d23-e041221d9697'), datetime.date(2025, 6, 27), datetime.time(3, 1, 13), datetime.time(3, 1, 24), None, 'neutral', 1)"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 92,
+                "name": "_execute_with_wrappers",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\") VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING \"time_segments\".\"id\"'",
+                    "params": "(UUID('218fe84f-b913-425e-9d23-e041221d9697'), datetime.date(2025, 6, 27), datetime.time(3, 1, 13), datetime.time(3, 1, 24), None, 'neutral', 1)",
+                    "many": "False",
+                    "executor": "<bound method CursorWrapper._execute of <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>>",
+                    "context": "{'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>}"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 100,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\") VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING \"time_segments\".\"id\"'",
+                    "params": "(UUID('218fe84f-b913-425e-9d23-e041221d9697'), datetime.date(2025, 6, 27), datetime.time(3, 1, 13), datetime.time(3, 1, 24), None, 'neutral', 1)",
+                    "ignored_wrapper_args": "(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>})"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/utils.py",
+                "lineno": 91,
+                "name": "__exit__",
+                "locals": {
+                    "self": "<django.db.utils.DatabaseErrorWrapper object at 0x76d1097a3230>",
+                    "exc_type": "<class 'psycopg.errors.NotNullViolation'>",
+                    "exc_value": "NotNullViolation('null value in column \"duration\" of relation \"time_segments\" violates not-null constraint\\nDETAIL:  Failing row contains (2, 218fe84f-b913-425e-9d23-e041221d9697, 2025-06-27, 03:01:13, 03:01:24, null, neutral, 1).')",
+                    "traceback": "<traceback object at 0x76d10929fbc0>",
+                    "dj_exc_type": "<class 'django.db.utils.IntegrityError'>",
+                    "db_exc_type": "<class 'psycopg.IntegrityError'>",
+                    "dj_exc_value": "IntegrityError('null value in column \"duration\" of relation \"time_segments\" violates not-null constraint\\nDETAIL:  Failing row contains (2, 218fe84f-b913-425e-9d23-e041221d9697, 2025-06-27, 03:01:13, 03:01:24, null, neutral, 1).')"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 105,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\") VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING \"time_segments\".\"id\"'",
+                    "params": "(UUID('218fe84f-b913-425e-9d23-e041221d9697'), datetime.date(2025, 6, 27), datetime.time(3, 1, 13), datetime.time(3, 1, 24), None, 'neutral', 1)",
+                    "ignored_wrapper_args": "(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>})"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/psycopg/cursor.py",
+                "lineno": 97,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=localhost user=vyrazu-35 database=test) at 0x76d10928c1d0>",
+                    "query": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\") VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING \"time_segments\".\"id\"'",
+                    "params": "(UUID('218fe84f-b913-425e-9d23-e041221d9697'), datetime.date(2025, 6, 27), datetime.time(3, 1, 13), datetime.time(3, 1, 24), None, 'neutral', 1)",
+                    "prepare": "None",
+                    "binary": "None"
+                }
+            }
+        ]
+    },
+    {
+        "exc_type": "NotNullViolation",
+        "exc_value": "null value in column \"duration\" of relation \"time_segments\" violates not-null constraint\nDETAIL:  Failing row contains (2, 218fe84f-b913-425e-9d23-e041221d9697, 2025-06-27, 03:01:13, 03:01:24, null, neutral, 1).",
+        "syntax_error": null,
+        "is_cause": true,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 105,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>",
+                    "sql": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\") VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING \"time_segments\".\"id\"'",
+                    "params": "(UUID('218fe84f-b913-425e-9d23-e041221d9697'), datetime.date(2025, 6, 27), datetime.time(3, 1, 13), datetime.time(3, 1, 24), None, 'neutral', 1)",
+                    "ignored_wrapper_args": "(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x76d1092620c0>})"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/psycopg/cursor.py",
+                "lineno": 97,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=localhost user=vyrazu-35 database=test) at 0x76d10928c1d0>",
+                    "query": "'INSERT INTO \"time_segments\" (\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\") VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING \"time_segments\".\"id\"'",
+                    "params": "(UUID('218fe84f-b913-425e-9d23-e041221d9697'), datetime.date(2025, 6, 27), datetime.time(3, 1, 13), datetime.time(3, 1, 24), None, 'neutral', 1)",
+                    "prepare": "None",
+                    "binary": "None"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 09:33:51 AM
+[
+    {
+        "exc_type": "ValidationError",
+        "exc_value": "['\u201c3:03:37 PM\u201d value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] format.']",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 205,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x787df8e3dc40>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 56623108, 'firstUsed': '3:03:25 PM', 'lastUsed': '3:03:32 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 3, 'startTime': '3:03:25 PM', 'endTime': '3:03:28 PM'}, {'duration': 2, 'startTime': '3:03:29 PM', 'endTime': '3:03:31 PM'}, {'duration': 16, 'startTime': '3:03:32 PM', 'endTime': ''}], 'totalUsage': 142, 'isActive': True}, {'id': 88080388, 'firstUsed': '3:03:28 PM', 'lastUsed': '3:03:29 PM', 'name': 'Google-chrome', 'title': 'powerMonitor | Electron - Google Chrome', 'session': [{'duration': 1, 'startTime': '3:03:28 PM', 'endTime': '3:03:29 PM'}], 'totalUsage': 1, 'isActive': False}, {'id': 98566148, 'firstUsed': '3:03:31 PM', 'lastUsed': '3:03:32 PM', 'name': 'teams-for-linux', 'title': 'Chat | Arka Biswas | Microsoft Teams', 'session': [{'duration': 1, 'startTime': '3:03:31 PM', 'endTime': '3:03:32 PM'}], 'totalUsage': 1, 'isActive': False}], 'idleStates': [{'duration': 7, 'startTime': '3:03:37 PM', 'endTime': '3:03:41 PM'}, {'duration': 8, 'startTime': '3:03:45 PM', 'endTime': '3:03:49 PM'}]}",
+                    "activity_logs": "[{'id': 1, 'log_id': 'ca65f383-df7c-4c3b-92d2-4dcec4cfd2be', 'window_title': 'HRMWARE', 'start_timestamp': '2025-06-27T03:03:25Z', 'end_timestamp': '2025-06-27T03:03:32Z', 'duration': 142, 'is_active': True, 'productivity_status': 'neutral', 'app': 1, 'category': 1, 'user': 1}, {'id': 2, 'log_id': '4e7110cb-62ef-4d6f-b04c-047f9b1aa235', 'window_title': 'powerMonitor | Electron - Google Chrome', 'start_timestamp': '2025-06-27T03:03:28Z', 'end_timestamp': '2025-06-27T03:03:29Z', 'duration': 1, 'is_active': False, 'productivity_status': 'neutral', 'app': 2, 'category': 1, 'user': 1}, {'id': 3, 'log_id': 'c2052b65-2e7d-4546-a722-3d7d5fe82623', 'window_title': 'Chat | Arka Biswas | Microsoft Teams', 'start_timestamp': '2025-06-27T03:03:31Z', 'end_timestamp': '2025-06-27T03:03:32Z', 'duration': 1, 'is_active': False, 'productivity_status': 'neutral', 'app': 3, 'category': 1, 'user': 1}]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 98566148, 'firstUsed': '3:03:31 PM', 'lastUsed': '3:03:32 PM', 'name': 'teams-for-linux', 'title': 'Chat | Arka Biswas | Microsoft Teams', 'session': [{'duration': 1, 'startTime': '3:03:31 PM', 'endTime': '3:03:32 PM'}], 'totalUsage': 1, 'isActive': False}",
+                    "extracted_data": "{'start_timestamp': datetime.datetime(2025, 6, 27, 3, 3, 31), 'end_timestamp': datetime.datetime(2025, 6, 27, 3, 3, 32), 'duration': 1, 'is_active': False, 'window_title': 'Chat | Arka Biswas | Microsoft Teams', 'app': <TrackerApps: TrackerApps object (3)>, 'productivity_status': 'neutral', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "tracker_app": "<TrackerApps: TrackerApps object (3)>",
+                    "activity_log": "<ActivityLogs: ActivityLogs object (3)>",
+                    "e": "ValidationError(['\u201c3:03:37 PM\u201d value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] format.'])",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 160,
+                "name": "create_time_segments",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x787df8e3dc40>",
+                    "main_data": "{'allWindows': [{'id': 56623108, 'firstUsed': '3:03:25 PM', 'lastUsed': '3:03:32 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 3, 'startTime': '3:03:25 PM', 'endTime': '3:03:28 PM'}, {'duration': 2, 'startTime': '3:03:29 PM', 'endTime': '3:03:31 PM'}, {'duration': 16, 'startTime': '3:03:32 PM', 'endTime': ''}], 'totalUsage': 142, 'isActive': True}, {'id': 88080388, 'firstUsed': '3:03:28 PM', 'lastUsed': '3:03:29 PM', 'name': 'Google-chrome', 'title': 'powerMonitor | Electron - Google Chrome', 'session': [{'duration': 1, 'startTime': '3:03:28 PM', 'endTime': '3:03:29 PM'}], 'totalUsage': 1, 'isActive': False}, {'id': 98566148, 'firstUsed': '3:03:31 PM', 'lastUsed': '3:03:32 PM', 'name': 'teams-for-linux', 'title': 'Chat | Arka Biswas | Microsoft Teams', 'session': [{'duration': 1, 'startTime': '3:03:31 PM', 'endTime': '3:03:32 PM'}], 'totalUsage': 1, 'isActive': False}], 'idleStates': [{'duration': 7, 'startTime': '3:03:37 PM', 'endTime': '3:03:41 PM'}, {'duration': 8, 'startTime': '3:03:45 PM', 'endTime': '3:03:49 PM'}]}",
+                    "user": "<Users: test@example.com>",
+                    "data": "{'duration': 7, 'startTime': '3:03:37 PM', 'endTime': '3:03:41 PM'}",
+                    "all_windows": "[{'start_timestamp': datetime.datetime(2025, 6, 27, 3, 3, 25), 'end_timestamp': datetime.datetime(2025, 6, 27, 3, 3, 32), 'duration': 142, 'is_active': True, 'window_title': 'HRMWARE', 'app': 'hrmware_v2', 'productivity_status': 'neutral'}, {'start_timestamp': datetime.datetime(2025, 6, 27, 3, 3, 28), 'end_timestamp': datetime.datetime(2025, 6, 27, 3, 3, 29), 'duration': 1, 'is_active': False, 'window_title': 'powerMonitor | Electron - Google Chrome', 'app': 'google-chrome', 'productivity_status': 'neutral'}, {'start_timestamp': datetime.datetime(2025, 6, 27, 3, 3, 31), 'end_timestamp': datetime.datetime(2025, 6, 27, 3, 3, 32), 'duration': 1, 'is_active': False, 'window_title': 'Chat | Arka Biswas | Microsoft Teams', 'app': 'teams-for-linux', 'productivity_status': 'neutral'}]",
+                    "idle_states": "[{'duration': 7, 'startTime': '3:03:37 PM', 'endTime': '3:03:41 PM'}, {'duration': 8, 'startTime': '3:03:45 PM', 'endTime': '3:03:49 PM'}]",
+                    "time_segments": "[<TimeSegments: TimeSegments object (1)>, <TimeSegments: TimeSegments object (2)>, <TimeSegments: TimeSegments object (3)>]",
+                    "app_category": "<TrackerAppCategories: TrackerAppCategories object (1)>",
+                    "time_segment": "<TimeSegments: TimeSegments object (3)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x787df9f682f0>",
+                    "args": "()",
+                    "kwargs": "{'start_time': '3:03:37 PM', 'end_time': '3:03:41 PM', 'duration': 7, 'segment_type': 'idle', 'user': <Users: test@example.com>}",
+                    "name": "'create'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 663,
+                "name": "create",
+                "locals": {
+                    "self": "<QuerySet [<TimeSegments: TimeSegments object (1)>, <TimeSegments: TimeSegments object (2)>, <TimeSegments: TimeSegments object (3)>]>",
+                    "kwargs": "{'start_time': '3:03:37 PM', 'end_time': '3:03:41 PM', 'duration': 7, 'segment_type': 'idle', 'user': <Users: test@example.com>}",
+                    "reverse_one_to_one_fields": "frozenset()",
+                    "obj": "<TimeSegments: TimeSegments object (None)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 902,
+                "name": "save",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "force_insert": "True",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "args": "()",
+                    "deferred_non_generated_fields": "set()"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1008,
+                "name": "save_base",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "raw": "False",
+                    "force_insert": "(<class 'tracker.models.TimeSegments'>,)",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "cls": "<class 'tracker.models.TimeSegments'>",
+                    "origin": "<class 'tracker.models.TimeSegments'>",
+                    "meta": "<Options for TimeSegments>",
+                    "context_manager": "<contextlib._GeneratorContextManager object at 0x787df85c2f00>",
+                    "parent_inserted": "False"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1169,
+                "name": "_save_table",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "raw": "False",
+                    "cls": "<class 'tracker.models.TimeSegments'>",
+                    "force_insert": "(<class 'tracker.models.TimeSegments'>,)",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "meta": "<Options for TimeSegments>",
+                    "pk_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "non_pks_non_generated": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: date>, <django.db.models.fields.TimeField: start_time>, <django.db.models.fields.TimeField: end_time>, <django.db.models.fields.IntegerField: duration>, <django.db.models.fields.CharField: segment_type>, <django.db.models.fields.related.ForeignKey: user>]",
+                    "pk_val": "None",
+                    "pk_set": "False",
+                    "updated": "False",
+                    "fields": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: date>, <django.db.models.fields.TimeField: start_time>, <django.db.models.fields.TimeField: end_time>, <django.db.models.fields.IntegerField: duration>, <django.db.models.fields.CharField: segment_type>, <django.db.models.fields.related.ForeignKey: user>]",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1210,
+                "name": "_do_insert",
+                "locals": {
+                    "self": "<TimeSegments: TimeSegments object (None)>",
+                    "manager": "<django.db.models.manager.Manager object at 0x787df85c2f60>",
+                    "using": "'default'",
+                    "fields": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: date>, <django.db.models.fields.TimeField: start_time>, <django.db.models.fields.TimeField: end_time>, <django.db.models.fields.IntegerField: duration>, <django.db.models.fields.CharField: segment_type>, <django.db.models.fields.related.ForeignKey: user>]",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "raw": "False"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x787df85c2f60>",
+                    "args": "([<TimeSegments: TimeSegments object (None)>],)",
+                    "kwargs": "{'fields': [<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: date>, <django.db.models.fields.TimeField: start_time>, <django.db.models.fields.TimeField: end_time>, <django.db.models.fields.IntegerField: duration>, <django.db.models.fields.CharField: segment_type>, <django.db.models.fields.related.ForeignKey: user>], 'returning_fields': [<django.db.models.fields.BigAutoField: id>], 'using': 'default', 'raw': False}",
+                    "name": "'_insert'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 1868,
+                "name": "_insert",
+                "locals": {
+                    "self": "<QuerySet [<TimeSegments: TimeSegments object (1)>, <TimeSegments: TimeSegments object (2)>, <TimeSegments: TimeSegments object (3)>]>",
+                    "objs": "[<TimeSegments: TimeSegments object (None)>]",
+                    "fields": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: date>, <django.db.models.fields.TimeField: start_time>, <django.db.models.fields.TimeField: end_time>, <django.db.models.fields.IntegerField: duration>, <django.db.models.fields.CharField: segment_type>, <django.db.models.fields.related.ForeignKey: user>]",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "raw": "False",
+                    "using": "'default'",
+                    "on_conflict": "None",
+                    "update_fields": "None",
+                    "unique_fields": "None",
+                    "query": "<django.db.models.sql.subqueries.InsertQuery object at 0x787df85c2210>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py",
+                "lineno": 1881,
+                "name": "execute_sql",
+                "locals": {
+                    "self": "<SQLInsertCompiler model=TimeSegments connection=<DatabaseWrapper vendor='postgresql' alias='default'> using='default'>",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "opts": "<Options for TimeSegments>",
+                    "cols": "[]",
+                    "cursor": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x787df85f80b0>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py",
+                "lineno": 1806,
+                "name": "as_sql",
+                "locals": {
+                    "self": "<SQLInsertCompiler model=TimeSegments connection=<DatabaseWrapper vendor='postgresql' alias='default'> using='default'>",
+                    "opts": "<Options for TimeSegments>",
+                    "insert_statement": "'INSERT INTO'",
+                    "result": "['INSERT INTO \"time_segments\"', '(\"uuid\", \"date\", \"start_time\", \"end_time\", \"duration\", \"segment_type\", \"user_id\")']",
+                    "fields": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.DateField: date>, <django.db.models.fields.TimeField: start_time>, <django.db.models.fields.TimeField: end_time>, <django.db.models.fields.IntegerField: duration>, <django.db.models.fields.CharField: segment_type>, <django.db.models.fields.related.ForeignKey: user>]",
+                    "qn": "<bound method DatabaseOperations.quote_name of <django.db.backends.postgresql.operations.DatabaseOperations object at 0x787df8e3ee10>>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py",
+                "lineno": 1741,
+                "name": "prepare_value",
+                "locals": {
+                    "self": "<SQLInsertCompiler model=TimeSegments connection=<DatabaseWrapper vendor='postgresql' alias='default'> using='default'>",
+                    "field": "<django.db.models.fields.TimeField: start_time>",
+                    "value": "'3:03:37 PM'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py",
+                "lineno": 1012,
+                "name": "get_db_prep_save",
+                "locals": {
+                    "self": "<django.db.models.fields.TimeField: start_time>",
+                    "value": "'3:03:37 PM'",
+                    "connection": "<DatabaseWrapper vendor='postgresql' alias='default'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py",
+                "lineno": 2624,
+                "name": "get_db_prep_value",
+                "locals": {
+                    "self": "<django.db.models.fields.TimeField: start_time>",
+                    "value": "'3:03:37 PM'",
+                    "connection": "<DatabaseWrapper vendor='postgresql' alias='default'>",
+                    "prepared": "False"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py",
+                "lineno": 2619,
+                "name": "get_prep_value",
+                "locals": {
+                    "self": "<django.db.models.fields.TimeField: start_time>",
+                    "value": "'3:03:37 PM'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py",
+                "lineno": 2603,
+                "name": "to_python",
+                "locals": {
+                    "self": "<django.db.models.fields.TimeField: start_time>",
+                    "value": "'3:03:37 PM'",
+                    "parsed": "None"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 10:04:11 AM
+[
+    {
+        "exc_type": "ValidationError",
+        "exc_value": "[ErrorDetail(string='Invalid input.', code='invalid')]",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 177,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x75622c1083b0>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "e": "ValidationError()",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 80,
+                "name": "get_main_data",
+                "locals": {
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "serializer": "ActivityLogsDataSerializer(data={'allWindows': [{'firstUsed': '12:45:44 PM', 'id': 48234500, 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'tittle': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'startTime': '12:45:52 PM', 'endTime': '', 'duration': 9}], 'totalUsege': 31, 'isActive': True}, {'firstUsed': '12:45:45 PM', 'id': 25165828, 'lastUsed': '12:45:50 PM', 'name': 'Code', 'tittle': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'session': [{'startTime': '12:45:45 PM', 'endTime': '12:45:46 PM', 'duration': 1}, {'startTime': '12:45:47 PM', 'endTime': '12:45:50 PM', 'duration': 3}], 'totalUsege': 5, 'isActive': False}, {'firstUsed': '12:45:46 PM', 'id': 71303169, 'lastUsed': '12:45:47 PM', 'name': 'Mysql-workbench-bin', 'tittle': 'MySQL Workbench', 'session': [{'startTime': '12:45:46 PM', 'endTime': '12:45:47 PM', 'duration': 1}], 'totalUsege': 1, 'isActive': False}, {'firstUsed': '12:45:50 PM', 'id': 58720260, 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'tittle': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM', 'duration': 2}], 'totalUsege': 2, 'isActive': False}], 'idleStates': [{'startTime': '12:45:44 PM', 'endTime': '12:45:47 PM', 'duration': 3}]}):\n    allWindows = ActivityLogsDataItemsSerializer(many=True):\n        id = IntegerField()\n        firstUsed = CharField()\n        lastUsed = CharField()\n        name = CharField()\n        title = CharField()\n        session = ActivityLogsDataIdleStatesSerializer(many=True):\n            duration = IntegerField()\n            startTime = CharField()\n            endTime = CharField(allow_blank=True)\n        totalUsage = IntegerField()\n        isActive = BooleanField()\n    idleStates = ActivityLogsDataIdleStatesSerializer(many=True):\n        duration = IntegerField()\n        startTime = CharField()\n        endTime = CharField(allow_blank=True)"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 10:15:16 AM
+[
+    {
+        "exc_type": "AssertionError",
+        "exc_value": "Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 209,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x76eac5dc17c0>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}, {'id': 25165828, 'firstUsed': '12:45:45 PM', 'lastUsed': '12:45:50 PM', 'name': 'Code', 'title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'session': [{'duration': 1, 'startTime': '12:45:45 PM', 'endTime': '12:45:46 PM'}, {'duration': 3, 'startTime': '12:45:47 PM', 'endTime': '12:45:50 PM'}], 'totalUsage': 5, 'isActive': False}, {'id': 71303169, 'firstUsed': '12:45:46 PM', 'lastUsed': '12:45:47 PM', 'name': 'Mysql-workbench-bin', 'title': 'MySQL Workbench', 'session': [{'duration': 1, 'startTime': '12:45:46 PM', 'endTime': '12:45:47 PM'}], 'totalUsage': 1, 'isActive': False}, {'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}], 'idleStates': [{'duration': 3, 'startTime': '12:45:44 PM', 'endTime': '12:45:47 PM'}]}",
+                    "activity_logs": "[{'id': 13, 'log_id': 'eb0709de-e2b0-4ebc-874c-3bbbfc03bb5a', 'window_title': 'HRMWARE', 'start_timestamp': '2025-06-27T12:45:44Z', 'end_timestamp': '2025-06-27T12:45:52Z', 'duration': 31, 'is_active': True, 'productivity_status': 'neutral', 'app': 1, 'category': 1, 'user': 1}, {'id': 14, 'log_id': 'e12f0ff1-16b5-4b72-a1de-ef02db45d527', 'window_title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'start_timestamp': '2025-06-27T12:45:45Z', 'end_timestamp': '2025-06-27T12:45:50Z', 'duration': 5, 'is_active': False, 'productivity_status': 'neutral', 'app': 2, 'category': 1, 'user': 1}, {'id': 15, 'log_id': '1b393382-f1fd-4693-bcdc-8d25d55e96c2', 'window_title': 'MySQL Workbench', 'start_timestamp': '2025-06-27T12:45:46Z', 'end_timestamp': '2025-06-27T12:45:47Z', 'duration': 1, 'is_active': False, 'productivity_status': 'neutral', 'app': 3, 'category': 1, 'user': 1}, {'id': 16, 'log_id': '0bcf9b6c-b7b9-4e4c-8a77-5378529703e2', 'window_title': 'Guides: Authentication | Next.js - Google Chrome', 'start_timestamp': '2025-06-27T12:45:50Z', 'end_timestamp': '2025-06-27T12:45:52Z', 'duration': 2, 'is_active': False, 'productivity_status': 'neutral', 'app': 4, 'category': 1, 'user': 1}]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}",
+                    "extracted_data": "{'start_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 50), 'end_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 52), 'duration': 2, 'is_active': False, 'window_title': 'Guides: Authentication | Next.js - Google Chrome', 'app': <TrackerApps: TrackerApps object (4)>, 'productivity_status': 'neutral', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "tracker_app": "<TrackerApps: TrackerApps object (4)>",
+                    "activity_log": "<ActivityLogs: ActivityLogs object (16)>",
+                    "time_segments": "[<TimeSegments: TimeSegments object (16)>, <TimeSegments: TimeSegments object (17)>, <TimeSegments: TimeSegments object (18)>, <TimeSegments: TimeSegments object (19)>, <TimeSegments: TimeSegments object (20)>]",
+                    "e": "AssertionError('Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.')",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 797,
+                "name": "data",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (16)>, <TimeSegments: TimeSegments object (17)>, <TimeSegments: TimeSegments object (18)>, <TimeSegments: TimeSegments object (19)>, <TimeSegments: TimeSegments object (20)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 251,
+                "name": "data",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (16)>, <TimeSegments: TimeSegments object (17)>, <TimeSegments: TimeSegments object (18)>, <TimeSegments: TimeSegments object (19)>, <TimeSegments: TimeSegments object (20)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 716,
+                "name": "to_representation",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (16)>, <TimeSegments: TimeSegments object (17)>, <TimeSegments: TimeSegments object (18)>, <TimeSegments: TimeSegments object (19)>, <TimeSegments: TimeSegments object (20)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())",
+                    "data": "[<TimeSegments: TimeSegments object (16)>, <TimeSegments: TimeSegments object (17)>, <TimeSegments: TimeSegments object (18)>, <TimeSegments: TimeSegments object (19)>, <TimeSegments: TimeSegments object (20)>]",
+                    "iterable": "[<TimeSegments: TimeSegments object (16)>, <TimeSegments: TimeSegments object (17)>, <TimeSegments: TimeSegments object (18)>, <TimeSegments: TimeSegments object (19)>, <TimeSegments: TimeSegments object (20)>]"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 540,
+                "name": "to_representation",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (16)>, <TimeSegments: TimeSegments object (17)>, <TimeSegments: TimeSegments object (18)>, <TimeSegments: TimeSegments object (19)>, <TimeSegments: TimeSegments object (20)>]):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())",
+                    "instance": "<TimeSegments: TimeSegments object (16)>",
+                    "ret": "{'id': 16, 'uuid': 'e7008b3e-3c99-49d9-806e-fa6fb859e784'}",
+                    "fields": "<generator object Serializer._readable_fields at 0x76eac576bb80>",
+                    "field": "DateField(required=False)",
+                    "attribute": "datetime.datetime(2025, 6, 27, 10, 15, 16, 397033, tzinfo=datetime.timezone.utc)",
+                    "check_for_none": "datetime.datetime(2025, 6, 27, 10, 15, 16, 397033, tzinfo=datetime.timezone.utc)"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/fields.py",
+                "lineno": 1272,
+                "name": "to_representation",
+                "locals": {
+                    "self": "DateField(required=False)",
+                    "value": "datetime.datetime(2025, 6, 27, 10, 15, 16, 397033, tzinfo=datetime.timezone.utc)",
+                    "output_format": "'iso-8601'"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 10:21:07 AM
+[
+    {
+        "exc_type": "AssertionError",
+        "exc_value": "Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 211,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x70e489a4e660>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}, {'id': 25165828, 'firstUsed': '12:45:45 PM', 'lastUsed': '12:45:50 PM', 'name': 'Code', 'title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'session': [{'duration': 1, 'startTime': '12:45:45 PM', 'endTime': '12:45:46 PM'}, {'duration': 3, 'startTime': '12:45:47 PM', 'endTime': '12:45:50 PM'}], 'totalUsage': 5, 'isActive': False}, {'id': 71303169, 'firstUsed': '12:45:46 PM', 'lastUsed': '12:45:47 PM', 'name': 'Mysql-workbench-bin', 'title': 'MySQL Workbench', 'session': [{'duration': 1, 'startTime': '12:45:46 PM', 'endTime': '12:45:47 PM'}], 'totalUsage': 1, 'isActive': False}, {'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}], 'idleStates': [{'duration': 3, 'startTime': '12:45:44 PM', 'endTime': '12:45:47 PM'}]}",
+                    "activity_logs": "[{'id': 17, 'log_id': '20ab9166-eed6-4a63-aef2-098d030f8ff8', 'window_title': 'HRMWARE', 'start_timestamp': '2025-06-27T12:45:44Z', 'end_timestamp': '2025-06-27T12:45:52Z', 'duration': 31, 'is_active': True, 'productivity_status': 'neutral', 'app': 1, 'category': 1, 'user': 1}, {'id': 18, 'log_id': '31ac7a7d-92e8-4e3b-86d3-2e9423640ced', 'window_title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'start_timestamp': '2025-06-27T12:45:45Z', 'end_timestamp': '2025-06-27T12:45:50Z', 'duration': 5, 'is_active': False, 'productivity_status': 'neutral', 'app': 2, 'category': 1, 'user': 1}, {'id': 19, 'log_id': '6d67addc-77c6-44dd-98e2-a2b8b4fe52cc', 'window_title': 'MySQL Workbench', 'start_timestamp': '2025-06-27T12:45:46Z', 'end_timestamp': '2025-06-27T12:45:47Z', 'duration': 1, 'is_active': False, 'productivity_status': 'neutral', 'app': 3, 'category': 1, 'user': 1}, {'id': 20, 'log_id': '1d18178d-e079-414f-af6e-b93299856d9b', 'window_title': 'Guides: Authentication | Next.js - Google Chrome', 'start_timestamp': '2025-06-27T12:45:50Z', 'end_timestamp': '2025-06-27T12:45:52Z', 'duration': 2, 'is_active': False, 'productivity_status': 'neutral', 'app': 4, 'category': 1, 'user': 1}]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}",
+                    "extracted_data": "{'start_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 50), 'end_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 52), 'duration': 2, 'is_active': False, 'window_title': 'Guides: Authentication | Next.js - Google Chrome', 'app': <TrackerApps: TrackerApps object (4)>, 'productivity_status': 'neutral', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "tracker_app": "<TrackerApps: TrackerApps object (4)>",
+                    "activity_log": "<ActivityLogs: ActivityLogs object (20)>",
+                    "time_segments": "[<TimeSegments: TimeSegments object (21)>, <TimeSegments: TimeSegments object (22)>, <TimeSegments: TimeSegments object (23)>, <TimeSegments: TimeSegments object (24)>, <TimeSegments: TimeSegments object (25)>]",
+                    "pdb": "<module 'pdb' from '/usr/lib/python3.12/pdb.py'>",
+                    "e": "AssertionError('Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.')",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 797,
+                "name": "data",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (21)>, <TimeSegments: TimeSegments object (22)>, <TimeSegments: TimeSegments object (23)>, <TimeSegments: TimeSegments object (24)>, <TimeSegments: TimeSegments object (25)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 251,
+                "name": "data",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (21)>, <TimeSegments: TimeSegments object (22)>, <TimeSegments: TimeSegments object (23)>, <TimeSegments: TimeSegments object (24)>, <TimeSegments: TimeSegments object (25)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 716,
+                "name": "to_representation",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (21)>, <TimeSegments: TimeSegments object (22)>, <TimeSegments: TimeSegments object (23)>, <TimeSegments: TimeSegments object (24)>, <TimeSegments: TimeSegments object (25)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())",
+                    "data": "[<TimeSegments: TimeSegments object (21)>, <TimeSegments: TimeSegments object (22)>, <TimeSegments: TimeSegments object (23)>, <TimeSegments: TimeSegments object (24)>, <TimeSegments: TimeSegments object (25)>]",
+                    "iterable": "[<TimeSegments: TimeSegments object (21)>, <TimeSegments: TimeSegments object (22)>, <TimeSegments: TimeSegments object (23)>, <TimeSegments: TimeSegments object (24)>, <TimeSegments: TimeSegments object (25)>]"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 540,
+                "name": "to_representation",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (21)>, <TimeSegments: TimeSegments object (22)>, <TimeSegments: TimeSegments object (23)>, <TimeSegments: TimeSegments object (24)>, <TimeSegments: TimeSegments object (25)>]):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())",
+                    "instance": "<TimeSegments: TimeSegments object (21)>",
+                    "ret": "{'id': 21, 'uuid': 'bb6215ab-d6a4-4200-81c6-70d52b171e0e'}",
+                    "fields": "<generator object Serializer._readable_fields at 0x70e489ae7100>",
+                    "field": "DateField(required=False)",
+                    "attribute": "datetime.datetime(2025, 6, 27, 10, 20, 14, 639245, tzinfo=datetime.timezone.utc)",
+                    "check_for_none": "datetime.datetime(2025, 6, 27, 10, 20, 14, 639245, tzinfo=datetime.timezone.utc)"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/fields.py",
+                "lineno": 1272,
+                "name": "to_representation",
+                "locals": {
+                    "self": "DateField(required=False)",
+                    "value": "datetime.datetime(2025, 6, 27, 10, 20, 14, 639245, tzinfo=datetime.timezone.utc)",
+                    "output_format": "'iso-8601'"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 10:22:22 AM
+[
+    {
+        "exc_type": "AssertionError",
+        "exc_value": "Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 209,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x74bafc0136b0>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}, {'id': 25165828, 'firstUsed': '12:45:45 PM', 'lastUsed': '12:45:50 PM', 'name': 'Code', 'title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'session': [{'duration': 1, 'startTime': '12:45:45 PM', 'endTime': '12:45:46 PM'}, {'duration': 3, 'startTime': '12:45:47 PM', 'endTime': '12:45:50 PM'}], 'totalUsage': 5, 'isActive': False}, {'id': 71303169, 'firstUsed': '12:45:46 PM', 'lastUsed': '12:45:47 PM', 'name': 'Mysql-workbench-bin', 'title': 'MySQL Workbench', 'session': [{'duration': 1, 'startTime': '12:45:46 PM', 'endTime': '12:45:47 PM'}], 'totalUsage': 1, 'isActive': False}, {'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}], 'idleStates': [{'duration': 3, 'startTime': '12:45:44 PM', 'endTime': '12:45:47 PM'}]}",
+                    "activity_logs": "[{'id': 21, 'log_id': '5a9275d0-198b-4faa-b42b-6dff71284048', 'window_title': 'HRMWARE', 'start_timestamp': '2025-06-27T12:45:44Z', 'end_timestamp': '2025-06-27T12:45:52Z', 'duration': 31, 'is_active': True, 'productivity_status': 'neutral', 'app': 1, 'category': 1, 'user': 1}, {'id': 22, 'log_id': '9fb7c903-7cc9-4918-9bb4-a14314cfe16b', 'window_title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'start_timestamp': '2025-06-27T12:45:45Z', 'end_timestamp': '2025-06-27T12:45:50Z', 'duration': 5, 'is_active': False, 'productivity_status': 'neutral', 'app': 2, 'category': 1, 'user': 1}, {'id': 23, 'log_id': '78a7f8c0-30d4-49c7-b50c-9001e7e81246', 'window_title': 'MySQL Workbench', 'start_timestamp': '2025-06-27T12:45:46Z', 'end_timestamp': '2025-06-27T12:45:47Z', 'duration': 1, 'is_active': False, 'productivity_status': 'neutral', 'app': 3, 'category': 1, 'user': 1}, {'id': 24, 'log_id': '50353ed3-097e-4e65-9e51-8fdc4972e868', 'window_title': 'Guides: Authentication | Next.js - Google Chrome', 'start_timestamp': '2025-06-27T12:45:50Z', 'end_timestamp': '2025-06-27T12:45:52Z', 'duration': 2, 'is_active': False, 'productivity_status': 'neutral', 'app': 4, 'category': 1, 'user': 1}]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}",
+                    "extracted_data": "{'start_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 50), 'end_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 52), 'duration': 2, 'is_active': False, 'window_title': 'Guides: Authentication | Next.js - Google Chrome', 'app': <TrackerApps: TrackerApps object (4)>, 'productivity_status': 'neutral', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "tracker_app": "<TrackerApps: TrackerApps object (4)>",
+                    "activity_log": "<ActivityLogs: ActivityLogs object (24)>",
+                    "time_segments": "[<TimeSegments: TimeSegments object (26)>, <TimeSegments: TimeSegments object (27)>, <TimeSegments: TimeSegments object (28)>, <TimeSegments: TimeSegments object (29)>, <TimeSegments: TimeSegments object (30)>]",
+                    "e": "AssertionError('Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.')",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 797,
+                "name": "data",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (26)>, <TimeSegments: TimeSegments object (27)>, <TimeSegments: TimeSegments object (28)>, <TimeSegments: TimeSegments object (29)>, <TimeSegments: TimeSegments object (30)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 251,
+                "name": "data",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (26)>, <TimeSegments: TimeSegments object (27)>, <TimeSegments: TimeSegments object (28)>, <TimeSegments: TimeSegments object (29)>, <TimeSegments: TimeSegments object (30)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 716,
+                "name": "to_representation",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (26)>, <TimeSegments: TimeSegments object (27)>, <TimeSegments: TimeSegments object (28)>, <TimeSegments: TimeSegments object (29)>, <TimeSegments: TimeSegments object (30)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())",
+                    "data": "[<TimeSegments: TimeSegments object (26)>, <TimeSegments: TimeSegments object (27)>, <TimeSegments: TimeSegments object (28)>, <TimeSegments: TimeSegments object (29)>, <TimeSegments: TimeSegments object (30)>]",
+                    "iterable": "[<TimeSegments: TimeSegments object (26)>, <TimeSegments: TimeSegments object (27)>, <TimeSegments: TimeSegments object (28)>, <TimeSegments: TimeSegments object (29)>, <TimeSegments: TimeSegments object (30)>]"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 540,
+                "name": "to_representation",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (26)>, <TimeSegments: TimeSegments object (27)>, <TimeSegments: TimeSegments object (28)>, <TimeSegments: TimeSegments object (29)>, <TimeSegments: TimeSegments object (30)>]):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())",
+                    "instance": "<TimeSegments: TimeSegments object (26)>",
+                    "ret": "{'id': 26, 'uuid': '90b735ca-eb45-4fc5-b6c3-b776a96c6647'}",
+                    "fields": "<generator object Serializer._readable_fields at 0x74baf7eef880>",
+                    "field": "DateField(required=False)",
+                    "attribute": "datetime.datetime(2025, 6, 27, 10, 22, 22, 173380, tzinfo=datetime.timezone.utc)",
+                    "check_for_none": "datetime.datetime(2025, 6, 27, 10, 22, 22, 173380, tzinfo=datetime.timezone.utc)"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/fields.py",
+                "lineno": 1272,
+                "name": "to_representation",
+                "locals": {
+                    "self": "DateField(required=False)",
+                    "value": "datetime.datetime(2025, 6, 27, 10, 22, 22, 173380, tzinfo=datetime.timezone.utc)",
+                    "output_format": "'iso-8601'"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 10:25:28 AM
+[
+    {
+        "exc_type": "AssertionError",
+        "exc_value": "Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 211,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x743d271eb800>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}, {'id': 25165828, 'firstUsed': '12:45:45 PM', 'lastUsed': '12:45:50 PM', 'name': 'Code', 'title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'session': [{'duration': 1, 'startTime': '12:45:45 PM', 'endTime': '12:45:46 PM'}, {'duration': 3, 'startTime': '12:45:47 PM', 'endTime': '12:45:50 PM'}], 'totalUsage': 5, 'isActive': False}, {'id': 71303169, 'firstUsed': '12:45:46 PM', 'lastUsed': '12:45:47 PM', 'name': 'Mysql-workbench-bin', 'title': 'MySQL Workbench', 'session': [{'duration': 1, 'startTime': '12:45:46 PM', 'endTime': '12:45:47 PM'}], 'totalUsage': 1, 'isActive': False}, {'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}], 'idleStates': [{'duration': 3, 'startTime': '12:45:44 PM', 'endTime': '12:45:47 PM'}]}",
+                    "activity_logs": "[{'id': 25, 'log_id': '2e1e09c5-47ae-4029-a5ae-93943b263aef', 'window_title': 'HRMWARE', 'start_timestamp': '2025-06-27T12:45:44Z', 'end_timestamp': '2025-06-27T12:45:52Z', 'duration': 31, 'is_active': True, 'productivity_status': 'neutral', 'app': 1, 'category': 1, 'user': 1}, {'id': 26, 'log_id': '619927c8-fa64-4583-af23-f4922e084d6a', 'window_title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'start_timestamp': '2025-06-27T12:45:45Z', 'end_timestamp': '2025-06-27T12:45:50Z', 'duration': 5, 'is_active': False, 'productivity_status': 'neutral', 'app': 2, 'category': 1, 'user': 1}, {'id': 27, 'log_id': '37a6776a-959f-4939-9d6e-fec3cda890a5', 'window_title': 'MySQL Workbench', 'start_timestamp': '2025-06-27T12:45:46Z', 'end_timestamp': '2025-06-27T12:45:47Z', 'duration': 1, 'is_active': False, 'productivity_status': 'neutral', 'app': 3, 'category': 1, 'user': 1}, {'id': 28, 'log_id': 'a3097218-04c1-4517-8192-e5c746ade0ba', 'window_title': 'Guides: Authentication | Next.js - Google Chrome', 'start_timestamp': '2025-06-27T12:45:50Z', 'end_timestamp': '2025-06-27T12:45:52Z', 'duration': 2, 'is_active': False, 'productivity_status': 'neutral', 'app': 4, 'category': 1, 'user': 1}]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}",
+                    "extracted_data": "{'start_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 50), 'end_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 52), 'duration': 2, 'is_active': False, 'window_title': 'Guides: Authentication | Next.js - Google Chrome', 'app': <TrackerApps: TrackerApps object (4)>, 'productivity_status': 'neutral', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "tracker_app": "<TrackerApps: TrackerApps object (4)>",
+                    "activity_log": "<ActivityLogs: ActivityLogs object (28)>",
+                    "time_segments": "[<TimeSegments: TimeSegments object (31)>, <TimeSegments: TimeSegments object (32)>, <TimeSegments: TimeSegments object (33)>, <TimeSegments: TimeSegments object (34)>, <TimeSegments: TimeSegments object (35)>]",
+                    "pdb": "<module 'pdb' from '/usr/lib/python3.12/pdb.py'>",
+                    "e": "AssertionError('Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.')",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 797,
+                "name": "data",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (31)>, <TimeSegments: TimeSegments object (32)>, <TimeSegments: TimeSegments object (33)>, <TimeSegments: TimeSegments object (34)>, <TimeSegments: TimeSegments object (35)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 251,
+                "name": "data",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (31)>, <TimeSegments: TimeSegments object (32)>, <TimeSegments: TimeSegments object (33)>, <TimeSegments: TimeSegments object (34)>, <TimeSegments: TimeSegments object (35)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 716,
+                "name": "to_representation",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (31)>, <TimeSegments: TimeSegments object (32)>, <TimeSegments: TimeSegments object (33)>, <TimeSegments: TimeSegments object (34)>, <TimeSegments: TimeSegments object (35)>], many=True):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())",
+                    "data": "[<TimeSegments: TimeSegments object (31)>, <TimeSegments: TimeSegments object (32)>, <TimeSegments: TimeSegments object (33)>, <TimeSegments: TimeSegments object (34)>, <TimeSegments: TimeSegments object (35)>]",
+                    "iterable": "[<TimeSegments: TimeSegments object (31)>, <TimeSegments: TimeSegments object (32)>, <TimeSegments: TimeSegments object (33)>, <TimeSegments: TimeSegments object (34)>, <TimeSegments: TimeSegments object (35)>]"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/serializers.py",
+                "lineno": 540,
+                "name": "to_representation",
+                "locals": {
+                    "self": "TimeSegmentsSerializer([<TimeSegments: TimeSegments object (31)>, <TimeSegments: TimeSegments object (32)>, <TimeSegments: TimeSegments object (33)>, <TimeSegments: TimeSegments object (34)>, <TimeSegments: TimeSegments object (35)>]):\n    id = IntegerField(read_only=True)\n    uuid = UUIDField(read_only=True)\n    date = DateField(required=False)\n    start_time = DateTimeField()\n    end_time = DateTimeField()\n    duration = IntegerField(max_value=2147483647, min_value=-2147483648)\n    segment_type = ChoiceField(choices=[('productive', 'productive'), ('non-productive', 'non-productive'), ('neutral', 'neutral'), ('away', 'away'), ('idle', 'idle')], required=False)\n    user = PrimaryKeyRelatedField(queryset=Users.objects.all())",
+                    "instance": "<TimeSegments: TimeSegments object (31)>",
+                    "ret": "{'id': 31, 'uuid': '3d28ea40-af4e-476e-be9c-e616f35d7fc7'}",
+                    "fields": "<generator object Serializer._readable_fields at 0x743d260d2740>",
+                    "field": "DateField(required=False)",
+                    "attribute": "datetime.datetime(2025, 6, 27, 10, 24, 45, 435527, tzinfo=datetime.timezone.utc)",
+                    "check_for_none": "datetime.datetime(2025, 6, 27, 10, 24, 45, 435527, tzinfo=datetime.timezone.utc)"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/rest_framework/fields.py",
+                "lineno": 1272,
+                "name": "to_representation",
+                "locals": {
+                    "self": "DateField(required=False)",
+                    "value": "datetime.datetime(2025, 6, 27, 10, 24, 45, 435527, tzinfo=datetime.timezone.utc)",
+                    "output_format": "'iso-8601'"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 10:31:23 AM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "module 'django.utils.timezone' has no attribute 'UTC'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 190,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7f2e02f45eb0>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}, {'id': 25165828, 'firstUsed': '12:45:45 PM', 'lastUsed': '12:45:50 PM', 'name': 'Code', 'title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'session': [{'duration': 1, 'startTime': '12:45:45 PM', 'endTime': '12:45:46 PM'}, {'duration': 3, 'startTime': '12:45:47 PM', 'endTime': '12:45:50 PM'}], 'totalUsage': 5, 'isActive': False}, {'id': 71303169, 'firstUsed': '12:45:46 PM', 'lastUsed': '12:45:47 PM', 'name': 'Mysql-workbench-bin', 'title': 'MySQL Workbench', 'session': [{'duration': 1, 'startTime': '12:45:46 PM', 'endTime': '12:45:47 PM'}], 'totalUsage': 1, 'isActive': False}, {'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}], 'idleStates': [{'duration': 3, 'startTime': '12:45:44 PM', 'endTime': '12:45:47 PM'}]}",
+                    "activity_logs": "[]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}",
+                    "e": "AttributeError(\"module 'django.utils.timezone' has no attribute 'UTC'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 114,
+                "name": "extract_data",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7f2e02f45eb0>",
+                    "data": "{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}",
+                    "data_dict": "{'start_timestamp': '12:45:44 PM', 'end_timestamp': '12:45:52 PM', 'duration': 31, 'is_active': True, 'window_title': 'HRMWARE', 'app': 'hrmware_v2', 'productivity_status': 'neutral'}"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 91,
+                "name": "add_now_date_to_time",
+                "locals": {
+                    "time": "'12:45:44 PM'",
+                    "format": "'%H:%M:%S %p'",
+                    "time_object": "datetime.time(12, 45, 44)"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 10:31:33 AM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "module 'django.utils.timezone' has no attribute 'utc'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 190,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7e0e23534da0>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}, {'id': 25165828, 'firstUsed': '12:45:45 PM', 'lastUsed': '12:45:50 PM', 'name': 'Code', 'title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'session': [{'duration': 1, 'startTime': '12:45:45 PM', 'endTime': '12:45:46 PM'}, {'duration': 3, 'startTime': '12:45:47 PM', 'endTime': '12:45:50 PM'}], 'totalUsage': 5, 'isActive': False}, {'id': 71303169, 'firstUsed': '12:45:46 PM', 'lastUsed': '12:45:47 PM', 'name': 'Mysql-workbench-bin', 'title': 'MySQL Workbench', 'session': [{'duration': 1, 'startTime': '12:45:46 PM', 'endTime': '12:45:47 PM'}], 'totalUsage': 1, 'isActive': False}, {'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}], 'idleStates': [{'duration': 3, 'startTime': '12:45:44 PM', 'endTime': '12:45:47 PM'}]}",
+                    "activity_logs": "[]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}",
+                    "e": "AttributeError(\"module 'django.utils.timezone' has no attribute 'utc'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 114,
+                "name": "extract_data",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7e0e23534da0>",
+                    "data": "{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}",
+                    "data_dict": "{'start_timestamp': '12:45:44 PM', 'end_timestamp': '12:45:52 PM', 'duration': 31, 'is_active': True, 'window_title': 'HRMWARE', 'app': 'hrmware_v2', 'productivity_status': 'neutral'}"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 91,
+                "name": "add_now_date_to_time",
+                "locals": {
+                    "time": "'12:45:44 PM'",
+                    "format": "'%H:%M:%S %p'",
+                    "time_object": "datetime.time(12, 45, 44)"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 12:09:51 PM
+[
+    {
+        "exc_type": "IndexError",
+        "exc_value": "list index out of range",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 276,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerTimeBarView object at 0x7a1260a3d790>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/time-bar?user=32ba42628aa0e8&date=2025-06-27'>",
+                    "serializer": "GetTimeSegmentsSerializer(data=<QueryDict: {'user': ['32ba42628aa0e8'], 'date': ['2025-06-27']}>):\n    date = DateField()\n    user = CharField()",
+                    "data": "{'date': datetime.date(2025, 6, 27), 'user': <Users: test@example.com>}",
+                    "date": "datetime.date(2025, 6, 27)",
+                    "user": "<Users: test@example.com>",
+                    "time_segments": "<QuerySet []>",
+                    "start_time": "None",
+                    "end_time": "None",
+                    "productivity_status": "None",
+                    "time_bar_data": "[]",
+                    "pdb": "<module 'pdb' from '/usr/lib/python3.12/pdb.py'>",
+                    "orphan_time_bar_data": "{'start_time': None, 'end_time': None, 'productivity_status': None}",
+                    "e": "IndexError('list index out of range')",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 12:53:00 PM
+[
+    {
+        "exc_type": "BdbQuit",
+        "exc_value": "",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 201,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7f26506462d0>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}, {'id': 25165828, 'firstUsed': '12:45:45 PM', 'lastUsed': '12:45:50 PM', 'name': 'Code', 'title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'session': [{'duration': 1, 'startTime': '12:45:45 PM', 'endTime': '12:45:46 PM'}, {'duration': 3, 'startTime': '12:45:47 PM', 'endTime': '12:45:50 PM'}], 'totalUsage': 5, 'isActive': False}, {'id': 71303169, 'firstUsed': '12:45:46 PM', 'lastUsed': '12:45:47 PM', 'name': 'Mysql-workbench-bin', 'title': 'MySQL Workbench', 'session': [{'duration': 1, 'startTime': '12:45:46 PM', 'endTime': '12:45:47 PM'}], 'totalUsage': 1, 'isActive': False}, {'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}], 'idleStates': [{'duration': 3, 'startTime': '12:45:44 PM', 'endTime': '12:45:47 PM'}]}",
+                    "activity_logs": "[{'id': 11, 'log_id': '5267bc89-598b-40d7-9586-fdfbb9d275f2', 'window_title': 'HRMWARE', 'start_timestamp': '2025-06-27T12:45:44Z', 'end_timestamp': '2025-06-27T12:45:52Z', 'duration': 31, 'is_active': True, 'productivity_status': 'neutral', 'app': 1, 'category': 1, 'user': 1}, {'id': 12, 'log_id': 'a0960c51-a133-4bf4-a28e-f6f7145b5b8c', 'window_title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'start_timestamp': '2025-06-27T12:45:45Z', 'end_timestamp': '2025-06-27T12:45:50Z', 'duration': 5, 'is_active': False, 'productivity_status': 'neutral', 'app': 4, 'category': 1, 'user': 1}, {'id': 13, 'log_id': '6c677462-9835-4bdd-a717-73c153154afa', 'window_title': 'MySQL Workbench', 'start_timestamp': '2025-06-27T12:45:46Z', 'end_timestamp': '2025-06-27T12:45:47Z', 'duration': 1, 'is_active': False, 'productivity_status': 'neutral', 'app': 5, 'category': 1, 'user': 1}, {'id': 14, 'log_id': 'b5fc7949-19b0-4133-82be-f0a2c20f0faa', 'window_title': 'Guides: Authentication | Next.js - Google Chrome', 'start_timestamp': '2025-06-27T12:45:50Z', 'end_timestamp': '2025-06-27T12:45:52Z', 'duration': 2, 'is_active': False, 'productivity_status': 'neutral', 'app': 2, 'category': 1, 'user': 1}]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}",
+                    "extracted_data": "{'start_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 50), 'end_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 52), 'duration': 2, 'is_active': False, 'window_title': 'Guides: Authentication | Next.js - Google Chrome', 'app': <TrackerApps: TrackerApps object (2)>, 'productivity_status': 'neutral', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "tracker_app": "<TrackerApps: TrackerApps object (2)>",
+                    "activity_log": "<ActivityLogs: ActivityLogs object (14)>",
+                    "e": "BdbQuit()",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 146,
+                "name": "create_time_segments",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7f26506462d0>",
+                    "main_data": "{'allWindows': [{'id': 48234500, 'firstUsed': '12:45:44 PM', 'lastUsed': '12:45:52 PM', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 1, 'startTime': '12:45:44 PM', 'endTime': '12:45:45 PM'}, {'duration': 9, 'startTime': '12:45:52 PM', 'endTime': ''}], 'totalUsage': 31, 'isActive': True}, {'id': 25165828, 'firstUsed': '12:45:45 PM', 'lastUsed': '12:45:50 PM', 'name': 'Code', 'title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'session': [{'duration': 1, 'startTime': '12:45:45 PM', 'endTime': '12:45:46 PM'}, {'duration': 3, 'startTime': '12:45:47 PM', 'endTime': '12:45:50 PM'}], 'totalUsage': 5, 'isActive': False}, {'id': 71303169, 'firstUsed': '12:45:46 PM', 'lastUsed': '12:45:47 PM', 'name': 'Mysql-workbench-bin', 'title': 'MySQL Workbench', 'session': [{'duration': 1, 'startTime': '12:45:46 PM', 'endTime': '12:45:47 PM'}], 'totalUsage': 1, 'isActive': False}, {'id': 58720260, 'firstUsed': '12:45:50 PM', 'lastUsed': '12:45:52 PM', 'name': 'Google-chrome', 'title': 'Guides: Authentication | Next.js - Google Chrome', 'session': [{'duration': 2, 'startTime': '12:45:50 PM', 'endTime': '12:45:52 PM'}], 'totalUsage': 2, 'isActive': False}], 'idleStates': [{'duration': 3, 'startTime': '12:45:44 PM', 'endTime': '12:45:47 PM'}]}",
+                    "user": "<Users: test@example.com>",
+                    "all_windows": "[{'start_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 44), 'end_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 52), 'duration': 31, 'is_active': True, 'window_title': 'HRMWARE', 'app': 'hrmware_v2', 'productivity_status': 'neutral'}, {'start_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 45), 'end_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 50), 'duration': 5, 'is_active': False, 'window_title': 'Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code', 'app': 'code', 'productivity_status': 'neutral'}, {'start_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 46), 'end_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 47), 'duration': 1, 'is_active': False, 'window_title': 'MySQL Workbench', 'app': 'mysql-workbench-bin', 'productivity_status': 'neutral'}, {'start_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 50), 'end_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 52), 'duration': 2, 'is_active': False, 'window_title': 'Guides: Authentication | Next.js - Google Chrome', 'app': 'google-chrome', 'productivity_status': 'neutral'}]",
+                    "idle_states": "[{'duration': 3, 'startTime': '12:45:44 PM', 'endTime': '12:45:47 PM'}]",
+                    "pdb": "<module 'pdb' from '/usr/lib/python3.12/pdb.py'>",
+                    "time_segments": "[]",
+                    "data": "{'start_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 44), 'end_timestamp': datetime.datetime(2025, 6, 27, 12, 45, 52), 'duration': 31, 'is_active': True, 'window_title': 'HRMWARE', 'app': 'hrmware_v2', 'productivity_status': 'neutral'}",
+                    "app_category": "<TrackerAppCategories: TrackerAppCategories object (1)>"
+                }
+            },
+            {
+                "filename": "/usr/lib/python3.12/bdb.py",
+                "lineno": 90,
+                "name": "trace_dispatch",
+                "locals": {
+                    "self": "<pdb.Pdb object at 0x7f2650645f40>",
+                    "frame": "<frame at 0x7f265077dcc0, file '/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py', line 146, code create_time_segments>",
+                    "event": "'line'",
+                    "arg": "None"
+                }
+            },
+            {
+                "filename": "/usr/lib/python3.12/bdb.py",
+                "lineno": 115,
+                "name": "dispatch_line",
+                "locals": {
+                    "self": "<pdb.Pdb object at 0x7f2650645f40>",
+                    "frame": "<frame at 0x7f265077dcc0, file '/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py', line 146, code create_time_segments>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 13:04:46 PM
+[
+    {
+        "exc_type": "ValidationError",
+        "exc_value": "[ErrorDetail(string='Invalid input.', code='invalid')]",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 171,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7cd5127d20f0>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "e": "ValidationError()",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 73,
+                "name": "get_main_data",
+                "locals": {
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "serializer": "ActivityLogsDataSerializer(data={'allWindows': [{'firstUsed': '6:34:22 PM', 'id': 56623108, 'lastUsed': '', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 24, 'startTime': '6:34:22 PM', 'endTime': ''}], 'totalUsage': 300, 'isActive': True}], 'idleStates': [{'startTime': '6:34:38 PM', 'endTime': '6:34:46 PM', 'duration': 11}]}):\n    allWindows = ActivityLogsDataItemsSerializer(many=True):\n        id = IntegerField()\n        firstUsed = CharField()\n        lastUsed = CharField()\n        name = CharField()\n        title = CharField()\n        session = ActivityLogsDataIdleStatesSerializer(many=True):\n            duration = IntegerField()\n            startTime = CharField()\n            endTime = CharField(allow_blank=True)\n        totalUsage = IntegerField()\n        isActive = BooleanField()\n    idleStates = ActivityLogsDataIdleStatesSerializer(many=True):\n        duration = IntegerField()\n        startTime = CharField()\n        endTime = CharField(allow_blank=True)"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 14:02:29 PM
+[
+    {
+        "exc_type": "ValueError",
+        "exc_value": "time data '' does not match format '%I:%M:%S %p'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 181,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x705cccb91070>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 56623108, 'firstUsed': '7:32:05 PM', 'lastUsed': '', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 24, 'startTime': '7:32:05 PM', 'endTime': ''}], 'totalUsage': 279, 'isActive': True}], 'idleStates': [{'duration': 14, 'startTime': '7:32:17 PM', 'endTime': '7:32:28 PM'}]}",
+                    "status": "True",
+                    "activity_logs": "[]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 56623108, 'firstUsed': '7:32:05 PM', 'lastUsed': '', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 24, 'startTime': '7:32:05 PM', 'endTime': ''}], 'totalUsage': 279, 'isActive': True}",
+                    "e": "ValueError(\"time data '' does not match format '%I:%M:%S %p'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 104,
+                "name": "extract_data",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x705cccb91070>",
+                    "data": "{'id': 56623108, 'firstUsed': '7:32:05 PM', 'lastUsed': '', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 24, 'startTime': '7:32:05 PM', 'endTime': ''}], 'totalUsage': 279, 'isActive': True}",
+                    "data_dict": "{'start_timestamp': datetime.datetime(2025, 6, 27, 19, 32, 5), 'end_timestamp': '', 'duration': 279, 'is_active': True, 'window_title': 'HRMWARE', 'app': 'hrmware_v2', 'productivity_status': 'neutral'}"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 79,
+                "name": "add_now_date_to_time",
+                "locals": {
+                    "time": "''",
+                    "format": "'%I:%M:%S %p'"
+                }
+            },
+            {
+                "filename": "/usr/lib/python3.12/_strptime.py",
+                "lineno": 554,
+                "name": "_strptime_datetime",
+                "locals": {
+                    "cls": "<class 'datetime.datetime'>",
+                    "data_string": "''",
+                    "format": "'%I:%M:%S %p'"
+                }
+            },
+            {
+                "filename": "/usr/lib/python3.12/_strptime.py",
+                "lineno": 333,
+                "name": "_strptime",
+                "locals": {
+                    "data_string": "''",
+                    "format": "'%I:%M:%S %p'",
+                    "index": "1",
+                    "arg": "'%I:%M:%S %p'",
+                    "locale_time": "<_strptime.LocaleTime object at 0x705cccb57ad0>",
+                    "format_regex": "re.compile('(?P<I>1[0-2]|0[1-9]|[1-9]):(?P<M>[0-5]\\\\d|\\\\d):(?P<S>6[0-1]|[0-5]\\\\d|\\\\d)\\\\s+(?P<p>am|pm)', re.IGNORECASE)",
+                    "found": "None"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-06-27 14:03:44 PM
+[
+    {
+        "exc_type": "ValueError",
+        "exc_value": "time data '' does not match format '%I:%M:%S %p'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 181,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x705cccb93410>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 56623108, 'firstUsed': '7:33:20 PM', 'lastUsed': '', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 23, 'startTime': '7:33:20 PM', 'endTime': ''}], 'totalUsage': 261, 'isActive': True}], 'idleStates': [{'duration': 5, 'startTime': '7:33:33 PM', 'endTime': '7:33:35 PM'}, {'duration': 9, 'startTime': '7:33:39 PM', 'endTime': '7:33:44 PM'}]}",
+                    "status": "True",
+                    "activity_logs": "[]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 56623108, 'firstUsed': '7:33:20 PM', 'lastUsed': '', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 23, 'startTime': '7:33:20 PM', 'endTime': ''}], 'totalUsage': 261, 'isActive': True}",
+                    "e": "ValueError(\"time data '' does not match format '%I:%M:%S %p'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 104,
+                "name": "extract_data",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x705cccb93410>",
+                    "data": "{'id': 56623108, 'firstUsed': '7:33:20 PM', 'lastUsed': '', 'name': 'hrmware_v2', 'title': 'HRMWARE', 'session': [{'duration': 23, 'startTime': '7:33:20 PM', 'endTime': ''}], 'totalUsage': 261, 'isActive': True}",
+                    "data_dict": "{'start_timestamp': datetime.datetime(2025, 6, 27, 19, 33, 20), 'end_timestamp': '', 'duration': 261, 'is_active': True, 'window_title': 'HRMWARE', 'app': 'hrmware_v2', 'productivity_status': 'neutral'}"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 79,
+                "name": "add_now_date_to_time",
+                "locals": {
+                    "time": "''",
+                    "format": "'%I:%M:%S %p'"
+                }
+            },
+            {
+                "filename": "/usr/lib/python3.12/_strptime.py",
+                "lineno": 554,
+                "name": "_strptime_datetime",
+                "locals": {
+                    "cls": "<class 'datetime.datetime'>",
+                    "data_string": "''",
+                    "format": "'%I:%M:%S %p'"
+                }
+            },
+            {
+                "filename": "/usr/lib/python3.12/_strptime.py",
+                "lineno": 333,
+                "name": "_strptime",
+                "locals": {
+                    "data_string": "''",
+                    "format": "'%I:%M:%S %p'",
+                    "index": "1",
+                    "arg": "'%I:%M:%S %p'",
+                    "locale_time": "<_strptime.LocaleTime object at 0x705cccb57ad0>",
+                    "format_regex": "re.compile('(?P<I>1[0-2]|0[1-9]|[1-9]):(?P<M>[0-5]\\\\d|\\\\d):(?P<S>6[0-1]|[0-5]\\\\d|\\\\d)\\\\s+(?P<p>am|pm)', re.IGNORECASE)",
+                    "found": "None"
+                }
+            }
+        ]
+    }
+]
+

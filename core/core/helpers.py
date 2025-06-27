@@ -1,6 +1,7 @@
 """Common Helper Functions"""
 
 import sys
+from time import perf_counter
 
 from django.conf import settings
 import structlog
@@ -57,3 +58,12 @@ def get_traceback(show_locals=True) -> list[dict[str]]:
     ]
 
     return stack_dicts
+
+
+def uniqid():
+    """Generates Unique ID based on Laravel's method
+    
+    Reference: https://www.reddit.com/r/learnprogramming/comments/gamhq/generating_a_short_unique_id_in_python_similar_to/?rdt=57135
+    """
+
+    return hex(int(perf_counter()*(10**12)))[2:]

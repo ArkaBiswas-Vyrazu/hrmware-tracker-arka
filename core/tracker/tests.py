@@ -1,14 +1,15 @@
 import json
 
-from django.test import TestCase, Client
+from django.test import TestCase
 from django.urls import reverse_lazy
+from rest_framework.test import APIClient
 
 from .models import ActivityLogs, TrackerApps, TrackerAppCategories
 
 
 class TestActivityLogCreate(TestCase):
     def test_create_activity_log(self):
-        c = Client()
+        c = APIClient()
 
         url = reverse_lazy("tracker-api-view")
         data = {
@@ -87,11 +88,18 @@ class TestActivityLogCreate(TestCase):
                     "totalUsage": 2,
                     "isActive": False
                 }
+            ],
+            "idleStates": [
+                {
+                    "startTime":"12:45:44 PM",
+                    "endTime": "12:45:47 PM",
+                    "duration": 3
+                }
             ]
         }
 
-        response = c.post(url, data=data)
-        self.assertEqual(response.status_code, 200, msg=json.dumps(response.json(), indent=4))
+        response = c.post(url, data, format="json")
+        self.assertEqual(response.status_code, 200, msg=json.dumps(response.content, indent=4))
 
         self.assertEqual(ActivityLogs.objects.count(), len(data["allWindows"]))
         self.assertGreater(TrackerAppCategories.objects.count(), 0)

@@ -1,6 +1,7 @@
 from uuid import uuid4
 import unicodedata
 from collections.abc import Iterable
+from datetime import timedelta, datetime
 
 from django.db import models
 from django.db import models
@@ -20,6 +21,7 @@ from django.contrib.auth.hashers import (
     make_password,
     check_password
 )
+from django.utils import timezone
 
 
 class ActivityLogs(models.Model):
@@ -61,10 +63,14 @@ class Screenshots(models.Model):
 class TimeSegments(models.Model):
     id = models.BigAutoField(primary_key=True)
     uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
-    date = models.DateField()
-    start_time = models.TimeField()
-    end_time = models.TimeField()
-    duration = models.IntegerField()
+    date = models.DateField(default=timezone.now)
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+
+    # Here, duration does not mean end_time - start_time
+    # It is the duration measured from start_time to the time the
+    # currently tracked activity ends
+    duration = models.IntegerField(db_comment="Measured in seconds")
 
     SEGMENT_TYPE_CHOICES = {
         "productive": "productive",
@@ -74,11 +80,21 @@ class TimeSegments(models.Model):
         "idle": "idle",
     }
 
-    segment_type = models.CharField(max_length=255, choices=SEGMENT_TYPE_CHOICES)
+    segment_type = models.CharField(max_length=255, choices=SEGMENT_TYPE_CHOICES, default="neutral")
+    user = models.ForeignKey("Users", models.CASCADE)
 
     class Meta:
         managed = True
         db_table = 'time_segments'
+
+    def get_actual_idle_time(self) -> datetime | None:
+        if self.segment_type == "idle":
+            return (
+                timedelta(seconds=self.duration)
+                + datetime.combine(self.date, self.start_time)
+            )
+
+        return None
 
 
 class TrackerAppCategories(models.Model):
@@ -100,17 +116,6 @@ class TrackerAppCategories(models.Model):
     class Meta:
         managed = True
         db_table = 'tracker_app_categories'
-
-
-# class TrackerAppCategoriesMapping(models.Model):
-#     id = models.BigAutoField(primary_key=True)
-#     app = models.ForeignKey('TrackerApps', models.CASCADE)
-#     category = models.ForeignKey(TrackerAppCategories, models.CASCADE)
-
-#     class Meta:
-#         managed = True
-#         db_table = 'tracker_app_categories_mapping'
-#         unique_together = (('app', 'category'),)
 
 
 class TrackerApps(models.Model):
