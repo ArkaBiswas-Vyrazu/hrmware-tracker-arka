@@ -1,12 +1,12 @@
 """HRMWARE Tracker API Definitions
 
-Last Revision Date: June 25 2025 22:39 PM
+Last Revision Date: June 30 2025 14:48 PM
 """
 
-from typing import Any
+from typing import Any, TypedDict, Optional
 import warnings
 import json
-from datetime import datetime, timezone as std_timezone
+from datetime import datetime, timedelta, timezone as std_timezone
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -16,7 +16,6 @@ from django.utils import timezone
 from rest_framework.views import APIView
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework.serializers import ValidationError
 
 from core.helpers import get_traceback, uniqid
 from .models import (
@@ -72,7 +71,6 @@ class TrackerAPIView(APIView):
             return serializer.errors, False
         data = serializer.validated_data
         return data, True
-
 
     @staticmethod
     def add_now_date_to_time(time: str, format="%I:%M:%S %p") -> datetime:
@@ -171,6 +169,12 @@ class TrackerAPIView(APIView):
             if status is False:
                 return Response(status=400, data=main_data.errors)
 
+            file_name = "hrmware-tracker-sample-response.json"
+            with open(file_name, "a") as file:
+                file.write("\n")
+                file.write(json.dumps(main_data, indent=4))
+                file.write("\n")
+
             activity_logs = []
             request_user = request.user
             if isinstance(request_user, AnonymousUser) and settings.DEBUG is True:
@@ -220,6 +224,16 @@ class TrackerAPIView(APIView):
 
 
 class TrackerTimeBarView(APIView):
+    def check_overlap(self,
+                      first_interval: tuple[datetime, datetime],
+                      second_interval: tuple[datetime, datetime]) -> bool:
+        """Reference: https://www.youtube.com/watch?v=daLeQLFtLLI"""
+
+        max_start_time = max(first_interval[0].timestamp(), second_interval[0].timestamp())
+        min_end_time = min(first_interval[1].timestamp(), second_interval[1].timestamp())
+    
+        return max_start_time <= min_end_time
+
     def get(self, request: Request):
         """Main API to receive time bar data"""
 
@@ -227,11 +241,13 @@ class TrackerTimeBarView(APIView):
             serializer = GetTimeSegmentsSerializer(data=request.query_params)
             if not serializer.is_valid():
                 return Response(status=400, data=serializer.errors)
-            
+
             data = serializer.validated_data
-            
+
             date: datetime.date = data.get("date")
             user = data.get("user")
+            time_start: Optional[datetime.time] = data.get("time_start")
+            time_end: Optional[datetime.time] = data.get("time_end")
 
             time_segments = (
                 TimeSegments.objects
@@ -242,40 +258,87 @@ class TrackerTimeBarView(APIView):
                 .order_by("start_time")
             )
 
-            start_time = end_time = None
-            productivity_status = None
-            time_bar_data = []
+            class TimeBarDataItem(TypedDict):
+                """Type Definition for Time Bar Data Items"""
+
+                start_time: datetime
+                end_time: datetime
+                productivity_status_map: dict[str, int]
+
+            time_bar_data: list[TimeBarDataItem] = []
 
             for time_segment in time_segments:
-                if (productivity_status is None):
-                    start_time = timezone.localtime(time_segment.start_time)
-                    productivity_status = time_segment.segment_type
+                overlapped_insert = False
+                
+                for record in time_bar_data:
+                    overlap = self.check_overlap(
+                        first_interval=(record["start_time"], record["end_time"]),
+                        second_interval=(time_segment.start_time, time_segment.end_time)
+                    )
+                    if overlap is True:
+                        record["start_time"] = min(record["start_time"], time_segment.start_time)
+                        record["end_time"] = max(record["end_time"], time_segment.end_time)
+                        if time_segment.segment_type in record["productivity_status_map"]:
+                            record["productivity_status_map"][time_segment.segment_type] += 1
+                        else:
+                            record["productivity_status_map"][time_segment.segment_type] = 1
+                        overlapped_insert = True
+                        break
+                
+                if overlapped_insert is True:
                     continue
 
-                if (productivity_status == time_segment.segment_type):
-                    continue
-
-                end_time = timezone.localtime(time_segment.end_time)
-
-                collected_time_segment_data = {
-                    "start_time": start_time.strftime("%I:%M:%S %p"),
-                    "end_time": end_time.strftime("%I:%M:%S %p"),
-                    "productivity_status": productivity_status
+                time_bar_data_record: TimeBarDataItem = {
+                    "start_time": time_segment.start_time,
+                    "end_time": time_segment.end_time,
+                    "productivity_status_map": {
+                        time_segment.segment_type: 1
+                    },
                 }
-                time_bar_data.append(collected_time_segment_data)
+                time_bar_data.append(time_bar_data_record)
 
-                start_time = timezone.localtime(time_segment.end_time)
-                productivity_status = time_segment.segment_type
+            time_bar_data_response: list[TimeBarDataItem] = []
+            for time_bar_record in time_bar_data:
+                # Reference: https://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary
+                time_bar_data_response_segment = {
+                    "start_time": time_bar_record["start_time"].strftime("%I:%M:%S %p"),
+                    "end_time": time_bar_record["end_time"].strftime("%I:%M:%S %p"),
+                    "productivity_status": max(time_bar_record["productivity_status_map"], key=time_bar_record["productivity_status_map"].get)
+                }
 
-            orphan_time_bar_data = {
-                "start_time": start_time.strftime("%I:%M:%S %p"),
-                "end_time": time_segment.end_time.strftime("%I:%M:%S %p"),
-                "productivity_status": productivity_status
-            }
-            if len(time_bar_data) > 0 and time_bar_data[-1] != orphan_time_bar_data:
-                time_bar_data.append(orphan_time_bar_data)
+                time_bar_data_response.append(time_bar_data_response_segment)
 
-            return Response(status=200, data={"time_bar_data": time_bar_data})
+            # Adding Away time data
+            # Here, it is defined as any time that was not found in record
+            if time_start is not None and time_end is not None:
+                final_time_bar_response = []
+                for index, time_bar_record in enumerate(time_bar_data_response):
+                    if index == 0:
+                        start_timestamp = datetime.strptime(time_start, "%H:%M:%S")
+                        end_timestamp = datetime.strptime(time_bar_record["start_time"], "%I:%M:%S %p")
+
+                    elif index == len(time_bar_data_response) - 1:
+                        start_timestamp = datetime.strptime(time_bar_record["end_time"], "%I:%M:%S %p")
+                        end_timestamp = datetime.strptime(time_end, "%H:%M:%S")
+
+                    else:
+                        start_timestamp = datetime.strptime(time_bar_data_record["end_time"], "%I:%M:%S %p")
+                        end_timestamp = datetime.strptime(time_bar_data_response[index+1]["start_time"], "%I:%M:%S %p")
+
+                    if start_timestamp < end_timestamp and end_timestamp - start_timestamp != timedelta(seconds=settings.TIME_GAP_LIMIT):
+                        time_segment = {
+                            "start_time": start_timestamp.strftime("%I:%M:%S %p"),
+                            "end_time": end_timestamp.strftime("%I:%M:%S %p"),
+                            "productivity_status": "away"
+                        }
+                        final_time_bar_response.append(time_segment)
+                    
+                    final_time_bar_response.append(time_bar_record)
+
+                final_time_bar_response.sort(key=lambda x: x.get("start_time"))
+                time_bar_data_response = final_time_bar_response
+
+            return Response(status=200, data={"time_bar_data": time_bar_data_response})
 
         except Exception as e:
             print(json.dumps(get_traceback(), indent=4))
@@ -285,4 +348,20 @@ class TrackerTimeBarView(APIView):
                 file.write(json.dumps(get_traceback(), indent=4))
                 file.write("\n\n")
 
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerProductivityStatusView(APIView):
+    def get(self, request: Request):
+        try:
+            pass
+
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p" + "\n"))
+                file.write(json.dumps(get_traceback(), indent=4))
+                file.write("\n\n")
+            
             return Response(status=500, data=get_traceback())

@@ -152,4 +152,7 @@ TRACEBACK_LOCALS_MAX_LENGTH=None
 ENABLE_TRACEBACK=True
 PRINT_TRACEBACK_INFO_TO_CONSOLE=False
 
+# Time Bar Gap Between each time segment limit
+TIME_GAP_LIMIT = 1
+
 AUTH_USER_MODEL = 'tracker.Users'
