@@ -14,6 +14,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.core.exceptions import FieldError
 from django.utils import timezone
+from django.db.models.query import QuerySet
 from rest_framework.views import APIView
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -21,6 +22,7 @@ from drf_spectacular.utils import extend_schema, OpenApiParameter
 from drf_spectacular.types import OpenApiTypes
 
 from core.helpers import get_traceback, uniqid
+from .typing import TimeTracker, TimeBarDataItem
 from .models import (
     ActivityLogs,
     TrackerApps,
@@ -261,6 +263,48 @@ class TrackerTimeBarView(APIView):
             .astimezone(ZoneInfo(to_timezone))
         )
 
+    def fetch_time_bar_considering_overlaps(self, time_segments: QuerySet[TimeSegments]):
+        """Get all time segments as groups with assigned productivity status
+        
+        In this method, productivity status is calculated on majority purpose,
+        and is useful for an abstract view of productivity. This may, however,
+        not be a completely accurate view of the time bar.
+        """
+
+        time_bar_data: list[TimeBarDataItem] = []
+
+        for time_segment in time_segments:
+            overlapped_insert = False
+            
+            for record in time_bar_data:
+                overlap = self.check_overlap(
+                    first_interval=(record["start_time"], record["end_time"]),
+                    second_interval=(time_segment.start_time, time_segment.get_actual_end_time())
+                )
+                if overlap is True:
+                    record["start_time"] = min(record["start_time"], time_segment.start_time)
+                    record["end_time"] = max(record["end_time"], time_segment.get_actual_end_time())
+                    if time_segment.segment_type in record["productivity_status_map"]:
+                        record["productivity_status_map"][time_segment.segment_type] += 1
+                    else:
+                        record["productivity_status_map"][time_segment.segment_type] = 1
+                    overlapped_insert = True
+                    break
+            
+            if overlapped_insert is True:
+                continue
+
+            time_bar_data_record: TimeBarDataItem = {
+                "start_time": time_segment.start_time,
+                "end_time": time_segment.get_actual_end_time(),
+                "productivity_status_map": {
+                    time_segment.segment_type: 1
+                },
+            }
+            time_bar_data.append(time_bar_data_record)
+
+        return time_bar_data
+
     @extend_schema(parameters=[
         OpenApiParameter(
             name="date", location=OpenApiParameter.QUERY,
@@ -302,44 +346,7 @@ class TrackerTimeBarView(APIView):
                 .order_by("start_time")
             )
 
-            class TimeBarDataItem(TypedDict):
-                """Type Definition for Time Bar Data Items"""
-
-                start_time: datetime
-                end_time: datetime
-                productivity_status_map: dict[str, int]
-
-            time_bar_data: list[TimeBarDataItem] = []
-
-            for time_segment in time_segments:
-                overlapped_insert = False
-                
-                for record in time_bar_data:
-                    overlap = self.check_overlap(
-                        first_interval=(record["start_time"], record["end_time"]),
-                        second_interval=(time_segment.start_time, time_segment.get_actual_end_time())
-                    )
-                    if overlap is True:
-                        record["start_time"] = min(record["start_time"], time_segment.start_time)
-                        record["end_time"] = max(record["end_time"], time_segment.get_actual_end_time())
-                        if time_segment.segment_type in record["productivity_status_map"]:
-                            record["productivity_status_map"][time_segment.segment_type] += 1
-                        else:
-                            record["productivity_status_map"][time_segment.segment_type] = 1
-                        overlapped_insert = True
-                        break
-                
-                if overlapped_insert is True:
-                    continue
-
-                time_bar_data_record: TimeBarDataItem = {
-                    "start_time": time_segment.start_time,
-                    "end_time": time_segment.get_actual_end_time(),
-                    "productivity_status_map": {
-                        time_segment.segment_type: 1
-                    },
-                }
-                time_bar_data.append(time_bar_data_record)
+            time_bar_data = self.fetch_time_bar_considering_overlaps(time_segments=time_segments)
 
             time_bar_data_response: list[TimeBarDataItem] = []
             for time_bar_record in time_bar_data:
@@ -503,11 +510,6 @@ class TrackerTimeBarView(APIView):
 
 
 class TrackerProductivityStatusView(APIView):
-    class TimeTracker(TypedDict):
-        productive_time: int
-        non_productive_time: int
-        neutral_time: int
-
     @staticmethod
     def format_time(time_tracker: TimeTracker) -> dict[str, str]:
         formatted_time_tracker = {}
