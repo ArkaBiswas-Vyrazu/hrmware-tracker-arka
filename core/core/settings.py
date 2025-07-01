@@ -31,7 +31,9 @@ SECRET_KEY = 'django-insecure-5b^qgd=sxmk+x2s#e8qsdxub^09kc!trl*t)fc^p@^xx&ew%e^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
+if DEBUG is True:
+    ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    "tracker",
+    'drf_spectacular',
+    'tracker',
 ]
 
 MIDDLEWARE = [
@@ -123,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -156,3 +159,14 @@ PRINT_TRACEBACK_INFO_TO_CONSOLE=False
 TIME_GAP_LIMIT = 1
 
 AUTH_USER_MODEL = 'tracker.Users'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Hrmware Tracker APIS',
+    'DESCRIPTION': 'Apis that were designed for the Hrmware Tracker',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}

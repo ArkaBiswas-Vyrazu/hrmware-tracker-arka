@@ -7,6 +7,7 @@ from typing import Any, TypedDict, Optional
 import warnings
 import json
 from datetime import datetime, timedelta, timezone as std_timezone
+from zoneinfo import ZoneInfo
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -16,6 +17,8 @@ from django.utils import timezone
 from rest_framework.views import APIView
 from rest_framework.request import Request
 from rest_framework.response import Response
+from drf_spectacular.utils import extend_schema, OpenApiParameter
+from drf_spectacular.types import OpenApiTypes
 
 from core.helpers import get_traceback, uniqid
 from .models import (
@@ -235,6 +238,46 @@ class TrackerTimeBarView(APIView):
     
         return max_start_time <= min_end_time
 
+    def convert_timezones(self,
+                        time: str,
+                        format="%H:%M:%S",
+                        year=datetime.now().year,
+                        timezone=settings.TIME_ZONE,
+                        to_timezone="UTC") -> datetime:
+        """Convert time to localtime
+        
+        By default, time is assumed to be settings.TIME_ZONE,
+        format is assumed to be %H:%M:%S by default, and
+        time will be converted to UTC time by default. Also,
+        the current year is assumed by default, as this determines
+        what timezone data to use. Please ensure this is accurately used,
+        and you should refer to the [Official IANA Database](https://www.iana.org/time-zones)
+        for more information.
+        """
+
+        return (
+            datetime.strptime(time, format)
+            .replace(year=year, tzinfo=ZoneInfo(timezone))
+            .astimezone(ZoneInfo(to_timezone))
+        )
+
+    @extend_schema(parameters=[
+        OpenApiParameter(
+            name="date", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.DATE,
+            default=datetime.now().date()),
+        OpenApiParameter(
+            name="user", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.STR),
+        OpenApiParameter(
+            name="time_start", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.TIME,
+            default=timezone.localtime(timezone.now()).time().strftime("%H:%M:%S")),
+        OpenApiParameter(
+            name="time_end", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.TIME,
+            default=timezone.localtime(timezone.now()).time().strftime("%H:%M:%S")),
+    ])
     def get(self, request: Request):
         """Main API to receive time bar data"""
 
@@ -302,8 +345,8 @@ class TrackerTimeBarView(APIView):
             for time_bar_record in time_bar_data:
                 # Reference: https://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary
                 time_bar_data_response_segment = {
-                    "start_time": time_bar_record["start_time"].strftime("%I:%M:%S %p"),
-                    "end_time": time_bar_record["end_time"].strftime("%I:%M:%S %p"),
+                    "start_time": time_bar_record["start_time"].strftime("%H:%M:%S %p"),
+                    "end_time": time_bar_record["end_time"].strftime("%H:%M:%S %p"),
                     "productivity_status": max(time_bar_record["productivity_status_map"], key=time_bar_record["productivity_status_map"].get)
                 }
 
@@ -317,19 +360,33 @@ class TrackerTimeBarView(APIView):
             #     return Response(status=200, data={"time_bar_data": time_bar_data_response})
 
             if time_start is not None and time_end is not None:
+                # IMP NOTE: Following sets time_start and time_end to settings.TIME_ZONE time
+                # If this is not intended please remove or modify this
+
+                time_start = self.convert_timezones(time_start).strftime("%H:%M:%S")
+                time_end = self.convert_timezones(time_end).strftime("%H:%M:%S")
+
                 final_time_bar_response = []
                 for index, time_bar_record in enumerate(time_bar_data_response):
                     if index == 0:
-                        start_timestamp = datetime.strptime(time_start, "%H:%M:%S")
-                        end_timestamp = datetime.strptime(time_bar_record["start_time"], "%I:%M:%S %p")
+                        # start_timestamp = datetime.strptime(time_start, "%H:%M:%S")
+                        # end_timestamp = datetime.strptime(time_bar_record["start_time"], "%H:%M:%S %p").replace(tzinfo=ZoneInfo("UTC"))
+                        start_timestamp = self.convert_timezones(time_start, timezone="UTC", to_timezone="UTC")
+                        end_timestamp = self.convert_timezones(time_bar_record["start_time"], format="%H:%M:%S %p", timezone="UTC", to_timezone="UTC")
 
                     elif index == len(time_bar_data_response) - 1:
-                        start_timestamp = datetime.strptime(time_bar_record["end_time"], "%I:%M:%S %p")
-                        end_timestamp = datetime.strptime(time_end, "%H:%M:%S")
+                        # start_timestamp = datetime.strptime(time_bar_record["end_time"], "%H:%M:%S %p").replace(tzinfo=ZoneInfo("UTC"))
+                        # end_timestamp = datetime.strptime(time_end, "%H:%M:%S").replace(tzinfo=ZoneInfo("UTC"))
+
+                        start_timestamp = self.convert_timezones(time_bar_record["end_time"], format="%H:%M:%S %p", timezone="UTC", to_timezone="UTC")
+                        end_timestamp = self.convert_timezones(time_end, timezone="UTC", to_timezone="UTC")
 
                     else:
-                        start_timestamp = datetime.strptime(time_bar_record["end_time"], "%I:%M:%S %p")
-                        end_timestamp = datetime.strptime(time_bar_data_response[index+1]["start_time"], "%I:%M:%S %p")
+                        # start_timestamp = datetime.strptime(time_bar_record["end_time"], "%H:%M:%S %p").replace(tzinfo=ZoneInfo("UTC"))
+                        # end_timestamp = datetime.strptime(time_bar_data_response[index+1]["start_time"], "%H:%M:%S %p").replace(tzinfo=ZoneInfo("UTC"))
+
+                        start_timestamp = self.convert_timezones(time_bar_record["end_time"], format="%H:%M:%S %p", timezone="UTC", to_timezone="UTC")
+                        end_timestamp = self.convert_timezones(time_bar_data_response[index+1]["start_time"], format="%H:%M:%S %p", timezone="UTC", to_timezone="UTC")
 
                     if (start_timestamp < end_timestamp
                         and not end_timestamp - start_timestamp <= timedelta(seconds=settings.TIME_GAP_LIMIT)):
@@ -343,14 +400,81 @@ class TrackerTimeBarView(APIView):
                         #     user=user,
                         # )
 
+                        # time_segment = {
+                        #     "start_time": start_timestamp.strftime("%H:%M:%S %p"),
+                        #     "end_time": end_timestamp.strftime("%H:%M:%S %p"),
+                        #     "productivity_status": "away"
+                        # }
+
+                        # Creating time_segment and converting it to localtime
                         time_segment = {
-                            "start_time": start_timestamp.strftime("%I:%M:%S %p"),
-                            "end_time": end_timestamp.strftime("%I:%M:%S %p"),
+                            "start_time": start_timestamp.astimezone(ZoneInfo(settings.TIME_ZONE)).strftime("%H:%M:%S"),
+                            "end_time": end_timestamp.astimezone(ZoneInfo(settings.TIME_ZONE)).strftime("%H:%M:%S"),
                             "productivity_status": "away"
                         }
+
                         final_time_bar_response.append(time_segment)
 
-                    final_time_bar_response.append(time_bar_record)
+                    if len(time_bar_data_response) != 1:
+                        # Converting time_bar_record times to localtime
+                        time_bar_record["start_time"] = (
+                            self.convert_timezones(
+                                time_bar_record["start_time"],
+                                format="%H:%M:%S %p",
+                                timezone="UTC",
+                                to_timezone=settings.TIME_ZONE
+                            )
+                            .strftime("%H:%M:%S %p")
+                        )
+                        time_bar_record["end_time"] = (
+                            self.convert_timezones(
+                                time_bar_record["end_time"],
+                                format="%H:%M:%S %p",
+                                timezone="UTC",
+                                to_timezone=settings.TIME_ZONE
+                                )
+                                .strftime("%H:%M:%S %p")
+                            )
+
+                        final_time_bar_response.append(time_bar_record)
+                        continue
+
+                    # In case there is only one time_bar_record
+                    if len(time_bar_data_response) == 1:
+                        start_timestamp = self.convert_timezones(time_bar_record["end_time"], format="%H:%M:%S %p", timezone="UTC", to_timezone="UTC")
+                        end_timestamp = self.convert_timezones(time_end, timezone="UTC", to_timezone="UTC")
+
+                        last_away_time_segment = None
+                        if (start_timestamp < end_timestamp
+                            and not end_timestamp - start_timestamp <= timedelta(seconds=settings.TIME_GAP_LIMIT)):
+                            last_away_time_segment = {
+                                "start_time": start_timestamp.astimezone(ZoneInfo(settings.TIME_ZONE)).strftime("%H:%M:%S"),
+                                "end_time": end_timestamp.astimezone(ZoneInfo(settings.TIME_ZONE)).strftime("%H:%M:%S"),
+                                "productivity_status": "away"
+                            }
+
+                        time_bar_record["start_time"] = (
+                            self.convert_timezones(
+                                time_bar_record["start_time"],
+                                format="%H:%M:%S %p",
+                                timezone="UTC",
+                                to_timezone=settings.TIME_ZONE
+                            )
+                            .strftime("%H:%M:%S %p")
+                        )
+                        time_bar_record["end_time"] = (
+                            self.convert_timezones(
+                                time_bar_record["end_time"],
+                                format="%H:%M:%S %p",
+                                timezone="UTC",
+                                to_timezone=settings.TIME_ZONE
+                                )
+                                .strftime("%H:%M:%S %p")
+                            )
+
+                        final_time_bar_response.append(time_bar_record)
+                        if last_away_time_segment is not None:
+                            final_time_bar_response.append(last_away_time_segment)
 
                 final_time_bar_response.sort(key=lambda x: x.get("start_time"))
                 time_bar_data_response = final_time_bar_response
@@ -410,6 +534,15 @@ class TrackerProductivityStatusView(APIView):
         
         return formatted_time_tracker
 
+    @extend_schema(parameters=[
+        OpenApiParameter(
+            name="date", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.DATE,
+            default=datetime.now().date()),
+        OpenApiParameter(
+            name="user", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.STR),
+    ])
     def get(self, request: Request):
         try:
             serializer = GetTimeSegmentsSerializer(data=request.query_params)
@@ -472,6 +605,23 @@ class TrackerBasicTimeDetailsView(APIView):
         
         return result
 
+    @extend_schema(parameters=[
+        OpenApiParameter(
+            name="date", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.DATE,
+            default=datetime.now().date()),
+        OpenApiParameter(
+            name="user", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.STR),
+        OpenApiParameter(
+            name="time_start", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.TIME,
+            default=timezone.localtime(timezone.now()).time().strftime("%H:%M:%S")),
+        OpenApiParameter(
+            name="time_end", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.TIME,
+            default=timezone.localtime(timezone.now()).time().strftime("%H:%M:%S")),
+    ])
     def get(self, request: Request):
         """API to get Basic Time Details"""
 
@@ -549,20 +699,86 @@ class TrackerBasicTimeDetailsView(APIView):
 
 
 class TrackerWeeklySummary(APIView):
-    def get_closest_start_date(date: datetime, week_start_index: int):
+    @staticmethod
+    def get_closest_start_date(date: datetime, week_start_index: int = 0) -> datetime:
+        """Get the closest starting date. By default, the starting date is considered Monday.
+
+        The week_start_index follows the same indexing that is followed by the [weekday
+        method](https://docs.python.org/3/library/datetime.html#datetime.date.weekday) provided by the datetime module.
+        Reference: https://stackoverflow.com/questions/6558535/find-the-date-for-the-first-monday-after-a-given-date/79092349#79092349
+        """
+
+        if date.weekday() == week_start_index:
+            return date
+
         days_ahead = week_start_index - date.weekday()
         if days_ahead <= 0:
             days_ahead += 7
-        ahead_index = date + timedelta(days=days_ahead)
 
         days_behind = date.weekday() - week_start_index
         if days_behind <= 0:
             days_behind += 7
-        behind_index = date - timedelta(days=days_behind)
 
-        ############NOTE: COMPLETE THIS#################
+        closest_day = (
+            days_ahead if days_ahead < days_behind
+            else - days_behind
+        )
+        return date + timedelta(days=closest_day)
 
+    @staticmethod
+    def format_time(time: float) -> str:
+        time_object = timedelta(seconds=time)
+        mins, seconds = divmod(time, 60)
+        hours, minutes = divmod(mins, 60)
+
+        result = ""
+
+        if time_object.days is not None and time_object.days != 0:
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
+        if hours is not None and hours != 0:
+            result += f"{int(hours)}h "
+        if minutes is not None and minutes != 0:
+            result += f"{int(minutes)}m "
+        if seconds is not None and seconds != 0:
+            result += f"{int(seconds)}s "
+
+        if result == "":
+            result = "0s"
+        
+        return result
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="user", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.STR
+            ),
+            OpenApiParameter(
+                name="date", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.DATE
+            ),
+            OpenApiParameter(
+                name="week_start", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.STR,
+                description=f"Allowed Values: {list(GetWeeklyHoursSerializer().shortcut_names.keys())}",
+            ),
+            OpenApiParameter(
+                name="time_start", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.TIME,
+            ),
+            OpenApiParameter(
+                name="time_end", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.TIME,
+            )
+        ]
+    )
     def get(self, request: Request):
+        """API to fetch Weekly Summary.
+
+        By default, the start date will be the closest monday to the requested date.
+        If no date is requested, today's date is taken by default.
+        """
+
         try:
             serializer = GetWeeklyHoursSerializer(data=request.query_params)
             if not serializer.is_valid():
@@ -571,18 +787,94 @@ class TrackerWeeklySummary(APIView):
             data = serializer.validated_data
             user = data.get("user")
 
-            now = timezone.now()
-            date: Optional[datetime.date] = data.get("date")
-            if date is not None:
-                now = date
+            date = timezone.now()
+            date_: Optional[datetime.date] = data.get("date")
+            if date_ is not None:
+                date = date_
+
+            time_start = data.get("time_start")
+            time_end = data.get("time_end")
 
             # Following list relies on specific index placement
             # so that the datetime.weekday method can work properly
             weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
             week_start_index = weekdays.index(data.get("week_start", "monday"))
+            closest_start_date = self.get_closest_start_date(date, week_start_index)
+            last_date = closest_start_date + timedelta(days=7)
 
+            response = {
+                "working_time": {},
+                "away_time": {}
+            }
+            working_date = closest_start_date
+            while working_date != last_date:
+                working_time = away_time = 0
 
+                # time_start_datetime = datetime.combine(
+                #     date,
+                #     datetime.strptime(time_start, "%H:%M:%S").time(),
+                #     tzinfo=std_timezone.utc
+                # )
+                # if time_start_datetime < start_time:
+                #     away_time += (start_time - time_start_datetime).total_seconds()
 
+                # time_end_datetime = datetime.combine(
+                #     date,
+                #     datetime.strptime(time_end, "%H:%M:%S").time(),
+                #     tzinfo=std_timezone.utc
+                # )
+                # if time_end_datetime > last_seen:
+                #     away_time += (time_end_datetime - last_seen).total_seconds()
+
+                activity_logs = ActivityLogs.objects.filter(
+                    start_timestamp__date=working_date.date(),
+                    user=user,
+                ).order_by("start_timestamp")
+
+                if activity_logs.count() == 0:
+                    response["working_time"][weekdays[working_date.weekday()]] = "0s"
+                    response["away_time"][weekdays[working_date.weekday()]] = "0s"
+                    working_date += timedelta(days=1)
+                    continue
+
+                start_time = activity_logs.first().start_timestamp
+                last_seen = activity_logs.last().end_timestamp
+
+                time_start_datetime = datetime.combine(
+                    date,
+                    datetime.strptime(time_start, "%H:%M:%S").time(),
+                    tzinfo=std_timezone.utc
+                )
+                if time_start_datetime < start_time:
+                    away_time += (start_time - time_start_datetime).total_seconds()
+
+                time_end_datetime = datetime.combine(
+                    date,
+                    datetime.strptime(time_end, "%H:%M:%S").time(),
+                    tzinfo=std_timezone.utc
+                )
+                if time_end_datetime > last_seen:
+                    away_time += (time_end_datetime - last_seen).total_seconds()
+
+                time_segments = TimeSegments.objects.filter(user=user, date=working_date)
+                for index, time_segment in enumerate(time_segments):
+                    if time_segment.segment_type == "productive":
+                        working_time += (time_segment.end_time - time_segment.start_time).total_seconds()
+                
+                    if index == len(time_segments) - 1:
+                        continue
+
+                    if (time_segment.end_time < time_segments[index+1].start_time): 
+                        duration = time_segments[index+1].start_time - time_segment.end_time
+                        if not duration <= timedelta(seconds=settings.TIME_GAP_LIMIT):
+                            away_time += duration.total_seconds()
+
+                response["working_time"][weekdays[working_date.weekday()]] = self.format_time(working_time).strip()
+                response["away_time"][weekdays[working_date.weekday()]] = self.format_time(away_time).strip()
+
+                working_date += timedelta(days=1)
+
+            return Response(status=200, data=response)
         except Exception as e:
             print(json.dumps(get_traceback(), indent=4))
 
