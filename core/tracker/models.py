@@ -87,14 +87,12 @@ class TimeSegments(models.Model):
         managed = True
         db_table = 'time_segments'
 
-    def get_actual_idle_time(self) -> datetime | None:
-        if self.segment_type == "idle":
-            return (
-                timedelta(seconds=self.duration)
-                + datetime.combine(self.date, self.start_time)
-            )
-
-        return None
+    def get_actual_end_time(self) -> datetime:
+        return (
+            timedelta(seconds=self.duration)
+            # + datetime.combine(self.date, self.start_time)
+            + self.start_time
+        )
 
 
 class TrackerAppCategories(models.Model):

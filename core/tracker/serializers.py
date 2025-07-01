@@ -89,3 +89,49 @@ class GetTimeSegmentsSerializer(serializers.Serializer):
 
         attrs["user"] = user
         return attrs
+
+
+class GetWeeklyHoursSerializer(serializers.Serializer):
+    user = serializers.CharField()
+    date = serializers.DateField(required=False)
+    week_start = serializers.CharField(required=False)
+
+    def validate_week_start(self, week_start):
+        week_start = week_start.strip().lower()
+        valid_week_names = (
+            "monday", "tuesday", "wednesday",
+            "thursday", "friday", "saturday",
+            "sunday"
+        )
+        
+        # Reference: https://www.yourdictionary.com/articles/abbreviations-days-months
+        shortcut_names = {
+            "mon": "monday", "m": "monday",
+            "tue": "tuesday", "tues": "tuesday", "tu": "tuesday", "t": "tuesday",
+            "wed": "wednesday", "w": "wednesday",
+            "thu": "thursday", "thur": "thursday", "thurs": "thursday", "th": "thursday",
+            "fri": "friday", "f": "friday",
+            "sat": "saturday", "s": "saturday",
+            "sun": "sunday", "su": "sunday", "u": "sunday"
+        }
+
+        if week_start in shortcut_names:
+            week_start = shortcut_names[week_start]
+            return week_start
+        
+        if week_start not in valid_week_names:
+            msg = "Please provide a valid week name"
+            raise serializers.ValidationError(msg)
+
+        return week_start
+
+    def validate(self, attrs):
+        super().validate(attrs)
+
+        user = Users.objects.filter(employee_id=attrs.get("user")).first()
+        if user is None:
+            msg = "User does not exist"
+            raise serializers.ValidationError(msg)
+
+        attrs["user"] = user
+        return attrs
