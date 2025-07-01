@@ -305,6 +305,76 @@ class TrackerTimeBarView(APIView):
 
         return time_bar_data
 
+    def fetch_time_bar_without_overlaps(self, time_segments: QuerySet[TimeSegments]):
+        """Get all time segments as groups with assigned productivity status
+        
+        In this process, each and every time segment is treated as it's own. This means
+        that any time segment that may be found to overlap will be divided into sub time
+        segments that should accurately depict the time segments.
+
+        This method is to be considered the default way to fetch the time bar as it
+        provides more granularity.
+        """
+
+        time_bar_data = []
+
+        for index, time_segment in enumerate(time_segments):
+            overlapped_insert = False
+            time_segments_to_check = time_segments.exclude(id=getattr(time_segment, "id"))
+
+            for time_segment_record in time_segments_to_check:
+                overlap = self.check_overlap(
+                    first_interval=(time_segment_record.start_time, time_segment_record.get_actual_end_time()),
+                    second_interval=(time_segment.start_time, time_segment.get_actual_end_time()),
+                )
+
+                if overlap is True:
+                    overlapped_insert = True
+                    break
+            
+            if overlapped_insert is not True:
+                time_bar_data_record = {
+                    "start_time": time_segment.start_time,
+                    "end_time": time_segment.get_actual_end_time(),
+                    "productivity_status": time_segment.segment_type,
+                }
+                time_bar_data.append(time_bar_data_record)
+                continue
+
+            change_behind = (index != 0)
+            change_ahead = (index != len(time_segments) - 1)
+
+            # For tracking original values if encountered
+            # behind_time_segment_start_time: Optional[datetime] = None
+            # ahead_time_segment_end_time: Optional[datetime] = None
+
+            if change_behind is True:
+                behind_time_segment = {
+                    "start_time": time_segments[index-1].start_time,
+                    "end_time": abs(time_segment.start_time - time_segments[index-1].get_actual_end_time()),
+                    "productivity_status": time_segments[index-1].segment_type,
+                }
+
+                time_bar_data.append(behind_time_segment)
+            
+            current_time_segment = {
+                "start_time": time_segment.start_time,
+                "end_time": time_segment.get_actual_end_time(),
+                "productivity_status": time_segment.segment_type,
+            }
+            time_bar_data.append(current_time_segment)
+
+            if change_ahead is True:
+                ahead_time_segment = {
+                    "start_time": abs(time_segments[index+1].start_time - time_segment.get_actual_end_time()),
+                    "end_time": time_segments[index+1].get_actual_end_time(),
+                    "productivity_status": time_segments[index+1].segment_type,
+                }
+
+                time_bar_data.append(ahead_time_segment)
+
+        return time_bar_data
+
     @extend_schema(parameters=[
         OpenApiParameter(
             name="date", location=OpenApiParameter.QUERY,
@@ -321,6 +391,10 @@ class TrackerTimeBarView(APIView):
             name="time_end", location=OpenApiParameter.QUERY,
             required=False, type=OpenApiTypes.TIME,
             default=timezone.localtime(timezone.now()).time().strftime("%H:%M:%S")),
+        OpenApiParameter(
+            name="fine_grained", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.BOOL,
+            default=True),
     ])
     def get(self, request: Request):
         """Main API to receive time bar data"""
@@ -346,7 +420,11 @@ class TrackerTimeBarView(APIView):
                 .order_by("start_time")
             )
 
-            time_bar_data = self.fetch_time_bar_considering_overlaps(time_segments=time_segments)
+            fine_grained: bool = data.get("fine_grained", True)
+            if fine_grained is True:
+                time_bar_data = self.fetch_time_bar_without_overlaps(time_segments=time_segments)
+            else:
+                time_bar_data = self.fetch_time_bar_considering_overlaps(time_segments=time_segments)
 
             time_bar_data_response: list[TimeBarDataItem] = []
             for time_bar_record in time_bar_data:

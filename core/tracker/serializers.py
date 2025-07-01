@@ -65,6 +65,7 @@ class GetTimeSegmentsSerializer(serializers.Serializer):
     user = serializers.CharField()
     time_start = serializers.CharField(required=False)
     time_end = serializers.CharField(required=False)
+    fine_grained = serializers.BooleanField(required=False)
 
     def validate(self, attrs):
         super().validate(attrs)
