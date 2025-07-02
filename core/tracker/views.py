@@ -130,7 +130,12 @@ class TrackerAPIView(APIView):
     def create_time_segments(self, main_data: dict, user):
         """Create time segment data for received activity logs"""
 
-        all_windows = [self.extract_data(data) for data in main_data.get("allWindows", [])]
+        all_windows = (
+            [
+                self.extract_data(data) | {"activity_log": data.get("activity_logs", {}).get(data.get("id"))}
+                for data in main_data.get("allWindows", [])
+            ]
+        )
         idle_states = main_data.get("idleStates", [])
 
         time_segments = []
@@ -149,6 +154,7 @@ class TrackerAPIView(APIView):
                 duration=data.get("duration"),
                 segment_type=app_category.productivity_status_type,
                 user=user,
+                activity_log=data.get("activity_log")
             )
 
             time_segments.append(time_segment)
@@ -161,6 +167,7 @@ class TrackerAPIView(APIView):
                 duration=data.get("duration"),
                 segment_type="idle",
                 user=user,
+                activity_log=None
             )
 
             time_segments.append(time_segment)
@@ -198,13 +205,20 @@ class TrackerAPIView(APIView):
                 extracted_data["productivity_status"] = tracker_app.category.productivity_status_type
                 extracted_data["app"] = tracker_app
 
-                activity_log = None
                 activity_log = ActivityLogs.objects.create(
                     **extracted_data,
                     user=request_user,
                 )
 
                 activity_logs.append(activity_log)
+
+                # Tracking created activity log in main data
+                # for creating time segments later
+                if "activity_logs" not in main_data:
+                    main_data["activity_logs"] = {}
+
+                # Assuming each id passed is unique
+                main_data["activity_logs"][data.get("id")] = activity_log
 
             activity_logs = ActivityLogsSerializer(activity_logs, many=True).data
             time_segments = self.create_time_segments(main_data, request_user)
@@ -964,3 +978,8 @@ class TrackerWeeklySummary(APIView):
                 file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
+
+
+class TrackerSetAppCategory(APIView):
+    def post(self, request: Request):
+        """API to set App Category"""

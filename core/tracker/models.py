@@ -83,6 +83,15 @@ class TimeSegments(models.Model):
     segment_type = models.CharField(max_length=255, choices=SEGMENT_TYPE_CHOICES, default="neutral")
     user = models.ForeignKey("Users", models.CASCADE)
 
+    activity_log = models.OneToOneField(
+        "ActivityLogs",
+        models.CASCADE,
+        related_name="time_segment",
+        null=True,
+        blank=False,
+        default=None
+    )
+
     class Meta:
         managed = True
         db_table = 'time_segments'
