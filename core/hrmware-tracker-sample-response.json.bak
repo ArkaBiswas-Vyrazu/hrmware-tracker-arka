@@ -1,0 +1,1412 @@
+
+{
+    "allWindows": [],
+    "idleStates": []
+}
+
+{
+    "allWindows": [
+        {
+            "id": 90177540,
+            "firstUsed": "11:23:47 AM",
+            "lastUsed": "05:54:01 AM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 14,
+                    "startTime": "11:23:47 AM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 105,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 14,
+            "startTime": "11:23:51 AM",
+            "endTime": "11:24:01 AM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 90177540,
+            "firstUsed": "11:25:35 AM",
+            "lastUsed": "11:25:45 AM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:25:35 AM",
+                    "endTime": "11:25:36 AM"
+                },
+                {
+                    "duration": 1,
+                    "startTime": "11:25:38 AM",
+                    "endTime": "11:25:39 AM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "11:25:41 AM",
+                    "endTime": "11:25:44 AM"
+                },
+                {
+                    "duration": 4,
+                    "startTime": "11:25:45 AM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 19,
+            "isActive": true
+        },
+        {
+            "id": 79691780,
+            "firstUsed": "11:25:36 AM",
+            "lastUsed": "11:25:38 AM",
+            "name": "Google-chrome",
+            "title": "(433) Roundcube Webmail :: Fwd: Instaily Placement Details !!! - Google Chrome",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "11:25:36 AM",
+                    "endTime": "11:25:38 AM"
+                }
+            ],
+            "totalUsage": 2,
+            "isActive": false
+        },
+        {
+            "id": 44040196,
+            "firstUsed": "11:25:39 AM",
+            "lastUsed": "11:25:41 AM",
+            "name": "teams-for-linux",
+            "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "11:25:39 AM",
+                    "endTime": "11:25:41 AM"
+                }
+            ],
+            "totalUsage": 2,
+            "isActive": false
+        },
+        {
+            "id": 33554433,
+            "firstUsed": "11:25:44 AM",
+            "lastUsed": "11:25:45 AM",
+            "name": "Hrmware",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:25:44 AM",
+                    "endTime": "11:25:45 AM"
+                }
+            ],
+            "totalUsage": 1,
+            "isActive": false
+        }
+    ],
+    "idleStates": []
+}
+
+{
+    "allWindows": [
+        {
+            "id": 90177540,
+            "firstUsed": "11:33:23 AM",
+            "lastUsed": "11:33:35 AM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 5,
+                    "startTime": "11:33:23 AM",
+                    "endTime": "11:33:28 AM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "11:33:29 AM",
+                    "endTime": "11:33:32 AM"
+                },
+                {
+                    "duration": 2,
+                    "startTime": "11:33:35 AM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 11,
+            "isActive": true
+        },
+        {
+            "id": 62914564,
+            "firstUsed": "11:33:28 AM",
+            "lastUsed": "11:33:29 AM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:33:28 AM",
+                    "endTime": "11:33:29 AM"
+                }
+            ],
+            "totalUsage": 1,
+            "isActive": false
+        },
+        {
+            "id": 44040196,
+            "firstUsed": "11:33:32 AM",
+            "lastUsed": "11:33:35 AM",
+            "name": "teams-for-linux",
+            "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+            "session": [
+                {
+                    "duration": 3,
+                    "startTime": "11:33:32 AM",
+                    "endTime": "11:33:35 AM"
+                }
+            ],
+            "totalUsage": 3,
+            "isActive": false
+        }
+    ],
+    "idleStates": []
+}
+
+{
+    "allWindows": [
+        {
+            "id": 90177540,
+            "firstUsed": "11:38:36 AM",
+            "lastUsed": "11:39:08 AM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:38:36 AM",
+                    "endTime": "11:38:37 AM"
+                },
+                {
+                    "duration": 12,
+                    "startTime": "11:38:56 AM",
+                    "endTime": "11:39:08 AM"
+                }
+            ],
+            "totalUsage": 32,
+            "isActive": false
+        },
+        {
+            "id": 62914564,
+            "firstUsed": "11:38:37 AM",
+            "lastUsed": "11:39:28 AM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 8,
+                    "startTime": "11:38:37 AM",
+                    "endTime": "11:38:45 AM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "11:38:53 AM",
+                    "endTime": "11:38:56 AM"
+                },
+                {
+                    "duration": 20,
+                    "startTime": "11:39:08 AM",
+                    "endTime": "11:39:28 AM"
+                }
+            ],
+            "totalUsage": 51,
+            "isActive": false
+        },
+        {
+            "id": 44040196,
+            "firstUsed": "11:38:45 AM",
+            "lastUsed": "11:39:47 AM",
+            "name": "teams-for-linux",
+            "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+            "session": [
+                {
+                    "duration": 8,
+                    "startTime": "11:38:45 AM",
+                    "endTime": "11:38:53 AM"
+                },
+                {
+                    "duration": 4,
+                    "startTime": "11:39:43 AM",
+                    "endTime": "11:39:47 AM"
+                }
+            ],
+            "totalUsage": 62,
+            "isActive": false
+        },
+        {
+            "id": 100663297,
+            "firstUsed": "11:39:28 AM",
+            "lastUsed": "11:39:47 AM",
+            "name": "Mysql-workbench-bin",
+            "title": "instaily_new.mwb - MySQL Workbench",
+            "session": [
+                {
+                    "duration": 15,
+                    "startTime": "11:39:28 AM",
+                    "endTime": "11:39:43 AM"
+                },
+                {
+                    "duration": 48,
+                    "startTime": "11:39:47 AM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 1191,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 4,
+            "startTime": "11:39:18 AM",
+            "endTime": "11:39:19 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:39:39 AM",
+            "endTime": "11:39:40 AM"
+        },
+        {
+            "duration": 47,
+            "startTime": "11:39:52 AM",
+            "endTime": "11:40:35 AM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 90177540,
+            "firstUsed": "11:38:36 AM",
+            "lastUsed": "11:41:02 AM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:38:36 AM",
+                    "endTime": "11:38:37 AM"
+                },
+                {
+                    "duration": 12,
+                    "startTime": "11:38:56 AM",
+                    "endTime": "11:39:08 AM"
+                },
+                {
+                    "duration": 6,
+                    "startTime": "11:40:56 AM",
+                    "endTime": "11:41:02 AM"
+                }
+            ],
+            "totalUsage": 146,
+            "isActive": false
+        },
+        {
+            "id": 62914564,
+            "firstUsed": "11:38:37 AM",
+            "lastUsed": "11:41:43 AM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 8,
+                    "startTime": "11:38:37 AM",
+                    "endTime": "11:38:45 AM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "11:38:53 AM",
+                    "endTime": "11:38:56 AM"
+                },
+                {
+                    "duration": 20,
+                    "startTime": "11:39:08 AM",
+                    "endTime": "11:39:28 AM"
+                },
+                {
+                    "duration": 5,
+                    "startTime": "11:41:26 AM",
+                    "endTime": "11:41:31 AM"
+                },
+                {
+                    "duration": 8,
+                    "startTime": "11:41:35 AM",
+                    "endTime": "11:41:43 AM"
+                }
+            ],
+            "totalUsage": 186,
+            "isActive": false
+        },
+        {
+            "id": 44040196,
+            "firstUsed": "11:38:45 AM",
+            "lastUsed": "11:39:47 AM",
+            "name": "teams-for-linux",
+            "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+            "session": [
+                {
+                    "duration": 8,
+                    "startTime": "11:38:45 AM",
+                    "endTime": "11:38:53 AM"
+                },
+                {
+                    "duration": 4,
+                    "startTime": "11:39:43 AM",
+                    "endTime": "11:39:47 AM"
+                }
+            ],
+            "totalUsage": 62,
+            "isActive": false
+        },
+        {
+            "id": 100663297,
+            "firstUsed": "11:39:28 AM",
+            "lastUsed": "11:41:32 AM",
+            "name": "Mysql-workbench-bin",
+            "title": "instaily_new.mwb - MySQL Workbench",
+            "session": [
+                {
+                    "duration": 15,
+                    "startTime": "11:39:28 AM",
+                    "endTime": "11:39:43 AM"
+                },
+                {
+                    "duration": 69,
+                    "startTime": "11:39:47 AM",
+                    "endTime": "11:40:56 AM"
+                },
+                {
+                    "duration": 24,
+                    "startTime": "11:41:02 AM",
+                    "endTime": "11:41:26 AM"
+                },
+                {
+                    "duration": 1,
+                    "startTime": "11:41:31 AM",
+                    "endTime": "11:41:32 AM"
+                }
+            ],
+            "totalUsage": 124,
+            "isActive": false
+        },
+        {
+            "id": 79691780,
+            "firstUsed": "11:41:32 AM",
+            "lastUsed": "11:41:33 AM",
+            "name": "Google-chrome",
+            "title": "(433) Roundcube Webmail :: Fwd: Instaily Placement Details !!! - Google Chrome",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:41:32 AM",
+                    "endTime": "11:41:33 AM"
+                }
+            ],
+            "totalUsage": 1,
+            "isActive": false
+        },
+        {
+            "id": 50331649,
+            "firstUsed": "11:41:33 AM",
+            "lastUsed": "11:41:45 AM",
+            "name": "Gjs",
+            "title": "@!0,0;BDHF",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "11:41:33 AM",
+                    "endTime": "11:41:35 AM"
+                },
+                {
+                    "duration": 2,
+                    "startTime": "11:41:43 AM",
+                    "endTime": "11:41:45 AM"
+                }
+            ],
+            "totalUsage": 12,
+            "isActive": false
+        },
+        {
+            "id": 77594626,
+            "firstUsed": "11:41:45 AM",
+            "lastUsed": "11:42:10 AM",
+            "name": "org.gnome.Nautilus",
+            "title": "Home",
+            "session": [
+                {
+                    "duration": 25,
+                    "startTime": "11:41:45 AM",
+                    "endTime": "11:42:10 AM"
+                }
+            ],
+            "totalUsage": 25,
+            "isActive": false
+        },
+        {
+            "id": 102760449,
+            "firstUsed": "11:42:10 AM",
+            "lastUsed": "11:42:14 AM",
+            "name": "Gnome-terminal",
+            "title": "vyrazu-26@vyrazu-26: ~/Project/instaily-internships-frontend",
+            "session": [
+                {
+                    "duration": 4,
+                    "startTime": "11:42:10 AM",
+                    "endTime": "11:42:14 AM"
+                }
+            ],
+            "totalUsage": 4,
+            "isActive": false
+        },
+        {
+            "id": 62914599,
+            "firstUsed": "11:42:14 AM",
+            "lastUsed": "06:12:36 AM",
+            "name": "Code",
+            "title": "Visual Studio Code",
+            "session": [
+                {
+                    "duration": 21,
+                    "startTime": "11:42:14 AM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 231,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 4,
+            "startTime": "11:39:18 AM",
+            "endTime": "11:39:19 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:39:39 AM",
+            "endTime": "11:39:40 AM"
+        },
+        {
+            "duration": 66,
+            "startTime": "11:39:52 AM",
+            "endTime": "11:40:55 AM"
+        },
+        {
+            "duration": 6,
+            "startTime": "11:41:06 AM",
+            "endTime": "11:41:09 AM"
+        },
+        {
+            "duration": 9,
+            "startTime": "11:41:15 AM",
+            "endTime": "11:41:21 AM"
+        },
+        {
+            "duration": 10,
+            "startTime": "11:42:26 AM",
+            "endTime": "11:42:33 AM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 90177540,
+            "firstUsed": "11:38:36 AM",
+            "lastUsed": "11:41:02 AM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:38:36 AM",
+                    "endTime": "11:38:37 AM"
+                },
+                {
+                    "duration": 12,
+                    "startTime": "11:38:56 AM",
+                    "endTime": "11:39:08 AM"
+                },
+                {
+                    "duration": 6,
+                    "startTime": "11:40:56 AM",
+                    "endTime": "11:41:02 AM"
+                }
+            ],
+            "totalUsage": 146,
+            "isActive": false
+        },
+        {
+            "id": 62914564,
+            "firstUsed": "11:38:37 AM",
+            "lastUsed": "11:41:43 AM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 8,
+                    "startTime": "11:38:37 AM",
+                    "endTime": "11:38:45 AM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "11:38:53 AM",
+                    "endTime": "11:38:56 AM"
+                },
+                {
+                    "duration": 20,
+                    "startTime": "11:39:08 AM",
+                    "endTime": "11:39:28 AM"
+                },
+                {
+                    "duration": 5,
+                    "startTime": "11:41:26 AM",
+                    "endTime": "11:41:31 AM"
+                },
+                {
+                    "duration": 8,
+                    "startTime": "11:41:35 AM",
+                    "endTime": "11:41:43 AM"
+                }
+            ],
+            "totalUsage": 186,
+            "isActive": false
+        },
+        {
+            "id": 44040196,
+            "firstUsed": "11:38:45 AM",
+            "lastUsed": "11:44:07 AM",
+            "name": "teams-for-linux",
+            "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+            "session": [
+                {
+                    "duration": 8,
+                    "startTime": "11:38:45 AM",
+                    "endTime": "11:38:53 AM"
+                },
+                {
+                    "duration": 4,
+                    "startTime": "11:39:43 AM",
+                    "endTime": "11:39:47 AM"
+                },
+                {
+                    "duration": 30,
+                    "startTime": "11:44:07 AM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 527,
+            "isActive": true
+        },
+        {
+            "id": 100663297,
+            "firstUsed": "11:39:28 AM",
+            "lastUsed": "11:41:32 AM",
+            "name": "Mysql-workbench-bin",
+            "title": "instaily_new.mwb - MySQL Workbench",
+            "session": [
+                {
+                    "duration": 15,
+                    "startTime": "11:39:28 AM",
+                    "endTime": "11:39:43 AM"
+                },
+                {
+                    "duration": 69,
+                    "startTime": "11:39:47 AM",
+                    "endTime": "11:40:56 AM"
+                },
+                {
+                    "duration": 24,
+                    "startTime": "11:41:02 AM",
+                    "endTime": "11:41:26 AM"
+                },
+                {
+                    "duration": 1,
+                    "startTime": "11:41:31 AM",
+                    "endTime": "11:41:32 AM"
+                }
+            ],
+            "totalUsage": 124,
+            "isActive": false
+        },
+        {
+            "id": 79691780,
+            "firstUsed": "11:41:32 AM",
+            "lastUsed": "11:44:07 AM",
+            "name": "Google-chrome",
+            "title": "(433) Roundcube Webmail :: Fwd: Instaily Placement Details !!! - Google Chrome",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:41:32 AM",
+                    "endTime": "11:41:33 AM"
+                },
+                {
+                    "duration": 67,
+                    "startTime": "11:43:00 AM",
+                    "endTime": "11:44:07 AM"
+                }
+            ],
+            "totalUsage": 155,
+            "isActive": false
+        },
+        {
+            "id": 50331649,
+            "firstUsed": "11:41:33 AM",
+            "lastUsed": "11:41:45 AM",
+            "name": "Gjs",
+            "title": "@!0,0;BDHF",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "11:41:33 AM",
+                    "endTime": "11:41:35 AM"
+                },
+                {
+                    "duration": 2,
+                    "startTime": "11:41:43 AM",
+                    "endTime": "11:41:45 AM"
+                }
+            ],
+            "totalUsage": 12,
+            "isActive": false
+        },
+        {
+            "id": 77594626,
+            "firstUsed": "11:41:45 AM",
+            "lastUsed": "11:42:10 AM",
+            "name": "org.gnome.Nautilus",
+            "title": "Home",
+            "session": [
+                {
+                    "duration": 25,
+                    "startTime": "11:41:45 AM",
+                    "endTime": "11:42:10 AM"
+                }
+            ],
+            "totalUsage": 25,
+            "isActive": false
+        },
+        {
+            "id": 102760449,
+            "firstUsed": "11:42:10 AM",
+            "lastUsed": "11:42:14 AM",
+            "name": "Gnome-terminal",
+            "title": "vyrazu-26@vyrazu-26: ~/Project/instaily-internships-frontend",
+            "session": [
+                {
+                    "duration": 4,
+                    "startTime": "11:42:10 AM",
+                    "endTime": "11:42:14 AM"
+                }
+            ],
+            "totalUsage": 4,
+            "isActive": false
+        },
+        {
+            "id": 62914599,
+            "firstUsed": "11:42:14 AM",
+            "lastUsed": "11:43:00 AM",
+            "name": "Code",
+            "title": "Visual Studio Code",
+            "session": [
+                {
+                    "duration": 46,
+                    "startTime": "11:42:14 AM",
+                    "endTime": "11:43:00 AM"
+                }
+            ],
+            "totalUsage": 46,
+            "isActive": false
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 4,
+            "startTime": "11:39:18 AM",
+            "endTime": "11:39:19 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:39:39 AM",
+            "endTime": "11:39:40 AM"
+        },
+        {
+            "duration": 66,
+            "startTime": "11:39:52 AM",
+            "endTime": "11:40:55 AM"
+        },
+        {
+            "duration": 6,
+            "startTime": "11:41:06 AM",
+            "endTime": "11:41:09 AM"
+        },
+        {
+            "duration": 9,
+            "startTime": "11:41:15 AM",
+            "endTime": "11:41:21 AM"
+        },
+        {
+            "duration": 10,
+            "startTime": "11:42:26 AM",
+            "endTime": "11:42:33 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:42:58 AM",
+            "endTime": "11:42:59 AM"
+        },
+        {
+            "duration": 7,
+            "startTime": "11:43:26 AM",
+            "endTime": "11:43:30 AM"
+        },
+        {
+            "duration": 9,
+            "startTime": "11:43:51 AM",
+            "endTime": "11:43:57 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:44:02 AM",
+            "endTime": "11:44:03 AM"
+        },
+        {
+            "duration": 8,
+            "startTime": "11:44:28 AM",
+            "endTime": "11:44:33 AM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 90177540,
+            "firstUsed": "11:38:36 AM",
+            "lastUsed": "11:41:02 AM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:38:36 AM",
+                    "endTime": "11:38:37 AM"
+                },
+                {
+                    "duration": 12,
+                    "startTime": "11:38:56 AM",
+                    "endTime": "11:39:08 AM"
+                },
+                {
+                    "duration": 6,
+                    "startTime": "11:40:56 AM",
+                    "endTime": "11:41:02 AM"
+                }
+            ],
+            "totalUsage": 146,
+            "isActive": false
+        },
+        {
+            "id": 62914564,
+            "firstUsed": "11:38:37 AM",
+            "lastUsed": "11:41:43 AM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 8,
+                    "startTime": "11:38:37 AM",
+                    "endTime": "11:38:45 AM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "11:38:53 AM",
+                    "endTime": "11:38:56 AM"
+                },
+                {
+                    "duration": 20,
+                    "startTime": "11:39:08 AM",
+                    "endTime": "11:39:28 AM"
+                },
+                {
+                    "duration": 5,
+                    "startTime": "11:41:26 AM",
+                    "endTime": "11:41:31 AM"
+                },
+                {
+                    "duration": 8,
+                    "startTime": "11:41:35 AM",
+                    "endTime": "11:41:43 AM"
+                }
+            ],
+            "totalUsage": 186,
+            "isActive": false
+        },
+        {
+            "id": 44040196,
+            "firstUsed": "11:38:45 AM",
+            "lastUsed": "11:46:15 AM",
+            "name": "teams-for-linux",
+            "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+            "session": [
+                {
+                    "duration": 8,
+                    "startTime": "11:38:45 AM",
+                    "endTime": "11:38:53 AM"
+                },
+                {
+                    "duration": 4,
+                    "startTime": "11:39:43 AM",
+                    "endTime": "11:39:47 AM"
+                },
+                {
+                    "duration": 67,
+                    "startTime": "11:44:07 AM",
+                    "endTime": "11:45:14 AM"
+                },
+                {
+                    "duration": 45,
+                    "startTime": "11:45:30 AM",
+                    "endTime": "11:46:15 AM"
+                }
+            ],
+            "totalUsage": 450,
+            "isActive": false
+        },
+        {
+            "id": 100663297,
+            "firstUsed": "11:39:28 AM",
+            "lastUsed": "11:41:32 AM",
+            "name": "Mysql-workbench-bin",
+            "title": "instaily_new.mwb - MySQL Workbench",
+            "session": [
+                {
+                    "duration": 15,
+                    "startTime": "11:39:28 AM",
+                    "endTime": "11:39:43 AM"
+                },
+                {
+                    "duration": 69,
+                    "startTime": "11:39:47 AM",
+                    "endTime": "11:40:56 AM"
+                },
+                {
+                    "duration": 24,
+                    "startTime": "11:41:02 AM",
+                    "endTime": "11:41:26 AM"
+                },
+                {
+                    "duration": 1,
+                    "startTime": "11:41:31 AM",
+                    "endTime": "11:41:32 AM"
+                }
+            ],
+            "totalUsage": 124,
+            "isActive": false
+        },
+        {
+            "id": 79691780,
+            "firstUsed": "11:41:32 AM",
+            "lastUsed": "11:46:15 AM",
+            "name": "Google-chrome",
+            "title": "(433) Roundcube Webmail :: Fwd: Instaily Placement Details !!! - Google Chrome",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:41:32 AM",
+                    "endTime": "11:41:33 AM"
+                },
+                {
+                    "duration": 67,
+                    "startTime": "11:43:00 AM",
+                    "endTime": "11:44:07 AM"
+                },
+                {
+                    "duration": 16,
+                    "startTime": "11:45:14 AM",
+                    "endTime": "11:45:30 AM"
+                },
+                {
+                    "duration": 23,
+                    "startTime": "11:46:15 AM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 514,
+            "isActive": true
+        },
+        {
+            "id": 50331649,
+            "firstUsed": "11:41:33 AM",
+            "lastUsed": "11:41:45 AM",
+            "name": "Gjs",
+            "title": "@!0,0;BDHF",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "11:41:33 AM",
+                    "endTime": "11:41:35 AM"
+                },
+                {
+                    "duration": 2,
+                    "startTime": "11:41:43 AM",
+                    "endTime": "11:41:45 AM"
+                }
+            ],
+            "totalUsage": 12,
+            "isActive": false
+        },
+        {
+            "id": 77594626,
+            "firstUsed": "11:41:45 AM",
+            "lastUsed": "11:42:10 AM",
+            "name": "org.gnome.Nautilus",
+            "title": "Home",
+            "session": [
+                {
+                    "duration": 25,
+                    "startTime": "11:41:45 AM",
+                    "endTime": "11:42:10 AM"
+                }
+            ],
+            "totalUsage": 25,
+            "isActive": false
+        },
+        {
+            "id": 102760449,
+            "firstUsed": "11:42:10 AM",
+            "lastUsed": "11:42:14 AM",
+            "name": "Gnome-terminal",
+            "title": "vyrazu-26@vyrazu-26: ~/Project/instaily-internships-frontend",
+            "session": [
+                {
+                    "duration": 4,
+                    "startTime": "11:42:10 AM",
+                    "endTime": "11:42:14 AM"
+                }
+            ],
+            "totalUsage": 4,
+            "isActive": false
+        },
+        {
+            "id": 62914599,
+            "firstUsed": "11:42:14 AM",
+            "lastUsed": "11:43:00 AM",
+            "name": "Code",
+            "title": "Visual Studio Code",
+            "session": [
+                {
+                    "duration": 46,
+                    "startTime": "11:42:14 AM",
+                    "endTime": "11:43:00 AM"
+                }
+            ],
+            "totalUsage": 46,
+            "isActive": false
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 4,
+            "startTime": "11:39:18 AM",
+            "endTime": "11:39:19 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:39:39 AM",
+            "endTime": "11:39:40 AM"
+        },
+        {
+            "duration": 66,
+            "startTime": "11:39:52 AM",
+            "endTime": "11:40:55 AM"
+        },
+        {
+            "duration": 6,
+            "startTime": "11:41:06 AM",
+            "endTime": "11:41:09 AM"
+        },
+        {
+            "duration": 9,
+            "startTime": "11:41:15 AM",
+            "endTime": "11:41:21 AM"
+        },
+        {
+            "duration": 10,
+            "startTime": "11:42:26 AM",
+            "endTime": "11:42:33 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:42:58 AM",
+            "endTime": "11:42:59 AM"
+        },
+        {
+            "duration": 7,
+            "startTime": "11:43:26 AM",
+            "endTime": "11:43:30 AM"
+        },
+        {
+            "duration": 9,
+            "startTime": "11:43:51 AM",
+            "endTime": "11:43:57 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:44:02 AM",
+            "endTime": "11:44:03 AM"
+        },
+        {
+            "duration": 8,
+            "startTime": "11:44:28 AM",
+            "endTime": "11:44:33 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:44:53 AM",
+            "endTime": "11:44:54 AM"
+        },
+        {
+            "duration": 23,
+            "startTime": "11:46:19 AM",
+            "endTime": "11:46:38 AM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 90177540,
+            "firstUsed": "11:38:36 AM",
+            "lastUsed": "11:48:34 AM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:38:36 AM",
+                    "endTime": "11:38:37 AM"
+                },
+                {
+                    "duration": 12,
+                    "startTime": "11:38:56 AM",
+                    "endTime": "11:39:08 AM"
+                },
+                {
+                    "duration": 6,
+                    "startTime": "11:40:56 AM",
+                    "endTime": "11:41:02 AM"
+                },
+                {
+                    "duration": 7,
+                    "startTime": "11:48:27 AM",
+                    "endTime": "11:48:34 AM"
+                }
+            ],
+            "totalUsage": 598,
+            "isActive": false
+        },
+        {
+            "id": 62914564,
+            "firstUsed": "11:38:37 AM",
+            "lastUsed": "11:41:43 AM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 8,
+                    "startTime": "11:38:37 AM",
+                    "endTime": "11:38:45 AM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "11:38:53 AM",
+                    "endTime": "11:38:56 AM"
+                },
+                {
+                    "duration": 20,
+                    "startTime": "11:39:08 AM",
+                    "endTime": "11:39:28 AM"
+                },
+                {
+                    "duration": 5,
+                    "startTime": "11:41:26 AM",
+                    "endTime": "11:41:31 AM"
+                },
+                {
+                    "duration": 8,
+                    "startTime": "11:41:35 AM",
+                    "endTime": "11:41:43 AM"
+                }
+            ],
+            "totalUsage": 186,
+            "isActive": false
+        },
+        {
+            "id": 44040196,
+            "firstUsed": "11:38:45 AM",
+            "lastUsed": "11:48:39 AM",
+            "name": "teams-for-linux",
+            "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+            "session": [
+                {
+                    "duration": 8,
+                    "startTime": "11:38:45 AM",
+                    "endTime": "11:38:53 AM"
+                },
+                {
+                    "duration": 4,
+                    "startTime": "11:39:43 AM",
+                    "endTime": "11:39:47 AM"
+                },
+                {
+                    "duration": 67,
+                    "startTime": "11:44:07 AM",
+                    "endTime": "11:45:14 AM"
+                },
+                {
+                    "duration": 45,
+                    "startTime": "11:45:30 AM",
+                    "endTime": "11:46:15 AM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "11:48:36 AM",
+                    "endTime": "11:48:39 AM"
+                }
+            ],
+            "totalUsage": 594,
+            "isActive": false
+        },
+        {
+            "id": 100663297,
+            "firstUsed": "11:39:28 AM",
+            "lastUsed": "11:41:32 AM",
+            "name": "Mysql-workbench-bin",
+            "title": "instaily_new.mwb - MySQL Workbench",
+            "session": [
+                {
+                    "duration": 15,
+                    "startTime": "11:39:28 AM",
+                    "endTime": "11:39:43 AM"
+                },
+                {
+                    "duration": 69,
+                    "startTime": "11:39:47 AM",
+                    "endTime": "11:40:56 AM"
+                },
+                {
+                    "duration": 24,
+                    "startTime": "11:41:02 AM",
+                    "endTime": "11:41:26 AM"
+                },
+                {
+                    "duration": 1,
+                    "startTime": "11:41:31 AM",
+                    "endTime": "11:41:32 AM"
+                }
+            ],
+            "totalUsage": 124,
+            "isActive": false
+        },
+        {
+            "id": 79691780,
+            "firstUsed": "11:41:32 AM",
+            "lastUsed": "11:48:36 AM",
+            "name": "Google-chrome",
+            "title": "(433) Roundcube Webmail :: Fwd: Instaily Placement Details !!! - Google Chrome",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "11:41:32 AM",
+                    "endTime": "11:41:33 AM"
+                },
+                {
+                    "duration": 67,
+                    "startTime": "11:43:00 AM",
+                    "endTime": "11:44:07 AM"
+                },
+                {
+                    "duration": 16,
+                    "startTime": "11:45:14 AM",
+                    "endTime": "11:45:30 AM"
+                },
+                {
+                    "duration": 132,
+                    "startTime": "11:46:15 AM",
+                    "endTime": "11:48:27 AM"
+                },
+                {
+                    "duration": 2,
+                    "startTime": "11:48:34 AM",
+                    "endTime": "11:48:36 AM"
+                }
+            ],
+            "totalUsage": 424,
+            "isActive": false
+        },
+        {
+            "id": 50331649,
+            "firstUsed": "11:41:33 AM",
+            "lastUsed": "11:41:45 AM",
+            "name": "Gjs",
+            "title": "@!0,0;BDHF",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "11:41:33 AM",
+                    "endTime": "11:41:35 AM"
+                },
+                {
+                    "duration": 2,
+                    "startTime": "11:41:43 AM",
+                    "endTime": "11:41:45 AM"
+                }
+            ],
+            "totalUsage": 12,
+            "isActive": false
+        },
+        {
+            "id": 77594626,
+            "firstUsed": "11:41:45 AM",
+            "lastUsed": "11:42:10 AM",
+            "name": "org.gnome.Nautilus",
+            "title": "Home",
+            "session": [
+                {
+                    "duration": 25,
+                    "startTime": "11:41:45 AM",
+                    "endTime": "11:42:10 AM"
+                }
+            ],
+            "totalUsage": 25,
+            "isActive": false
+        },
+        {
+            "id": 102760449,
+            "firstUsed": "11:42:10 AM",
+            "lastUsed": "11:42:14 AM",
+            "name": "Gnome-terminal",
+            "title": "vyrazu-26@vyrazu-26: ~/Project/instaily-internships-frontend",
+            "session": [
+                {
+                    "duration": 4,
+                    "startTime": "11:42:10 AM",
+                    "endTime": "11:42:14 AM"
+                }
+            ],
+            "totalUsage": 4,
+            "isActive": false
+        },
+        {
+            "id": 62914599,
+            "firstUsed": "11:42:14 AM",
+            "lastUsed": "11:48:39 AM",
+            "name": "Code",
+            "title": "Visual Studio Code",
+            "session": [
+                {
+                    "duration": 46,
+                    "startTime": "11:42:14 AM",
+                    "endTime": "11:43:00 AM"
+                },
+                {
+                    "duration": 1,
+                    "startTime": "11:48:39 AM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 47,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 4,
+            "startTime": "11:39:18 AM",
+            "endTime": "11:39:19 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:39:39 AM",
+            "endTime": "11:39:40 AM"
+        },
+        {
+            "duration": 66,
+            "startTime": "11:39:52 AM",
+            "endTime": "11:40:55 AM"
+        },
+        {
+            "duration": 6,
+            "startTime": "11:41:06 AM",
+            "endTime": "11:41:09 AM"
+        },
+        {
+            "duration": 9,
+            "startTime": "11:41:15 AM",
+            "endTime": "11:41:21 AM"
+        },
+        {
+            "duration": 10,
+            "startTime": "11:42:26 AM",
+            "endTime": "11:42:33 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:42:58 AM",
+            "endTime": "11:42:59 AM"
+        },
+        {
+            "duration": 7,
+            "startTime": "11:43:26 AM",
+            "endTime": "11:43:30 AM"
+        },
+        {
+            "duration": 9,
+            "startTime": "11:43:51 AM",
+            "endTime": "11:43:57 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:44:02 AM",
+            "endTime": "11:44:03 AM"
+        },
+        {
+            "duration": 8,
+            "startTime": "11:44:28 AM",
+            "endTime": "11:44:33 AM"
+        },
+        {
+            "duration": 4,
+            "startTime": "11:44:53 AM",
+            "endTime": "11:44:54 AM"
+        },
+        {
+            "duration": 129,
+            "startTime": "11:46:19 AM",
+            "endTime": "11:48:25 AM"
+        }
+    ]
+}

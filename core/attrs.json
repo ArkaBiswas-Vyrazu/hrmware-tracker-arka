@@ -1,0 +1,3016 @@
+
+Before
+{
+    "id": 90177540,
+    "firstUsed": "12:25:48 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:48 PM",
+            "endTime": "12:25:52 PM"
+        },
+        {
+            "duration": 27,
+            "startTime": "12:25:56 PM",
+            "endTime": "12:26:23 PM"
+        },
+        {
+            "duration": 21,
+            "startTime": "12:26:26 PM",
+            "endTime": "12:26:47 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "12:26:49 PM",
+            "endTime": "12:27:12 PM"
+        },
+        {
+            "duration": 20,
+            "startTime": "12:27:27 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 286,
+    "isActive": true
+}
+
+After
+{
+    "id": 90177540,
+    "firstUsed": "12:25:48 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:48 PM",
+            "endTime": "12:25:52 PM"
+        },
+        {
+            "duration": 27,
+            "startTime": "12:25:56 PM",
+            "endTime": "12:26:23 PM"
+        },
+        {
+            "duration": 21,
+            "startTime": "12:26:26 PM",
+            "endTime": "12:26:47 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "12:26:49 PM",
+            "endTime": "12:27:12 PM"
+        },
+        {
+            "duration": 20,
+            "startTime": "12:27:27 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 286,
+    "isActive": true
+}
+
+Before
+{
+    "id": 62914599,
+    "firstUsed": "12:25:52 PM",
+    "lastUsed": "12:25:56 PM",
+    "name": "Code",
+    "title": "Footer.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:52 PM",
+            "endTime": "12:25:56 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+After
+{
+    "id": 62914599,
+    "firstUsed": "12:25:52 PM",
+    "lastUsed": "12:25:56 PM",
+    "name": "Code",
+    "title": "Footer.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:52 PM",
+            "endTime": "12:25:56 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+Before
+{
+    "id": 44040196,
+    "firstUsed": "12:26:23 PM",
+    "lastUsed": "12:26:26 PM",
+    "name": "teams-for-linux",
+    "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "12:26:23 PM",
+            "endTime": "12:26:26 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+After
+{
+    "id": 44040196,
+    "firstUsed": "12:26:23 PM",
+    "lastUsed": "12:26:26 PM",
+    "name": "teams-for-linux",
+    "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "12:26:23 PM",
+            "endTime": "12:26:26 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+Before
+{
+    "id": 100663297,
+    "firstUsed": "12:26:47 PM",
+    "lastUsed": "12:26:49 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "instaily_new.mwb - MySQL Workbench",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:26:47 PM",
+            "endTime": "12:26:49 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 100663297,
+    "firstUsed": "12:26:47 PM",
+    "lastUsed": "12:26:49 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "instaily_new.mwb - MySQL Workbench",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:26:47 PM",
+            "endTime": "12:26:49 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+Before
+{
+    "id": 50331649,
+    "firstUsed": "12:27:12 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "Gjs",
+    "title": "@!0,0;BDHF",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "12:27:12 PM",
+            "endTime": "12:27:24 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "12:27:26 PM",
+            "endTime": "12:27:27 PM"
+        }
+    ],
+    "totalUsage": 15,
+    "isActive": false
+}
+
+After
+{
+    "id": 50331649,
+    "firstUsed": "12:27:12 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "Gjs",
+    "title": "@!0,0;BDHF",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "12:27:12 PM",
+            "endTime": "12:27:24 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "12:27:26 PM",
+            "endTime": "12:27:27 PM"
+        }
+    ],
+    "totalUsage": 15,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554433,
+    "firstUsed": "12:27:24 PM",
+    "lastUsed": "12:27:26 PM",
+    "name": "Hrmware",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:27:24 PM",
+            "endTime": "12:27:26 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554433,
+    "firstUsed": "12:27:24 PM",
+    "lastUsed": "12:27:26 PM",
+    "name": "Hrmware",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:27:24 PM",
+            "endTime": "12:27:26 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+Before
+{
+    "id": 90177540,
+    "firstUsed": "12:25:48 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:48 PM",
+            "endTime": "12:25:52 PM"
+        },
+        {
+            "duration": 27,
+            "startTime": "12:25:56 PM",
+            "endTime": "12:26:23 PM"
+        },
+        {
+            "duration": 21,
+            "startTime": "12:26:26 PM",
+            "endTime": "12:26:47 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "12:26:49 PM",
+            "endTime": "12:27:12 PM"
+        },
+        {
+            "duration": 20,
+            "startTime": "12:27:27 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 286,
+    "isActive": true
+}
+
+After
+{
+    "id": 90177540,
+    "firstUsed": "12:25:48 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:48 PM",
+            "endTime": "12:25:52 PM"
+        },
+        {
+            "duration": 27,
+            "startTime": "12:25:56 PM",
+            "endTime": "12:26:23 PM"
+        },
+        {
+            "duration": 21,
+            "startTime": "12:26:26 PM",
+            "endTime": "12:26:47 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "12:26:49 PM",
+            "endTime": "12:27:12 PM"
+        },
+        {
+            "duration": 20,
+            "startTime": "12:27:27 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 286,
+    "isActive": true
+}
+
+Before
+{
+    "id": 62914599,
+    "firstUsed": "12:25:52 PM",
+    "lastUsed": "12:25:56 PM",
+    "name": "Code",
+    "title": "Footer.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:52 PM",
+            "endTime": "12:25:56 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+After
+{
+    "id": 62914599,
+    "firstUsed": "12:25:52 PM",
+    "lastUsed": "12:25:56 PM",
+    "name": "Code",
+    "title": "Footer.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:52 PM",
+            "endTime": "12:25:56 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+Before
+{
+    "id": 44040196,
+    "firstUsed": "12:26:23 PM",
+    "lastUsed": "12:26:26 PM",
+    "name": "teams-for-linux",
+    "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "12:26:23 PM",
+            "endTime": "12:26:26 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+After
+{
+    "id": 44040196,
+    "firstUsed": "12:26:23 PM",
+    "lastUsed": "12:26:26 PM",
+    "name": "teams-for-linux",
+    "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "12:26:23 PM",
+            "endTime": "12:26:26 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+Before
+{
+    "id": 100663297,
+    "firstUsed": "12:26:47 PM",
+    "lastUsed": "12:26:49 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "instaily_new.mwb - MySQL Workbench",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:26:47 PM",
+            "endTime": "12:26:49 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 100663297,
+    "firstUsed": "12:26:47 PM",
+    "lastUsed": "12:26:49 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "instaily_new.mwb - MySQL Workbench",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:26:47 PM",
+            "endTime": "12:26:49 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+Before
+{
+    "id": 50331649,
+    "firstUsed": "12:27:12 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "Gjs",
+    "title": "@!0,0;BDHF",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "12:27:12 PM",
+            "endTime": "12:27:24 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "12:27:26 PM",
+            "endTime": "12:27:27 PM"
+        }
+    ],
+    "totalUsage": 15,
+    "isActive": false
+}
+
+After
+{
+    "id": 50331649,
+    "firstUsed": "12:27:12 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "Gjs",
+    "title": "@!0,0;BDHF",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "12:27:12 PM",
+            "endTime": "12:27:24 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "12:27:26 PM",
+            "endTime": "12:27:27 PM"
+        }
+    ],
+    "totalUsage": 15,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554433,
+    "firstUsed": "12:27:24 PM",
+    "lastUsed": "12:27:26 PM",
+    "name": "Hrmware",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:27:24 PM",
+            "endTime": "12:27:26 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554433,
+    "firstUsed": "12:27:24 PM",
+    "lastUsed": "12:27:26 PM",
+    "name": "Hrmware",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:27:24 PM",
+            "endTime": "12:27:26 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+Before
+{
+    "id": 90177540,
+    "firstUsed": "12:25:48 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:48 PM",
+            "endTime": "12:25:52 PM"
+        },
+        {
+            "duration": 27,
+            "startTime": "12:25:56 PM",
+            "endTime": "12:26:23 PM"
+        },
+        {
+            "duration": 21,
+            "startTime": "12:26:26 PM",
+            "endTime": "12:26:47 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "12:26:49 PM",
+            "endTime": "12:27:12 PM"
+        },
+        {
+            "duration": 20,
+            "startTime": "12:27:27 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 286,
+    "isActive": true
+}
+
+After
+{
+    "id": 90177540,
+    "firstUsed": "12:25:48 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:48 PM",
+            "endTime": "12:25:52 PM"
+        },
+        {
+            "duration": 27,
+            "startTime": "12:25:56 PM",
+            "endTime": "12:26:23 PM"
+        },
+        {
+            "duration": 21,
+            "startTime": "12:26:26 PM",
+            "endTime": "12:26:47 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "12:26:49 PM",
+            "endTime": "12:27:12 PM"
+        },
+        {
+            "duration": 20,
+            "startTime": "12:27:27 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 286,
+    "isActive": true
+}
+
+Before
+{
+    "id": 62914599,
+    "firstUsed": "12:25:52 PM",
+    "lastUsed": "12:25:56 PM",
+    "name": "Code",
+    "title": "Footer.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:52 PM",
+            "endTime": "12:25:56 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+After
+{
+    "id": 62914599,
+    "firstUsed": "12:25:52 PM",
+    "lastUsed": "12:25:56 PM",
+    "name": "Code",
+    "title": "Footer.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "12:25:52 PM",
+            "endTime": "12:25:56 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+Before
+{
+    "id": 44040196,
+    "firstUsed": "12:26:23 PM",
+    "lastUsed": "12:26:26 PM",
+    "name": "teams-for-linux",
+    "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "12:26:23 PM",
+            "endTime": "12:26:26 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+After
+{
+    "id": 44040196,
+    "firstUsed": "12:26:23 PM",
+    "lastUsed": "12:26:26 PM",
+    "name": "teams-for-linux",
+    "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "12:26:23 PM",
+            "endTime": "12:26:26 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+Before
+{
+    "id": 100663297,
+    "firstUsed": "12:26:47 PM",
+    "lastUsed": "12:26:49 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "instaily_new.mwb - MySQL Workbench",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:26:47 PM",
+            "endTime": "12:26:49 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 100663297,
+    "firstUsed": "12:26:47 PM",
+    "lastUsed": "12:26:49 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "instaily_new.mwb - MySQL Workbench",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:26:47 PM",
+            "endTime": "12:26:49 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+Before
+{
+    "id": 50331649,
+    "firstUsed": "12:27:12 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "Gjs",
+    "title": "@!0,0;BDHF",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "12:27:12 PM",
+            "endTime": "12:27:24 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "12:27:26 PM",
+            "endTime": "12:27:27 PM"
+        }
+    ],
+    "totalUsage": 15,
+    "isActive": false
+}
+
+After
+{
+    "id": 50331649,
+    "firstUsed": "12:27:12 PM",
+    "lastUsed": "12:27:27 PM",
+    "name": "Gjs",
+    "title": "@!0,0;BDHF",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "12:27:12 PM",
+            "endTime": "12:27:24 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "12:27:26 PM",
+            "endTime": "12:27:27 PM"
+        }
+    ],
+    "totalUsage": 15,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554433,
+    "firstUsed": "12:27:24 PM",
+    "lastUsed": "12:27:26 PM",
+    "name": "Hrmware",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:27:24 PM",
+            "endTime": "12:27:26 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554433,
+    "firstUsed": "12:27:24 PM",
+    "lastUsed": "12:27:26 PM",
+    "name": "Hrmware",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:27:24 PM",
+            "endTime": "12:27:26 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+Before
+{
+    "id": 0,
+    "firstUsed": "string",
+    "lastUsed": "string",
+    "name": "string",
+    "title": "string",
+    "session": [
+        {
+            "duration": 0,
+            "startTime": "string",
+            "endTime": "string"
+        }
+    ],
+    "totalUsage": 0,
+    "isActive": true
+}
+
+After
+{
+    "id": 0,
+    "firstUsed": "string",
+    "lastUsed": "string",
+    "name": "string",
+    "title": "string",
+    "session": [
+        {
+            "duration": 0,
+            "startTime": "string",
+            "endTime": "string"
+        }
+    ],
+    "totalUsage": 0,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:21:23 PM",
+    "lastUsed": "1:21:26 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "1:21:23 PM",
+            "endTime": "1:21:26 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:21:23 PM",
+    "lastUsed": "1:21:26 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "1:21:23 PM",
+            "endTime": "1:21:26 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+Before
+{
+    "id": 10485814,
+    "firstUsed": "1:21:26 PM",
+    "lastUsed": "1:21:29 PM",
+    "name": "Code",
+    "title": "main.ts - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "1:21:26 PM",
+            "endTime": "1:21:29 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+After
+{
+    "id": 10485814,
+    "firstUsed": "1:21:26 PM",
+    "lastUsed": "1:21:29 PM",
+    "name": "Code",
+    "title": "main.ts - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "1:21:26 PM",
+            "endTime": "1:21:29 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+Before
+{
+    "id": 67108868,
+    "firstUsed": "1:21:29 PM",
+    "lastUsed": "",
+    "name": "Google-chrome",
+    "title": "JWT Authentication in Nodejs \u2014 Refresh JWT with Cookie-based Token | by Suneel Kumar | Medium - Google Chrome",
+    "session": [
+        {
+            "duration": 113,
+            "startTime": "1:21:29 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 6441,
+    "isActive": true
+}
+
+After
+{
+    "id": 67108868,
+    "firstUsed": "1:21:29 PM",
+    "lastUsed": "01:23:23 PM",
+    "name": "Google-chrome",
+    "title": "JWT Authentication in Nodejs \u2014 Refresh JWT with Cookie-based Token | by Suneel Kumar | Medium - Google Chrome",
+    "session": [
+        {
+            "duration": 113,
+            "startTime": "1:21:29 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 6441,
+    "isActive": true
+}
+
+Before
+{
+    "id": 67108868,
+    "firstUsed": "1:23:23 PM",
+    "lastUsed": "1:25:15 PM",
+    "name": "Google-chrome",
+    "title": "Perplexity - Google Chrome",
+    "session": [
+        {
+            "duration": 80,
+            "startTime": "1:23:23 PM",
+            "endTime": "1:24:43 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:24:52 PM",
+            "endTime": "1:24:54 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "1:24:56 PM",
+            "endTime": "1:25:03 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:25:15 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 136,
+    "isActive": true
+}
+
+After
+{
+    "id": 67108868,
+    "firstUsed": "1:23:23 PM",
+    "lastUsed": "1:25:15 PM",
+    "name": "Google-chrome",
+    "title": "Perplexity - Google Chrome",
+    "session": [
+        {
+            "duration": 80,
+            "startTime": "1:23:23 PM",
+            "endTime": "1:24:43 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:24:52 PM",
+            "endTime": "1:24:54 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "1:24:56 PM",
+            "endTime": "1:25:03 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:25:15 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 136,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:24:43 PM",
+    "lastUsed": "1:24:56 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 9,
+            "startTime": "1:24:43 PM",
+            "endTime": "1:24:52 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:24:54 PM",
+            "endTime": "1:24:56 PM"
+        }
+    ],
+    "totalUsage": 13,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:24:43 PM",
+    "lastUsed": "1:24:56 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 9,
+            "startTime": "1:24:43 PM",
+            "endTime": "1:24:52 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:24:54 PM",
+            "endTime": "1:24:56 PM"
+        }
+    ],
+    "totalUsage": 13,
+    "isActive": false
+}
+
+Before
+{
+    "id": 77594628,
+    "firstUsed": "1:25:03 PM",
+    "lastUsed": "1:25:15 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "1:25:03 PM",
+            "endTime": "1:25:15 PM"
+        }
+    ],
+    "totalUsage": 12,
+    "isActive": false
+}
+
+After
+{
+    "id": 77594628,
+    "firstUsed": "1:25:03 PM",
+    "lastUsed": "1:25:15 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "1:25:03 PM",
+            "endTime": "1:25:15 PM"
+        }
+    ],
+    "totalUsage": 12,
+    "isActive": false
+}
+
+Before
+{
+    "id": 67108868,
+    "firstUsed": "1:25:24 PM",
+    "lastUsed": "1:26:44 PM",
+    "name": "Google-chrome",
+    "title": "when i logout and delelte refresh token from cookies ,but any one can store... - Google Chrome",
+    "session": [
+        {
+            "duration": 14,
+            "startTime": "1:25:24 PM",
+            "endTime": "1:25:38 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "1:25:53 PM",
+            "endTime": "1:26:00 PM"
+        },
+        {
+            "duration": 41,
+            "startTime": "1:26:44 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 897,
+    "isActive": true
+}
+
+After
+{
+    "id": 67108868,
+    "firstUsed": "1:25:24 PM",
+    "lastUsed": "1:26:44 PM",
+    "name": "Google-chrome",
+    "title": "when i logout and delelte refresh token from cookies ,but any one can store... - Google Chrome",
+    "session": [
+        {
+            "duration": 14,
+            "startTime": "1:25:24 PM",
+            "endTime": "1:25:38 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "1:25:53 PM",
+            "endTime": "1:26:00 PM"
+        },
+        {
+            "duration": 41,
+            "startTime": "1:26:44 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 897,
+    "isActive": true
+}
+
+Before
+{
+    "id": 77594628,
+    "firstUsed": "1:25:38 PM",
+    "lastUsed": "1:25:53 PM",
+    "name": "teams-for-linux",
+    "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 15,
+            "startTime": "1:25:38 PM",
+            "endTime": "1:25:53 PM"
+        }
+    ],
+    "totalUsage": 15,
+    "isActive": false
+}
+
+After
+{
+    "id": 77594628,
+    "firstUsed": "1:25:38 PM",
+    "lastUsed": "1:25:53 PM",
+    "name": "teams-for-linux",
+    "title": "(1) Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 15,
+            "startTime": "1:25:38 PM",
+            "endTime": "1:25:53 PM"
+        }
+    ],
+    "totalUsage": 15,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:26:00 PM",
+    "lastUsed": "1:26:44 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 44,
+            "startTime": "1:26:00 PM",
+            "endTime": "1:26:44 PM"
+        }
+    ],
+    "totalUsage": 44,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:26:00 PM",
+    "lastUsed": "1:26:44 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 44,
+            "startTime": "1:26:00 PM",
+            "endTime": "1:26:44 PM"
+        }
+    ],
+    "totalUsage": 44,
+    "isActive": false
+}
+
+Before
+{
+    "id": 67108868,
+    "firstUsed": "1:27:26 PM",
+    "lastUsed": "1:28:57 PM",
+    "name": "Google-chrome",
+    "title": "when i logout and delelte refresh token from cookies ,but any one can store... - Google Chrome",
+    "session": [
+        {
+            "duration": 65,
+            "startTime": "1:27:26 PM",
+            "endTime": "1:28:31 PM"
+        },
+        {
+            "duration": 28,
+            "startTime": "1:28:57 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 471,
+    "isActive": true
+}
+
+After
+{
+    "id": 67108868,
+    "firstUsed": "1:27:26 PM",
+    "lastUsed": "1:28:57 PM",
+    "name": "Google-chrome",
+    "title": "when i logout and delelte refresh token from cookies ,but any one can store... - Google Chrome",
+    "session": [
+        {
+            "duration": 65,
+            "startTime": "1:27:26 PM",
+            "endTime": "1:28:31 PM"
+        },
+        {
+            "duration": 28,
+            "startTime": "1:28:57 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 471,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:28:31 PM",
+    "lastUsed": "1:28:57 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 26,
+            "startTime": "1:28:31 PM",
+            "endTime": "1:28:57 PM"
+        }
+    ],
+    "totalUsage": 26,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:28:31 PM",
+    "lastUsed": "1:28:57 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 26,
+            "startTime": "1:28:31 PM",
+            "endTime": "1:28:57 PM"
+        }
+    ],
+    "totalUsage": 26,
+    "isActive": false
+}
+
+Before
+{
+    "id": 67108868,
+    "firstUsed": "1:29:26 PM",
+    "lastUsed": "1:29:59 PM",
+    "name": "Google-chrome",
+    "title": "when i logout and delelte refresh token from cookies ,but any one can store... - Google Chrome",
+    "session": [
+        {
+            "duration": 33,
+            "startTime": "1:29:26 PM",
+            "endTime": "1:29:59 PM"
+        }
+    ],
+    "totalUsage": 33,
+    "isActive": false
+}
+
+After
+{
+    "id": 67108868,
+    "firstUsed": "1:29:26 PM",
+    "lastUsed": "1:29:59 PM",
+    "name": "Google-chrome",
+    "title": "when i logout and delelte refresh token from cookies ,but any one can store... - Google Chrome",
+    "session": [
+        {
+            "duration": 33,
+            "startTime": "1:29:26 PM",
+            "endTime": "1:29:59 PM"
+        }
+    ],
+    "totalUsage": 33,
+    "isActive": false
+}
+
+Before
+{
+    "id": 10485810,
+    "firstUsed": "1:29:59 PM",
+    "lastUsed": "",
+    "name": "Code",
+    "title": "user.js - instaily-backend-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 87,
+            "startTime": "1:29:59 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 3828,
+    "isActive": true
+}
+
+After
+{
+    "id": 10485810,
+    "firstUsed": "1:29:59 PM",
+    "lastUsed": "01:31:45 PM",
+    "name": "Code",
+    "title": "user.js - instaily-backend-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 87,
+            "startTime": "1:29:59 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 3828,
+    "isActive": true
+}
+
+Before
+{
+    "id": 109051908,
+    "firstUsed": "6:43:55 PM",
+    "lastUsed": "6:44:00 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "6:43:55 PM",
+            "endTime": "6:44:00 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+After
+{
+    "id": 109051908,
+    "firstUsed": "6:43:55 PM",
+    "lastUsed": "6:44:00 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "6:43:55 PM",
+            "endTime": "6:44:00 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+Before
+{
+    "id": 10485814,
+    "firstUsed": "6:44:00 PM",
+    "lastUsed": "6:44:03 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "6:44:00 PM",
+            "endTime": "6:44:03 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+After
+{
+    "id": 10485814,
+    "firstUsed": "6:44:00 PM",
+    "lastUsed": "6:44:03 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "6:44:00 PM",
+            "endTime": "6:44:03 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+Before
+{
+    "id": 10485810,
+    "firstUsed": "6:44:03 PM",
+    "lastUsed": "6:45:52 PM",
+    "name": "Code",
+    "title": "adminAuth.js - instaily-backend-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 52,
+            "startTime": "6:44:03 PM",
+            "endTime": "6:44:55 PM"
+        },
+        {
+            "duration": 25,
+            "startTime": "6:45:07 PM",
+            "endTime": "6:45:32 PM"
+        },
+        {
+            "duration": 17,
+            "startTime": "6:45:35 PM",
+            "endTime": "6:45:52 PM"
+        }
+    ],
+    "totalUsage": 109,
+    "isActive": false
+}
+
+After
+{
+    "id": 10485810,
+    "firstUsed": "6:44:03 PM",
+    "lastUsed": "6:45:52 PM",
+    "name": "Code",
+    "title": "adminAuth.js - instaily-backend-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 52,
+            "startTime": "6:44:03 PM",
+            "endTime": "6:44:55 PM"
+        },
+        {
+            "duration": 25,
+            "startTime": "6:45:07 PM",
+            "endTime": "6:45:32 PM"
+        },
+        {
+            "duration": 17,
+            "startTime": "6:45:35 PM",
+            "endTime": "6:45:52 PM"
+        }
+    ],
+    "totalUsage": 109,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "6:44:55 PM",
+    "lastUsed": "6:45:52 PM",
+    "name": "Postman",
+    "title": "create - My Workspace",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "6:44:55 PM",
+            "endTime": "6:45:07 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "6:45:32 PM",
+            "endTime": "6:45:35 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "6:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 43,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "6:44:55 PM",
+    "lastUsed": "6:45:52 PM",
+    "name": "Postman",
+    "title": "create - My Workspace",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "6:44:55 PM",
+            "endTime": "6:45:07 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "6:45:32 PM",
+            "endTime": "6:45:35 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "6:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 43,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "6:45:55 PM",
+    "lastUsed": "6:46:16 PM",
+    "name": "Postman",
+    "title": "create - My Workspace",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "6:45:55 PM",
+            "endTime": "6:45:57 PM"
+        },
+        {
+            "duration": 99,
+            "startTime": "6:46:16 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 4952,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "6:45:55 PM",
+    "lastUsed": "6:46:16 PM",
+    "name": "Postman",
+    "title": "create - My Workspace",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "6:45:55 PM",
+            "endTime": "6:45:57 PM"
+        },
+        {
+            "duration": 99,
+            "startTime": "6:46:16 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 4952,
+    "isActive": true
+}
+
+Before
+{
+    "id": 10485810,
+    "firstUsed": "6:45:57 PM",
+    "lastUsed": "6:46:16 PM",
+    "name": "Code",
+    "title": "employer.js - instaily-backend-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 19,
+            "startTime": "6:45:57 PM",
+            "endTime": "6:46:16 PM"
+        }
+    ],
+    "totalUsage": 19,
+    "isActive": false
+}
+
+After
+{
+    "id": 10485810,
+    "firstUsed": "6:45:57 PM",
+    "lastUsed": "6:46:16 PM",
+    "name": "Code",
+    "title": "employer.js - instaily-backend-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 19,
+            "startTime": "6:45:57 PM",
+            "endTime": "6:46:16 PM"
+        }
+    ],
+    "totalUsage": 19,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "6:47:56 PM",
+    "lastUsed": "6:48:43 PM",
+    "name": "Postman",
+    "title": "create - My Workspace",
+    "session": [
+        {
+            "duration": 47,
+            "startTime": "6:47:56 PM",
+            "endTime": "6:48:43 PM"
+        }
+    ],
+    "totalUsage": 47,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "6:47:56 PM",
+    "lastUsed": "6:48:43 PM",
+    "name": "Postman",
+    "title": "create - My Workspace",
+    "session": [
+        {
+            "duration": 47,
+            "startTime": "6:47:56 PM",
+            "endTime": "6:48:43 PM"
+        }
+    ],
+    "totalUsage": 47,
+    "isActive": false
+}
+
+Before
+{
+    "id": 67108868,
+    "firstUsed": "6:48:43 PM",
+    "lastUsed": "6:49:04 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 21,
+            "startTime": "6:48:43 PM",
+            "endTime": "6:49:04 PM"
+        }
+    ],
+    "totalUsage": 21,
+    "isActive": false
+}
+
+After
+{
+    "id": 67108868,
+    "firstUsed": "6:48:43 PM",
+    "lastUsed": "6:49:04 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 21,
+            "startTime": "6:48:43 PM",
+            "endTime": "6:49:04 PM"
+        }
+    ],
+    "totalUsage": 21,
+    "isActive": false
+}
+
+Before
+{
+    "id": 10485810,
+    "firstUsed": "6:49:04 PM",
+    "lastUsed": "6:49:08 PM",
+    "name": "Code",
+    "title": "employer.js - instaily-backend-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "6:49:04 PM",
+            "endTime": "6:49:08 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+After
+{
+    "id": 10485810,
+    "firstUsed": "6:49:04 PM",
+    "lastUsed": "6:49:08 PM",
+    "name": "Code",
+    "title": "employer.js - instaily-backend-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "6:49:04 PM",
+            "endTime": "6:49:08 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+Before
+{
+    "id": 10485764,
+    "firstUsed": "6:49:08 PM",
+    "lastUsed": "6:49:25 PM",
+    "name": "Code",
+    "title": "SeachbleSelect.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 17,
+            "startTime": "6:49:08 PM",
+            "endTime": "6:49:25 PM"
+        }
+    ],
+    "totalUsage": 17,
+    "isActive": false
+}
+
+After
+{
+    "id": 10485764,
+    "firstUsed": "6:49:08 PM",
+    "lastUsed": "6:49:25 PM",
+    "name": "Code",
+    "title": "SeachbleSelect.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 17,
+            "startTime": "6:49:08 PM",
+            "endTime": "6:49:25 PM"
+        }
+    ],
+    "totalUsage": 17,
+    "isActive": false
+}
+
+Before
+{
+    "id": 77594628,
+    "firstUsed": "6:49:25 PM",
+    "lastUsed": "6:49:39 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 14,
+            "startTime": "6:49:25 PM",
+            "endTime": "6:49:39 PM"
+        }
+    ],
+    "totalUsage": 14,
+    "isActive": false
+}
+
+After
+{
+    "id": 77594628,
+    "firstUsed": "6:49:25 PM",
+    "lastUsed": "6:49:39 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 14,
+            "startTime": "6:49:25 PM",
+            "endTime": "6:49:39 PM"
+        }
+    ],
+    "totalUsage": 14,
+    "isActive": false
+}
+
+Before
+{
+    "id": 109051908,
+    "firstUsed": "6:49:39 PM",
+    "lastUsed": "",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 16,
+            "startTime": "6:49:39 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 141,
+    "isActive": true
+}
+
+After
+{
+    "id": 109051908,
+    "firstUsed": "6:49:39 PM",
+    "lastUsed": "06:49:56 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 16,
+            "startTime": "6:49:39 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 141,
+    "isActive": true
+}
+
+Before
+{
+    "id": 109051908,
+    "firstUsed": "6:49:56 PM",
+    "lastUsed": "6:50:36 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 40,
+            "startTime": "6:49:56 PM",
+            "endTime": "6:50:36 PM"
+        }
+    ],
+    "totalUsage": 40,
+    "isActive": false
+}
+
+After
+{
+    "id": 109051908,
+    "firstUsed": "6:49:56 PM",
+    "lastUsed": "6:50:36 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 40,
+            "startTime": "6:49:56 PM",
+            "endTime": "6:50:36 PM"
+        }
+    ],
+    "totalUsage": 40,
+    "isActive": false
+}
+
+Before
+{
+    "id": 77594628,
+    "firstUsed": "6:50:36 PM",
+    "lastUsed": "6:50:41 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Debkanta Chakraborty | Microsoft Teams",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "6:50:36 PM",
+            "endTime": "6:50:41 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+After
+{
+    "id": 77594628,
+    "firstUsed": "6:50:36 PM",
+    "lastUsed": "6:50:41 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Debkanta Chakraborty | Microsoft Teams",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "6:50:36 PM",
+            "endTime": "6:50:41 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+Before
+{
+    "id": 10485764,
+    "firstUsed": "6:50:41 PM",
+    "lastUsed": "6:51:02 PM",
+    "name": "Code",
+    "title": "SeachbleSelect.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "6:50:41 PM",
+            "endTime": "6:50:43 PM"
+        },
+        {
+            "duration": 13,
+            "startTime": "6:50:49 PM",
+            "endTime": "6:51:02 PM"
+        }
+    ],
+    "totalUsage": 21,
+    "isActive": false
+}
+
+After
+{
+    "id": 10485764,
+    "firstUsed": "6:50:41 PM",
+    "lastUsed": "6:51:02 PM",
+    "name": "Code",
+    "title": "SeachbleSelect.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "6:50:41 PM",
+            "endTime": "6:50:43 PM"
+        },
+        {
+            "duration": 13,
+            "startTime": "6:50:49 PM",
+            "endTime": "6:51:02 PM"
+        }
+    ],
+    "totalUsage": 21,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "6:50:43 PM",
+    "lastUsed": "6:51:51 PM",
+    "name": "Postman",
+    "title": "create - My Workspace",
+    "session": [
+        {
+            "duration": 6,
+            "startTime": "6:50:43 PM",
+            "endTime": "6:50:49 PM"
+        },
+        {
+            "duration": 18,
+            "startTime": "6:51:10 PM",
+            "endTime": "6:51:28 PM"
+        },
+        {
+            "duration": 11,
+            "startTime": "6:51:31 PM",
+            "endTime": "6:51:42 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "6:51:51 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 80,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "6:50:43 PM",
+    "lastUsed": "6:51:51 PM",
+    "name": "Postman",
+    "title": "create - My Workspace",
+    "session": [
+        {
+            "duration": 6,
+            "startTime": "6:50:43 PM",
+            "endTime": "6:50:49 PM"
+        },
+        {
+            "duration": 18,
+            "startTime": "6:51:10 PM",
+            "endTime": "6:51:28 PM"
+        },
+        {
+            "duration": 11,
+            "startTime": "6:51:31 PM",
+            "endTime": "6:51:42 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "6:51:51 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 80,
+    "isActive": true
+}
+
+Before
+{
+    "id": 10485810,
+    "firstUsed": "6:51:02 PM",
+    "lastUsed": "6:51:51 PM",
+    "name": "Code",
+    "title": "employer.js - instaily-backend-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 8,
+            "startTime": "6:51:02 PM",
+            "endTime": "6:51:10 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "6:51:28 PM",
+            "endTime": "6:51:31 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "6:51:42 PM",
+            "endTime": "6:51:51 PM"
+        }
+    ],
+    "totalUsage": 49,
+    "isActive": false
+}
+
+After
+{
+    "id": 10485810,
+    "firstUsed": "6:51:02 PM",
+    "lastUsed": "6:51:51 PM",
+    "name": "Code",
+    "title": "employer.js - instaily-backend-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 8,
+            "startTime": "6:51:02 PM",
+            "endTime": "6:51:10 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "6:51:28 PM",
+            "endTime": "6:51:31 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "6:51:42 PM",
+            "endTime": "6:51:51 PM"
+        }
+    ],
+    "totalUsage": 49,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "6:51:58 PM",
+    "lastUsed": "6:53:57 PM",
+    "name": "Postman",
+    "title": "create - My Workspace",
+    "session": [
+        {
+            "duration": 38,
+            "startTime": "6:51:58 PM",
+            "endTime": "6:52:36 PM"
+        },
+        {
+            "duration": 41,
+            "startTime": "6:52:45 PM",
+            "endTime": "6:53:26 PM"
+        },
+        {
+            "duration": 0,
+            "startTime": "6:53:57 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 88,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "6:51:58 PM",
+    "lastUsed": "6:53:57 PM",
+    "name": "Postman",
+    "title": "create - My Workspace",
+    "session": [
+        {
+            "duration": 38,
+            "startTime": "6:51:58 PM",
+            "endTime": "6:52:36 PM"
+        },
+        {
+            "duration": 41,
+            "startTime": "6:52:45 PM",
+            "endTime": "6:53:26 PM"
+        },
+        {
+            "duration": 0,
+            "startTime": "6:53:57 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 88,
+    "isActive": true
+}
+
+Before
+{
+    "id": 77594628,
+    "firstUsed": "6:52:36 PM",
+    "lastUsed": "6:53:57 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Debkanta Chakraborty | Microsoft Teams",
+    "session": [
+        {
+            "duration": 9,
+            "startTime": "6:52:36 PM",
+            "endTime": "6:52:45 PM"
+        },
+        {
+            "duration": 31,
+            "startTime": "6:53:26 PM",
+            "endTime": "6:53:57 PM"
+        }
+    ],
+    "totalUsage": 81,
+    "isActive": false
+}
+
+After
+{
+    "id": 77594628,
+    "firstUsed": "6:52:36 PM",
+    "lastUsed": "6:53:57 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Debkanta Chakraborty | Microsoft Teams",
+    "session": [
+        {
+            "duration": 9,
+            "startTime": "6:52:36 PM",
+            "endTime": "6:52:45 PM"
+        },
+        {
+            "duration": 31,
+            "startTime": "6:53:26 PM",
+            "endTime": "6:53:57 PM"
+        }
+    ],
+    "totalUsage": 81,
+    "isActive": false
+}
+
+Before
+{
+    "id": 48234500,
+    "firstUsed": "12:45:44 PM",
+    "lastUsed": "12:45:45 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:44 PM",
+            "endTime": "12:45:45 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "12:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 31,
+    "isActive": true
+}
+
+After
+{
+    "id": 48234500,
+    "firstUsed": "12:45:44 PM",
+    "lastUsed": "12:45:45 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:44 PM",
+            "endTime": "12:45:45 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "12:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 31,
+    "isActive": true
+}
+
+Before
+{
+    "id": 25165828,
+    "firstUsed": "12:45:45 PM",
+    "lastUsed": "12:45:50 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:45 PM",
+            "endTime": "12:45:46 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "12:45:47 PM",
+            "endTime": "12:45:50 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+After
+{
+    "id": 25165828,
+    "firstUsed": "12:45:45 PM",
+    "lastUsed": "12:45:50 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:45 PM",
+            "endTime": "12:45:46 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "12:45:47 PM",
+            "endTime": "12:45:50 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+Before
+{
+    "id": 71303169,
+    "firstUsed": "12:45:50 PM",
+    "lastUsed": "12:45:51 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "MySQL Workbench",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:46 PM",
+            "endTime": "12:45:47 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+After
+{
+    "id": 71303169,
+    "firstUsed": "12:45:50 PM",
+    "lastUsed": "12:45:51 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "MySQL Workbench",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:46 PM",
+            "endTime": "12:45:47 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+Before
+{
+    "id": 58720260,
+    "firstUsed": "12:45:51 PM",
+    "lastUsed": "12:45:52 PM",
+    "name": "Google-chrome",
+    "title": "Guides: Authentication | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:45:50 PM",
+            "endTime": "12:45:52 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 58720260,
+    "firstUsed": "12:45:51 PM",
+    "lastUsed": "12:45:52 PM",
+    "name": "Google-chrome",
+    "title": "Guides: Authentication | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:45:50 PM",
+            "endTime": "12:45:52 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+Before
+{
+    "id": 48234500,
+    "firstUsed": "12:45:44 PM",
+    "lastUsed": "12:45:45 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:44 PM",
+            "endTime": "12:45:45 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "12:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 31,
+    "isActive": true
+}
+
+After
+{
+    "id": 48234500,
+    "firstUsed": "12:45:44 PM",
+    "lastUsed": "12:45:45 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:44 PM",
+            "endTime": "12:45:45 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "12:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 31,
+    "isActive": true
+}
+
+Before
+{
+    "id": 25165828,
+    "firstUsed": "12:45:45 PM",
+    "lastUsed": "12:45:50 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:45 PM",
+            "endTime": "12:45:46 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "12:45:47 PM",
+            "endTime": "12:45:50 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+After
+{
+    "id": 25165828,
+    "firstUsed": "12:45:45 PM",
+    "lastUsed": "12:45:50 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:45 PM",
+            "endTime": "12:45:46 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "12:45:47 PM",
+            "endTime": "12:45:50 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+Before
+{
+    "id": 71303169,
+    "firstUsed": "12:45:50 PM",
+    "lastUsed": "12:45:51 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "MySQL Workbench",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:46 PM",
+            "endTime": "12:45:47 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+After
+{
+    "id": 71303169,
+    "firstUsed": "12:45:50 PM",
+    "lastUsed": "12:45:51 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "MySQL Workbench",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:46 PM",
+            "endTime": "12:45:47 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+Before
+{
+    "id": 58720260,
+    "firstUsed": "12:45:51 PM",
+    "lastUsed": "12:45:52 PM",
+    "name": "Google-chrome",
+    "title": "Guides: Authentication | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:45:50 PM",
+            "endTime": "12:45:52 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 58720260,
+    "firstUsed": "12:45:51 PM",
+    "lastUsed": "12:45:52 PM",
+    "name": "Google-chrome",
+    "title": "Guides: Authentication | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:45:50 PM",
+            "endTime": "12:45:52 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+Before
+{
+    "id": 48234500,
+    "firstUsed": "12:45:44 PM",
+    "lastUsed": "12:45:45 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:44 PM",
+            "endTime": "12:45:45 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "12:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 31,
+    "isActive": true
+}
+
+After
+{
+    "id": 48234500,
+    "firstUsed": "12:45:44 PM",
+    "lastUsed": "12:45:45 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:44 PM",
+            "endTime": "12:45:45 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "12:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 31,
+    "isActive": true
+}
+
+Before
+{
+    "id": 25165828,
+    "firstUsed": "12:45:45 PM",
+    "lastUsed": "12:45:50 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:45 PM",
+            "endTime": "12:45:46 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "12:45:47 PM",
+            "endTime": "12:45:50 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+After
+{
+    "id": 25165828,
+    "firstUsed": "12:45:45 PM",
+    "lastUsed": "12:45:50 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:45 PM",
+            "endTime": "12:45:46 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "12:45:47 PM",
+            "endTime": "12:45:50 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+Before
+{
+    "id": 71303169,
+    "firstUsed": "12:45:50 PM",
+    "lastUsed": "12:45:51 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "MySQL Workbench",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:46 PM",
+            "endTime": "12:45:47 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+After
+{
+    "id": 71303169,
+    "firstUsed": "12:45:50 PM",
+    "lastUsed": "12:45:51 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "MySQL Workbench",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:46 PM",
+            "endTime": "12:45:47 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+Before
+{
+    "id": 58720260,
+    "firstUsed": "12:45:51 PM",
+    "lastUsed": "12:45:52 PM",
+    "name": "Google-chrome",
+    "title": "Guides: Authentication | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:45:50 PM",
+            "endTime": "12:45:52 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 58720260,
+    "firstUsed": "12:45:51 PM",
+    "lastUsed": "12:45:52 PM",
+    "name": "Google-chrome",
+    "title": "Guides: Authentication | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:45:50 PM",
+            "endTime": "12:45:52 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+Before
+{
+    "id": 48234500,
+    "firstUsed": "12:45:44 PM",
+    "lastUsed": "12:45:45 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:44 PM",
+            "endTime": "12:45:45 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "12:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 31,
+    "isActive": true
+}
+
+After
+{
+    "id": 48234500,
+    "firstUsed": "12:45:44 PM",
+    "lastUsed": "12:45:45 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:44 PM",
+            "endTime": "12:45:45 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "12:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 31,
+    "isActive": true
+}
+
+Before
+{
+    "id": 25165828,
+    "firstUsed": "12:45:45 PM",
+    "lastUsed": "12:45:50 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:45 PM",
+            "endTime": "12:45:46 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "12:45:47 PM",
+            "endTime": "12:45:50 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+After
+{
+    "id": 25165828,
+    "firstUsed": "12:45:45 PM",
+    "lastUsed": "12:45:50 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:45 PM",
+            "endTime": "12:45:46 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "12:45:47 PM",
+            "endTime": "12:45:50 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+Before
+{
+    "id": 71303169,
+    "firstUsed": "12:45:50 PM",
+    "lastUsed": "12:45:51 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "MySQL Workbench",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:46 PM",
+            "endTime": "12:45:47 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+After
+{
+    "id": 71303169,
+    "firstUsed": "12:45:50 PM",
+    "lastUsed": "12:45:51 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "MySQL Workbench",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:46 PM",
+            "endTime": "12:45:47 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+Before
+{
+    "id": 58720260,
+    "firstUsed": "12:45:51 PM",
+    "lastUsed": "12:45:52 PM",
+    "name": "Google-chrome",
+    "title": "Guides: Authentication | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:45:50 PM",
+            "endTime": "12:45:52 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 58720260,
+    "firstUsed": "12:45:51 PM",
+    "lastUsed": "12:45:52 PM",
+    "name": "Google-chrome",
+    "title": "Guides: Authentication | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:45:50 PM",
+            "endTime": "12:45:52 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+Before
+{
+    "id": 48234500,
+    "firstUsed": "12:45:44 PM",
+    "lastUsed": "12:45:45 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:44 PM",
+            "endTime": "12:45:45 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "12:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 31,
+    "isActive": true
+}
+
+After
+{
+    "id": 48234500,
+    "firstUsed": "12:45:44 PM",
+    "lastUsed": "12:45:45 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:44 PM",
+            "endTime": "12:45:45 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "12:45:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 31,
+    "isActive": true
+}
+
+Before
+{
+    "id": 25165828,
+    "firstUsed": "12:45:45 PM",
+    "lastUsed": "12:45:50 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:45 PM",
+            "endTime": "12:45:46 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "12:45:47 PM",
+            "endTime": "12:45:50 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+After
+{
+    "id": 25165828,
+    "firstUsed": "12:45:45 PM",
+    "lastUsed": "12:45:50 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:45 PM",
+            "endTime": "12:45:46 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "12:45:47 PM",
+            "endTime": "12:45:50 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+Before
+{
+    "id": 71303169,
+    "firstUsed": "12:45:50 PM",
+    "lastUsed": "12:45:51 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "MySQL Workbench",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:46 PM",
+            "endTime": "12:45:47 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+After
+{
+    "id": 71303169,
+    "firstUsed": "12:45:50 PM",
+    "lastUsed": "12:45:51 PM",
+    "name": "Mysql-workbench-bin",
+    "title": "MySQL Workbench",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:45:46 PM",
+            "endTime": "12:45:47 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+Before
+{
+    "id": 58720260,
+    "firstUsed": "12:45:51 PM",
+    "lastUsed": "12:45:52 PM",
+    "name": "Google-chrome",
+    "title": "Guides: Authentication | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:45:50 PM",
+            "endTime": "12:45:52 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 58720260,
+    "firstUsed": "12:45:51 PM",
+    "lastUsed": "12:45:52 PM",
+    "name": "Google-chrome",
+    "title": "Guides: Authentication | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "12:45:50 PM",
+            "endTime": "12:45:52 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}

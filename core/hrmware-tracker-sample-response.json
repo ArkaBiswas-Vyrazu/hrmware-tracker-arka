@@ -83,3 +83,432 @@
         }
     ]
 }
+{
+    "allWindows": [
+        {
+            "id": 48234500,
+            "firstUsed": "12:45:44 PM",
+            "lastUsed": "12:45:45 PM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:44 PM",
+                    "endTime": "12:45:45 PM"
+                },
+                {
+                    "duration": 9,
+                    "startTime": "12:45:52 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 31,
+            "isActive": true
+        },
+        {
+            "id": 25165828,
+            "firstUsed": "12:45:45 PM",
+            "lastUsed": "12:45:50 PM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:45 PM",
+                    "endTime": "12:45:46 PM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "12:45:47 PM",
+                    "endTime": "12:45:50 PM"
+                }
+            ],
+            "totalUsage": 5,
+            "isActive": false
+        },
+        {
+            "id": 71303169,
+            "firstUsed": "12:45:50 PM",
+            "lastUsed": "12:45:51 PM",
+            "name": "Mysql-workbench-bin",
+            "title": "MySQL Workbench",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:46 PM",
+                    "endTime": "12:45:47 PM"
+                }
+            ],
+            "totalUsage": 1,
+            "isActive": false
+        },
+        {
+            "id": 58720260,
+            "firstUsed": "12:45:51 PM",
+            "lastUsed": "12:45:52 PM",
+            "name": "Google-chrome",
+            "title": "Guides: Authentication | Next.js - Google Chrome",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "12:45:50 PM",
+                    "endTime": "12:45:52 PM"
+                }
+            ],
+            "totalUsage": 2,
+            "isActive": false
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 3,
+            "startTime": "12:45:43 PM",
+            "endTime": "12:45:44 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 48234500,
+            "firstUsed": "12:45:44 PM",
+            "lastUsed": "12:45:45 PM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:44 PM",
+                    "endTime": "12:45:45 PM"
+                },
+                {
+                    "duration": 9,
+                    "startTime": "12:45:52 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 31,
+            "isActive": true
+        },
+        {
+            "id": 25165828,
+            "firstUsed": "12:45:45 PM",
+            "lastUsed": "12:45:50 PM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:45 PM",
+                    "endTime": "12:45:46 PM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "12:45:47 PM",
+                    "endTime": "12:45:50 PM"
+                }
+            ],
+            "totalUsage": 5,
+            "isActive": false
+        },
+        {
+            "id": 71303169,
+            "firstUsed": "12:45:50 PM",
+            "lastUsed": "12:45:51 PM",
+            "name": "Mysql-workbench-bin",
+            "title": "MySQL Workbench",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:46 PM",
+                    "endTime": "12:45:47 PM"
+                }
+            ],
+            "totalUsage": 1,
+            "isActive": false
+        },
+        {
+            "id": 58720260,
+            "firstUsed": "12:45:51 PM",
+            "lastUsed": "12:45:52 PM",
+            "name": "Google-chrome",
+            "title": "Guides: Authentication | Next.js - Google Chrome",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "12:45:50 PM",
+                    "endTime": "12:45:52 PM"
+                }
+            ],
+            "totalUsage": 2,
+            "isActive": false
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 3,
+            "startTime": "12:45:43 PM",
+            "endTime": "12:45:44 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 48234500,
+            "firstUsed": "12:45:44 PM",
+            "lastUsed": "12:45:45 PM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:44 PM",
+                    "endTime": "12:45:45 PM"
+                },
+                {
+                    "duration": 9,
+                    "startTime": "12:45:52 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 31,
+            "isActive": true
+        },
+        {
+            "id": 25165828,
+            "firstUsed": "12:45:45 PM",
+            "lastUsed": "12:45:50 PM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:45 PM",
+                    "endTime": "12:45:46 PM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "12:45:47 PM",
+                    "endTime": "12:45:50 PM"
+                }
+            ],
+            "totalUsage": 5,
+            "isActive": false
+        },
+        {
+            "id": 71303169,
+            "firstUsed": "12:45:50 PM",
+            "lastUsed": "12:45:51 PM",
+            "name": "Mysql-workbench-bin",
+            "title": "MySQL Workbench",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:46 PM",
+                    "endTime": "12:45:47 PM"
+                }
+            ],
+            "totalUsage": 1,
+            "isActive": false
+        },
+        {
+            "id": 58720260,
+            "firstUsed": "12:45:51 PM",
+            "lastUsed": "12:45:52 PM",
+            "name": "Google-chrome",
+            "title": "Guides: Authentication | Next.js - Google Chrome",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "12:45:50 PM",
+                    "endTime": "12:45:52 PM"
+                }
+            ],
+            "totalUsage": 2,
+            "isActive": false
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 3,
+            "startTime": "12:45:43 PM",
+            "endTime": "12:45:44 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 48234500,
+            "firstUsed": "12:45:44 PM",
+            "lastUsed": "12:45:45 PM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:44 PM",
+                    "endTime": "12:45:45 PM"
+                },
+                {
+                    "duration": 9,
+                    "startTime": "12:45:52 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 31,
+            "isActive": true
+        },
+        {
+            "id": 25165828,
+            "firstUsed": "12:45:45 PM",
+            "lastUsed": "12:45:50 PM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:45 PM",
+                    "endTime": "12:45:46 PM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "12:45:47 PM",
+                    "endTime": "12:45:50 PM"
+                }
+            ],
+            "totalUsage": 5,
+            "isActive": false
+        },
+        {
+            "id": 71303169,
+            "firstUsed": "12:45:50 PM",
+            "lastUsed": "12:45:51 PM",
+            "name": "Mysql-workbench-bin",
+            "title": "MySQL Workbench",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:46 PM",
+                    "endTime": "12:45:47 PM"
+                }
+            ],
+            "totalUsage": 1,
+            "isActive": false
+        },
+        {
+            "id": 58720260,
+            "firstUsed": "12:45:51 PM",
+            "lastUsed": "12:45:52 PM",
+            "name": "Google-chrome",
+            "title": "Guides: Authentication | Next.js - Google Chrome",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "12:45:50 PM",
+                    "endTime": "12:45:52 PM"
+                }
+            ],
+            "totalUsage": 2,
+            "isActive": false
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 3,
+            "startTime": "12:45:43 PM",
+            "endTime": "12:45:44 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 48234500,
+            "firstUsed": "12:45:44 PM",
+            "lastUsed": "12:45:45 PM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:44 PM",
+                    "endTime": "12:45:45 PM"
+                },
+                {
+                    "duration": 9,
+                    "startTime": "12:45:52 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 31,
+            "isActive": true
+        },
+        {
+            "id": 25165828,
+            "firstUsed": "12:45:45 PM",
+            "lastUsed": "12:45:50 PM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:45 PM",
+                    "endTime": "12:45:46 PM"
+                },
+                {
+                    "duration": 3,
+                    "startTime": "12:45:47 PM",
+                    "endTime": "12:45:50 PM"
+                }
+            ],
+            "totalUsage": 5,
+            "isActive": false
+        },
+        {
+            "id": 71303169,
+            "firstUsed": "12:45:50 PM",
+            "lastUsed": "12:45:51 PM",
+            "name": "Mysql-workbench-bin",
+            "title": "MySQL Workbench",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "12:45:46 PM",
+                    "endTime": "12:45:47 PM"
+                }
+            ],
+            "totalUsage": 1,
+            "isActive": false
+        },
+        {
+            "id": 58720260,
+            "firstUsed": "12:45:51 PM",
+            "lastUsed": "12:45:52 PM",
+            "name": "Google-chrome",
+            "title": "Guides: Authentication | Next.js - Google Chrome",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "12:45:50 PM",
+                    "endTime": "12:45:52 PM"
+                }
+            ],
+            "totalUsage": 2,
+            "isActive": false
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 3,
+            "startTime": "12:45:43 PM",
+            "endTime": "12:45:44 PM"
+        }
+    ]
+}

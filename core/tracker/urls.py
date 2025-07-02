@@ -4,7 +4,10 @@ from .views import (
     TrackerTimeBarView,
     TrackerProductivityStatusView,
     TrackerBasicTimeDetailsView,
-    TrackerWeeklySummary,    
+    TrackerWeeklySummary,
+    TrackerAppCategoryView,
+    TrackerSetAppCategoryView,
+    TrackerAppsView
 )
 
 urlpatterns = [
@@ -13,4 +16,7 @@ urlpatterns = [
     path("productivity-status", TrackerProductivityStatusView.as_view(), name="tracker-productivity-status-view"),
     path("basic-details", TrackerBasicTimeDetailsView.as_view(), name="tracker-basic-time-details-view"),
     path("weekly-summary", TrackerWeeklySummary.as_view(), name="tracker-weekly-summary-view"),
+    path("categories", TrackerAppCategoryView.as_view(), name="tracker-categories-view"),
+    path("apps/update", TrackerSetAppCategoryView.as_view(), name="tracker-set-app-category-view"),
+    path("apps", TrackerAppsView.as_view(), name="tracker-apps-view"),
 ]

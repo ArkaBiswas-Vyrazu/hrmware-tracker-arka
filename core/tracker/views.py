@@ -3,11 +3,17 @@
 Last Revision Date: June 30 2025 14:48 PM
 """
 
-from typing import Any, TypedDict, Optional
+from typing import Any, Optional, Literal
 import warnings
 import json
-from datetime import datetime, timedelta, timezone as std_timezone
 from zoneinfo import ZoneInfo
+from datetime import (
+    datetime,
+    timedelta,
+    date as std_date,
+    time as std_time,
+    timezone as std_timezone
+)
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -34,7 +40,13 @@ from .serializers import (
     ActivityLogsDataSerializer,
     TimeSegmentsSerializer,
     GetTimeSegmentsSerializer,
-    GetWeeklyHoursSerializer
+    GetWeeklyHoursSerializer,
+    TrackerAppCategoriesSerializer,
+    TrackerAppCategoryPatchSerializer,
+    TrackerSetAppCategorySerializer,
+    TrackerAppsSerializer,
+    TrackerAppCategoryPostSerializer,
+    TrackerProductiveBreakDownSerializer
 )
 
 
@@ -132,7 +144,7 @@ class TrackerAPIView(APIView):
 
         all_windows = (
             [
-                self.extract_data(data) | {"activity_log": data.get("activity_logs", {}).get(data.get("id"))}
+                self.extract_data(data) | {"activity_log": main_data.get("activity_logs", {}).get(data.get("id"))}
                 for data in main_data.get("allWindows", [])
             ]
         )
@@ -194,6 +206,7 @@ class TrackerAPIView(APIView):
                 warnings.warn("No request user found, using default superuser")
                 request_user = self.get_superuser()
 
+            print(json.dumps(main_data, indent=4))
             for data in main_data.get("allWindows"):
                 extracted_data = self.extract_data(data)
 
@@ -219,6 +232,8 @@ class TrackerAPIView(APIView):
 
                 # Assuming each id passed is unique
                 main_data["activity_logs"][data.get("id")] = activity_log
+            print("----------------------------------------- Afterwards ------------------------------------------ ")
+            print(main_data)
 
             activity_logs = ActivityLogsSerializer(activity_logs, many=True).data
             time_segments = self.create_time_segments(main_data, request_user)
@@ -327,8 +342,12 @@ class TrackerTimeBarView(APIView):
         segments that should accurately depict the time segments.
 
         This method is to be considered the default way to fetch the time bar as it
-        provides more granularity.
+        provides more granularity. However, this can be process intensive as proper
+        division of the time bar takes time.
         """
+
+        msg = "This work is under progress. Please use the fine_grained flag and set it to false"
+        raise NotImplementedError(msg)
 
         time_bar_data = []
 
@@ -434,7 +453,7 @@ class TrackerTimeBarView(APIView):
                 .order_by("start_time")
             )
 
-            fine_grained: bool = data.get("fine_grained", True)
+            fine_grained: bool = data.get("fine_grained", False)
             if fine_grained is True:
                 time_bar_data = self.fetch_time_bar_without_overlaps(time_segments=time_segments)
             else:
@@ -794,7 +813,7 @@ class TrackerBasicTimeDetailsView(APIView):
 
 class TrackerWeeklySummary(APIView):
     @staticmethod
-    def get_closest_start_date(date: datetime, week_start_index: int = 0) -> datetime:
+    def get_closest_start_date(date: datetime | std_date, week_start_index: int = 0) -> datetime | std_date:
         """Get the closest starting date. By default, the starting date is considered Monday.
 
         The week_start_index follows the same indexing that is followed by the [weekday
@@ -854,7 +873,7 @@ class TrackerWeeklySummary(APIView):
             OpenApiParameter(
                 name="week_start", location=OpenApiParameter.QUERY,
                 required=False, type=OpenApiTypes.STR,
-                description=f"Allowed Values: {list(GetWeeklyHoursSerializer().shortcut_names.keys())}",
+                description=f"Allowed Values: {", ".join(tuple(GetWeeklyHoursSerializer.SHORTCUT_NAMES.keys()))}",
             ),
             OpenApiParameter(
                 name="time_start", location=OpenApiParameter.QUERY,
@@ -863,7 +882,13 @@ class TrackerWeeklySummary(APIView):
             OpenApiParameter(
                 name="time_end", location=OpenApiParameter.QUERY,
                 required=True, type=OpenApiTypes.TIME,
-            )
+            ),
+            OpenApiParameter(
+                name="progression", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.STR,
+                description=f"Allowed Values: {", ".join(tuple(GetWeeklyHoursSerializer.PROGRESSION_VALUES))}",
+                default="forward",
+            ),
         ]
     )
     def get(self, request: Request):
@@ -894,7 +919,15 @@ class TrackerWeeklySummary(APIView):
             weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
             week_start_index = weekdays.index(data.get("week_start", "monday"))
             closest_start_date = self.get_closest_start_date(date, week_start_index)
-            last_date = closest_start_date + timedelta(days=7)
+            if isinstance(closest_start_date, std_date):
+                closest_start_date = datetime.combine(closest_start_date, datetime.min.time())
+
+            progression: Literal["forward"] | Literal["backward"] = data.get("progression")
+            last_date = (
+                closest_start_date + timedelta(days=7)
+                if progression == "forward"
+                else closest_start_date - timedelta(days=7)
+            )
 
             response = {
                 "working_time": {},
@@ -902,6 +935,9 @@ class TrackerWeeklySummary(APIView):
             }
             working_date = closest_start_date
             while working_date != last_date:
+                print("Working Date: ", working_date)
+                print("Last Date: ", last_date)
+
                 working_time = away_time = 0
 
                 # time_start_datetime = datetime.combine(
@@ -928,7 +964,11 @@ class TrackerWeeklySummary(APIView):
                 if activity_logs.count() == 0:
                     response["working_time"][weekdays[working_date.weekday()]] = "0s"
                     response["away_time"][weekdays[working_date.weekday()]] = "0s"
-                    working_date += timedelta(days=1)
+                    
+                    if progression == "forward":
+                        working_date += timedelta(days=1)
+                    else:
+                        working_date -= timedelta(days=1)
                     continue
 
                 start_time = activity_logs.first().start_timestamp
@@ -966,7 +1006,10 @@ class TrackerWeeklySummary(APIView):
                 response["working_time"][weekdays[working_date.weekday()]] = self.format_time(working_time).strip()
                 response["away_time"][weekdays[working_date.weekday()]] = self.format_time(away_time).strip()
 
-                working_date += timedelta(days=1)
+                if progression == "forward":
+                    working_date += timedelta(days=1)
+                else:
+                    working_date -= timedelta(days=1)
 
             return Response(status=200, data=response)
         except Exception as e:
@@ -980,6 +1023,194 @@ class TrackerWeeklySummary(APIView):
             return Response(status=500, data=get_traceback())
 
 
-class TrackerSetAppCategory(APIView):
+class TrackerAppCategoryView(APIView):
+    def get(self, request: Request):
+        """Get a list of all app categories defined."""
+
+        try:
+            tracker_categories = TrackerAppCategories.objects.all()
+            response = {
+                "app_categories": TrackerAppCategoriesSerializer(tracker_categories, many=True).data
+            }
+            return Response(status=200, data=response)
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return Response(status=500, data=get_traceback())
+
+    @extend_schema(request=TrackerAppCategoryPatchSerializer)
+    def patch(self, request: Request):
+        """Update Category details.
+        
+        Note that updating category details would also update subsequent
+        records in activity_logs and time_segments.
+        """
+
+        try:
+            serializer = TrackerAppCategoryPatchSerializer(data=request.data)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            data = serializer.validated_data
+            app_category: TrackerAppCategories = serializer.validated_data["app_category"]
+
+            if app_category.name != data.get("name"):
+                app_category.name = data.get("name") or app_category.name
+            if app_category.productivity_status_type != data.get("productivity_status_type"):
+                app_category.productivity_status_type = data.get("productivity_status_type") or app_category.productivity_status_type
+
+            app_category.save()
+            return Response(status=200, data={"app_category": TrackerAppCategoriesSerializer(app_category).data})
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+            
+            return Response(status=500, data=get_traceback())
+
+    @extend_schema(request=TrackerAppCategoryPostSerializer)
     def post(self, request: Request):
-        """API to set App Category"""
+        """Create a new category"""
+
+        try:
+            serializer = TrackerAppCategoryPostSerializer(data=request.data)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+    
+            tracker_app_category = TrackerAppCategories.objects.create(
+                name=serializer.validated_data.get("name"),
+                productivity_status_type=serializer.validated_data.get("productivity_status_type"),
+            )
+            return Response(status=200, data=TrackerAppCategoriesSerializer(tracker_app_category).data)
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+            
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerAppsView(APIView):
+    def get(self, request: Request):
+        """List all apps found through the tracker."""
+
+        try:
+            apps = TrackerApps.objects.all()
+            return Response(status=200, data=TrackerAppsSerializer(apps, many=True).data)
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+            
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerSetAppCategoryView(APIView):
+    serializer_class = TrackerSetAppCategorySerializer
+
+    def patch(self, request: Request):
+        """Update the category of an app.
+        
+        Note that on a successful update,
+        related activity logs and time segments will be updated
+        """
+
+        try:
+            serializer = TrackerSetAppCategorySerializer(data=request.data)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            app, category = serializer.validated_data.values()
+            app.category = category
+            app.update()
+
+            return Response(status=200, data={"app": TrackerAppsSerializer(app).data})
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+            
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerProductiveBreakDownView(APIView):
+    def start_time(self,
+                   user,
+                   start_time: Optional[std_time] = None,
+                   date: std_date = datetime.now().date()) -> std_time:
+        """Get the start time"""
+
+        if start_time is None:
+            new_start_time = (
+                ActivityLogs.objects
+                .filter(
+                    date=date,
+                    user=user,
+                )
+                .order_by("start_timestamp")
+                .first()
+                .start_timestamp
+                .time()
+            )
+            return new_start_time
+
+        return start_time
+
+
+    @staticmethod
+    def calculate_working_time(date: datetime | std_date,
+                               start_time: Optional[std_time] = None,
+                               end_time: Optional[std_time] = None):
+        """Get the working time for provided date.
+        
+        If start_time and end_time is not provided, then
+        the first recorded and last recorded times respectively
+        will be used for calculation.
+        """
+
+        
+
+    def get(self, request: Request):
+        """Fetch productive time break down for the provided date, the day before the provided date
+        and the week for the provided date.
+
+        It will return the total duration and percentage of working time, productive time,
+        non-productive time, neutral time and away time for the provided date, the 
+        day before the provided date and the week for the provided date.
+
+        Response can be both Activity Key Based and Day Key Based, so any format can be
+        chosen. By default, response will be provided on the basis of activity keys.
+        """
+
+        try:
+            serializer = TrackerProductiveBreakDownSerializer(request.query_params)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+            
+            return Response(status=500, data=get_traceback())

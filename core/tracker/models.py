@@ -124,6 +124,24 @@ class TrackerAppCategories(models.Model):
         managed = True
         db_table = 'tracker_app_categories'
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        activity_logs = ActivityLogs.objects.filter(category=self)
+        if not activity_logs.exists():
+            return 
+
+        for activity_log in activity_logs:
+            activity_log.productivity_status = self.productivity_status_type
+            activity_log.save()
+
+            time_segments = TimeSegments.objects.filter(activity_log=activity_log)
+            for time_segment in time_segments:
+                time_segment.segment_type = activity_log.productivity_status
+                time_segment.save()
+        
+        return
+
 
 class TrackerApps(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -138,6 +156,27 @@ class TrackerApps(models.Model):
     class Meta:
         managed = True
         db_table = 'tracker_apps'
+
+    def update(self, *args, **kwargs):
+        self.save(*args, **kwargs)
+
+        activity_logs = (
+            ActivityLogs.objects
+            .filter(app=self)
+            .exclude(productivity_status=self.category.productivity_status_type)
+        )
+        for activity_log in activity_logs:
+            if activity_log.productivity_status != self.category.productivity_status_type:
+                activity_log.productivity_status = self.category.productivity_status_type
+                activity_log.save()
+            
+            time_segments = TimeSegments.objects.filter(activity_log=activity_log)
+            for time_segment in time_segment:
+                if time_segment.segment_type != activity_log.productivity_status:
+                    time_segment.segment_type = activity_log.productivity_status
+                    time_segment.save()
+        
+        return
 
 
 class TrackerSummaries(models.Model):
