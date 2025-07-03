@@ -1,9 +1,10 @@
 """HRMWARE Tracker API Serializers"""
 
-from datetime import datetime
+from datetime import datetime, time as std_time, timezone as std_timezone
 import json
 from zoneinfo import ZoneInfo
 
+from django.conf import settings
 from rest_framework import serializers
 from rest_framework.settings import api_settings
 from .models import (
@@ -242,17 +243,73 @@ class TrackerAppsSerializer(serializers.ModelSerializer):
 
 
 class TrackerProductiveBreakDownSerializer(serializers.Serializer):
-    date = serializers.DateField()
-    user = serializers.CharField()
-    time_start = serializers.TimeField(required=False, format=api_settings.TIME_FORMAT)
-    time_end = serializers.TimeField(required=False, format=api_settings.TIME_FORMAT)
+    """
+    Please note that the time_start and time_end variables will be
+    assumed as localtime and converted to equivalent UTC Format
+    for proper results.
+    """
 
-    OUTPUT_BASIS = ("activity", "day")
-    key_basis = serializers.ChoiceField(
-        choices=OUTPUT_BASIS,
+    date = serializers.DateField(required=False, default=datetime.now().date())
+    user = serializers.CharField()
+    start_time = serializers.TimeField(required=False, format=api_settings.TIME_FORMAT)
+    end_time = serializers.TimeField(required=False, format=api_settings.TIME_FORMAT)
+
+    OUTPUT_FORMAT_CHOICES = ("activity", "day")
+    output_format = serializers.ChoiceField(
+        choices=OUTPUT_FORMAT_CHOICES,
         required=False,
         default="activity"
     )
+
+    number_of_days_in_work_week = serializers.IntegerField(required=False, default=5)
+    work_days_to_ignore = serializers.CharField(required=False, default="saturday,sunday")
+
+    VALID_WEEK_NAMES = (
+        "monday", "tuesday", "wednesday",
+        "thursday", "friday", "saturday",
+        "sunday"
+    )
+
+    # Reference: https://www.yourdictionary.com/articles/abbreviations-days-months
+    SHORTCUT_NAMES = {
+        "mon": "monday", "m": "monday",
+        "tue": "tuesday", "tues": "tuesday", "tu": "tuesday", "t": "tuesday",
+        "wed": "wednesday", "w": "wednesday",
+        "thu": "thursday", "thur": "thursday", "thurs": "thursday", "th": "thursday", "r": "thursday",
+        "fri": "friday", "f": "friday",
+        "sat": "saturday", "s": "saturday",
+        "sun": "sunday", "su": "sunday", "u": "sunday"
+    }
+    week_start = serializers.CharField(required=False, default="monday")
+
+    def validate_week_start(self, week_start):
+        if week_start in self.SHORTCUT_NAMES:
+            week_start = self.SHORTCUT_NAMES[week_start]
+            return week_start
+        
+        if week_start not in self.VALID_WEEK_NAMES:
+            msg = "Please provide a valid week name"
+            raise serializers.ValidationError(msg)
+
+        return week_start
+
+    def validate_work_days_to_ignore(self, work_days_to_ignore):
+        work_days_to_ignore_list = work_days_to_ignore.split(",")
+        final_work_day_list = []
+        for work_day in work_days_to_ignore_list:
+            if work_day in self.SHORTCUT_NAMES:
+                work_day_to_add = self.SHORTCUT_NAMES.get(work_day)
+                if work_day_to_add not in final_work_day_list:
+                    final_work_day_list.append(work_day_to_add)
+                continue
+
+            if work_day not in self.VALID_WEEK_NAMES:
+                raise serializers.ValidationError("Please provide valid work days as comma seperated values")
+
+            if work_day not in final_work_day_list:
+                final_work_day_list.append(work_day)
+
+        return final_work_day_list
 
     def validate_user(self, user):
         user_object = Users.objects.filter(employee_id=user).first()
@@ -262,29 +319,52 @@ class TrackerProductiveBreakDownSerializer(serializers.Serializer):
         return user_object
 
     def validate(self, attrs):
-        time_start = attrs.get("time_start")
-        time_end = attrs.get("time_end")
+        start_time = attrs.get("start_time")
+        end_time = attrs.get("end_time")
 
-        if ((time_start is not None and time_end is None)
-            or (time_start is None and time_end is not None)):
-            msg = ("Please provide both time_start and time_end parameters. "
+        if start_time is None and end_time is None:
+            return attrs
+
+        if ((start_time is not None and end_time is None)
+            or (start_time is None and end_time is not None)):
+            msg = ("Please provide both start_time and end_time parameters. "
                    + "By default, the first discovered and the last discovered "
                    + "time for the requested user will be used.")
             raise serializers.ValidationError(msg)
 
-        if isinstance(time_start, str):
-            time_start = (
-                datetime.strptime(time_start, api_settings.TIME_FORMAT)
-                .replace(tzinfo=ZoneInfo("UTC"))
+        if isinstance(start_time, str):
+            start_time = (
+                datetime.strptime(start_time, api_settings.TIME_FORMAT)
+                .replace(tzinfo=ZoneInfo(settings.TIME_ZONE))
             )
-        if isinstance(time_end, str):
-            time_end = (
-                datetime.strptime(time_end, api_settings.TIME_FORMAT)
-                .replace(tzinfo=ZoneInfo("UTC"))
+        if isinstance(end_time, str):
+            end_time = (
+                datetime.strptime(end_time, api_settings.TIME_FORMAT)
+                .replace(tzinfo=ZoneInfo(settings.TIME_ZONE))
             )
 
-        if time_start > time_end:
+        if start_time > end_time:
             msg = "Start time should be lesser than End time"
             raise serializers.ValidationError(msg)
+
+        if start_time.tzinfo not in (std_timezone.utc, ZoneInfo("UTC")):
+            if isinstance(start_time, std_time):
+                attrs["start_time"] = (
+                    datetime.combine(datetime.now().date(), start_time)
+                    .astimezone(ZoneInfo("UTC"))
+                    .time()
+                )
+            else:
+                attrs["start_time"] = start_time.astimezone(ZoneInfo("UTC"))
+
+        if end_time.tzinfo not in (std_timezone.utc, ZoneInfo("UTC")):
+            if isinstance(end_time, std_time):    
+                attrs["end_time"] = (
+                    datetime.combine(datetime.now().date(), end_time)
+                    .astimezone(ZoneInfo("UTC"))
+                    .time()
+                )
+            else:
+                attrs["end_time"] = end_time.astimezone(ZoneInfo("UTC"))
 
         return attrs

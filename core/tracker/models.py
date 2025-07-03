@@ -30,10 +30,14 @@ class ActivityLogs(models.Model):
     window_title = models.TextField()
     start_timestamp = models.DateTimeField()
     end_timestamp = models.DateTimeField()
-    duration = models.IntegerField(db_comment='Measured in seconds')
     app = models.ForeignKey('TrackerApps', models.CASCADE)
     category = models.ForeignKey('TrackerAppCategories', models.CASCADE)
     is_active = models.BooleanField()
+
+    # Here, duration does not mean end_time - start_time
+    # It is the duration measured from start_time to the time the
+    # currently tracked activity ends
+    duration = models.IntegerField(db_comment='Measured in seconds')
 
     PRODUCTIVITY_STATUS_CHOICES = {
         "productive": "productive",
@@ -47,6 +51,12 @@ class ActivityLogs(models.Model):
     class Meta:
         managed = True
         db_table = 'activity_logs'
+
+    def get_actual_end_time(self) -> datetime:
+        return (
+            self.start_timestamp
+            + timedelta(seconds=self.duration)
+        )
 
 
 class Screenshots(models.Model):

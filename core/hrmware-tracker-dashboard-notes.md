@@ -166,7 +166,7 @@ Shows total duration and percentage of working time, productive time, non-produc
         "this_day": "4hr",
         "this_day_percentage": "44.45%",
         "yesterday": "8hr 30m",
-        "yestarday_percentage": "92.34%",
+        "yesterday_percentage": "92.34%",
         "this_week": "40hr 30m",
         "this_week_percentage": "100.75%" // Considering a 5-day work week
     },
