@@ -28,7 +28,7 @@ from drf_spectacular.utils import extend_schema, OpenApiParameter
 from drf_spectacular.types import OpenApiTypes
 
 from core.helpers import get_traceback, uniqid
-from .typing import TimeTracker, TimeBarDataItem
+from .typing import TimeTracker, TimeBarDataItem, Weekday
 from .exceptions import NoActivityLogFound
 from .models import (
     ActivityLogs,
@@ -1153,7 +1153,10 @@ class TrackerSetAppCategoryView(APIView):
 
 class TrackerProductiveBreakDownView(APIView):
     @staticmethod
-    def format_time(seconds: int | float) -> str:
+    def format_time(seconds: int | float | None) -> str | None:
+        if seconds is None:
+            return None
+
         time_object = timedelta(seconds=seconds)
         mins, seconds = divmod(seconds, 60)
         hours, minutes = divmod(mins, 60)
@@ -1256,7 +1259,7 @@ class TrackerProductiveBreakDownView(APIView):
                                user,
                                date: datetime | std_date,
                                start_time: Optional[std_time] = None,
-                               end_time: Optional[std_time] = None) -> dict[str, str]:
+                               end_time: Optional[std_time] = None) -> dict[str, float]:
         try:
             if start_time is None:
                 start_time = self.get_default_start_time(user, date)
@@ -1273,9 +1276,9 @@ class TrackerProductiveBreakDownView(APIView):
             total_working_time = (work_end_time - work_start_time).total_seconds()
 
             total_defined_work_duration = self.get_total_working_time(date, start_time, end_time)
-            working_time_percentage = f"{str(round((total_working_time / total_defined_work_duration) * 100, 2))}%"
+            working_time_percentage = round((total_working_time / total_defined_work_duration) * 100, 2)
 
-            return {"working_time": self.format_time(total_working_time), "working_time_percentage": working_time_percentage}
+            return {"working_time": total_working_time, "working_time_percentage": working_time_percentage}
 
         except NoActivityLogFound:
             return {"working_time": None, "working_time_percentage": None}
@@ -1284,7 +1287,7 @@ class TrackerProductiveBreakDownView(APIView):
                                   user,
                                   date: datetime | std_date,
                                   start_time: Optional[std_time] = None,
-                                  end_time: Optional[std_time] = None) -> dict[str, str]:
+                                  end_time: Optional[std_time] = None) -> dict[str, float]:
         try:
             if start_time is None:
                 start_time = self.get_default_start_time(user, date)
@@ -1300,15 +1303,15 @@ class TrackerProductiveBreakDownView(APIView):
                 total_productive_time += (activity_log.get_actual_end_time() - activity_log.start_timestamp).total_seconds()
 
         total_defined_work_duration = self.get_total_working_time(date=date, start_time=start_time, end_time=end_time)
-        productive_time_percentage = f"{str(round((total_productive_time / total_defined_work_duration) * 100, 2))}%"
+        productive_time_percentage = round((total_productive_time / total_defined_work_duration) * 100, 2)
 
-        return {"productive_time": self.format_time(seconds=total_productive_time), "productive_time_percentage": productive_time_percentage}
+        return {"productive_time": total_productive_time, "productive_time_percentage": productive_time_percentage}
 
     def calculate_non_productive_time_with_percentage(self,
                                                       user,
                                                       date: datetime | std_date,
                                                       start_time: Optional[std_time] = None,
-                                                      end_time: Optional[std_time] = None) -> dict[str, str]:
+                                                      end_time: Optional[std_time] = None) -> dict[str, float]:
         try:
             if start_time is None:
                 start_time = self.get_default_start_time(user, date)
@@ -1324,15 +1327,15 @@ class TrackerProductiveBreakDownView(APIView):
                 total_non_productive_time += (activity_log.get_actual_end_time() - activity_log.start_timestamp).total_seconds()
         
         total_defined_work_duration = self.get_total_working_time(date=date, start_time=start_time, end_time=end_time)
-        non_productive_time_percentage = f"{str(round((total_non_productive_time / total_defined_work_duration) * 100, 2))}%"
+        non_productive_time_percentage = round((total_non_productive_time / total_defined_work_duration) * 100, 2)
 
-        return {"non_productive_time": self.format_time(total_non_productive_time), "non_productive_time_percentage": non_productive_time_percentage}
+        return {"non_productive_time": total_non_productive_time, "non_productive_time_percentage": non_productive_time_percentage}
 
     def calculate_neutral_time_with_percentage(self,
                                                user,
                                                date: datetime | std_date,
                                                start_time: Optional[std_time] = None,
-                                               end_time: Optional[std_time] = None) -> dict[str, str]:
+                                               end_time: Optional[std_time] = None) -> dict[str, float]:
         try:
             if start_time is None:
                 start_time = self.get_default_start_time(user, date)
@@ -1348,15 +1351,15 @@ class TrackerProductiveBreakDownView(APIView):
                 total_neutral_time += (activity_log.get_actual_end_time() - activity_log.start_timestamp).total_seconds()
 
         total_defined_work_duration = self.get_total_working_time(date=date, start_time=start_time, end_time=end_time)
-        neutral_time_percentage = f"{str(round((total_neutral_time / total_defined_work_duration) * 100, 2))}%"
+        neutral_time_percentage = round((total_neutral_time / total_defined_work_duration) * 100, 2)
 
-        return {"neutral_time": self.format_time(total_neutral_time), "neutral_time_percentage": neutral_time_percentage}
+        return {"neutral_time": total_neutral_time, "neutral_time_percentage": neutral_time_percentage}
 
     def calculate_away_time_with_percentage(self,
                                             user,
                                             date: datetime | std_date,
                                             start_time: Optional[std_time] = None,
-                                            end_time: Optional[std_time] = None) -> dict[str, str]:
+                                            end_time: Optional[std_time] = None) -> dict[str, float]:
         try:
             if start_time is None:
                 start_time = self.get_default_start_time(user, date)
@@ -1391,14 +1394,46 @@ class TrackerProductiveBreakDownView(APIView):
                     total_away_time += duration.total_seconds()
 
         total_defined_work_duration = self.get_total_working_time(date=date, start_time=start_time, end_time=end_time)
-        away_time_percentage = f"{str(round((total_away_time / total_defined_work_duration) * 100, 2))}%"
-        return {"away_time": self.format_time(total_away_time), "away_time_percentage": away_time_percentage}
+        away_time_percentage = round((total_away_time / total_defined_work_duration) * 100, 2)
+
+        return {"away_time": total_away_time, "away_time_percentage": away_time_percentage}
+
+    def get_days_to_work_on(self,
+                            date: datetime | std_date,
+                            week_start: Weekday = "monday",
+                            number_of_days_in_work_week = 5,
+                            work_days_to_ignore: list[Weekday] = []) -> list[datetime | std_date]:
+        """Get a list of dates to get result from"""
+
+        # Weekdays arranged according to the
+        # weekday method provided by the datetime module
+        weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+        closest_date = self.get_closest_start_date(date, weekdays.index(week_start))
+        work_days_to_ignore_formatted = [
+            weekdays.index(weekday)
+            for weekday in work_days_to_ignore
+        ]
+
+        days_list: list[datetime | std_date] = []
+        working_date = closest_date
+        final_date_to_avoid = working_date + timedelta(days=number_of_days_in_work_week)
+
+        while working_date != final_date_to_avoid:
+            if working_date.weekday() not in work_days_to_ignore_formatted:
+                days_list.append(working_date)
+            
+            working_date += timedelta(days=1)
+
+        return days_list
 
     def get_activity_key_based_response(self,
                                         user,
                                         date: datetime | std_date,
                                         start_time: Optional[std_time],
-                                        end_time: Optional[std_time]):
+                                        end_time: Optional[std_time],
+                                        week_start: Weekday,
+                                        number_of_days_in_work_week: int,
+                                        work_days_to_ignore: list[Weekday]):
         """Get response in activity key format.
         
         Example:-
@@ -1433,16 +1468,23 @@ class TrackerProductiveBreakDownView(APIView):
             "working", "productive",
             "non_productive", "neutral", "away"
         )
+        valid_week_days = self.get_days_to_work_on(
+            date,
+            week_start,
+            number_of_days_in_work_week,
+            work_days_to_ignore
+        )
+        print(valid_week_days)
 
         for response_key in response_keys:
             this_day_calculations = getattr(self, f"calculate_{response_key}_time_with_percentage")(user, date, start_time, end_time)
             yesterday_calculations = getattr(self, f"calculate_{response_key}_time_with_percentage")(user, date - timedelta(days=1), start_time, end_time)
 
             response[f"{response_key}_time"] = {
-                "this_day": this_day_calculations[f"{response_key}_time"],
-                "this_day_percentage": this_day_calculations[f"{response_key}_time_percentage"],
-                "yesterday": yesterday_calculations[f"{response_key}_time"],
-                "yesterday_percentage": yesterday_calculations[f"{response_key}_time_percentage"]
+                "this_day": self.format_time(this_day_calculations[f"{response_key}_time"]),
+                "this_day_percentage": f"{this_day_calculations[f"{response_key}_time_percentage"]}%",
+                "yesterday": self.format_time(yesterday_calculations[f"{response_key}_time"]),
+                "yesterday_percentage": f"{yesterday_calculations[f"{response_key}_time_percentage"]}%"
             }
 
         return response
@@ -1481,6 +1523,20 @@ class TrackerProductiveBreakDownView(APIView):
                                             + ", ".join(TrackerProductiveBreakDownSerializer.VALID_WEEK_NAMES)}",
             default="monday"
         ),
+        OpenApiParameter(
+            name="number_of_days_in_work_week", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.INT,
+            default=5,
+            description="Must be between 1-7. Note that if work_days_to_ignore parameter is provided," \
+                        "those days will not be considered in the total calculation"
+        ),
+        OpenApiParameter(
+            name="work_days_to_ignore", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.STR,
+            default="saturday,sunday",
+            description="Work days that will be ignored. Must be provided as comma seperated values." \
+                        "Accepts the same values as week_start."
+        )
     ])
     def get(self, request: Request):
         """Fetch productive time break down for the provided date, the day before the provided date
@@ -1507,9 +1563,20 @@ class TrackerProductiveBreakDownView(APIView):
             start_time = serializer.validated_data.get("start_time")
             end_time = serializer.validated_data.get("end_time")
             output_format = serializer.validated_data.get("output_format")
+            week_start = serializer.validated_data.get("week_start")
+            number_of_days_in_work_week = serializer.validated_data.get("number_of_days_in_work_week")
+            work_days_to_ignore = serializer.validated_data.get("work_days_to_ignore")
 
             if output_format == "activity":
-                response = self.get_activity_key_based_response(user=user, date=date, start_time=start_time, end_time=end_time)
+                response = self.get_activity_key_based_response(
+                    user=user,
+                    date=date,
+                    start_time=start_time,
+                    end_time=end_time,
+                    week_start=week_start,
+                    number_of_days_in_work_week=number_of_days_in_work_week,
+                    work_days_to_ignore=work_days_to_ignore,
+                )
             else:
                 raise NotImplementedError("This is a work under progress")
 

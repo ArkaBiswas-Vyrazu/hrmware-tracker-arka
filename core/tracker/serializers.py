@@ -282,6 +282,13 @@ class TrackerProductiveBreakDownSerializer(serializers.Serializer):
     }
     week_start = serializers.CharField(required=False, default="monday")
 
+    def validate_number_of_days_in_work_week(self, number_of_days_in_work_week):
+        if number_of_days_in_work_week <= 0 or number_of_days_in_work_week > 7:
+            msg = ("Number of days in work week cannot be less than 0 or "
+                   + "more than 7")
+            raise serializers.ValidationError(msg)
+        return number_of_days_in_work_week
+
     def validate_week_start(self, week_start):
         if week_start in self.SHORTCUT_NAMES:
             week_start = self.SHORTCUT_NAMES[week_start]
@@ -294,9 +301,10 @@ class TrackerProductiveBreakDownSerializer(serializers.Serializer):
         return week_start
 
     def validate_work_days_to_ignore(self, work_days_to_ignore):
-        work_days_to_ignore_list = work_days_to_ignore.split(",")
+        work_days_to_ignore_list: list[str] = work_days_to_ignore.split(",")
         final_work_day_list = []
         for work_day in work_days_to_ignore_list:
+            work_day = work_day.strip()
             if work_day in self.SHORTCUT_NAMES:
                 work_day_to_add = self.SHORTCUT_NAMES.get(work_day)
                 if work_day_to_add not in final_work_day_list:
