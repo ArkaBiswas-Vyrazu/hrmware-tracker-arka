@@ -20,6 +20,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.core.exceptions import FieldError
 from django.utils import timezone
+from django.db.models import Sum, F
 from django.db.models.query import QuerySet
 from rest_framework.views import APIView
 from rest_framework.request import Request
@@ -47,7 +48,8 @@ from .serializers import (
     TrackerSetAppCategorySerializer,
     TrackerAppsSerializer,
     TrackerAppCategoryPostSerializer,
-    TrackerProductiveBreakDownSerializer
+    TrackerProductiveBreakDownSerializer,
+    TrackerCategoryBreakDownSerializer,
 )
 
 
@@ -1366,7 +1368,10 @@ class TrackerProductiveBreakDownView(APIView):
             if end_time is None:
                 end_time = self.get_default_end_time(user, date)
         except NoActivityLogFound:
-            return {"away_time": None, "away_time_percentage": None}
+            return {
+                "away_time": self.get_total_working_time(date, start_time, end_time),
+                "away_time_percentage": 100 # Because then we consider that the user was away the entire day
+            }
 
         total_away_time = 0
         activity_logs = ActivityLogs.objects.filter(user=user, start_timestamp__date=date)
@@ -1392,6 +1397,9 @@ class TrackerProductiveBreakDownView(APIView):
                 duration = end_timestamp - start_timestamp
                 if duration >= timedelta(seconds=settings.TIME_GAP_LIMIT):
                     total_away_time += duration.total_seconds()
+
+        if total_away_time == 0:
+            total_away_time = self.get_total_working_time(date, start_time, end_time)
 
         total_defined_work_duration = self.get_total_working_time(date=date, start_time=start_time, end_time=end_time)
         away_time_percentage = round((total_away_time / total_defined_work_duration) * 100, 2)
@@ -1426,42 +1434,42 @@ class TrackerProductiveBreakDownView(APIView):
 
         return days_list
 
-    def get_activity_key_based_response(self,
-                                        user,
-                                        date: datetime | std_date,
-                                        start_time: Optional[std_time],
-                                        end_time: Optional[std_time],
-                                        week_start: Weekday,
-                                        number_of_days_in_work_week: int,
-                                        work_days_to_ignore: list[Weekday]):
-        """Get response in activity key format.
-        
-        Example:-
-        ```
-        {
-            "working_time": {
-                "this_day": "4hr",
-                "this_day_percentage": "44.45%",
-                "yesterday": "8hr 30m",
-                "yesterday_percentage": "92.34%",
-                "this_week": "40hr 30m",
-                "this_week_percentage": "100.75%" # Considering a 5-day work week
-            },
-            "productive_time": {
-                "...": "..."
-            },
-            "non_productive_time": {
-                "...": "..."
-            },
-            "neutral_time": {
-                "...": "..."
-            },
-            "away_time": {
-                "...": "..."
-            }
-        }
-        ```
-        """
+    def get_week_calculations(self,
+                              response_key: (Literal["working"] |
+                                             Literal["productive"] |
+                                             Literal["non_productive"] |
+                                             Literal["neutral"] |
+                                             Literal["away"]),
+                              user,
+                              valid_week_days: list[datetime | std_date],
+                              start_time: std_time,
+                              end_time: std_time) -> dict[str, float]:
+        this_week_calculations = 0
+        total_working_time = 0
+        for week_day in valid_week_days:
+            function_to_call = getattr(self, f"calculate_{response_key}_time_with_percentage")
+            function_result = function_to_call(user, week_day, start_time, end_time)
+
+            print(f"Total {response_key} time on {week_day.strftime("%Y-%m-%d")}: ", function_result)
+            if function_result[f"{response_key}_time"] is not None:
+                this_week_calculations += function_result[f"{response_key}_time"]
+
+            total_working_time += self.get_total_working_time(week_day, start_time, end_time)
+
+        this_week_calculations_percentage = round((this_week_calculations / total_working_time) * 100, 2)
+
+        return {f"{response_key}_time": this_week_calculations, f"{response_key}_time_percentage": this_week_calculations_percentage}
+
+    def get_response(self,
+                     user,
+                     date: datetime | std_date,
+                     start_time: Optional[std_time],
+                     end_time: Optional[std_time],
+                     week_start: Weekday,
+                     number_of_days_in_work_week: int,
+                     work_days_to_ignore: list[Weekday],
+                     output_format: Literal["activity"] | Literal["day"]):
+        """Get response in either activity or day key format"""
 
         response = {}
         response_keys = (
@@ -1474,18 +1482,50 @@ class TrackerProductiveBreakDownView(APIView):
             number_of_days_in_work_week,
             work_days_to_ignore
         )
-        print(valid_week_days)
 
-        for response_key in response_keys:
-            this_day_calculations = getattr(self, f"calculate_{response_key}_time_with_percentage")(user, date, start_time, end_time)
-            yesterday_calculations = getattr(self, f"calculate_{response_key}_time_with_percentage")(user, date - timedelta(days=1), start_time, end_time)
+        if output_format == "activity":
+            for response_key in response_keys:
+                this_day_calculations = getattr(self, f"calculate_{response_key}_time_with_percentage")(user, date, start_time, end_time)
+                yesterday_calculations = getattr(self, f"calculate_{response_key}_time_with_percentage")(user, date - timedelta(days=1), start_time, end_time)
+                this_week_calculations = self.get_week_calculations(response_key, user, valid_week_days, start_time, end_time)
 
-            response[f"{response_key}_time"] = {
-                "this_day": self.format_time(this_day_calculations[f"{response_key}_time"]),
-                "this_day_percentage": f"{this_day_calculations[f"{response_key}_time_percentage"]}%",
-                "yesterday": self.format_time(yesterday_calculations[f"{response_key}_time"]),
-                "yesterday_percentage": f"{yesterday_calculations[f"{response_key}_time_percentage"]}%"
+                response[f"{response_key}_time"] = {
+                    "this_day": self.format_time(this_day_calculations[f"{response_key}_time"]),
+                    "this_day_percentage": f"{this_day_calculations[f"{response_key}_time_percentage"]}%",
+                    "yesterday": self.format_time(yesterday_calculations[f"{response_key}_time"]),
+                    "yesterday_percentage": f"{yesterday_calculations[f"{response_key}_time_percentage"]}%",
+                    "this_week": self.format_time(this_week_calculations[f"{response_key}_time"]),
+                    "this_week_percentage": f"{this_week_calculations[f"{response_key}_time_percentage"]}%"
+                }
+
+        elif output_format == "day":
+            calculations_to_make = {
+                "this_day": date,
+                "yesterday": date - timedelta(days=1),
+                "this_week": valid_week_days
             }
+
+            for key, value in calculations_to_make.items():
+                for response_key in response_keys:
+                    if key == "this_week":
+                        result = self.get_week_calculations(
+                            response_key,
+                            user,
+                            valid_week_days,
+                            start_time,
+                            end_time
+                        )
+                    else:
+                        function = getattr(self, f"calculate_{response_key}_time_with_percentage")
+                        result = function(user, value, start_time, end_time)
+
+                    if key not in response:
+                        response[key] = {}
+
+                    response[key][f"{response_key}_time"] = self.format_time(result[f"{response_key}_time"])
+                    response[key][f"{response_key}_time_percentage"] = f"{result[f"{response_key}_time_percentage"]}%"
+        else:
+            raise ValueError("Invalid Output Format provided")
 
         return response
 
@@ -1534,7 +1574,7 @@ class TrackerProductiveBreakDownView(APIView):
             name="work_days_to_ignore", location=OpenApiParameter.QUERY,
             required=False, type=OpenApiTypes.STR,
             default="saturday,sunday",
-            description="Work days that will be ignored. Must be provided as comma seperated values." \
+            description="Work days that will be ignored. Must be provided as comma seperated values. " \
                         "Accepts the same values as week_start."
         )
     ])
@@ -1567,20 +1607,180 @@ class TrackerProductiveBreakDownView(APIView):
             number_of_days_in_work_week = serializer.validated_data.get("number_of_days_in_work_week")
             work_days_to_ignore = serializer.validated_data.get("work_days_to_ignore")
 
-            if output_format == "activity":
-                response = self.get_activity_key_based_response(
-                    user=user,
-                    date=date,
-                    start_time=start_time,
-                    end_time=end_time,
-                    week_start=week_start,
-                    number_of_days_in_work_week=number_of_days_in_work_week,
-                    work_days_to_ignore=work_days_to_ignore,
-                )
-            else:
-                raise NotImplementedError("This is a work under progress")
+            response = self.get_response(
+                user=user,
+                date=date,
+                start_time=start_time,
+                end_time=end_time,
+                week_start=week_start,
+                number_of_days_in_work_week=number_of_days_in_work_week,
+                work_days_to_ignore=work_days_to_ignore,
+                output_format=output_format
+            )
 
             return Response(status=200, data=response)
+
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerCategoryBreakDownView(APIView):
+    @staticmethod
+    def format_time(seconds: int | float | None) -> str | None:
+        if seconds is None:
+            return None
+
+        time_object = timedelta(seconds=seconds)
+        mins, seconds = divmod(seconds, 60)
+        hours, minutes = divmod(mins, 60)
+
+        result = ""
+
+        if time_object.days is not None and time_object.days != 0:
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
+        if hours is not None and hours != 0:
+            result += f"{int(hours)}h "
+        if minutes is not None and minutes != 0:
+            result += f"{int(minutes)}m "
+        if seconds is not None and seconds != 0:
+            result += f"{int(seconds)}s"
+
+        if result == "":
+            result = "0s"
+
+        return result.strip()
+
+    @staticmethod
+    def get_default_start_time(user, date: datetime | std_date) -> std_time:
+        """Get the default start time for the provided date in case no start time is provided
+        
+        Here, we assume that the start_timestamp of the first activity log entry for the
+        requested user on the request date as the default start time.
+        """
+
+        activity_logs = ActivityLogs.objects.filter(user=user)
+            
+        if isinstance(date, datetime):
+            activity_logs = activity_logs.filter(start_timestamp__date=date.date())
+        else:
+            activity_logs = activity_logs.filter(start_timestamp__date=date)
+
+        first_entry = activity_logs.order_by("start_timestamp").first()
+        if first_entry is None:
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
+
+        start_time = first_entry.start_timestamp.time()
+        return start_time
+
+    @staticmethod
+    def get_default_end_time(user, date: datetime | std_date) -> std_time:
+        """Get the default end time for the provided date in case no end time is provided
+
+        Here, we assume that the end_timestamp of the last activity log entry for the
+        requested user on the request date as the default end time.
+        """
+
+        activity_logs = ActivityLogs.objects.filter(user=user)
+
+        if isinstance(date, datetime):
+            activity_logs = activity_logs.filter(start_timestamp__date=date.date())
+        else:
+            activity_logs = activity_logs.filter(start_timestamp__date=date)
+
+        last_entry = activity_logs.order_by("start_timestamp").last()
+        if last_entry is None:
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
+
+        end_time = last_entry.end_timestamp.time()
+        return end_time
+
+    @extend_schema(parameters=[
+            OpenApiParameter(
+                name="date", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.DATE,
+                default=datetime.now().date()
+            ),
+            OpenApiParameter(
+                name="user", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.STR,
+            ),
+            OpenApiParameter(
+                name="start_time", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.TIME,
+                default=datetime.now().time().strftime("%H:%M:%S")
+            ),
+            OpenApiParameter(
+                name="end_time", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.TIME,
+                default=(datetime.now() + timedelta(hours=1)).time().strftime("%H:%M:%S")
+            )
+        ]
+    )
+    def get(self, request: Request):
+        try:
+            serializer = TrackerCategoryBreakDownSerializer(data=request.query_params)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            data = serializer.validated_data
+            date = data["date"]
+            user = data["user"]
+            start_time = data.get("start_time")
+            end_time = data.get("end_time")
+
+            try:
+                if start_time is None:
+                    start_time = self.get_default_start_time(user, date)
+                if end_time is None:
+                    end_time = self.get_default_end_time(user, date)
+            except NoActivityLogFound:
+                return Response(status=400, data={"msg": "Please provide a start and end time"})
+
+            total_work_duration = (
+                (datetime.combine(date, end_time, tzinfo=ZoneInfo("UTC"))
+                - datetime.combine(date, start_time, tzinfo=ZoneInfo("UTC")))
+                .total_seconds()
+            )
+            category_counts = (
+                ActivityLogs.objects
+                .filter(
+                    start_timestamp__date=date,
+                    user=user,
+                )
+                .annotate(name=F("category__name"))
+                .values("name")
+                .annotate(total_duration=Sum("duration"))
+                .annotate(total_percentage=Sum("duration") / total_work_duration)
+                .order_by()
+            )
+            categories_not_recorded = (
+                TrackerAppCategories.objects
+                .exclude(name__in=category_counts.values("name"))
+            )
+
+            response = {}
+            for category_count in category_counts.values("name", "total_duration", "total_percentage"):
+                name, total_duration, total_percentage = (
+                    category_count.get("name"),
+                    category_count.get("total_duration"),
+                    category_count.get("total_percentage")
+                )
+
+                response[name] = {
+                    "duration": self.format_time(float(total_duration)),
+                    "percentage": f"{round(total_percentage, 2)}%"
+                }
+            for category in categories_not_recorded:
+                response[category.name] = {"duration": None, "percentage": None}
+
+            return Response(status=200, data={"category_breakdown": response})
 
         except Exception as e:
             print(json.dumps(get_traceback(), indent=4))

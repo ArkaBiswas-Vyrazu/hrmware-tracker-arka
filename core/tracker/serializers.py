@@ -376,3 +376,67 @@ class TrackerProductiveBreakDownSerializer(serializers.Serializer):
                 attrs["end_time"] = end_time.astimezone(ZoneInfo("UTC"))
 
         return attrs
+
+
+class TrackerCategoryBreakDownSerializer(serializers.Serializer):
+    date = serializers.DateField()
+    user = serializers.CharField()
+    start_time = serializers.TimeField()
+    end_time = serializers.TimeField()
+
+    def validate_user(self, user):
+        user_object = Users.objects.filter(employee_id=user).first()
+        if user_object is None:
+            raise serializers.ValidationError("Provided user uuid does not exist")
+        return user_object
+
+    def validate(self, attrs):
+        start_time = attrs.get("start_time")
+        end_time = attrs.get("end_time")
+
+        if start_time is None and end_time is None:
+            return attrs
+
+        if ((start_time is not None and end_time is None)
+            or (start_time is None and end_time is not None)):
+            msg = ("Please provide both start_time and end_time parameters. "
+                   + "By default, the first discovered and the last discovered "
+                   + "time for the requested user will be used.")
+            raise serializers.ValidationError(msg)
+
+        if isinstance(start_time, str):
+            start_time = (
+                datetime.strptime(start_time, api_settings.TIME_FORMAT)
+                .replace(tzinfo=ZoneInfo(settings.TIME_ZONE))
+            )
+        if isinstance(end_time, str):
+            end_time = (
+                datetime.strptime(end_time, api_settings.TIME_FORMAT)
+                .replace(tzinfo=ZoneInfo(settings.TIME_ZONE))
+            )
+
+        if start_time > end_time:
+            msg = "Start time should be lesser than End time"
+            raise serializers.ValidationError(msg)
+
+        if start_time.tzinfo not in (std_timezone.utc, ZoneInfo("UTC")):
+            if isinstance(start_time, std_time):
+                attrs["start_time"] = (
+                    datetime.combine(datetime.now().date(), start_time)
+                    .astimezone(ZoneInfo("UTC"))
+                    .time()
+                )
+            else:
+                attrs["start_time"] = start_time.astimezone(ZoneInfo("UTC"))
+
+        if end_time.tzinfo not in (std_timezone.utc, ZoneInfo("UTC")):
+            if isinstance(end_time, std_time):    
+                attrs["end_time"] = (
+                    datetime.combine(datetime.now().date(), end_time)
+                    .astimezone(ZoneInfo("UTC"))
+                    .time()
+                )
+            else:
+                attrs["end_time"] = end_time.astimezone(ZoneInfo("UTC"))
+
+        return attrs

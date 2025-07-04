@@ -203,3 +203,21 @@ Shows total duration and percentage of working time, productive time, non-produc
     }
 }
 ```
+
+### Category Breakdown
+
+Get a category breakdown for the day
+
+### Example Response
+
+```json
+{
+    "category_breakdown": {
+        "Development Tools": {
+            "duration": "4hr 30m",
+            "percentage": "54.5%"
+        },
+        "...": "..."
+    }
+}
+```
