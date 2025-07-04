@@ -512,3 +512,710 @@
         }
     ]
 }
+
+{
+    "allWindows": [
+        {
+            "id": 58720260,
+            "firstUsed": "6:06:35 PM",
+            "lastUsed": "6:06:36 PM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 1,
+                    "startTime": "6:06:35 PM",
+                    "endTime": "6:06:36 PM"
+                }
+            ],
+            "totalUsage": 1,
+            "isActive": false
+        },
+        {
+            "id": 65011750,
+            "firstUsed": "6:06:36 PM",
+            "lastUsed": "6:06:47 PM",
+            "name": "Code",
+            "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 11,
+                    "startTime": "6:06:36 PM",
+                    "endTime": "6:06:47 PM"
+                }
+            ],
+            "totalUsage": 11,
+            "isActive": false
+        },
+        {
+            "id": 65011718,
+            "firstUsed": "6:06:47 PM",
+            "lastUsed": "06:08:35 PM",
+            "name": "Code",
+            "title": "axios.ts - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 107,
+                    "startTime": "6:06:47 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 5778,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 10,
+            "startTime": "6:06:58 PM",
+            "endTime": "6:07:05 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "6:08:18 PM",
+            "endTime": "6:08:21 PM"
+        },
+        {
+            "duration": 12,
+            "startTime": "6:08:26 PM",
+            "endTime": "6:08:34 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 65011718,
+            "firstUsed": "6:08:35 PM",
+            "lastUsed": "6:09:35 PM",
+            "name": "Code",
+            "title": "employer-api.ts - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 5,
+                    "startTime": "6:08:35 PM",
+                    "endTime": "6:08:40 PM"
+                },
+                {
+                    "duration": 23,
+                    "startTime": "6:09:02 PM",
+                    "endTime": "6:09:25 PM"
+                },
+                {
+                    "duration": 61,
+                    "startTime": "6:09:35 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 1885,
+            "isActive": true
+        },
+        {
+            "id": 58720260,
+            "firstUsed": "6:08:40 PM",
+            "lastUsed": "6:09:02 PM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 11,
+                    "startTime": "6:08:40 PM",
+                    "endTime": "6:08:51 PM"
+                },
+                {
+                    "duration": 2,
+                    "startTime": "6:09:00 PM",
+                    "endTime": "6:09:02 PM"
+                }
+            ],
+            "totalUsage": 22,
+            "isActive": false
+        },
+        {
+            "id": 52428804,
+            "firstUsed": "6:08:51 PM",
+            "lastUsed": "6:09:35 PM",
+            "name": "teams-for-linux",
+            "title": "Chat | Arka Biswas | Microsoft Teams",
+            "session": [
+                {
+                    "duration": 9,
+                    "startTime": "6:08:51 PM",
+                    "endTime": "6:09:00 PM"
+                },
+                {
+                    "duration": 10,
+                    "startTime": "6:09:25 PM",
+                    "endTime": "6:09:35 PM"
+                }
+            ],
+            "totalUsage": 44,
+            "isActive": false
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 16,
+            "startTime": "6:08:35 PM",
+            "endTime": "6:08:39 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "6:10:25 PM",
+            "endTime": "6:10:31 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 65011718,
+            "firstUsed": "6:10:37 PM",
+            "lastUsed": "06:12:37 PM",
+            "name": "Code",
+            "title": "employerContext.tsx - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 120,
+                    "startTime": "6:10:37 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 7257,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 22,
+            "startTime": "6:11:07 PM",
+            "endTime": "6:11:27 PM"
+        },
+        {
+            "duration": 25,
+            "startTime": "6:11:32 PM",
+            "endTime": "6:11:54 PM"
+        },
+        {
+            "duration": 10,
+            "startTime": "6:12:28 PM",
+            "endTime": "6:12:35 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 65011718,
+            "firstUsed": "6:12:38 PM",
+            "lastUsed": "06:14:38 PM",
+            "name": "Code",
+            "title": "action.ts - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 119,
+                    "startTime": "6:12:38 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 6909,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 39,
+            "startTime": "6:13:36 PM",
+            "endTime": "6:14:12 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 65011718,
+            "firstUsed": "6:14:38 PM",
+            "lastUsed": "06:16:39 PM",
+            "name": "Code",
+            "title": "employer-api.ts - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 120,
+                    "startTime": "6:14:38 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 7260,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 12,
+            "startTime": "6:15:17 PM",
+            "endTime": "6:15:26 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "6:15:33 PM",
+            "endTime": "6:15:34 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "6:15:50 PM",
+            "endTime": "6:15:54 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "6:16:31 PM",
+            "endTime": "6:16:33 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 65011718,
+            "firstUsed": "6:16:39 PM",
+            "lastUsed": "06:18:40 PM",
+            "name": "Code",
+            "title": "employerContext.tsx - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 120,
+                    "startTime": "6:16:39 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 7260,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 12,
+            "startTime": "6:16:51 PM",
+            "endTime": "6:17:00 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "6:17:29 PM",
+            "endTime": "6:17:30 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "6:17:34 PM",
+            "endTime": "6:17:37 PM"
+        },
+        {
+            "duration": 12,
+            "startTime": "6:17:44 PM",
+            "endTime": "6:17:53 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "6:17:57 PM",
+            "endTime": "6:18:01 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "6:18:17 PM",
+            "endTime": "6:18:18 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "6:18:23 PM",
+            "endTime": "6:18:26 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 65011718,
+            "firstUsed": "6:18:40 PM",
+            "lastUsed": "6:20:33 PM",
+            "name": "Code",
+            "title": "employerContext.tsx - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 56,
+                    "startTime": "6:18:40 PM",
+                    "endTime": "6:19:36 PM"
+                },
+                {
+                    "duration": 6,
+                    "startTime": "6:19:40 PM",
+                    "endTime": "6:19:46 PM"
+                },
+                {
+                    "duration": 1,
+                    "startTime": "6:19:48 PM",
+                    "endTime": "6:19:49 PM"
+                },
+                {
+                    "duration": 35,
+                    "startTime": "6:19:58 PM",
+                    "endTime": "6:20:33 PM"
+                }
+            ],
+            "totalUsage": 113,
+            "isActive": false
+        },
+        {
+            "id": 52428804,
+            "firstUsed": "6:19:36 PM",
+            "lastUsed": "6:20:33 PM",
+            "name": "teams-for-linux",
+            "title": "Chat | Arka Biswas | Microsoft Teams",
+            "session": [
+                {
+                    "duration": 4,
+                    "startTime": "6:19:36 PM",
+                    "endTime": "6:19:40 PM"
+                },
+                {
+                    "duration": 9,
+                    "startTime": "6:19:49 PM",
+                    "endTime": "6:19:58 PM"
+                },
+                {
+                    "duration": 7,
+                    "startTime": "6:20:33 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 50,
+            "isActive": true
+        },
+        {
+            "id": 58720260,
+            "firstUsed": "6:19:46 PM",
+            "lastUsed": "6:19:48 PM",
+            "name": "hrmware_v2",
+            "title": "HRMWARE",
+            "session": [
+                {
+                    "duration": 2,
+                    "startTime": "6:19:46 PM",
+                    "endTime": "6:19:48 PM"
+                }
+            ],
+            "totalUsage": 2,
+            "isActive": false
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 48,
+            "startTime": "6:18:50 PM",
+            "endTime": "6:19:35 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "6:20:03 PM",
+            "endTime": "6:20:06 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "6:20:11 PM",
+            "endTime": "6:20:15 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "6:20:21 PM",
+            "endTime": "6:20:22 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 52428804,
+            "firstUsed": "6:20:41 PM",
+            "lastUsed": "6:20:47 PM",
+            "name": "teams-for-linux",
+            "title": "Chat | Suraj Sahani | Microsoft Teams",
+            "session": [
+                {
+                    "duration": 6,
+                    "startTime": "6:20:41 PM",
+                    "endTime": "6:20:47 PM"
+                }
+            ],
+            "totalUsage": 6,
+            "isActive": false
+        },
+        {
+            "id": 65011718,
+            "firstUsed": "6:20:47 PM",
+            "lastUsed": "06:22:42 PM",
+            "name": "Code",
+            "title": "employer-api.ts - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 115,
+                    "startTime": "6:20:47 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 6596,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 4,
+            "startTime": "6:20:52 PM",
+            "endTime": "6:20:53 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "6:21:23 PM",
+            "endTime": "6:21:26 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "6:21:33 PM",
+            "endTime": "6:21:35 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "6:21:47 PM",
+            "endTime": "6:21:52 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "6:22:08 PM",
+            "endTime": "6:22:09 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 65011718,
+            "firstUsed": "6:22:43 PM",
+            "lastUsed": "06:24:43 PM",
+            "name": "Code",
+            "title": "employer-api.ts - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 119,
+                    "startTime": "6:22:43 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 7140,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 6,
+            "startTime": "6:23:15 PM",
+            "endTime": "6:23:18 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "6:23:44 PM",
+            "endTime": "6:23:46 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "6:23:53 PM",
+            "endTime": "6:23:58 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 65011718,
+            "firstUsed": "6:24:43 PM",
+            "lastUsed": "06:26:44 PM",
+            "name": "Code",
+            "title": "employer-api.ts - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 120,
+                    "startTime": "6:24:43 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 7260,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 5,
+            "startTime": "6:25:34 PM",
+            "endTime": "6:25:36 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "6:26:10 PM",
+            "endTime": "6:26:13 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 65011718,
+            "firstUsed": "6:26:44 PM",
+            "lastUsed": "06:28:45 PM",
+            "name": "Code",
+            "title": "action.ts - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 120,
+                    "startTime": "6:26:44 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 7260,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 4,
+            "startTime": "6:27:04 PM",
+            "endTime": "6:27:05 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "6:27:41 PM",
+            "endTime": "6:27:42 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "6:27:47 PM",
+            "endTime": "6:27:50 PM"
+        },
+        {
+            "duration": 18,
+            "startTime": "6:27:57 PM",
+            "endTime": "6:28:12 PM"
+        },
+        {
+            "duration": 12,
+            "startTime": "6:28:24 PM",
+            "endTime": "6:28:33 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "6:28:39 PM",
+            "endTime": "6:28:44 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 65011718,
+            "firstUsed": "6:28:45 PM",
+            "lastUsed": "06:30:46 PM",
+            "name": "Code",
+            "title": "employerContext.tsx - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 120,
+                    "startTime": "6:28:45 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 7257,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 11,
+            "startTime": "6:28:45 PM",
+            "endTime": "6:28:47 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "6:29:06 PM",
+            "endTime": "6:29:26 PM"
+        },
+        {
+            "duration": 15,
+            "startTime": "6:29:31 PM",
+            "endTime": "6:29:43 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "6:30:28 PM",
+            "endTime": "6:30:29 PM"
+        }
+    ]
+}
+
+{
+    "allWindows": [
+        {
+            "id": 65011718,
+            "firstUsed": "6:30:46 PM",
+            "lastUsed": "6:32:06 PM",
+            "name": "Code",
+            "title": "axios.ts - instaily-internships-frontend - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 80,
+                    "startTime": "6:30:46 PM",
+                    "endTime": "6:32:06 PM"
+                }
+            ],
+            "totalUsage": 80,
+            "isActive": false
+        },
+        {
+            "id": 65011716,
+            "firstUsed": "6:32:06 PM",
+            "lastUsed": "06:32:47 PM",
+            "name": "Code",
+            "title": "employerController.js - instaily-backend-v2 - Visual Studio Code",
+            "session": [
+                {
+                    "duration": 40,
+                    "startTime": "6:32:06 PM",
+                    "endTime": ""
+                }
+            ],
+            "totalUsage": 820,
+            "isActive": true
+        }
+    ],
+    "idleStates": [
+        {
+            "duration": 21,
+            "startTime": "6:31:47 PM",
+            "endTime": "6:32:05 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "6:32:27 PM",
+            "endTime": "6:32:30 PM"
+        },
+        {
+            "duration": 13,
+            "startTime": "6:32:34 PM",
+            "endTime": "6:32:44 PM"
+        }
+    ]
+}

@@ -868,11 +868,12 @@ class TrackerWeeklySummary(APIView):
         parameters=[
             OpenApiParameter(
                 name="user", location=OpenApiParameter.QUERY,
-                required=True, type=OpenApiTypes.STR
+                required=True, type=OpenApiTypes.STR,
             ),
             OpenApiParameter(
                 name="date", location=OpenApiParameter.QUERY,
-                required=False, type=OpenApiTypes.DATE
+                required=False, type=OpenApiTypes.DATE,
+                default=datetime.now().date(),
             ),
             OpenApiParameter(
                 name="week_start", location=OpenApiParameter.QUERY,
@@ -882,10 +883,12 @@ class TrackerWeeklySummary(APIView):
             OpenApiParameter(
                 name="time_start", location=OpenApiParameter.QUERY,
                 required=True, type=OpenApiTypes.TIME,
+                default=datetime.now().strftime("%H:%M:%S"),
             ),
             OpenApiParameter(
                 name="time_end", location=OpenApiParameter.QUERY,
                 required=True, type=OpenApiTypes.TIME,
+                default=(datetime.now() + timedelta(hours=1)).strftime("%H:%M:%S"),
             ),
             OpenApiParameter(
                 name="progression", location=OpenApiParameter.QUERY,
@@ -1794,7 +1797,7 @@ class TrackerCategoryBreakDownView(APIView):
             return Response(status=500, data=get_traceback())
 
 
-class TrackerApplicationGroupsView(APIView):    
+class TrackerApplicationGroupsView(APIView):
     @staticmethod
     def format_time(seconds: int | float | None) -> str | None:
         if seconds is None:
@@ -1911,70 +1914,6 @@ class TrackerApplicationGroupsView(APIView):
                  - datetime.combine(date, start_time, tzinfo=ZoneInfo("UTC")))
                 .total_seconds()
             )
-            # productive_app_counts = (
-            #     ActivityLogs.objects
-            #     .filter(
-            #         start_timestamp__date=date,
-            #         user=user,
-            #         productivity_status="productive",
-            #     )
-            #     .values("window_title")
-            #     .annotate(total_duration=Sum("duration"))
-            #     .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
-            #     .order_by()
-            # )
-            # non_productive_app_counts = (
-            #     ActivityLogs.objects
-            #     .filter(
-            #         start_timestamp__date=date,
-            #         user=user,
-            #     )
-            #     .exclude(productivity_status__in=("productive", "neutral"))
-            #     .values("window_title")
-            #     .annotate(total_duration=Sum("duration"))
-            #     .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
-            #     .order_by()
-            # )
-            # neutral_app_counts = (
-            #     ActivityLogs.objects
-            #     .filter(
-            #         start_timestamp__date=date,
-            #         user=user,
-            #         productivity_status="neutral"
-            #     )
-            #     .values("window_title")
-            #     .annotate(total_duration=Sum("duration"))
-            #     .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
-            #     .order_by()
-            # )
-
-            # response = {
-            #     "productive": {},
-            #     "non_productive": {}
-            # }
-            # for productive_app_count in productive_app_counts:
-            #     window_title, total_duration, total_percentage = (
-            #         productive_app_count.get("window_title"),
-            #         productive_app_count.get("total_duration"),
-            #         productive_app_count.get("total_percentage")
-            #     )
-
-            #     response["productive"][window_title] = {
-            #         "duration": self.format_time(float(total_duration)),
-            #         "percentage": f"{round(total_percentage, 2)}%"
-            #     }
-
-            # for non_productive_app_count in non_productive_app_counts:
-            #     window_title, total_duration, total_percentage = (
-            #         productive_app_count.get("window_title"),
-            #         productive_app_count.get("total_duration"),
-            #         productive_app_count.get("total_percentage")
-            #     )
-
-            #     response["non_productive"][window_title] = {
-            #         "duration": self.format_time(float(total_duration)),
-            #         "percentage": f"{round(total_percentage, 2)}%"
-            #     }
 
             response = {
                 productivity_choice: {}
