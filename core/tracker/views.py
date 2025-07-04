@@ -50,6 +50,7 @@ from .serializers import (
     TrackerAppCategoryPostSerializer,
     TrackerProductiveBreakDownSerializer,
     TrackerCategoryBreakDownSerializer,
+    TrackerApplicationGroupsSerializer
 )
 
 
@@ -1757,7 +1758,7 @@ class TrackerCategoryBreakDownView(APIView):
                 .annotate(name=F("category__name"))
                 .values("name")
                 .annotate(total_duration=Sum("duration"))
-                .annotate(total_percentage=Sum("duration") / total_work_duration)
+                .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
                 .order_by()
             )
             categories_not_recorded = (
@@ -1781,6 +1782,231 @@ class TrackerCategoryBreakDownView(APIView):
                 response[category.name] = {"duration": None, "percentage": None}
 
             return Response(status=200, data={"category_breakdown": response})
+
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerApplicationGroupsView(APIView):    
+    @staticmethod
+    def format_time(seconds: int | float | None) -> str | None:
+        if seconds is None:
+            return None
+
+        time_object = timedelta(seconds=seconds)
+        mins, seconds = divmod(seconds, 60)
+        hours, minutes = divmod(mins, 60)
+
+        result = ""
+
+        if time_object.days is not None and time_object.days != 0:
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
+        if hours is not None and hours != 0:
+            result += f"{int(hours)}h "
+        if minutes is not None and minutes != 0:
+            result += f"{int(minutes)}m "
+        if seconds is not None and seconds != 0:
+            result += f"{int(seconds)}s"
+
+        if result == "":
+            result = "0s"
+
+        return result.strip()
+
+    @staticmethod
+    def get_default_start_time(user, date: datetime | std_date) -> std_time:
+        """Get the default start time for the provided date in case no start time is provided
+
+        Here, we assume that the start_timestamp of the first activity log entry for the
+        requested user on the request date as the default start time.
+        """
+
+        activity_logs = ActivityLogs.objects.filter(user=user)
+
+        if isinstance(date, datetime):
+            activity_logs = activity_logs.filter(start_timestamp__date=date.date())
+        else:
+            activity_logs = activity_logs.filter(start_timestamp__date=date)
+
+        first_entry = activity_logs.order_by("start_timestamp").first()
+        if first_entry is None:
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
+
+        start_time = first_entry.start_timestamp.time()
+        return start_time
+
+    @staticmethod
+    def get_default_end_time(user, date: datetime | std_date) -> std_time:
+        """Get the default end time for the provided date in case no end time is provided
+
+        Here, we assume that the end_timestamp of the last activity log entry for the
+        requested user on the request date as the default end time.
+        """
+
+        activity_logs = ActivityLogs.objects.filter(user=user)
+
+        if isinstance(date, datetime):
+            activity_logs = activity_logs.filter(start_timestamp__date=date.date())
+        else:
+            activity_logs = activity_logs.filter(start_timestamp__date=date)
+
+        last_entry = activity_logs.order_by("start_timestamp").last()
+        if last_entry is None:
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
+
+        end_time = last_entry.end_timestamp.time()
+        return end_time
+
+    @extend_schema(parameters=[
+            OpenApiParameter(
+                name="date", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.DATE,
+                default=datetime.now().date()
+            ),
+            OpenApiParameter(
+                name="user", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.STR,
+            ),
+            OpenApiParameter(
+                name="start_time", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.TIME,
+                default=datetime.now().time().strftime("%H:%M:%S")
+            ),
+            OpenApiParameter(
+                name="end_time", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.TIME,
+                default=(datetime.now() + timedelta(hours=1)).time().strftime("%H:%M:%S")
+            )
+        ]
+    )
+    def get(self, request: Request):
+        try:
+            serializer = TrackerApplicationGroupsSerializer(data=request.query_params)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            data = serializer.validated_data
+            date = data.get("date")
+            user = data.get("user")
+            
+            start_time = data.get("start_time")
+            end_time = data.get("end_time")
+            try:
+                if start_time is None:
+                    start_time = self.get_default_start_time(user, date)
+                if end_time is None:
+                    end_time = self.get_default_end_time(user, date)
+            except NoActivityLogFound:
+                return Response(status=400, data={"msg": "Please provide a start and end time"})
+
+            total_work_duration = (
+                (datetime.combine(date, end_time, tzinfo=ZoneInfo("UTC"))
+                 - datetime.combine(date, start_time, tzinfo=ZoneInfo("UTC")))
+                .total_seconds()
+            )
+            # productive_app_counts = (
+            #     ActivityLogs.objects
+            #     .filter(
+            #         start_timestamp__date=date,
+            #         user=user,
+            #         productivity_status="productive",
+            #     )
+            #     .values("window_title")
+            #     .annotate(total_duration=Sum("duration"))
+            #     .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
+            #     .order_by()
+            # )
+            # non_productive_app_counts = (
+            #     ActivityLogs.objects
+            #     .filter(
+            #         start_timestamp__date=date,
+            #         user=user,
+            #     )
+            #     .exclude(productivity_status__in=("productive", "neutral"))
+            #     .values("window_title")
+            #     .annotate(total_duration=Sum("duration"))
+            #     .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
+            #     .order_by()
+            # )
+            # neutral_app_counts = (
+            #     ActivityLogs.objects
+            #     .filter(
+            #         start_timestamp__date=date,
+            #         user=user,
+            #         productivity_status="neutral"
+            #     )
+            #     .values("window_title")
+            #     .annotate(total_duration=Sum("duration"))
+            #     .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
+            #     .order_by()
+            # )
+
+            # response = {
+            #     "productive": {},
+            #     "non_productive": {}
+            # }
+            # for productive_app_count in productive_app_counts:
+            #     window_title, total_duration, total_percentage = (
+            #         productive_app_count.get("window_title"),
+            #         productive_app_count.get("total_duration"),
+            #         productive_app_count.get("total_percentage")
+            #     )
+
+            #     response["productive"][window_title] = {
+            #         "duration": self.format_time(float(total_duration)),
+            #         "percentage": f"{round(total_percentage, 2)}%"
+            #     }
+
+            # for non_productive_app_count in non_productive_app_counts:
+            #     window_title, total_duration, total_percentage = (
+            #         productive_app_count.get("window_title"),
+            #         productive_app_count.get("total_duration"),
+            #         productive_app_count.get("total_percentage")
+            #     )
+
+            #     response["non_productive"][window_title] = {
+            #         "duration": self.format_time(float(total_duration)),
+            #         "percentage": f"{round(total_percentage, 2)}%"
+            #     }
+
+            response = {
+                productivity_choice: {}
+                for productivity_choice in ActivityLogs.PRODUCTIVITY_STATUS_CHOICES
+            }
+            for productivity_choice in ActivityLogs.PRODUCTIVITY_STATUS_CHOICES:
+                app_counts = (
+                    ActivityLogs.objects
+                    .filter(
+                        user=user,
+                        start_timestamp__date=date,
+                        productivity_status=productivity_choice
+                    )
+                    .values("window_title")
+                    .annotate(total_duration=Sum("duration"))
+                    .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
+                    .order_by()
+                )
+
+                for app_count in app_counts:
+                    window_title, total_duration, total_percentage = (
+                        app_count.get("window_title"),
+                        app_count.get("total_duration"),
+                        app_count.get("total_percentage")
+                    )
+
+                    response[productivity_choice][window_title] = {
+                        "duration": self.format_time(float(total_duration)),
+                        "percentage": f"{round(total_percentage, 2)}%"
+                    }
+
+            return Response(status=200, data=response)
 
         except Exception as e:
             print(json.dumps(get_traceback(), indent=4))

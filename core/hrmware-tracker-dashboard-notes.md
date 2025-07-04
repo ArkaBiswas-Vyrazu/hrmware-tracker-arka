@@ -221,3 +221,31 @@ Get a category breakdown for the day
     }
 }
 ```
+
+### Productive and Non Productive Application Groups
+
+Get duration spent on productive and non productive apps
+
+### Example Response
+
+```json
+{
+    "productive": {
+        "VS Code - project-x": {
+            "duration": "2h 30m",
+            "percentage": "30.3%"
+        },
+        "...": "..."
+    },
+    "non_productive": {
+        "youtube.com": {
+            "duration": "45m",
+            "percentage": "9.1%"
+        },
+        "...": "..."
+    },
+    "neutral": {
+        "...": "..."
+    }
+}
+```

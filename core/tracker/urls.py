@@ -10,6 +10,7 @@ from .views import (
     TrackerAppsView,
     TrackerProductiveBreakDownView,
     TrackerCategoryBreakDownView,
+    TrackerApplicationGroupsView,
 )
 
 urlpatterns = [
@@ -23,4 +24,5 @@ urlpatterns = [
     path("apps", TrackerAppsView.as_view(), name="tracker-apps-view"),
     path("productive-breakdown", TrackerProductiveBreakDownView.as_view(), name="tracker-productive-breakdown-view"),
     path("category-breakdown", TrackerCategoryBreakDownView.as_view(), name="tracker-category-breakdown-view"),
+    path("application-groups", TrackerApplicationGroupsView.as_view(), name="tracker-application-groups-view"),
 ]
