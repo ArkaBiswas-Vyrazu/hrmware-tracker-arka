@@ -4,8 +4,6 @@ from collections.abc import Iterable
 from datetime import timedelta, datetime
 
 from django.db import models
-from django.db import models
-from django.apps import apps
 from django.contrib.auth import password_validation, get_backends
 from django.conf import settings
 from django.utils.crypto import salted_hmac
@@ -22,6 +20,7 @@ from django.contrib.auth.hashers import (
     check_password
 )
 from django.utils import timezone
+from django.core.files.storage import FileSystemStorage
 
 
 class ActivityLogs(models.Model):
@@ -30,7 +29,7 @@ class ActivityLogs(models.Model):
     window_title = models.TextField()
     start_timestamp = models.DateTimeField()
     end_timestamp = models.DateTimeField()
-    app = models.ForeignKey('TrackerApps', models.CASCADE)
+    app: "TrackerApps" = models.ForeignKey('TrackerApps', models.CASCADE)
     category = models.ForeignKey('TrackerAppCategories', models.CASCADE)
     is_active = models.BooleanField()
 
@@ -157,6 +156,7 @@ class TrackerApps(models.Model):
     id = models.BigAutoField(primary_key=True)
     uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
     name = models.CharField(unique=True, max_length=255)
+    actual_name = models.CharField(max_length=255)
     category: "TrackerAppCategories" = models.ForeignKey(
         "TrackerAppCategories",
         models.CASCADE,
@@ -187,6 +187,10 @@ class TrackerApps(models.Model):
                     time_segment.save()
         
         return
+
+    def save(self, *args, **kwargs):
+        self.actual_name = kwargs.get("name")
+        return super().save(*args, **kwargs)
 
 
 class TrackerSummaries(models.Model):

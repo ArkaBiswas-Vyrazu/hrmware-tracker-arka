@@ -3,7 +3,7 @@
 Last Revision Date: June 30 2025 14:48 PM
 """
 
-from typing import Any, Optional, Literal
+from typing import Optional, Literal
 import warnings
 import json
 from zoneinfo import ZoneInfo
@@ -16,9 +16,7 @@ from datetime import (
 )
 
 from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
-from django.core.exceptions import FieldError
 from django.utils import timezone
 from django.db.models import Sum, F
 from django.db.models.query import QuerySet
@@ -28,7 +26,8 @@ from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 from drf_spectacular.types import OpenApiTypes
 
-from core.helpers import get_traceback, uniqid
+from core.helpers import get_traceback
+from .utils import TrackerAPIUtils
 from .typing import TimeTracker, TimeBarDataItem, Weekday
 from .exceptions import NoActivityLogFound
 from .models import (
@@ -50,145 +49,14 @@ from .serializers import (
     TrackerAppCategoryPostSerializer,
     TrackerProductiveBreakDownSerializer,
     TrackerCategoryBreakDownSerializer,
-    TrackerApplicationGroupsSerializer
+    TrackerApplicationGroupsSerializer,
+    TrackerWebsitesVistedViewSerializer,
+    TrackerLiveFeedSerializer,
 )
 
 
-class TrackerAPIView(APIView):
+class TrackerAPIView(APIView, TrackerAPIUtils):
     serializer_class = ActivityLogsDataSerializer
-
-    @staticmethod
-    def get_default_category() -> TrackerAppCategories:
-        default_category: str = settings.DEFAULT_TRACKER_CATEGORY
-        if default_category is None:
-            msg = f"No default category found, setting category " \
-                  f"as {settings.TRACKER_CATEGORY_PLACEHOLDER}"
-            warnings.warn(msg)
-            default_category: str = settings.TRACKER_CATEGORY_PLACEHOLDER
-
-        tracker_app_category, _ = (
-            TrackerAppCategories.objects
-            .get_or_create(name=default_category)
-        )
-
-        return tracker_app_category
-
-    def create_new_app(self, app_name: str) -> TrackerApps:
-        default_category = self.get_default_category()
-        tracker_app = TrackerApps.objects.create(
-            name=app_name,
-            category=default_category,
-        )
-        return tracker_app
-
-    @staticmethod
-    def get_main_data(request: Request) -> tuple[dict[str, Any], bool]:
-        """Retrieves data from request safely.
-        
-        If data retrieval logic changes, please change this method.
-        """
-
-        serializer = ActivityLogsDataSerializer(data=request.data)
-        if not serializer.is_valid():
-            return serializer.errors, False
-        data = serializer.validated_data
-        return data, True
-
-    @staticmethod
-    def add_now_date_to_time(time: str, format="%I:%M:%S %p") -> datetime:
-        time_object = datetime.strptime(time, format).time()
-        date = datetime.combine(timezone.now().date(), time_object, tzinfo=None)
-        return date
-
-    def extract_data(self, data: dict[str, Any]) -> dict[str, Any | None]:
-        """Extracts required data from provided dictionary safely.
-        
-        The returned dictionary would be suitable for use in
-        creating a record in the ActivityLogs model.
-        If data retrieval logic changes, or model definition 
-        changes for which data has to be entered, please change this method.
-        """
-
-        data_dict = {
-            "start_timestamp": data.get("firstUsed"),
-            "end_timestamp": data.get("lastUsed"),
-            "duration": data.get("totalUsage"),
-            "is_active": data.get("isActive"),
-            "window_title": data.get("title"),
-            "app": data.get("name"),
-            # This one is not expected to be sent
-            "productivity_status": data.get("productivityStatus", "neutral"), 
-        }
-
-        data_dict["start_timestamp"] = self.add_now_date_to_time(data_dict["start_timestamp"])
-        data_dict["end_timestamp"] = self.add_now_date_to_time(data_dict["end_timestamp"])
-
-        if isinstance(data_dict["app"], str):
-            data_dict["app"] = data_dict["app"].strip().lower()
-
-        return data_dict
-
-
-    def get_superuser(self):
-        """This method is to be only used in development"""
-
-        Users = get_user_model()
-        try:
-            user = Users.objects.filter(is_superuser=True).first()
-        except FieldError:
-            user = Users.objects.filter(is_admin=True).first()
-
-        if user is None:
-            user = Users.objects.create_superuser("test", "test@example.com", "password", employee_id=uniqid())
-
-        return user
-
-    def create_time_segments(self, main_data: dict, user):
-        """Create time segment data for received activity logs"""
-
-        all_windows = (
-            [
-                self.extract_data(data) | {"activity_log": main_data.get("activity_logs", {}).get(data.get("id"))}
-                for data in main_data.get("allWindows", [])
-            ]
-        )
-        idle_states = main_data.get("idleStates", [])
-
-        time_segments = []
-        for data in all_windows:
-            app_category = (
-                TrackerApps.objects
-                .filter(name=data["app"])
-                .first()
-                .category
-            )
-
-            time_segment = TimeSegments.objects.create(
-                date=timezone.now().date(),
-                start_time=data.get("start_timestamp"),
-                end_time=data.get("end_timestamp"),
-                duration=data.get("duration"),
-                segment_type=app_category.productivity_status_type,
-                user=user,
-                activity_log=data.get("activity_log")
-            )
-
-            time_segments.append(time_segment)
-
-        for data in idle_states:
-            time_segment = TimeSegments.objects.create(
-                date=timezone.now().date(),
-                start_time=self.add_now_date_to_time(data.get("startTime")),
-                end_time=self.add_now_date_to_time(data.get("endTime")),
-                duration=data.get("duration"),
-                segment_type="idle",
-                user=user,
-                activity_log=None
-            )
-
-            time_segments.append(time_segment)
-
-        return time_segments
 
     def post(self, request: Request):
         """Main API intended to receive tracker response"""
@@ -210,7 +78,6 @@ class TrackerAPIView(APIView):
                 warnings.warn("No request user found, using default superuser")
                 request_user = self.get_superuser()
 
-            print(json.dumps(main_data, indent=4))
             for data in main_data.get("allWindows"):
                 extracted_data = self.extract_data(data)
 
@@ -236,8 +103,6 @@ class TrackerAPIView(APIView):
 
                 # Assuming each id passed is unique
                 main_data["activity_logs"][data.get("id")] = activity_log
-            print("----------------------------------------- Afterwards ------------------------------------------ ")
-            print(main_data)
 
             activity_logs = ActivityLogsSerializer(activity_logs, many=True).data
             time_segments = self.create_time_segments(main_data, request_user)
@@ -797,9 +662,9 @@ class TrackerBasicTimeDetailsView(APIView):
                         away_time += duration.total_seconds()
 
             response = {
-                "start_time": start_time.strftime("%H:%M %p"),
+                "start_time": start_time.astimezone(ZoneInfo(settings.TIME_ZONE)).strftime("%H:%M %p"),
                 "working_time": self.format_time(working_time).strip(),
-                "last_seen": last_seen.strftime("%H:%M %p"),
+                "last_seen": last_seen.astimezone(ZoneInfo(settings.TIME_ZONE)).strftime("%H:%M %p"),
                 "away_time": self.format_time(away_time).strip(),
             }
             return Response(status=200, data=response)
@@ -1956,3 +1821,182 @@ class TrackerApplicationGroupsView(APIView):
                 file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
+
+
+class TrackerWebsitesVistedView(APIView):
+    @staticmethod
+    def format_time(seconds: int | float | None) -> str | None:
+        if seconds is None:
+            return None
+
+        time_object = timedelta(seconds=seconds)
+        mins, seconds = divmod(seconds, 60)
+        hours, minutes = divmod(mins, 60)
+
+        result = ""
+
+        if time_object.days is not None and time_object.days != 0:
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
+        if hours is not None and hours != 0:
+            result += f"{int(hours)}h "
+        if minutes is not None and minutes != 0:
+            result += f"{int(minutes)}m "
+        if seconds is not None and seconds != 0:
+            result += f"{int(seconds)}s"
+
+        if result == "":
+            result = "0s"
+
+        return result.strip()
+
+    @extend_schema(parameters=[
+        OpenApiParameter(
+            name="date", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.DATE,
+            default=datetime.now().date(),
+        ),
+        OpenApiParameter(
+            name="user", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.STR,
+        ),
+        OpenApiParameter(
+            name="check_browsers", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.STR,
+            description="Make sure that the values passed are the app names of the browsers, " \
+                        "that is, the name of the binary files responsible for opening the browser",
+            default="google-chrome, firefox"
+        ),
+    ])
+    def get(self, request: Request):
+        """Get list of websites visited.
+
+        This data is collected from all browsers visited by the user.
+        By default, data is filtered from recognized browsers. This
+        can be added to using the check_browsers parameter.
+        """
+
+        try:
+            serializer = TrackerWebsitesVistedViewSerializer(data=request.query_params)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            data = serializer.validated_data
+            date: datetime | std_date = data.get("date")
+            user = data.get("user")
+
+            check_browsers: list[str] = data.get("check_browsers", [])
+            browsers_filter: set[str] = set(settings.RECOGNIZED_BROWSERS + check_browsers)
+
+            activity_logs = (
+                ActivityLogs.objects
+                .filter(
+                    start_timestamp__date=date,
+                    user=user,
+                    app__name__in=browsers_filter
+                )
+            )
+
+            duration_mapper = {}
+            for activity_log in activity_logs:
+                duration = (activity_log.get_actual_end_time() - activity_log.start_timestamp).total_seconds()
+                if activity_log.app.name in duration_mapper:
+                    duration_mapper[activity_log.window_title] += duration
+                else:
+                    duration_mapper[activity_log.window_title] = duration
+
+            duration_mapper = {key: self.format_time(value) for key, value in duration_mapper.items()}
+            return Response(status=200, data={"top_websites_visited": duration_mapper})
+
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerLiveFeedView(APIView):
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="date", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.DATE,
+                default=datetime.now().date()
+            ),
+            OpenApiParameter(
+                name="user", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.STR,
+            )
+        ]
+    )
+    def get(self, request: Request):
+        """Get the latest records for the requested user on the requested date."""
+
+        try:
+            serializer = TrackerLiveFeedSerializer(data=request.query_params)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            data = serializer.validated_data
+            date: datetime | std_date = data.get("date")
+            user = data.get("user")
+            start_time: std_time = data.get("start_time")
+            end_time: std_time = data.get("end_time")
+
+            activity_logs = (
+                ActivityLogs.objects
+                .filter(
+                    start_timestamp__date=date,
+                    user=user,
+                )
+                .order_by("-start_timestamp")
+            )
+
+            latest_feed = []
+            activity_logs_count = activity_logs.count()
+            for index, activity_log in enumerate(activity_logs):
+                activity_data = {
+                    "app": activity_log.app.actual_name,
+                    "status": (
+                        "visited" if activity_log.is_active is False
+                        else "active"
+                    ),
+                    "time": (
+                        activity_log.start_timestamp
+                        .replace(tzinfo=ZoneInfo("UTC"))
+                        .astimezone(ZoneInfo(settings.TIME_ZONE))
+                        .strftime("%H:%M %p")
+                    )
+                }
+
+                if index != activity_logs_count - 1:
+                    duration = activity_log.start_timestamp - activity_logs[index+1].end_timestamp
+                    if duration > timedelta(seconds=settings.TIME_GAP_LIMIT):
+                        away_data = {
+                            "app": None,
+                            "status": "away",
+                            "time": (
+                                activity_logs[index+1].end_timestamp
+                                .replace(tzinfo=ZoneInfo("UTC"))
+                                .astimezone(ZoneInfo(settings.TIME_ZONE))
+                                .strftime("%H:%M %p")
+                            )
+                        }
+                        latest_feed.append(away_data)
+
+                latest_feed.append(activity_data)
+
+            return Response(status=200, data={"live_feed": latest_feed})
+
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return ResourceWarning(status=500, data=get_traceback())

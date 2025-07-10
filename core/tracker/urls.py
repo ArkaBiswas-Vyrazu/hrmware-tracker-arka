@@ -11,6 +11,8 @@ from .views import (
     TrackerProductiveBreakDownView,
     TrackerCategoryBreakDownView,
     TrackerApplicationGroupsView,
+    TrackerWebsitesVistedView,
+    TrackerLiveFeedView,
 )
 
 urlpatterns = [
@@ -25,4 +27,6 @@ urlpatterns = [
     path("productive-breakdown", TrackerProductiveBreakDownView.as_view(), name="tracker-productive-breakdown-view"),
     path("category-breakdown", TrackerCategoryBreakDownView.as_view(), name="tracker-category-breakdown-view"),
     path("application-groups", TrackerApplicationGroupsView.as_view(), name="tracker-application-groups-view"),
+    path("websites-visited", TrackerWebsitesVistedView.as_view(), name="tracker-websites-visited-view"),
+    path("live-feed", TrackerLiveFeedView.as_view(), name="tracker-live-feed-view"),
 ]
