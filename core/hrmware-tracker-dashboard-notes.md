@@ -152,3 +152,100 @@ Shows top 5 websites visited in first glance, along with the time taken in each 
     ]
 }
 ```
+
+### Productive Break Down
+
+Shows total duration and percentage of working time, productive time, non-productive time, neutal time and away time for today, yestarday and this week.
+
+#### Example
+
+- Activity Key Based
+```json
+{
+    "working_time": {
+        "this_day": "4hr",
+        "this_day_percentage": "44.45%",
+        "yesterday": "8hr 30m",
+        "yesterday_percentage": "92.34%",
+        "this_week": "40hr 30m",
+        "this_week_percentage": "100.75%" // Considering a 5-day work week
+    },
+    "productive_time": {
+        "...": "..."
+    },
+    "non_productive_time": {
+        "...": "..."
+    },
+    "neutral_time": {
+        "...": "..."
+    },
+    "away_time": {
+        "...": "..."
+    }
+}
+```
+
+- Day Key Based
+```json
+{
+    "this_day": {
+        "working_time": "4hr",
+        "productive_time": "...",
+        "non_productive_time": "...",
+        "neutral_time": "...",
+        "away_time": "..."
+    },
+    "yesterday": {
+        "...": "..."
+    },
+    "this_week": {
+        "...": "..."
+    }
+}
+```
+
+### Category Breakdown
+
+Get a category breakdown for the day
+
+### Example Response
+
+```json
+{
+    "category_breakdown": {
+        "Development Tools": {
+            "duration": "4hr 30m",
+            "percentage": "54.5%"
+        },
+        "...": "..."
+    }
+}
+```
+
+### Productive and Non Productive Application Groups
+
+Get duration spent on productive and non productive apps
+
+### Example Response
+
+```json
+{
+    "productive": {
+        "VS Code - project-x": {
+            "duration": "2h 30m",
+            "percentage": "30.3%"
+        },
+        "...": "..."
+    },
+    "non_productive": {
+        "youtube.com": {
+            "duration": "45m",
+            "percentage": "9.1%"
+        },
+        "...": "..."
+    },
+    "neutral": {
+        "...": "..."
+    }
+}
+```

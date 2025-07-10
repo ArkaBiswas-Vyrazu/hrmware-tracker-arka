@@ -3,17 +3,22 @@
 Last Revision Date: June 30 2025 14:48 PM
 """
 
-from typing import Any, TypedDict, Optional
+from typing import Optional, Literal
 import warnings
 import json
-from datetime import datetime, timedelta, timezone as std_timezone
 from zoneinfo import ZoneInfo
+from datetime import (
+    datetime,
+    timedelta,
+    date as std_date,
+    time as std_time,
+    timezone as std_timezone
+)
 
 from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
-from django.core.exceptions import FieldError
 from django.utils import timezone
+from django.db.models import Sum, F
 from django.db.models.query import QuerySet
 from rest_framework.views import APIView
 from rest_framework.request import Request
@@ -21,8 +26,10 @@ from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 from drf_spectacular.types import OpenApiTypes
 
-from core.helpers import get_traceback, uniqid
-from .typing import TimeTracker, TimeBarDataItem
+from core.helpers import get_traceback
+from .utils import TrackerAPIUtils
+from .typing import TimeTracker, TimeBarDataItem, Weekday
+from .exceptions import NoActivityLogFound
 from .models import (
     ActivityLogs,
     TrackerApps,
@@ -34,138 +41,22 @@ from .serializers import (
     ActivityLogsDataSerializer,
     TimeSegmentsSerializer,
     GetTimeSegmentsSerializer,
-    GetWeeklyHoursSerializer
+    GetWeeklyHoursSerializer,
+    TrackerAppCategoriesSerializer,
+    TrackerAppCategoryPatchSerializer,
+    TrackerSetAppCategorySerializer,
+    TrackerAppsSerializer,
+    TrackerAppCategoryPostSerializer,
+    TrackerProductiveBreakDownSerializer,
+    TrackerCategoryBreakDownSerializer,
+    TrackerApplicationGroupsSerializer,
+    TrackerWebsitesVistedViewSerializer,
+    TrackerLiveFeedSerializer,
 )
 
 
-class TrackerAPIView(APIView):
+class TrackerAPIView(APIView, TrackerAPIUtils):
     serializer_class = ActivityLogsDataSerializer
-
-    @staticmethod
-    def get_default_category() -> TrackerAppCategories:
-        default_category: str = settings.DEFAULT_TRACKER_CATEGORY
-        if default_category is None:
-            msg = f"No default category found, setting category " \
-                  f"as {settings.TRACKER_CATEGORY_PLACEHOLDER}"
-            warnings.warn(msg)
-            default_category: str = settings.TRACKER_CATEGORY_PLACEHOLDER
-
-        tracker_app_category, _ = (
-            TrackerAppCategories.objects
-            .get_or_create(name=default_category)
-        )
-
-        return tracker_app_category
-
-    def create_new_app(self, app_name: str) -> TrackerApps:
-        default_category = self.get_default_category()
-        tracker_app = TrackerApps.objects.create(
-            name=app_name,
-            category=default_category,
-        )
-        return tracker_app
-
-    @staticmethod
-    def get_main_data(request: Request) -> tuple[dict[str, Any], bool]:
-        """Retrieves data from request safely.
-        
-        If data retrieval logic changes, please change this method.
-        """
-
-        serializer = ActivityLogsDataSerializer(data=request.data)
-        if not serializer.is_valid():
-            return serializer.errors, False
-        data = serializer.validated_data
-        return data, True
-
-    @staticmethod
-    def add_now_date_to_time(time: str, format="%I:%M:%S %p") -> datetime:
-        time_object = datetime.strptime(time, format).time()
-        date = datetime.combine(timezone.now().date(), time_object, tzinfo=None)
-        return date
-
-    def extract_data(self, data: dict[str, Any]) -> dict[str, Any | None]:
-        """Extracts required data from provided dictionary safely.
-        
-        The returned dictionary would be suitable for use in
-        creating a record in the ActivityLogs model.
-        If data retrieval logic changes, or model definition 
-        changes for which data has to be entered, please change this method.
-        """
-
-        data_dict = {
-            "start_timestamp": data.get("firstUsed"),
-            "end_timestamp": data.get("lastUsed"),
-            "duration": data.get("totalUsage"),
-            "is_active": data.get("isActive"),
-            "window_title": data.get("title"),
-            "app": data.get("name"),
-            # This one is not expected to be sent
-            "productivity_status": data.get("productivityStatus", "neutral"), 
-        }
-
-        data_dict["start_timestamp"] = self.add_now_date_to_time(data_dict["start_timestamp"])
-        data_dict["end_timestamp"] = self.add_now_date_to_time(data_dict["end_timestamp"])
-
-        if isinstance(data_dict["app"], str):
-            data_dict["app"] = data_dict["app"].strip().lower()
-
-        return data_dict
-
-
-    def get_superuser(self):
-        """This method is to be only used in development"""
-
-        Users = get_user_model()
-        try:
-            user = Users.objects.filter(is_superuser=True).first()
-        except FieldError:
-            user = Users.objects.filter(is_admin=True).first()
-
-        if user is None:
-            user = Users.objects.create_superuser("test", "test@example.com", "password", employee_id=uniqid())
-
-        return user
-
-    def create_time_segments(self, main_data: dict, user):
-        """Create time segment data for received activity logs"""
-
-        all_windows = [self.extract_data(data) for data in main_data.get("allWindows", [])]
-        idle_states = main_data.get("idleStates", [])
-
-        time_segments = []
-        for data in all_windows:
-            app_category = (
-                TrackerApps.objects
-                .filter(name=data["app"])
-                .first()
-                .category
-            )
-
-            time_segment = TimeSegments.objects.create(
-                date=timezone.now().date(),
-                start_time=data.get("start_timestamp"),
-                end_time=data.get("end_timestamp"),
-                duration=data.get("duration"),
-                segment_type=app_category.productivity_status_type,
-                user=user,
-            )
-
-            time_segments.append(time_segment)
-
-        for data in idle_states:
-            time_segment = TimeSegments.objects.create(
-                date=timezone.now().date(),
-                start_time=self.add_now_date_to_time(data.get("startTime")),
-                end_time=self.add_now_date_to_time(data.get("endTime")),
-                duration=data.get("duration"),
-                segment_type="idle",
-                user=user,
-            )
-
-            time_segments.append(time_segment)
-
-        return time_segments
 
     def post(self, request: Request):
         """Main API intended to receive tracker response"""
@@ -198,13 +89,20 @@ class TrackerAPIView(APIView):
                 extracted_data["productivity_status"] = tracker_app.category.productivity_status_type
                 extracted_data["app"] = tracker_app
 
-                activity_log = None
                 activity_log = ActivityLogs.objects.create(
                     **extracted_data,
                     user=request_user,
                 )
 
                 activity_logs.append(activity_log)
+
+                # Tracking created activity log in main data
+                # for creating time segments later
+                if "activity_logs" not in main_data:
+                    main_data["activity_logs"] = {}
+
+                # Assuming each id passed is unique
+                main_data["activity_logs"][data.get("id")] = activity_log
 
             activity_logs = ActivityLogsSerializer(activity_logs, many=True).data
             time_segments = self.create_time_segments(main_data, request_user)
@@ -313,8 +211,12 @@ class TrackerTimeBarView(APIView):
         segments that should accurately depict the time segments.
 
         This method is to be considered the default way to fetch the time bar as it
-        provides more granularity.
+        provides more granularity. However, this can be process intensive as proper
+        division of the time bar takes time.
         """
+
+        msg = "This work is under progress. Please use the fine_grained flag and set it to false"
+        raise NotImplementedError(msg)
 
         time_bar_data = []
 
@@ -420,7 +322,7 @@ class TrackerTimeBarView(APIView):
                 .order_by("start_time")
             )
 
-            fine_grained: bool = data.get("fine_grained", True)
+            fine_grained: bool = data.get("fine_grained", False)
             if fine_grained is True:
                 time_bar_data = self.fetch_time_bar_without_overlaps(time_segments=time_segments)
             else:
@@ -760,9 +662,9 @@ class TrackerBasicTimeDetailsView(APIView):
                         away_time += duration.total_seconds()
 
             response = {
-                "start_time": start_time.strftime("%H:%M %p"),
+                "start_time": start_time.astimezone(ZoneInfo(settings.TIME_ZONE)).strftime("%H:%M %p"),
                 "working_time": self.format_time(working_time).strip(),
-                "last_seen": last_seen.strftime("%H:%M %p"),
+                "last_seen": last_seen.astimezone(ZoneInfo(settings.TIME_ZONE)).strftime("%H:%M %p"),
                 "away_time": self.format_time(away_time).strip(),
             }
             return Response(status=200, data=response)
@@ -780,7 +682,7 @@ class TrackerBasicTimeDetailsView(APIView):
 
 class TrackerWeeklySummary(APIView):
     @staticmethod
-    def get_closest_start_date(date: datetime, week_start_index: int = 0) -> datetime:
+    def get_closest_start_date(date: datetime | std_date, week_start_index: int = 0) -> datetime | std_date:
         """Get the closest starting date. By default, the starting date is considered Monday.
 
         The week_start_index follows the same indexing that is followed by the [weekday
@@ -831,25 +733,34 @@ class TrackerWeeklySummary(APIView):
         parameters=[
             OpenApiParameter(
                 name="user", location=OpenApiParameter.QUERY,
-                required=True, type=OpenApiTypes.STR
+                required=True, type=OpenApiTypes.STR,
             ),
             OpenApiParameter(
                 name="date", location=OpenApiParameter.QUERY,
-                required=False, type=OpenApiTypes.DATE
+                required=False, type=OpenApiTypes.DATE,
+                default=datetime.now().date(),
             ),
             OpenApiParameter(
                 name="week_start", location=OpenApiParameter.QUERY,
                 required=False, type=OpenApiTypes.STR,
-                description=f"Allowed Values: {list(GetWeeklyHoursSerializer().shortcut_names.keys())}",
+                description=f"Allowed Values: {", ".join(tuple(GetWeeklyHoursSerializer.SHORTCUT_NAMES.keys()))}",
             ),
             OpenApiParameter(
                 name="time_start", location=OpenApiParameter.QUERY,
                 required=True, type=OpenApiTypes.TIME,
+                default=datetime.now().strftime("%H:%M:%S"),
             ),
             OpenApiParameter(
                 name="time_end", location=OpenApiParameter.QUERY,
                 required=True, type=OpenApiTypes.TIME,
-            )
+                default=(datetime.now() + timedelta(hours=1)).strftime("%H:%M:%S"),
+            ),
+            OpenApiParameter(
+                name="progression", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.STR,
+                description=f"Allowed Values: {", ".join(tuple(GetWeeklyHoursSerializer.PROGRESSION_VALUES))}",
+                default="forward",
+            ),
         ]
     )
     def get(self, request: Request):
@@ -880,7 +791,15 @@ class TrackerWeeklySummary(APIView):
             weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
             week_start_index = weekdays.index(data.get("week_start", "monday"))
             closest_start_date = self.get_closest_start_date(date, week_start_index)
-            last_date = closest_start_date + timedelta(days=7)
+            if isinstance(closest_start_date, std_date):
+                closest_start_date = datetime.combine(closest_start_date, datetime.min.time())
+
+            progression: Literal["forward"] | Literal["backward"] = data.get("progression")
+            last_date = (
+                closest_start_date + timedelta(days=7)
+                if progression == "forward"
+                else closest_start_date - timedelta(days=7)
+            )
 
             response = {
                 "working_time": {},
@@ -888,6 +807,9 @@ class TrackerWeeklySummary(APIView):
             }
             working_date = closest_start_date
             while working_date != last_date:
+                print("Working Date: ", working_date)
+                print("Last Date: ", last_date)
+
                 working_time = away_time = 0
 
                 # time_start_datetime = datetime.combine(
@@ -914,7 +836,11 @@ class TrackerWeeklySummary(APIView):
                 if activity_logs.count() == 0:
                     response["working_time"][weekdays[working_date.weekday()]] = "0s"
                     response["away_time"][weekdays[working_date.weekday()]] = "0s"
-                    working_date += timedelta(days=1)
+                    
+                    if progression == "forward":
+                        working_date += timedelta(days=1)
+                    else:
+                        working_date -= timedelta(days=1)
                     continue
 
                 start_time = activity_logs.first().start_timestamp
@@ -952,7 +878,10 @@ class TrackerWeeklySummary(APIView):
                 response["working_time"][weekdays[working_date.weekday()]] = self.format_time(working_time).strip()
                 response["away_time"][weekdays[working_date.weekday()]] = self.format_time(away_time).strip()
 
-                working_date += timedelta(days=1)
+                if progression == "forward":
+                    working_date += timedelta(days=1)
+                else:
+                    working_date -= timedelta(days=1)
 
             return Response(status=200, data=response)
         except Exception as e:
@@ -964,3 +893,1110 @@ class TrackerWeeklySummary(APIView):
                 file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
+
+
+class TrackerAppCategoryView(APIView):
+    def get(self, request: Request):
+        """Get a list of all app categories defined."""
+
+        try:
+            tracker_categories = TrackerAppCategories.objects.all()
+            response = {
+                "app_categories": TrackerAppCategoriesSerializer(tracker_categories, many=True).data
+            }
+            return Response(status=200, data=response)
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return Response(status=500, data=get_traceback())
+
+    @extend_schema(request=TrackerAppCategoryPatchSerializer)
+    def patch(self, request: Request):
+        """Update Category details.
+        
+        Note that updating category details would also update subsequent
+        records in activity_logs and time_segments.
+        """
+
+        try:
+            serializer = TrackerAppCategoryPatchSerializer(data=request.data)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            data = serializer.validated_data
+            app_category: TrackerAppCategories = serializer.validated_data["app_category"]
+
+            if app_category.name != data.get("name"):
+                app_category.name = data.get("name") or app_category.name
+            if app_category.productivity_status_type != data.get("productivity_status_type"):
+                app_category.productivity_status_type = data.get("productivity_status_type") or app_category.productivity_status_type
+
+            app_category.save()
+            return Response(status=200, data={"app_category": TrackerAppCategoriesSerializer(app_category).data})
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+            
+            return Response(status=500, data=get_traceback())
+
+    @extend_schema(request=TrackerAppCategoryPostSerializer)
+    def post(self, request: Request):
+        """Create a new category"""
+
+        try:
+            serializer = TrackerAppCategoryPostSerializer(data=request.data)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+    
+            tracker_app_category = TrackerAppCategories.objects.create(
+                name=serializer.validated_data.get("name"),
+                productivity_status_type=serializer.validated_data.get("productivity_status_type"),
+            )
+            return Response(status=200, data=TrackerAppCategoriesSerializer(tracker_app_category).data)
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+            
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerAppsView(APIView):
+    def get(self, request: Request):
+        """List all apps found through the tracker."""
+
+        try:
+            apps = TrackerApps.objects.all()
+            return Response(status=200, data=TrackerAppsSerializer(apps, many=True).data)
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+            
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerSetAppCategoryView(APIView):
+    serializer_class = TrackerSetAppCategorySerializer
+
+    def patch(self, request: Request):
+        """Update the category of an app.
+        
+        Note that on a successful update,
+        related activity logs and time segments will be updated
+        """
+
+        try:
+            serializer = TrackerSetAppCategorySerializer(data=request.data)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            app, category = serializer.validated_data.values()
+            app.category = category
+            app.update()
+
+            return Response(status=200, data={"app": TrackerAppsSerializer(app).data})
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+            
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerProductiveBreakDownView(APIView):
+    @staticmethod
+    def format_time(seconds: int | float | None) -> str | None:
+        if seconds is None:
+            return None
+
+        time_object = timedelta(seconds=seconds)
+        mins, seconds = divmod(seconds, 60)
+        hours, minutes = divmod(mins, 60)
+
+        result = ""
+
+        if time_object.days is not None and time_object.days != 0:
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
+        if hours is not None and hours != 0:
+            result += f"{int(hours)}h "
+        if minutes is not None and minutes != 0:
+            result += f"{int(minutes)}m "
+        if seconds is not None and seconds != 0:
+            result += f"{int(seconds)}s"
+
+        if result == "":
+            result = "0s"
+
+        return result.strip()
+
+    @staticmethod
+    def get_closest_start_date(date: datetime | std_date, week_start_index: int = 0) -> datetime | std_date:
+        """Get the closest starting date. By default, the starting date is considered Monday.
+
+        The week_start_index follows the same indexing that is followed by the [weekday
+        method](https://docs.python.org/3/library/datetime.html#datetime.date.weekday) provided by the datetime module.
+        Reference: https://stackoverflow.com/questions/6558535/find-the-date-for-the-first-monday-after-a-given-date/79092349#79092349
+        """
+
+        if date.weekday() == week_start_index:
+            return date
+
+        days_ahead = week_start_index - date.weekday()
+        if days_ahead <= 0:
+            days_ahead += 7
+
+        days_behind = date.weekday() - week_start_index
+        if days_behind <= 0:
+            days_behind += 7
+
+        closest_day = (
+            days_ahead if days_ahead < days_behind
+            else - days_behind
+        )
+        return date + timedelta(days=closest_day)
+
+    @staticmethod
+    def get_default_start_time(user, date: datetime | std_date) -> std_time:
+        """Get the default start time for the provided date in case no start time is provided
+        
+        Here, we assume that the start_timestamp of the first activity log entry for the
+        requested user on the request date as the default start time.
+        """
+
+        activity_logs = ActivityLogs.objects.filter(user=user)
+            
+        if isinstance(date, datetime):
+            activity_logs = activity_logs.filter(start_timestamp__date=date.date())
+        else:
+            activity_logs = activity_logs.filter(start_timestamp__date=date)
+
+        first_entry = activity_logs.order_by("start_timestamp").first()
+        if first_entry is None:
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
+
+        start_time = first_entry.start_timestamp.time()
+        return start_time
+
+    @staticmethod
+    def get_default_end_time(user, date: datetime | std_date) -> std_time:
+        """Get the default end time for the provided date in case no end time is provided
+
+        Here, we assume that the end_timestamp of the last activity log entry for the
+        requested user on the request date as the default end time.
+        """
+
+        activity_logs = ActivityLogs.objects.filter(user=user)
+
+        if isinstance(date, datetime):
+            activity_logs = activity_logs.filter(start_timestamp__date=date.date())
+        else:
+            activity_logs = activity_logs.filter(start_timestamp__date=date)
+
+        last_entry = activity_logs.order_by("start_timestamp").last()
+        if last_entry is None:
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
+
+        end_time = last_entry.end_timestamp.time()
+        return end_time
+
+    @staticmethod
+    def get_total_working_time(date: std_date, start_time: std_time, end_time: std_time) -> int:
+        return (
+            (datetime.combine(date, end_time, tzinfo=ZoneInfo("UTC"))
+            - datetime.combine(date, start_time, tzinfo=ZoneInfo("UTC")))
+            .total_seconds()
+        )
+
+    def calculate_working_time_with_percentage(self,
+                               user,
+                               date: datetime | std_date,
+                               start_time: Optional[std_time] = None,
+                               end_time: Optional[std_time] = None) -> dict[str, float]:
+        try:
+            if start_time is None:
+                start_time = self.get_default_start_time(user, date)
+            if end_time is None:
+                end_time = self.get_default_end_time(user, date)
+
+            # By definition, the first and last activity log entries for the requested user
+            # for the requested date serve as proof of working. So, we can use that for calculation.
+            # Otherwise, if this is to be integrated with the Hrmware application, we could
+            # use the attendance data for more accuracy
+            work_start_time = datetime.combine(date, self.get_default_start_time(user, date), tzinfo=ZoneInfo("UTC"))
+            work_end_time = datetime.combine(date, self.get_default_end_time(user, date), tzinfo=ZoneInfo("UTC"))
+
+            total_working_time = (work_end_time - work_start_time).total_seconds()
+
+            total_defined_work_duration = self.get_total_working_time(date, start_time, end_time)
+            working_time_percentage = round((total_working_time / total_defined_work_duration) * 100, 2)
+
+            return {"working_time": total_working_time, "working_time_percentage": working_time_percentage}
+
+        except NoActivityLogFound:
+            return {"working_time": None, "working_time_percentage": None}
+
+    def calculate_productive_time_with_percentage(self,
+                                  user,
+                                  date: datetime | std_date,
+                                  start_time: Optional[std_time] = None,
+                                  end_time: Optional[std_time] = None) -> dict[str, float]:
+        try:
+            if start_time is None:
+                start_time = self.get_default_start_time(user, date)
+            if end_time is None:
+                end_time = self.get_default_end_time(user, date)
+        except NoActivityLogFound:
+            return {"productive_time": None, "productive_time_percentage": None}
+
+        total_productive_time = 0
+        activity_logs = ActivityLogs.objects.filter(user=user, start_timestamp__date=date)        
+        for activity_log in activity_logs:
+            if activity_log.productivity_status == "productive":
+                total_productive_time += (activity_log.get_actual_end_time() - activity_log.start_timestamp).total_seconds()
+
+        total_defined_work_duration = self.get_total_working_time(date=date, start_time=start_time, end_time=end_time)
+        productive_time_percentage = round((total_productive_time / total_defined_work_duration) * 100, 2)
+
+        return {"productive_time": total_productive_time, "productive_time_percentage": productive_time_percentage}
+
+    def calculate_non_productive_time_with_percentage(self,
+                                                      user,
+                                                      date: datetime | std_date,
+                                                      start_time: Optional[std_time] = None,
+                                                      end_time: Optional[std_time] = None) -> dict[str, float]:
+        try:
+            if start_time is None:
+                start_time = self.get_default_start_time(user, date)
+            if end_time is None:
+                end_time = self.get_default_end_time(user, date)
+        except NoActivityLogFound:
+            return {"non_productive_time": None, "non_productive_time_percentage": None}
+
+        total_non_productive_time = 0
+        activity_logs = ActivityLogs.objects.filter(user=user, start_timestamp__date=date)
+        for activity_log in activity_logs:
+            if activity_log.productivity_status not in ["productive", "neutral"]:
+                total_non_productive_time += (activity_log.get_actual_end_time() - activity_log.start_timestamp).total_seconds()
+        
+        total_defined_work_duration = self.get_total_working_time(date=date, start_time=start_time, end_time=end_time)
+        non_productive_time_percentage = round((total_non_productive_time / total_defined_work_duration) * 100, 2)
+
+        return {"non_productive_time": total_non_productive_time, "non_productive_time_percentage": non_productive_time_percentage}
+
+    def calculate_neutral_time_with_percentage(self,
+                                               user,
+                                               date: datetime | std_date,
+                                               start_time: Optional[std_time] = None,
+                                               end_time: Optional[std_time] = None) -> dict[str, float]:
+        try:
+            if start_time is None:
+                start_time = self.get_default_start_time(user, date)
+            if end_time is None:
+                end_time = self.get_default_end_time(user, date)
+        except NoActivityLogFound:
+            return {"neutral_time": None, "neutral_time_percentage": None}
+
+        total_neutral_time = 0
+        activity_logs = ActivityLogs.objects.filter(user=user, start_timestamp__date=date)
+        for activity_log in activity_logs:
+            if activity_log.productivity_status == "neutral":
+                total_neutral_time += (activity_log.get_actual_end_time() - activity_log.start_timestamp).total_seconds()
+
+        total_defined_work_duration = self.get_total_working_time(date=date, start_time=start_time, end_time=end_time)
+        neutral_time_percentage = round((total_neutral_time / total_defined_work_duration) * 100, 2)
+
+        return {"neutral_time": total_neutral_time, "neutral_time_percentage": neutral_time_percentage}
+
+    def calculate_away_time_with_percentage(self,
+                                            user,
+                                            date: datetime | std_date,
+                                            start_time: Optional[std_time] = None,
+                                            end_time: Optional[std_time] = None) -> dict[str, float]:
+        try:
+            if start_time is None:
+                start_time = self.get_default_start_time(user, date)
+            if end_time is None:
+                end_time = self.get_default_end_time(user, date)
+        except NoActivityLogFound:
+            return {
+                "away_time": self.get_total_working_time(date, start_time, end_time),
+                "away_time_percentage": 100 # Because then we consider that the user was away the entire day
+            }
+
+        total_away_time = 0
+        activity_logs = ActivityLogs.objects.filter(user=user, start_timestamp__date=date)
+        for index, activity_log in enumerate(activity_logs):
+            if index == 0:
+                start_timestamp = start_time
+                end_timestamp = activity_log.start_timestamp
+
+            elif index == len(activity_logs) - 1:
+                start_timestamp = activity_log.get_actual_end_time()
+                end_timestamp = end_time
+            
+            else:
+                start_timestamp = activity_log.get_actual_end_time()
+                end_timestamp = activity_logs[index+1].start_timestamp
+
+            if isinstance(start_timestamp, std_time):
+                start_timestamp = datetime.combine(date, start_timestamp, tzinfo=ZoneInfo("UTC"))
+            if isinstance(end_timestamp, std_time):
+                end_timestamp = datetime.combine(date, end_timestamp, tzinfo=ZoneInfo("UTC"))
+
+            if start_timestamp < end_timestamp:
+                duration = end_timestamp - start_timestamp
+                if duration >= timedelta(seconds=settings.TIME_GAP_LIMIT):
+                    total_away_time += duration.total_seconds()
+
+        if total_away_time == 0:
+            total_away_time = self.get_total_working_time(date, start_time, end_time)
+
+        total_defined_work_duration = self.get_total_working_time(date=date, start_time=start_time, end_time=end_time)
+        away_time_percentage = round((total_away_time / total_defined_work_duration) * 100, 2)
+
+        return {"away_time": total_away_time, "away_time_percentage": away_time_percentage}
+
+    def get_days_to_work_on(self,
+                            date: datetime | std_date,
+                            week_start: Weekday = "monday",
+                            number_of_days_in_work_week = 5,
+                            work_days_to_ignore: list[Weekday] = []) -> list[datetime | std_date]:
+        """Get a list of dates to get result from"""
+
+        # Weekdays arranged according to the
+        # weekday method provided by the datetime module
+        weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+        closest_date = self.get_closest_start_date(date, weekdays.index(week_start))
+        work_days_to_ignore_formatted = [
+            weekdays.index(weekday)
+            for weekday in work_days_to_ignore
+        ]
+
+        days_list: list[datetime | std_date] = []
+        working_date = closest_date
+        final_date_to_avoid = working_date + timedelta(days=number_of_days_in_work_week)
+
+        while working_date != final_date_to_avoid:
+            if working_date.weekday() not in work_days_to_ignore_formatted:
+                days_list.append(working_date)
+            
+            working_date += timedelta(days=1)
+
+        return days_list
+
+    def get_week_calculations(self,
+                              response_key: (Literal["working"] |
+                                             Literal["productive"] |
+                                             Literal["non_productive"] |
+                                             Literal["neutral"] |
+                                             Literal["away"]),
+                              user,
+                              valid_week_days: list[datetime | std_date],
+                              start_time: std_time,
+                              end_time: std_time) -> dict[str, float]:
+        this_week_calculations = 0
+        total_working_time = 0
+        for week_day in valid_week_days:
+            function_to_call = getattr(self, f"calculate_{response_key}_time_with_percentage")
+            function_result = function_to_call(user, week_day, start_time, end_time)
+
+            print(f"Total {response_key} time on {week_day.strftime("%Y-%m-%d")}: ", function_result)
+            if function_result[f"{response_key}_time"] is not None:
+                this_week_calculations += function_result[f"{response_key}_time"]
+
+            total_working_time += self.get_total_working_time(week_day, start_time, end_time)
+
+        this_week_calculations_percentage = round((this_week_calculations / total_working_time) * 100, 2)
+
+        return {f"{response_key}_time": this_week_calculations, f"{response_key}_time_percentage": this_week_calculations_percentage}
+
+    def get_response(self,
+                     user,
+                     date: datetime | std_date,
+                     start_time: Optional[std_time],
+                     end_time: Optional[std_time],
+                     week_start: Weekday,
+                     number_of_days_in_work_week: int,
+                     work_days_to_ignore: list[Weekday],
+                     output_format: Literal["activity"] | Literal["day"]):
+        """Get response in either activity or day key format"""
+
+        response = {}
+        response_keys = (
+            "working", "productive",
+            "non_productive", "neutral", "away"
+        )
+        valid_week_days = self.get_days_to_work_on(
+            date,
+            week_start,
+            number_of_days_in_work_week,
+            work_days_to_ignore
+        )
+
+        if output_format == "activity":
+            for response_key in response_keys:
+                this_day_calculations = getattr(self, f"calculate_{response_key}_time_with_percentage")(user, date, start_time, end_time)
+                yesterday_calculations = getattr(self, f"calculate_{response_key}_time_with_percentage")(user, date - timedelta(days=1), start_time, end_time)
+                this_week_calculations = self.get_week_calculations(response_key, user, valid_week_days, start_time, end_time)
+
+                response[f"{response_key}_time"] = {
+                    "this_day": self.format_time(this_day_calculations[f"{response_key}_time"]),
+                    "this_day_percentage": f"{this_day_calculations[f"{response_key}_time_percentage"]}%",
+                    "yesterday": self.format_time(yesterday_calculations[f"{response_key}_time"]),
+                    "yesterday_percentage": f"{yesterday_calculations[f"{response_key}_time_percentage"]}%",
+                    "this_week": self.format_time(this_week_calculations[f"{response_key}_time"]),
+                    "this_week_percentage": f"{this_week_calculations[f"{response_key}_time_percentage"]}%"
+                }
+
+        elif output_format == "day":
+            calculations_to_make = {
+                "this_day": date,
+                "yesterday": date - timedelta(days=1),
+                "this_week": valid_week_days
+            }
+
+            for key, value in calculations_to_make.items():
+                for response_key in response_keys:
+                    if key == "this_week":
+                        result = self.get_week_calculations(
+                            response_key,
+                            user,
+                            valid_week_days,
+                            start_time,
+                            end_time
+                        )
+                    else:
+                        function = getattr(self, f"calculate_{response_key}_time_with_percentage")
+                        result = function(user, value, start_time, end_time)
+
+                    if key not in response:
+                        response[key] = {}
+
+                    response[key][f"{response_key}_time"] = self.format_time(result[f"{response_key}_time"])
+                    response[key][f"{response_key}_time_percentage"] = f"{result[f"{response_key}_time_percentage"]}%"
+        else:
+            raise ValueError("Invalid Output Format provided")
+
+        return response
+
+    @extend_schema(parameters=[
+        OpenApiParameter(
+           name="date", location=OpenApiParameter.QUERY,
+           required=False, type=OpenApiTypes.STR,
+           default=datetime.now().date().strftime("%Y-%m-%d"),
+        ),
+        OpenApiParameter(
+            name="user", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.STR,
+        ),
+        OpenApiParameter(
+            name="start_time", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.TIME,
+            default=datetime.now().time().strftime("%H:%M:%S"),
+        ),
+        OpenApiParameter(
+            name="end_time", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.TIME,
+            default=(datetime.now() + timedelta(hours=1)).time().strftime("%H:%M:%S"),
+        ),
+        OpenApiParameter(
+            name="output_format", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.STR,
+            description=f"Allowed Values: {", ".join(TrackerProductiveBreakDownSerializer.OUTPUT_FORMAT_CHOICES)}",
+            default="activity",
+        ),
+        OpenApiParameter(
+            name="week_start", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.STR,
+            description=f"Allowed Values: {", ".join(TrackerProductiveBreakDownSerializer.SHORTCUT_NAMES)
+                                            + ", "
+                                            + ", ".join(TrackerProductiveBreakDownSerializer.VALID_WEEK_NAMES)}",
+            default="monday"
+        ),
+        OpenApiParameter(
+            name="number_of_days_in_work_week", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.INT,
+            default=5,
+            description="Must be between 1-7. Note that if work_days_to_ignore parameter is provided," \
+                        "those days will not be considered in the total calculation"
+        ),
+        OpenApiParameter(
+            name="work_days_to_ignore", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.STR,
+            default="saturday,sunday",
+            description="Work days that will be ignored. Must be provided as comma seperated values. " \
+                        "Accepts the same values as week_start."
+        )
+    ])
+    def get(self, request: Request):
+        """Fetch productive time break down for the provided date, the day before the provided date
+        and the week for the provided date.
+
+        It will return the total duration and percentage of working time, productive time,
+        non-productive time, neutral time and away time for the provided date, the 
+        day before the provided date and the week for the provided date.
+
+        Please note that start_time and end_time provided is assumed to be in the Asia/Kolkata
+        timezone. As such, this will be converted into UTC time for proper analysis.
+
+        Response can be both Activity Key Based and Day Key Based, so any format can be
+        chosen. By default, response will be provided on the basis of activity keys.
+        """
+
+        try:
+            serializer = TrackerProductiveBreakDownSerializer(data=request.query_params)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            user = serializer.validated_data.get("user")
+            date = serializer.validated_data.get("date")
+            start_time = serializer.validated_data.get("start_time")
+            end_time = serializer.validated_data.get("end_time")
+            output_format = serializer.validated_data.get("output_format")
+            week_start = serializer.validated_data.get("week_start")
+            number_of_days_in_work_week = serializer.validated_data.get("number_of_days_in_work_week")
+            work_days_to_ignore = serializer.validated_data.get("work_days_to_ignore")
+
+            response = self.get_response(
+                user=user,
+                date=date,
+                start_time=start_time,
+                end_time=end_time,
+                week_start=week_start,
+                number_of_days_in_work_week=number_of_days_in_work_week,
+                work_days_to_ignore=work_days_to_ignore,
+                output_format=output_format
+            )
+
+            return Response(status=200, data=response)
+
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerCategoryBreakDownView(APIView):
+    @staticmethod
+    def format_time(seconds: int | float | None) -> str | None:
+        if seconds is None:
+            return None
+
+        time_object = timedelta(seconds=seconds)
+        mins, seconds = divmod(seconds, 60)
+        hours, minutes = divmod(mins, 60)
+
+        result = ""
+
+        if time_object.days is not None and time_object.days != 0:
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
+        if hours is not None and hours != 0:
+            result += f"{int(hours)}h "
+        if minutes is not None and minutes != 0:
+            result += f"{int(minutes)}m "
+        if seconds is not None and seconds != 0:
+            result += f"{int(seconds)}s"
+
+        if result == "":
+            result = "0s"
+
+        return result.strip()
+
+    @staticmethod
+    def get_default_start_time(user, date: datetime | std_date) -> std_time:
+        """Get the default start time for the provided date in case no start time is provided
+        
+        Here, we assume that the start_timestamp of the first activity log entry for the
+        requested user on the request date as the default start time.
+        """
+
+        activity_logs = ActivityLogs.objects.filter(user=user)
+            
+        if isinstance(date, datetime):
+            activity_logs = activity_logs.filter(start_timestamp__date=date.date())
+        else:
+            activity_logs = activity_logs.filter(start_timestamp__date=date)
+
+        first_entry = activity_logs.order_by("start_timestamp").first()
+        if first_entry is None:
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
+
+        start_time = first_entry.start_timestamp.time()
+        return start_time
+
+    @staticmethod
+    def get_default_end_time(user, date: datetime | std_date) -> std_time:
+        """Get the default end time for the provided date in case no end time is provided
+
+        Here, we assume that the end_timestamp of the last activity log entry for the
+        requested user on the request date as the default end time.
+        """
+
+        activity_logs = ActivityLogs.objects.filter(user=user)
+
+        if isinstance(date, datetime):
+            activity_logs = activity_logs.filter(start_timestamp__date=date.date())
+        else:
+            activity_logs = activity_logs.filter(start_timestamp__date=date)
+
+        last_entry = activity_logs.order_by("start_timestamp").last()
+        if last_entry is None:
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
+
+        end_time = last_entry.end_timestamp.time()
+        return end_time
+
+    @extend_schema(parameters=[
+            OpenApiParameter(
+                name="date", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.DATE,
+                default=datetime.now().date()
+            ),
+            OpenApiParameter(
+                name="user", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.STR,
+            ),
+            OpenApiParameter(
+                name="start_time", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.TIME,
+                default=datetime.now().time().strftime("%H:%M:%S")
+            ),
+            OpenApiParameter(
+                name="end_time", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.TIME,
+                default=(datetime.now() + timedelta(hours=1)).time().strftime("%H:%M:%S")
+            )
+        ]
+    )
+    def get(self, request: Request):
+        try:
+            serializer = TrackerCategoryBreakDownSerializer(data=request.query_params)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            data = serializer.validated_data
+            date = data["date"]
+            user = data["user"]
+            start_time = data.get("start_time")
+            end_time = data.get("end_time")
+
+            try:
+                if start_time is None:
+                    start_time = self.get_default_start_time(user, date)
+                if end_time is None:
+                    end_time = self.get_default_end_time(user, date)
+            except NoActivityLogFound:
+                return Response(status=400, data={"msg": "Please provide a start and end time"})
+
+            total_work_duration = (
+                (datetime.combine(date, end_time, tzinfo=ZoneInfo("UTC"))
+                - datetime.combine(date, start_time, tzinfo=ZoneInfo("UTC")))
+                .total_seconds()
+            )
+            category_counts = (
+                ActivityLogs.objects
+                .filter(
+                    start_timestamp__date=date,
+                    user=user,
+                )
+                .annotate(name=F("category__name"))
+                .values("name")
+                .annotate(total_duration=Sum("duration"))
+                .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
+                .order_by()
+            )
+            categories_not_recorded = (
+                TrackerAppCategories.objects
+                .exclude(name__in=category_counts.values("name"))
+            )
+
+            response = {}
+            for category_count in category_counts.values("name", "total_duration", "total_percentage"):
+                name, total_duration, total_percentage = (
+                    category_count.get("name"),
+                    category_count.get("total_duration"),
+                    category_count.get("total_percentage")
+                )
+
+                response[name] = {
+                    "duration": self.format_time(float(total_duration)),
+                    "percentage": f"{round(total_percentage, 2)}%"
+                }
+            for category in categories_not_recorded:
+                response[category.name] = {"duration": None, "percentage": None}
+
+            return Response(status=200, data={"category_breakdown": response})
+
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerApplicationGroupsView(APIView):
+    @staticmethod
+    def format_time(seconds: int | float | None) -> str | None:
+        if seconds is None:
+            return None
+
+        time_object = timedelta(seconds=seconds)
+        mins, seconds = divmod(seconds, 60)
+        hours, minutes = divmod(mins, 60)
+
+        result = ""
+
+        if time_object.days is not None and time_object.days != 0:
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
+        if hours is not None and hours != 0:
+            result += f"{int(hours)}h "
+        if minutes is not None and minutes != 0:
+            result += f"{int(minutes)}m "
+        if seconds is not None and seconds != 0:
+            result += f"{int(seconds)}s"
+
+        if result == "":
+            result = "0s"
+
+        return result.strip()
+
+    @staticmethod
+    def get_default_start_time(user, date: datetime | std_date) -> std_time:
+        """Get the default start time for the provided date in case no start time is provided
+
+        Here, we assume that the start_timestamp of the first activity log entry for the
+        requested user on the request date as the default start time.
+        """
+
+        activity_logs = ActivityLogs.objects.filter(user=user)
+
+        if isinstance(date, datetime):
+            activity_logs = activity_logs.filter(start_timestamp__date=date.date())
+        else:
+            activity_logs = activity_logs.filter(start_timestamp__date=date)
+
+        first_entry = activity_logs.order_by("start_timestamp").first()
+        if first_entry is None:
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
+
+        start_time = first_entry.start_timestamp.time()
+        return start_time
+
+    @staticmethod
+    def get_default_end_time(user, date: datetime | std_date) -> std_time:
+        """Get the default end time for the provided date in case no end time is provided
+
+        Here, we assume that the end_timestamp of the last activity log entry for the
+        requested user on the request date as the default end time.
+        """
+
+        activity_logs = ActivityLogs.objects.filter(user=user)
+
+        if isinstance(date, datetime):
+            activity_logs = activity_logs.filter(start_timestamp__date=date.date())
+        else:
+            activity_logs = activity_logs.filter(start_timestamp__date=date)
+
+        last_entry = activity_logs.order_by("start_timestamp").last()
+        if last_entry is None:
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
+
+        end_time = last_entry.end_timestamp.time()
+        return end_time
+
+    @extend_schema(parameters=[
+            OpenApiParameter(
+                name="date", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.DATE,
+                default=datetime.now().date()
+            ),
+            OpenApiParameter(
+                name="user", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.STR,
+            ),
+            OpenApiParameter(
+                name="start_time", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.TIME,
+                default=datetime.now().time().strftime("%H:%M:%S")
+            ),
+            OpenApiParameter(
+                name="end_time", location=OpenApiParameter.QUERY,
+                required=False, type=OpenApiTypes.TIME,
+                default=(datetime.now() + timedelta(hours=1)).time().strftime("%H:%M:%S")
+            )
+        ]
+    )
+    def get(self, request: Request):
+        try:
+            serializer = TrackerApplicationGroupsSerializer(data=request.query_params)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            data = serializer.validated_data
+            date = data.get("date")
+            user = data.get("user")
+            
+            start_time = data.get("start_time")
+            end_time = data.get("end_time")
+            try:
+                if start_time is None:
+                    start_time = self.get_default_start_time(user, date)
+                if end_time is None:
+                    end_time = self.get_default_end_time(user, date)
+            except NoActivityLogFound:
+                return Response(status=400, data={"msg": "Please provide a start and end time"})
+
+            total_work_duration = (
+                (datetime.combine(date, end_time, tzinfo=ZoneInfo("UTC"))
+                 - datetime.combine(date, start_time, tzinfo=ZoneInfo("UTC")))
+                .total_seconds()
+            )
+
+            response = {
+                productivity_choice: {}
+                for productivity_choice in ActivityLogs.PRODUCTIVITY_STATUS_CHOICES
+            }
+            for productivity_choice in ActivityLogs.PRODUCTIVITY_STATUS_CHOICES:
+                app_counts = (
+                    ActivityLogs.objects
+                    .filter(
+                        user=user,
+                        start_timestamp__date=date,
+                        productivity_status=productivity_choice
+                    )
+                    .values("window_title")
+                    .annotate(total_duration=Sum("duration"))
+                    .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
+                    .order_by()
+                )
+
+                for app_count in app_counts:
+                    window_title, total_duration, total_percentage = (
+                        app_count.get("window_title"),
+                        app_count.get("total_duration"),
+                        app_count.get("total_percentage")
+                    )
+
+                    response[productivity_choice][window_title] = {
+                        "duration": self.format_time(float(total_duration)),
+                        "percentage": f"{round(total_percentage, 2)}%"
+                    }
+
+            return Response(status=200, data=response)
+
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerWebsitesVistedView(APIView):
+    @staticmethod
+    def format_time(seconds: int | float | None) -> str | None:
+        if seconds is None:
+            return None
+
+        time_object = timedelta(seconds=seconds)
+        mins, seconds = divmod(seconds, 60)
+        hours, minutes = divmod(mins, 60)
+
+        result = ""
+
+        if time_object.days is not None and time_object.days != 0:
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
+        if hours is not None and hours != 0:
+            result += f"{int(hours)}h "
+        if minutes is not None and minutes != 0:
+            result += f"{int(minutes)}m "
+        if seconds is not None and seconds != 0:
+            result += f"{int(seconds)}s"
+
+        if result == "":
+            result = "0s"
+
+        return result.strip()
+
+    @extend_schema(parameters=[
+        OpenApiParameter(
+            name="date", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.DATE,
+            default=datetime.now().date(),
+        ),
+        OpenApiParameter(
+            name="user", location=OpenApiParameter.QUERY,
+            required=True, type=OpenApiTypes.STR,
+        ),
+        OpenApiParameter(
+            name="check_browsers", location=OpenApiParameter.QUERY,
+            required=False, type=OpenApiTypes.STR,
+            description="Make sure that the values passed are the app names of the browsers, " \
+                        "that is, the name of the binary files responsible for opening the browser",
+            default="google-chrome, firefox"
+        ),
+    ])
+    def get(self, request: Request):
+        """Get list of websites visited.
+
+        This data is collected from all browsers visited by the user.
+        By default, data is filtered from recognized browsers. This
+        can be added to using the check_browsers parameter.
+        """
+
+        try:
+            serializer = TrackerWebsitesVistedViewSerializer(data=request.query_params)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            data = serializer.validated_data
+            date: datetime | std_date = data.get("date")
+            user = data.get("user")
+
+            check_browsers: list[str] = data.get("check_browsers", [])
+            browsers_filter: set[str] = set(settings.RECOGNIZED_BROWSERS + check_browsers)
+
+            activity_logs = (
+                ActivityLogs.objects
+                .filter(
+                    start_timestamp__date=date,
+                    user=user,
+                    app__name__in=browsers_filter
+                )
+            )
+
+            duration_mapper = {}
+            for activity_log in activity_logs:
+                duration = (activity_log.get_actual_end_time() - activity_log.start_timestamp).total_seconds()
+                if activity_log.app.name in duration_mapper:
+                    duration_mapper[activity_log.window_title] += duration
+                else:
+                    duration_mapper[activity_log.window_title] = duration
+
+            duration_mapper = {key: self.format_time(value) for key, value in duration_mapper.items()}
+            return Response(status=200, data={"top_websites_visited": duration_mapper})
+
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerLiveFeedView(APIView):
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="date", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.DATE,
+                default=datetime.now().date()
+            ),
+            OpenApiParameter(
+                name="user", location=OpenApiParameter.QUERY,
+                required=True, type=OpenApiTypes.STR,
+            )
+        ]
+    )
+    def get(self, request: Request):
+        """Get the latest records for the requested user on the requested date."""
+
+        try:
+            serializer = TrackerLiveFeedSerializer(data=request.query_params)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            data = serializer.validated_data
+            date: datetime | std_date = data.get("date")
+            user = data.get("user")
+            start_time: std_time = data.get("start_time")
+            end_time: std_time = data.get("end_time")
+
+            activity_logs = (
+                ActivityLogs.objects
+                .filter(
+                    start_timestamp__date=date,
+                    user=user,
+                )
+                .order_by("-start_timestamp")
+            )
+
+            latest_feed = []
+            activity_logs_count = activity_logs.count()
+            for index, activity_log in enumerate(activity_logs):
+                activity_data = {
+                    "app": activity_log.app.actual_name,
+                    "status": (
+                        "visited" if activity_log.is_active is False
+                        else "active"
+                    ),
+                    "time": (
+                        activity_log.start_timestamp
+                        .replace(tzinfo=ZoneInfo("UTC"))
+                        .astimezone(ZoneInfo(settings.TIME_ZONE))
+                        .strftime("%H:%M %p")
+                    )
+                }
+
+                if index != activity_logs_count - 1:
+                    duration = activity_log.start_timestamp - activity_logs[index+1].end_timestamp
+                    if duration > timedelta(seconds=settings.TIME_GAP_LIMIT):
+                        away_data = {
+                            "app": None,
+                            "status": "away",
+                            "time": (
+                                activity_logs[index+1].end_timestamp
+                                .replace(tzinfo=ZoneInfo("UTC"))
+                                .astimezone(ZoneInfo(settings.TIME_ZONE))
+                                .strftime("%H:%M %p")
+                            )
+                        }
+                        latest_feed.append(away_data)
+
+                latest_feed.append(activity_data)
+
+            return Response(status=200, data={"live_feed": latest_feed})
+
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write("Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n")
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return ResourceWarning(status=500, data=get_traceback())

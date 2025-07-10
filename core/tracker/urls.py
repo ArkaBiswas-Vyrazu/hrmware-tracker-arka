@@ -4,7 +4,15 @@ from .views import (
     TrackerTimeBarView,
     TrackerProductivityStatusView,
     TrackerBasicTimeDetailsView,
-    TrackerWeeklySummary,    
+    TrackerWeeklySummary,
+    TrackerAppCategoryView,
+    TrackerSetAppCategoryView,
+    TrackerAppsView,
+    TrackerProductiveBreakDownView,
+    TrackerCategoryBreakDownView,
+    TrackerApplicationGroupsView,
+    TrackerWebsitesVistedView,
+    TrackerLiveFeedView,
 )
 
 urlpatterns = [
@@ -13,4 +21,12 @@ urlpatterns = [
     path("productivity-status", TrackerProductivityStatusView.as_view(), name="tracker-productivity-status-view"),
     path("basic-details", TrackerBasicTimeDetailsView.as_view(), name="tracker-basic-time-details-view"),
     path("weekly-summary", TrackerWeeklySummary.as_view(), name="tracker-weekly-summary-view"),
+    path("categories", TrackerAppCategoryView.as_view(), name="tracker-categories-view"),
+    path("apps/update", TrackerSetAppCategoryView.as_view(), name="tracker-set-app-category-view"),
+    path("apps", TrackerAppsView.as_view(), name="tracker-apps-view"),
+    path("productive-breakdown", TrackerProductiveBreakDownView.as_view(), name="tracker-productive-breakdown-view"),
+    path("category-breakdown", TrackerCategoryBreakDownView.as_view(), name="tracker-category-breakdown-view"),
+    path("application-groups", TrackerApplicationGroupsView.as_view(), name="tracker-application-groups-view"),
+    path("websites-visited", TrackerWebsitesVistedView.as_view(), name="tracker-websites-visited-view"),
+    path("live-feed", TrackerLiveFeedView.as_view(), name="tracker-live-feed-view"),
 ]

@@ -4,8 +4,6 @@ from collections.abc import Iterable
 from datetime import timedelta, datetime
 
 from django.db import models
-from django.db import models
-from django.apps import apps
 from django.contrib.auth import password_validation, get_backends
 from django.conf import settings
 from django.utils.crypto import salted_hmac
@@ -22,6 +20,7 @@ from django.contrib.auth.hashers import (
     check_password
 )
 from django.utils import timezone
+from django.core.files.storage import FileSystemStorage
 
 
 class ActivityLogs(models.Model):
@@ -30,10 +29,14 @@ class ActivityLogs(models.Model):
     window_title = models.TextField()
     start_timestamp = models.DateTimeField()
     end_timestamp = models.DateTimeField()
-    duration = models.IntegerField(db_comment='Measured in seconds')
-    app = models.ForeignKey('TrackerApps', models.CASCADE)
+    app: "TrackerApps" = models.ForeignKey('TrackerApps', models.CASCADE)
     category = models.ForeignKey('TrackerAppCategories', models.CASCADE)
     is_active = models.BooleanField()
+
+    # Here, duration does not mean end_time - start_time
+    # It is the duration measured from start_time to the time the
+    # currently tracked activity ends
+    duration = models.IntegerField(db_comment='Measured in seconds')
 
     PRODUCTIVITY_STATUS_CHOICES = {
         "productive": "productive",
@@ -47,6 +50,12 @@ class ActivityLogs(models.Model):
     class Meta:
         managed = True
         db_table = 'activity_logs'
+
+    def get_actual_end_time(self) -> datetime:
+        return (
+            self.start_timestamp
+            + timedelta(seconds=self.duration)
+        )
 
 
 class Screenshots(models.Model):
@@ -83,6 +92,15 @@ class TimeSegments(models.Model):
     segment_type = models.CharField(max_length=255, choices=SEGMENT_TYPE_CHOICES, default="neutral")
     user = models.ForeignKey("Users", models.CASCADE)
 
+    activity_log = models.OneToOneField(
+        "ActivityLogs",
+        models.CASCADE,
+        related_name="time_segment",
+        null=True,
+        blank=False,
+        default=None
+    )
+
     class Meta:
         managed = True
         db_table = 'time_segments'
@@ -115,11 +133,30 @@ class TrackerAppCategories(models.Model):
         managed = True
         db_table = 'tracker_app_categories'
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        activity_logs = ActivityLogs.objects.filter(category=self)
+        if not activity_logs.exists():
+            return 
+
+        for activity_log in activity_logs:
+            activity_log.productivity_status = self.productivity_status_type
+            activity_log.save()
+
+            time_segments = TimeSegments.objects.filter(activity_log=activity_log)
+            for time_segment in time_segments:
+                time_segment.segment_type = activity_log.productivity_status
+                time_segment.save()
+        
+        return
+
 
 class TrackerApps(models.Model):
     id = models.BigAutoField(primary_key=True)
     uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
     name = models.CharField(unique=True, max_length=255)
+    actual_name = models.CharField(max_length=255)
     category: "TrackerAppCategories" = models.ForeignKey(
         "TrackerAppCategories",
         models.CASCADE,
@@ -129,6 +166,31 @@ class TrackerApps(models.Model):
     class Meta:
         managed = True
         db_table = 'tracker_apps'
+
+    def update(self, *args, **kwargs):
+        self.save(*args, **kwargs)
+
+        activity_logs = (
+            ActivityLogs.objects
+            .filter(app=self)
+            .exclude(productivity_status=self.category.productivity_status_type)
+        )
+        for activity_log in activity_logs:
+            if activity_log.productivity_status != self.category.productivity_status_type:
+                activity_log.productivity_status = self.category.productivity_status_type
+                activity_log.save()
+            
+            time_segments = TimeSegments.objects.filter(activity_log=activity_log)
+            for time_segment in time_segment:
+                if time_segment.segment_type != activity_log.productivity_status:
+                    time_segment.segment_type = activity_log.productivity_status
+                    time_segment.save()
+        
+        return
+
+    def save(self, *args, **kwargs):
+        self.actual_name = kwargs.get("name")
+        return super().save(*args, **kwargs)
 
 
 class TrackerSummaries(models.Model):
