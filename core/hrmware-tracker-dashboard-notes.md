@@ -249,3 +249,39 @@ Get duration spent on productive and non productive apps
     }
 }
 ```
+
+### Top Websites Visited
+
+Get a list of websites that the user visited. This is unfortunately not going to be accurate as getting URLs is a more complex process, and so we settle
+with showing analytics for each title instead
+
+### Example Response
+
+```json
+{
+  "top_websites_visited": {
+    "Redirect vs useRouter - Google Chrome": "1m 48s",
+    "Projects · GitLab - Google Chrome": "25s",
+    "Guides: Redirecting | Next.js - Google Chrome": "33m 47s"
+  }
+}
+```
+
+### Live Feed
+
+At the moment, this will not be a true live feed, but will instead just return activity log data.
+
+### Example Response
+
+```json
+{
+    "live_feed": [
+        {
+            "app": "google-chrome",
+            "status": "visited",
+            "time": "05:45 PM"
+        },
+        "..."
+    ]
+}
+```

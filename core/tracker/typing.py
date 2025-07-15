@@ -1,13 +1,18 @@
 """Hrmware Tracker API - Type Definitions"""
 
-from typing import TypedDict, Literal
 from datetime import datetime
+from typing import Literal, TypedDict
 
 Weekday = (
-    Literal["monday"] | Literal["tuesday"] | Literal["wednesday"]
-    | Literal["thursday"] | Literal["friday"] | Literal["saturday"]
+    Literal["monday"]
+    | Literal["tuesday"]
+    | Literal["wednesday"]
+    | Literal["thursday"]
+    | Literal["friday"]
+    | Literal["saturday"]
     | Literal["sunday"]
 )
+
 
 class TimeTracker(TypedDict):
     productive_time: int

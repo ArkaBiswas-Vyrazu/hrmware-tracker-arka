@@ -188,8 +188,8 @@ class TrackerApps(models.Model):
         
         return
 
-    def save(self, *args, **kwargs):
-        self.actual_name = kwargs.get("name")
+    def save(self, name, *args, **kwargs):
+        self.actual_name = name 
         return super().save(*args, **kwargs)
 
 

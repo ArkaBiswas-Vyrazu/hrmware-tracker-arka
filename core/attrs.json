@@ -3860,3 +3860,4649 @@ After
     "totalUsage": 820,
     "isActive": true
 }
+
+Before
+{
+    "id": 92274692,
+    "firstUsed": "6:27:59 PM",
+    "lastUsed": "6:28:00 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "6:27:59 PM",
+            "endTime": "6:28:00 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+After
+{
+    "id": 92274692,
+    "firstUsed": "6:27:59 PM",
+    "lastUsed": "6:28:00 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "6:27:59 PM",
+            "endTime": "6:28:00 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+Before
+{
+    "id": 65011755,
+    "firstUsed": "6:28:00 PM",
+    "lastUsed": "6:28:56 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "6:28:00 PM",
+            "endTime": "6:28:05 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "6:28:13 PM",
+            "endTime": "6:28:15 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "6:28:51 PM",
+            "endTime": "6:28:56 PM"
+        }
+    ],
+    "totalUsage": 56,
+    "isActive": false
+}
+
+After
+{
+    "id": 65011755,
+    "firstUsed": "6:28:00 PM",
+    "lastUsed": "6:28:56 PM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "6:28:00 PM",
+            "endTime": "6:28:05 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "6:28:13 PM",
+            "endTime": "6:28:15 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "6:28:51 PM",
+            "endTime": "6:28:56 PM"
+        }
+    ],
+    "totalUsage": 56,
+    "isActive": false
+}
+
+Before
+{
+    "id": 90177537,
+    "firstUsed": "6:28:05 PM",
+    "lastUsed": "6:28:06 PM",
+    "name": "Gnome-terminal",
+    "title": "vyrazu-26@vyrazu-26: ~/Project/hrmware-tracker-v2",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "6:28:05 PM",
+            "endTime": "6:28:06 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+After
+{
+    "id": 90177537,
+    "firstUsed": "6:28:05 PM",
+    "lastUsed": "6:28:06 PM",
+    "name": "Gnome-terminal",
+    "title": "vyrazu-26@vyrazu-26: ~/Project/hrmware-tracker-v2",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "6:28:05 PM",
+            "endTime": "6:28:06 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+Before
+{
+    "id": 62914562,
+    "firstUsed": "6:28:06 PM",
+    "lastUsed": "6:28:24 PM",
+    "name": "org.gnome.Nautilus",
+    "title": "Project",
+    "session": [
+        {
+            "duration": 7,
+            "startTime": "6:28:06 PM",
+            "endTime": "6:28:13 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "6:28:15 PM",
+            "endTime": "6:28:24 PM"
+        }
+    ],
+    "totalUsage": 18,
+    "isActive": false
+}
+
+After
+{
+    "id": 62914562,
+    "firstUsed": "6:28:06 PM",
+    "lastUsed": "6:28:24 PM",
+    "name": "org.gnome.Nautilus",
+    "title": "Project",
+    "session": [
+        {
+            "duration": 7,
+            "startTime": "6:28:06 PM",
+            "endTime": "6:28:13 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "6:28:15 PM",
+            "endTime": "6:28:24 PM"
+        }
+    ],
+    "totalUsage": 18,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554436,
+    "firstUsed": "6:28:24 PM",
+    "lastUsed": "6:28:51 PM",
+    "name": "Google-chrome",
+    "title": "Best IT Training Institute in Kolkata - Instaily Academy - Google Chrome",
+    "session": [
+        {
+            "duration": 27,
+            "startTime": "6:28:24 PM",
+            "endTime": "6:28:51 PM"
+        }
+    ],
+    "totalUsage": 27,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554436,
+    "firstUsed": "6:28:24 PM",
+    "lastUsed": "6:28:51 PM",
+    "name": "Google-chrome",
+    "title": "Best IT Training Institute in Kolkata - Instaily Academy - Google Chrome",
+    "session": [
+        {
+            "duration": 27,
+            "startTime": "6:28:24 PM",
+            "endTime": "6:28:51 PM"
+        }
+    ],
+    "totalUsage": 27,
+    "isActive": false
+}
+
+Before
+{
+    "id": 65011718,
+    "firstUsed": "6:28:56 PM",
+    "lastUsed": "",
+    "name": "Code",
+    "title": "page.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 62,
+            "startTime": "6:28:56 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1953,
+    "isActive": true
+}
+
+After
+{
+    "id": 65011718,
+    "firstUsed": "6:28:56 PM",
+    "lastUsed": "06:31:25 PM",
+    "name": "Code",
+    "title": "page.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 62,
+            "startTime": "6:28:56 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1953,
+    "isActive": true
+}
+
+Before
+{
+    "id": 92274692,
+    "firstUsed": "6:36:56 PM",
+    "lastUsed": "6:36:57 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "6:36:56 PM",
+            "endTime": "6:36:57 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+After
+{
+    "id": 92274692,
+    "firstUsed": "6:36:56 PM",
+    "lastUsed": "6:36:57 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "6:36:56 PM",
+            "endTime": "6:36:57 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+Before
+{
+    "id": 65011718,
+    "firstUsed": "6:36:57 PM",
+    "lastUsed": "6:37:47 PM",
+    "name": "Code",
+    "title": "page.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "6:36:57 PM",
+            "endTime": "6:37:00 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "6:37:09 PM",
+            "endTime": "6:37:16 PM"
+        },
+        {
+            "duration": 67,
+            "startTime": "6:37:47 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 2297,
+    "isActive": true
+}
+
+After
+{
+    "id": 65011718,
+    "firstUsed": "6:36:57 PM",
+    "lastUsed": "6:37:47 PM",
+    "name": "Code",
+    "title": "page.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "6:36:57 PM",
+            "endTime": "6:37:00 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "6:37:09 PM",
+            "endTime": "6:37:16 PM"
+        },
+        {
+            "duration": 67,
+            "startTime": "6:37:47 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 2297,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554436,
+    "firstUsed": "6:37:00 PM",
+    "lastUsed": "6:37:47 PM",
+    "name": "Google-chrome",
+    "title": "Best IT Training Institute in Kolkata - Instaily Academy - Google Chrome",
+    "session": [
+        {
+            "duration": 9,
+            "startTime": "6:37:00 PM",
+            "endTime": "6:37:09 PM"
+        },
+        {
+            "duration": 31,
+            "startTime": "6:37:16 PM",
+            "endTime": "6:37:47 PM"
+        }
+    ],
+    "totalUsage": 47,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554436,
+    "firstUsed": "6:37:00 PM",
+    "lastUsed": "6:37:47 PM",
+    "name": "Google-chrome",
+    "title": "Best IT Training Institute in Kolkata - Instaily Academy - Google Chrome",
+    "session": [
+        {
+            "duration": 9,
+            "startTime": "6:37:00 PM",
+            "endTime": "6:37:09 PM"
+        },
+        {
+            "duration": 31,
+            "startTime": "6:37:16 PM",
+            "endTime": "6:37:47 PM"
+        }
+    ],
+    "totalUsage": 47,
+    "isActive": false
+}
+
+Before
+{
+    "id": 65011718,
+    "firstUsed": "6:38:55 PM",
+    "lastUsed": "6:40:16 PM",
+    "name": "Code",
+    "title": "employer-api.ts - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 60,
+            "startTime": "6:38:55 PM",
+            "endTime": "6:39:55 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "6:40:05 PM",
+            "endTime": "6:40:14 PM"
+        },
+        {
+            "duration": 39,
+            "startTime": "6:40:16 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 859,
+    "isActive": true
+}
+
+After
+{
+    "id": 65011718,
+    "firstUsed": "6:38:55 PM",
+    "lastUsed": "6:40:16 PM",
+    "name": "Code",
+    "title": "employer-api.ts - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 60,
+            "startTime": "6:38:55 PM",
+            "endTime": "6:39:55 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "6:40:05 PM",
+            "endTime": "6:40:14 PM"
+        },
+        {
+            "duration": 39,
+            "startTime": "6:40:16 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 859,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554436,
+    "firstUsed": "6:39:55 PM",
+    "lastUsed": "6:40:16 PM",
+    "name": "Google-chrome",
+    "title": "Best IT Training Institute in Kolkata - Instaily Academy - Google Chrome",
+    "session": [
+        {
+            "duration": 10,
+            "startTime": "6:39:55 PM",
+            "endTime": "6:40:05 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "6:40:14 PM",
+            "endTime": "6:40:16 PM"
+        }
+    ],
+    "totalUsage": 21,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554436,
+    "firstUsed": "6:39:55 PM",
+    "lastUsed": "6:40:16 PM",
+    "name": "Google-chrome",
+    "title": "Best IT Training Institute in Kolkata - Instaily Academy - Google Chrome",
+    "session": [
+        {
+            "duration": 10,
+            "startTime": "6:39:55 PM",
+            "endTime": "6:40:05 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "6:40:14 PM",
+            "endTime": "6:40:16 PM"
+        }
+    ],
+    "totalUsage": 21,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554436,
+    "firstUsed": "6:40:56 PM",
+    "lastUsed": "6:41:01 PM",
+    "name": "Google-chrome",
+    "title": "Best IT Training Institute in Kolkata - Instaily Academy - Google Chrome",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "6:40:56 PM",
+            "endTime": "6:41:01 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554436,
+    "firstUsed": "6:40:56 PM",
+    "lastUsed": "6:41:01 PM",
+    "name": "Google-chrome",
+    "title": "Best IT Training Institute in Kolkata - Instaily Academy - Google Chrome",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "6:40:56 PM",
+            "endTime": "6:41:01 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+Before
+{
+    "id": 65011718,
+    "firstUsed": "6:41:01 PM",
+    "lastUsed": "6:41:05 PM",
+    "name": "Code",
+    "title": "employer-api.ts - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "6:41:01 PM",
+            "endTime": "6:41:02 PM"
+        },
+        {
+            "duration": 111,
+            "startTime": "6:41:05 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 6217,
+    "isActive": true
+}
+
+After
+{
+    "id": 65011718,
+    "firstUsed": "6:41:01 PM",
+    "lastUsed": "6:41:05 PM",
+    "name": "Code",
+    "title": "employer-api.ts - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "6:41:01 PM",
+            "endTime": "6:41:02 PM"
+        },
+        {
+            "duration": 111,
+            "startTime": "6:41:05 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 6217,
+    "isActive": true
+}
+
+Before
+{
+    "id": 92274692,
+    "firstUsed": "6:41:02 PM",
+    "lastUsed": "6:41:05 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "6:41:02 PM",
+            "endTime": "6:41:05 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+After
+{
+    "id": 92274692,
+    "firstUsed": "6:41:02 PM",
+    "lastUsed": "6:41:05 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "6:41:02 PM",
+            "endTime": "6:41:05 PM"
+        }
+    ],
+    "totalUsage": 3,
+    "isActive": false
+}
+
+Before
+{
+    "id": 65011718,
+    "firstUsed": "6:42:57 PM",
+    "lastUsed": "6:44:57 PM",
+    "name": "Code",
+    "title": "page.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 69,
+            "startTime": "6:42:57 PM",
+            "endTime": "6:44:06 PM"
+        },
+        {
+            "duration": 0,
+            "startTime": "6:44:57 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 69,
+    "isActive": true
+}
+
+After
+{
+    "id": 65011718,
+    "firstUsed": "6:42:57 PM",
+    "lastUsed": "6:44:57 PM",
+    "name": "Code",
+    "title": "page.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 69,
+            "startTime": "6:42:57 PM",
+            "endTime": "6:44:06 PM"
+        },
+        {
+            "duration": 0,
+            "startTime": "6:44:57 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 69,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554436,
+    "firstUsed": "6:44:06 PM",
+    "lastUsed": "6:44:57 PM",
+    "name": "Google-chrome",
+    "title": "Best IT Training Institute in Kolkata - Instaily Academy - Google Chrome",
+    "session": [
+        {
+            "duration": 51,
+            "startTime": "6:44:06 PM",
+            "endTime": "6:44:57 PM"
+        }
+    ],
+    "totalUsage": 51,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554436,
+    "firstUsed": "6:44:06 PM",
+    "lastUsed": "6:44:57 PM",
+    "name": "Google-chrome",
+    "title": "Best IT Training Institute in Kolkata - Instaily Academy - Google Chrome",
+    "session": [
+        {
+            "duration": 51,
+            "startTime": "6:44:06 PM",
+            "endTime": "6:44:57 PM"
+        }
+    ],
+    "totalUsage": 51,
+    "isActive": false
+}
+
+Before
+{
+    "id": 65011718,
+    "firstUsed": "6:44:58 PM",
+    "lastUsed": "",
+    "name": "Code",
+    "title": "page.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "6:44:58 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7265,
+    "isActive": true
+}
+
+After
+{
+    "id": 65011718,
+    "firstUsed": "6:44:58 PM",
+    "lastUsed": "06:46:59 PM",
+    "name": "Code",
+    "title": "page.tsx - instaily-internships-frontend - Visual Studio Code",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "6:44:58 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7265,
+    "isActive": true
+}
+
+Before
+{
+    "id": 92274692,
+    "firstUsed": "11:51:14 AM",
+    "lastUsed": "11:52:41 AM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "11:51:14 AM",
+            "endTime": "11:51:15 AM"
+        },
+        {
+            "duration": 13,
+            "startTime": "11:52:28 AM",
+            "endTime": "11:52:41 AM"
+        }
+    ],
+    "totalUsage": 87,
+    "isActive": false
+}
+
+After
+{
+    "id": 92274692,
+    "firstUsed": "11:51:14 AM",
+    "lastUsed": "11:52:41 AM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "11:51:14 AM",
+            "endTime": "11:51:15 AM"
+        },
+        {
+            "duration": 13,
+            "startTime": "11:52:28 AM",
+            "endTime": "11:52:41 AM"
+        }
+    ],
+    "totalUsage": 87,
+    "isActive": false
+}
+
+Before
+{
+    "id": 56623142,
+    "firstUsed": "11:51:15 AM",
+    "lastUsed": "11:53:07 AM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "11:51:15 AM",
+            "endTime": "11:51:19 AM"
+        },
+        {
+            "duration": 7,
+            "startTime": "11:51:24 AM",
+            "endTime": "11:51:31 AM"
+        },
+        {
+            "duration": 20,
+            "startTime": "11:52:44 AM",
+            "endTime": "11:53:04 AM"
+        },
+        {
+            "duration": 6,
+            "startTime": "11:53:07 AM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 130,
+    "isActive": true
+}
+
+After
+{
+    "id": 56623142,
+    "firstUsed": "11:51:15 AM",
+    "lastUsed": "11:53:07 AM",
+    "name": "Code",
+    "title": "Tracker.tsx - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "11:51:15 AM",
+            "endTime": "11:51:19 AM"
+        },
+        {
+            "duration": 7,
+            "startTime": "11:51:24 AM",
+            "endTime": "11:51:31 AM"
+        },
+        {
+            "duration": 20,
+            "startTime": "11:52:44 AM",
+            "endTime": "11:53:04 AM"
+        },
+        {
+            "duration": 6,
+            "startTime": "11:53:07 AM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 130,
+    "isActive": true
+}
+
+Before
+{
+    "id": 60817412,
+    "firstUsed": "11:51:19 AM",
+    "lastUsed": "11:53:07 AM",
+    "name": "Google-chrome",
+    "title": "Redirect vs useRouter - Google Chrome",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "11:51:19 AM",
+            "endTime": "11:51:24 AM"
+        },
+        {
+            "duration": 57,
+            "startTime": "11:51:31 AM",
+            "endTime": "11:52:28 AM"
+        },
+        {
+            "duration": 3,
+            "startTime": "11:52:41 AM",
+            "endTime": "11:52:44 AM"
+        },
+        {
+            "duration": 3,
+            "startTime": "11:53:04 AM",
+            "endTime": "11:53:07 AM"
+        }
+    ],
+    "totalUsage": 108,
+    "isActive": false
+}
+
+After
+{
+    "id": 60817412,
+    "firstUsed": "11:51:19 AM",
+    "lastUsed": "11:53:07 AM",
+    "name": "Google-chrome",
+    "title": "Redirect vs useRouter - Google Chrome",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "11:51:19 AM",
+            "endTime": "11:51:24 AM"
+        },
+        {
+            "duration": 57,
+            "startTime": "11:51:31 AM",
+            "endTime": "11:52:28 AM"
+        },
+        {
+            "duration": 3,
+            "startTime": "11:52:41 AM",
+            "endTime": "11:52:44 AM"
+        },
+        {
+            "duration": 3,
+            "startTime": "11:53:04 AM",
+            "endTime": "11:53:07 AM"
+        }
+    ],
+    "totalUsage": 108,
+    "isActive": false
+}
+
+Before
+{
+    "id": 56623142,
+    "firstUsed": "11:53:14 AM",
+    "lastUsed": "11:53:19 AM",
+    "name": "Code",
+    "title": "index.html - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "11:53:14 AM",
+            "endTime": "11:53:19 AM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+After
+{
+    "id": 56623142,
+    "firstUsed": "11:53:14 AM",
+    "lastUsed": "11:53:19 AM",
+    "name": "Code",
+    "title": "index.html - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "11:53:14 AM",
+            "endTime": "11:53:19 AM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+Before
+{
+    "id": 92274692,
+    "firstUsed": "11:53:19 AM",
+    "lastUsed": "11:54:07 AM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 48,
+            "startTime": "11:53:19 AM",
+            "endTime": "11:54:07 AM"
+        }
+    ],
+    "totalUsage": 48,
+    "isActive": false
+}
+
+After
+{
+    "id": 92274692,
+    "firstUsed": "11:53:19 AM",
+    "lastUsed": "11:54:07 AM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 48,
+            "startTime": "11:53:19 AM",
+            "endTime": "11:54:07 AM"
+        }
+    ],
+    "totalUsage": 48,
+    "isActive": false
+}
+
+Before
+{
+    "id": 60817412,
+    "firstUsed": "11:54:07 AM",
+    "lastUsed": "11:54:32 AM",
+    "name": "Google-chrome",
+    "title": "Projects \u00b7 GitLab - Google Chrome",
+    "session": [
+        {
+            "duration": 25,
+            "startTime": "11:54:07 AM",
+            "endTime": "11:54:32 AM"
+        }
+    ],
+    "totalUsage": 25,
+    "isActive": false
+}
+
+After
+{
+    "id": 60817412,
+    "firstUsed": "11:54:07 AM",
+    "lastUsed": "11:54:32 AM",
+    "name": "Google-chrome",
+    "title": "Projects \u00b7 GitLab - Google Chrome",
+    "session": [
+        {
+            "duration": 25,
+            "startTime": "11:54:07 AM",
+            "endTime": "11:54:32 AM"
+        }
+    ],
+    "totalUsage": 25,
+    "isActive": false
+}
+
+Before
+{
+    "id": 81788932,
+    "firstUsed": "11:54:32 AM",
+    "lastUsed": "",
+    "name": "teams-for-linux",
+    "title": "Chat | Vyrazu Family | Microsoft Teams",
+    "session": [
+        {
+            "duration": 42,
+            "startTime": "11:54:32 AM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 903,
+    "isActive": true
+}
+
+After
+{
+    "id": 81788932,
+    "firstUsed": "11:54:32 AM",
+    "lastUsed": "11:55:15 AM",
+    "name": "teams-for-linux",
+    "title": "Chat | Vyrazu Family | Microsoft Teams",
+    "session": [
+        {
+            "duration": 42,
+            "startTime": "11:54:32 AM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 903,
+    "isActive": true
+}
+
+Before
+{
+    "id": 81788932,
+    "firstUsed": "11:55:15 AM",
+    "lastUsed": "11:56:11 AM",
+    "name": "teams-for-linux",
+    "title": "Chat | Jewel Ghosh | Microsoft Teams",
+    "session": [
+        {
+            "duration": 56,
+            "startTime": "11:55:15 AM",
+            "endTime": "11:56:11 AM"
+        }
+    ],
+    "totalUsage": 56,
+    "isActive": false
+}
+
+After
+{
+    "id": 81788932,
+    "firstUsed": "11:55:15 AM",
+    "lastUsed": "11:56:11 AM",
+    "name": "teams-for-linux",
+    "title": "Chat | Jewel Ghosh | Microsoft Teams",
+    "session": [
+        {
+            "duration": 56,
+            "startTime": "11:55:15 AM",
+            "endTime": "11:56:11 AM"
+        }
+    ],
+    "totalUsage": 56,
+    "isActive": false
+}
+
+Before
+{
+    "id": 60817412,
+    "firstUsed": "11:56:11 AM",
+    "lastUsed": "",
+    "name": "Google-chrome",
+    "title": "Guides: Redirecting | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 64,
+            "startTime": "11:56:11 AM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 2027,
+    "isActive": true
+}
+
+After
+{
+    "id": 60817412,
+    "firstUsed": "11:56:11 AM",
+    "lastUsed": "11:57:16 AM",
+    "name": "Google-chrome",
+    "title": "Guides: Redirecting | Next.js - Google Chrome",
+    "session": [
+        {
+            "duration": 64,
+            "startTime": "11:56:11 AM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 2027,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554436,
+    "firstUsed": "12:58:36 PM",
+    "lastUsed": "1:00:12 PM",
+    "name": "Code",
+    "title": "index.html - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "12:58:36 PM",
+            "endTime": "12:58:48 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "12:59:29 PM",
+            "endTime": "12:59:33 PM"
+        },
+        {
+            "duration": 28,
+            "startTime": "12:59:44 PM",
+            "endTime": "1:00:12 PM"
+        }
+    ],
+    "totalUsage": 96,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554436,
+    "firstUsed": "12:58:36 PM",
+    "lastUsed": "1:00:12 PM",
+    "name": "Code",
+    "title": "index.html - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 12,
+            "startTime": "12:58:36 PM",
+            "endTime": "12:58:48 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "12:59:29 PM",
+            "endTime": "12:59:33 PM"
+        },
+        {
+            "duration": 28,
+            "startTime": "12:59:44 PM",
+            "endTime": "1:00:12 PM"
+        }
+    ],
+    "totalUsage": 96,
+    "isActive": false
+}
+
+Before
+{
+    "id": 90177537,
+    "firstUsed": "12:58:48 PM",
+    "lastUsed": "12:58:49 PM",
+    "name": "Gnome-terminal",
+    "title": "vyrazu-26@vyrazu-26: ~/Project/hrmware-tracker-v2",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:58:48 PM",
+            "endTime": "12:58:49 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+After
+{
+    "id": 90177537,
+    "firstUsed": "12:58:48 PM",
+    "lastUsed": "12:58:49 PM",
+    "name": "Gnome-terminal",
+    "title": "vyrazu-26@vyrazu-26: ~/Project/hrmware-tracker-v2",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "12:58:48 PM",
+            "endTime": "12:58:49 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+Before
+{
+    "id": 88080386,
+    "firstUsed": "12:58:49 PM",
+    "lastUsed": "12:59:00 PM",
+    "name": "org.gnome.Nautilus",
+    "title": "Search for \u201cem\u201d",
+    "session": [
+        {
+            "duration": 11,
+            "startTime": "12:58:49 PM",
+            "endTime": "12:59:00 PM"
+        }
+    ],
+    "totalUsage": 11,
+    "isActive": false
+}
+
+After
+{
+    "id": 88080386,
+    "firstUsed": "12:58:49 PM",
+    "lastUsed": "12:59:00 PM",
+    "name": "org.gnome.Nautilus",
+    "title": "Search for \u201cem\u201d",
+    "session": [
+        {
+            "duration": 11,
+            "startTime": "12:58:49 PM",
+            "endTime": "12:59:00 PM"
+        }
+    ],
+    "totalUsage": 11,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "12:59:00 PM",
+    "lastUsed": "1:00:12 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 29,
+            "startTime": "12:59:00 PM",
+            "endTime": "12:59:29 PM"
+        },
+        {
+            "duration": 11,
+            "startTime": "12:59:33 PM",
+            "endTime": "12:59:44 PM"
+        },
+        {
+            "duration": 24,
+            "startTime": "1:00:12 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 339,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "12:59:00 PM",
+    "lastUsed": "1:00:12 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 29,
+            "startTime": "12:59:00 PM",
+            "endTime": "12:59:29 PM"
+        },
+        {
+            "duration": 11,
+            "startTime": "12:59:33 PM",
+            "endTime": "12:59:44 PM"
+        },
+        {
+            "duration": 24,
+            "startTime": "1:00:12 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 339,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:00:37 PM",
+    "lastUsed": "1:01:42 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "1:00:37 PM",
+            "endTime": "1:00:41 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:00:49 PM",
+            "endTime": "1:00:54 PM"
+        },
+        {
+            "duration": 19,
+            "startTime": "1:01:18 PM",
+            "endTime": "1:01:37 PM"
+        },
+        {
+            "duration": 55,
+            "startTime": "1:01:42 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1600,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:00:37 PM",
+    "lastUsed": "1:01:42 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "1:00:37 PM",
+            "endTime": "1:00:41 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:00:49 PM",
+            "endTime": "1:00:54 PM"
+        },
+        {
+            "duration": 19,
+            "startTime": "1:01:18 PM",
+            "endTime": "1:01:37 PM"
+        },
+        {
+            "duration": 55,
+            "startTime": "1:01:42 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1600,
+    "isActive": true
+}
+
+Before
+{
+    "id": 104857604,
+    "firstUsed": "1:00:41 PM",
+    "lastUsed": "1:00:49 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 8,
+            "startTime": "1:00:41 PM",
+            "endTime": "1:00:49 PM"
+        }
+    ],
+    "totalUsage": 8,
+    "isActive": false
+}
+
+After
+{
+    "id": 104857604,
+    "firstUsed": "1:00:41 PM",
+    "lastUsed": "1:00:49 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 8,
+            "startTime": "1:00:41 PM",
+            "endTime": "1:00:49 PM"
+        }
+    ],
+    "totalUsage": 8,
+    "isActive": false
+}
+
+Before
+{
+    "id": 77594628,
+    "firstUsed": "1:00:54 PM",
+    "lastUsed": "1:01:42 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 24,
+            "startTime": "1:00:54 PM",
+            "endTime": "1:01:18 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:01:37 PM",
+            "endTime": "1:01:42 PM"
+        }
+    ],
+    "totalUsage": 48,
+    "isActive": false
+}
+
+After
+{
+    "id": 77594628,
+    "firstUsed": "1:00:54 PM",
+    "lastUsed": "1:01:42 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 24,
+            "startTime": "1:00:54 PM",
+            "endTime": "1:01:18 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:01:37 PM",
+            "endTime": "1:01:42 PM"
+        }
+    ],
+    "totalUsage": 48,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:02:38 PM",
+    "lastUsed": "1:03:46 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 60,
+            "startTime": "1:02:38 PM",
+            "endTime": "1:03:38 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "1:03:43 PM",
+            "endTime": "1:03:44 PM"
+        },
+        {
+            "duration": 51,
+            "startTime": "1:03:46 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1392,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:02:38 PM",
+    "lastUsed": "1:03:46 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 60,
+            "startTime": "1:02:38 PM",
+            "endTime": "1:03:38 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "1:03:43 PM",
+            "endTime": "1:03:44 PM"
+        },
+        {
+            "duration": 51,
+            "startTime": "1:03:46 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1392,
+    "isActive": true
+}
+
+Before
+{
+    "id": 77594628,
+    "firstUsed": "1:03:38 PM",
+    "lastUsed": "1:03:46 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "1:03:38 PM",
+            "endTime": "1:03:43 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:03:44 PM",
+            "endTime": "1:03:46 PM"
+        }
+    ],
+    "totalUsage": 8,
+    "isActive": false
+}
+
+After
+{
+    "id": 77594628,
+    "firstUsed": "1:03:38 PM",
+    "lastUsed": "1:03:46 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "1:03:38 PM",
+            "endTime": "1:03:43 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:03:44 PM",
+            "endTime": "1:03:46 PM"
+        }
+    ],
+    "totalUsage": 8,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:04:38 PM",
+    "lastUsed": "",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:04:38 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7260,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:04:38 PM",
+    "lastUsed": "01:06:39 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:04:38 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7260,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:06:39 PM",
+    "lastUsed": "",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:06:39 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7260,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:06:39 PM",
+    "lastUsed": "01:08:40 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:06:39 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7260,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:08:40 PM",
+    "lastUsed": "",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:08:40 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7227,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:08:40 PM",
+    "lastUsed": "01:10:41 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:08:40 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7227,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:10:41 PM",
+    "lastUsed": "",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 121,
+            "startTime": "1:10:41 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7262,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:10:41 PM",
+    "lastUsed": "01:12:42 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 121,
+            "startTime": "1:10:41 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7262,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:12:43 PM",
+    "lastUsed": "1:13:24 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 28,
+            "startTime": "1:12:43 PM",
+            "endTime": "1:13:11 PM"
+        },
+        {
+            "duration": 10,
+            "startTime": "1:13:14 PM",
+            "endTime": "1:13:24 PM"
+        }
+    ],
+    "totalUsage": 41,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:12:43 PM",
+    "lastUsed": "1:13:24 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 28,
+            "startTime": "1:12:43 PM",
+            "endTime": "1:13:11 PM"
+        },
+        {
+            "duration": 10,
+            "startTime": "1:13:14 PM",
+            "endTime": "1:13:24 PM"
+        }
+    ],
+    "totalUsage": 41,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554436,
+    "firstUsed": "1:13:11 PM",
+    "lastUsed": "1:13:52 PM",
+    "name": "Code",
+    "title": "index.html - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "1:13:11 PM",
+            "endTime": "1:13:14 PM"
+        },
+        {
+            "duration": 10,
+            "startTime": "1:13:24 PM",
+            "endTime": "1:13:34 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "1:13:48 PM",
+            "endTime": "1:13:52 PM"
+        }
+    ],
+    "totalUsage": 41,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554436,
+    "firstUsed": "1:13:11 PM",
+    "lastUsed": "1:13:52 PM",
+    "name": "Code",
+    "title": "index.html - hrmware-tracker-v2 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "1:13:11 PM",
+            "endTime": "1:13:14 PM"
+        },
+        {
+            "duration": 10,
+            "startTime": "1:13:24 PM",
+            "endTime": "1:13:34 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "1:13:48 PM",
+            "endTime": "1:13:52 PM"
+        }
+    ],
+    "totalUsage": 41,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:13:34 PM",
+    "lastUsed": "1:13:52 PM",
+    "name": "Code",
+    "title": "Visual Studio Code",
+    "session": [
+        {
+            "duration": 6,
+            "startTime": "1:13:34 PM",
+            "endTime": "1:13:40 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:13:44 PM",
+            "endTime": "1:13:46 PM"
+        },
+        {
+            "duration": 51,
+            "startTime": "1:13:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1338,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:13:34 PM",
+    "lastUsed": "1:13:52 PM",
+    "name": "Code",
+    "title": "Visual Studio Code",
+    "session": [
+        {
+            "duration": 6,
+            "startTime": "1:13:34 PM",
+            "endTime": "1:13:40 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:13:44 PM",
+            "endTime": "1:13:46 PM"
+        },
+        {
+            "duration": 51,
+            "startTime": "1:13:52 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1338,
+    "isActive": true
+}
+
+Before
+{
+    "id": 88080386,
+    "firstUsed": "1:13:40 PM",
+    "lastUsed": "1:13:48 PM",
+    "name": "org.gnome.Nautilus",
+    "title": "Search for \u201cem\u201d",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "1:13:40 PM",
+            "endTime": "1:13:44 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:13:46 PM",
+            "endTime": "1:13:48 PM"
+        }
+    ],
+    "totalUsage": 8,
+    "isActive": false
+}
+
+After
+{
+    "id": 88080386,
+    "firstUsed": "1:13:40 PM",
+    "lastUsed": "1:13:48 PM",
+    "name": "org.gnome.Nautilus",
+    "title": "Search for \u201cem\u201d",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "1:13:40 PM",
+            "endTime": "1:13:44 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:13:46 PM",
+            "endTime": "1:13:48 PM"
+        }
+    ],
+    "totalUsage": 8,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:14:44 PM",
+    "lastUsed": "",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 119,
+            "startTime": "1:14:44 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7140,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:14:44 PM",
+    "lastUsed": "01:16:44 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 119,
+            "startTime": "1:14:44 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7140,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:16:44 PM",
+    "lastUsed": "",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:16:44 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7260,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:16:44 PM",
+    "lastUsed": "01:18:45 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:16:44 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7260,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:18:45 PM",
+    "lastUsed": "",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:18:45 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7260,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:18:45 PM",
+    "lastUsed": "01:20:46 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:18:45 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7260,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:20:46 PM",
+    "lastUsed": "1:22:16 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 14,
+            "startTime": "1:20:46 PM",
+            "endTime": "1:21:00 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "1:21:30 PM",
+            "endTime": "1:21:31 PM"
+        },
+        {
+            "duration": 37,
+            "startTime": "1:21:36 PM",
+            "endTime": "1:22:13 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "1:22:16 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 552,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:20:46 PM",
+    "lastUsed": "1:22:16 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 14,
+            "startTime": "1:20:46 PM",
+            "endTime": "1:21:00 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "1:21:30 PM",
+            "endTime": "1:21:31 PM"
+        },
+        {
+            "duration": 37,
+            "startTime": "1:21:36 PM",
+            "endTime": "1:22:13 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "1:22:16 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 552,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:21:00 PM",
+    "lastUsed": "1:22:16 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 30,
+            "startTime": "1:21:00 PM",
+            "endTime": "1:21:30 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:21:31 PM",
+            "endTime": "1:21:36 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "1:22:13 PM",
+            "endTime": "1:22:16 PM"
+        }
+    ],
+    "totalUsage": 76,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:21:00 PM",
+    "lastUsed": "1:22:16 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 30,
+            "startTime": "1:21:00 PM",
+            "endTime": "1:21:30 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:21:31 PM",
+            "endTime": "1:21:36 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "1:22:13 PM",
+            "endTime": "1:22:16 PM"
+        }
+    ],
+    "totalUsage": 76,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:22:47 PM",
+    "lastUsed": "1:24:42 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 34,
+            "startTime": "1:22:47 PM",
+            "endTime": "1:23:21 PM"
+        },
+        {
+            "duration": 20,
+            "startTime": "1:23:29 PM",
+            "endTime": "1:23:49 PM"
+        },
+        {
+            "duration": 19,
+            "startTime": "1:23:53 PM",
+            "endTime": "1:24:12 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:24:22 PM",
+            "endTime": "1:24:24 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "1:24:33 PM",
+            "endTime": "1:24:37 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:24:42 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 128,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:22:47 PM",
+    "lastUsed": "1:24:42 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 34,
+            "startTime": "1:22:47 PM",
+            "endTime": "1:23:21 PM"
+        },
+        {
+            "duration": 20,
+            "startTime": "1:23:29 PM",
+            "endTime": "1:23:49 PM"
+        },
+        {
+            "duration": 19,
+            "startTime": "1:23:53 PM",
+            "endTime": "1:24:12 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:24:22 PM",
+            "endTime": "1:24:24 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "1:24:33 PM",
+            "endTime": "1:24:37 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:24:42 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 128,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:23:21 PM",
+    "lastUsed": "1:24:42 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 8,
+            "startTime": "1:23:21 PM",
+            "endTime": "1:23:29 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "1:23:49 PM",
+            "endTime": "1:23:53 PM"
+        },
+        {
+            "duration": 10,
+            "startTime": "1:24:12 PM",
+            "endTime": "1:24:22 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "1:24:24 PM",
+            "endTime": "1:24:33 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:24:37 PM",
+            "endTime": "1:24:42 PM"
+        }
+    ],
+    "totalUsage": 81,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:23:21 PM",
+    "lastUsed": "1:24:42 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 8,
+            "startTime": "1:23:21 PM",
+            "endTime": "1:23:29 PM"
+        },
+        {
+            "duration": 4,
+            "startTime": "1:23:49 PM",
+            "endTime": "1:23:53 PM"
+        },
+        {
+            "duration": 10,
+            "startTime": "1:24:12 PM",
+            "endTime": "1:24:22 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "1:24:24 PM",
+            "endTime": "1:24:33 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:24:37 PM",
+            "endTime": "1:24:42 PM"
+        }
+    ],
+    "totalUsage": 81,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:24:49 PM",
+    "lastUsed": "1:26:48 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "1:24:49 PM",
+            "endTime": "1:24:50 PM"
+        },
+        {
+            "duration": 109,
+            "startTime": "1:24:56 PM",
+            "endTime": "1:26:45 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "1:26:48 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 117,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:24:49 PM",
+    "lastUsed": "1:26:48 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "1:24:49 PM",
+            "endTime": "1:24:50 PM"
+        },
+        {
+            "duration": 109,
+            "startTime": "1:24:56 PM",
+            "endTime": "1:26:45 PM"
+        },
+        {
+            "duration": 1,
+            "startTime": "1:26:48 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 117,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:24:50 PM",
+    "lastUsed": "1:26:48 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 6,
+            "startTime": "1:24:50 PM",
+            "endTime": "1:24:56 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "1:26:45 PM",
+            "endTime": "1:26:48 PM"
+        }
+    ],
+    "totalUsage": 118,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:24:50 PM",
+    "lastUsed": "1:26:48 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 6,
+            "startTime": "1:24:50 PM",
+            "endTime": "1:24:56 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "1:26:45 PM",
+            "endTime": "1:26:48 PM"
+        }
+    ],
+    "totalUsage": 118,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:26:50 PM",
+    "lastUsed": "",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 119,
+            "startTime": "1:26:50 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7139,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:26:50 PM",
+    "lastUsed": "01:28:50 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 119,
+            "startTime": "1:26:50 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7139,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:28:50 PM",
+    "lastUsed": "",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:28:50 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7260,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:28:50 PM",
+    "lastUsed": "01:30:51 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 120,
+            "startTime": "1:28:50 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7260,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:30:51 PM",
+    "lastUsed": "1:32:25 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 11,
+            "startTime": "1:30:51 PM",
+            "endTime": "1:31:02 PM"
+        },
+        {
+            "duration": 37,
+            "startTime": "1:31:15 PM",
+            "endTime": "1:31:52 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:32:17 PM",
+            "endTime": "1:32:25 PM"
+        }
+    ],
+    "totalUsage": 94,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:30:51 PM",
+    "lastUsed": "1:32:25 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 11,
+            "startTime": "1:30:51 PM",
+            "endTime": "1:31:02 PM"
+        },
+        {
+            "duration": 37,
+            "startTime": "1:31:15 PM",
+            "endTime": "1:31:52 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:32:17 PM",
+            "endTime": "1:32:25 PM"
+        }
+    ],
+    "totalUsage": 94,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:31:02 PM",
+    "lastUsed": "1:32:25 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 13,
+            "startTime": "1:31:02 PM",
+            "endTime": "1:31:15 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:31:52 PM",
+            "endTime": "1:32:00 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "1:32:05 PM",
+            "endTime": "1:32:11 PM"
+        },
+        {
+            "duration": 26,
+            "startTime": "1:32:25 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 420,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:31:02 PM",
+    "lastUsed": "1:32:25 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 13,
+            "startTime": "1:31:02 PM",
+            "endTime": "1:31:15 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:31:52 PM",
+            "endTime": "1:32:00 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "1:32:05 PM",
+            "endTime": "1:32:11 PM"
+        },
+        {
+            "duration": 26,
+            "startTime": "1:32:25 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 420,
+    "isActive": true
+}
+
+Before
+{
+    "id": 77594628,
+    "firstUsed": "1:32:00 PM",
+    "lastUsed": "1:32:17 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "1:32:00 PM",
+            "endTime": "1:32:05 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "1:32:11 PM",
+            "endTime": "1:32:17 PM"
+        }
+    ],
+    "totalUsage": 17,
+    "isActive": false
+}
+
+After
+{
+    "id": 77594628,
+    "firstUsed": "1:32:00 PM",
+    "lastUsed": "1:32:17 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "1:32:00 PM",
+            "endTime": "1:32:05 PM"
+        },
+        {
+            "duration": 6,
+            "startTime": "1:32:11 PM",
+            "endTime": "1:32:17 PM"
+        }
+    ],
+    "totalUsage": 17,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:32:52 PM",
+    "lastUsed": "1:33:57 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 49,
+            "startTime": "1:32:52 PM",
+            "endTime": "1:33:41 PM"
+        },
+        {
+            "duration": 56,
+            "startTime": "1:33:57 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1645,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:32:52 PM",
+    "lastUsed": "1:33:57 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 49,
+            "startTime": "1:32:52 PM",
+            "endTime": "1:33:41 PM"
+        },
+        {
+            "duration": 56,
+            "startTime": "1:33:57 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1645,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:33:41 PM",
+    "lastUsed": "1:33:57 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 16,
+            "startTime": "1:33:41 PM",
+            "endTime": "1:33:57 PM"
+        }
+    ],
+    "totalUsage": 16,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:33:41 PM",
+    "lastUsed": "1:33:57 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 16,
+            "startTime": "1:33:41 PM",
+            "endTime": "1:33:57 PM"
+        }
+    ],
+    "totalUsage": 16,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:34:54 PM",
+    "lastUsed": "1:36:00 PM",
+    "name": "Google-chrome",
+    "title": "src/components/JobSearchFIelds.tsx \u00b7 develop \u00b7 Anand K. Singh / Instaily V2 Next \u00b7 GitLab - Google Chrome",
+    "session": [
+        {
+            "duration": 15,
+            "startTime": "1:34:54 PM",
+            "endTime": "1:35:09 PM"
+        },
+        {
+            "duration": 28,
+            "startTime": "1:35:32 PM",
+            "endTime": "1:36:00 PM"
+        }
+    ],
+    "totalUsage": 66,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:34:54 PM",
+    "lastUsed": "1:36:00 PM",
+    "name": "Google-chrome",
+    "title": "src/components/JobSearchFIelds.tsx \u00b7 develop \u00b7 Anand K. Singh / Instaily V2 Next \u00b7 GitLab - Google Chrome",
+    "session": [
+        {
+            "duration": 15,
+            "startTime": "1:34:54 PM",
+            "endTime": "1:35:09 PM"
+        },
+        {
+            "duration": 28,
+            "startTime": "1:35:32 PM",
+            "endTime": "1:36:00 PM"
+        }
+    ],
+    "totalUsage": 66,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:35:09 PM",
+    "lastUsed": "1:36:00 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 23,
+            "startTime": "1:35:09 PM",
+            "endTime": "1:35:32 PM"
+        },
+        {
+            "duration": 54,
+            "startTime": "1:36:00 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1508,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:35:09 PM",
+    "lastUsed": "1:36:00 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 23,
+            "startTime": "1:35:09 PM",
+            "endTime": "1:35:32 PM"
+        },
+        {
+            "duration": 54,
+            "startTime": "1:36:00 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1508,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:36:55 PM",
+    "lastUsed": "",
+    "name": "Code",
+    "title": "\u25cf export default memo(job) \u2022 Untitled-1 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 121,
+            "startTime": "1:36:55 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7320,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:36:55 PM",
+    "lastUsed": "01:38:56 PM",
+    "name": "Code",
+    "title": "\u25cf export default memo(job) \u2022 Untitled-1 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 121,
+            "startTime": "1:36:55 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 7320,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:38:57 PM",
+    "lastUsed": "1:40:48 PM",
+    "name": "Code",
+    "title": "\u25cf \"use client\"; \u2022 Untitled-1 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 35,
+            "startTime": "1:38:57 PM",
+            "endTime": "1:39:32 PM"
+        },
+        {
+            "duration": 49,
+            "startTime": "1:39:39 PM",
+            "endTime": "1:40:28 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "1:40:37 PM",
+            "endTime": "1:40:46 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:40:48 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 145,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:38:57 PM",
+    "lastUsed": "1:40:48 PM",
+    "name": "Code",
+    "title": "\u25cf \"use client\"; \u2022 Untitled-1 - Visual Studio Code",
+    "session": [
+        {
+            "duration": 35,
+            "startTime": "1:38:57 PM",
+            "endTime": "1:39:32 PM"
+        },
+        {
+            "duration": 49,
+            "startTime": "1:39:39 PM",
+            "endTime": "1:40:28 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "1:40:37 PM",
+            "endTime": "1:40:46 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:40:48 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 145,
+    "isActive": true
+}
+
+Before
+{
+    "id": 77594628,
+    "firstUsed": "1:39:32 PM",
+    "lastUsed": "1:39:39 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 7,
+            "startTime": "1:39:32 PM",
+            "endTime": "1:39:39 PM"
+        }
+    ],
+    "totalUsage": 7,
+    "isActive": false
+}
+
+After
+{
+    "id": 77594628,
+    "firstUsed": "1:39:32 PM",
+    "lastUsed": "1:39:39 PM",
+    "name": "teams-for-linux",
+    "title": "Chat | Arka Biswas | Microsoft Teams",
+    "session": [
+        {
+            "duration": 7,
+            "startTime": "1:39:32 PM",
+            "endTime": "1:39:39 PM"
+        }
+    ],
+    "totalUsage": 7,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:40:28 PM",
+    "lastUsed": "1:40:37 PM",
+    "name": "Google-chrome",
+    "title": "src/components/JobSearchFIelds.tsx \u00b7 develop \u00b7 Anand K. Singh / Instaily V2 Next \u00b7 GitLab - Google Chrome",
+    "session": [
+        {
+            "duration": 9,
+            "startTime": "1:40:28 PM",
+            "endTime": "1:40:37 PM"
+        }
+    ],
+    "totalUsage": 9,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:40:28 PM",
+    "lastUsed": "1:40:37 PM",
+    "name": "Google-chrome",
+    "title": "src/components/JobSearchFIelds.tsx \u00b7 develop \u00b7 Anand K. Singh / Instaily V2 Next \u00b7 GitLab - Google Chrome",
+    "session": [
+        {
+            "duration": 9,
+            "startTime": "1:40:28 PM",
+            "endTime": "1:40:37 PM"
+        }
+    ],
+    "totalUsage": 9,
+    "isActive": false
+}
+
+Before
+{
+    "id": 65011713,
+    "firstUsed": "1:40:46 PM",
+    "lastUsed": "1:40:48 PM",
+    "name": "Code",
+    "title": "Visual Studio Code",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "1:40:46 PM",
+            "endTime": "1:40:48 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+After
+{
+    "id": 65011713,
+    "firstUsed": "1:40:46 PM",
+    "lastUsed": "1:40:48 PM",
+    "name": "Code",
+    "title": "Visual Studio Code",
+    "session": [
+        {
+            "duration": 2,
+            "startTime": "1:40:46 PM",
+            "endTime": "1:40:48 PM"
+        }
+    ],
+    "totalUsage": 2,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:40:57 PM",
+    "lastUsed": "1:42:31 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 94,
+            "startTime": "1:40:57 PM",
+            "endTime": "1:42:31 PM"
+        }
+    ],
+    "totalUsage": 94,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:40:57 PM",
+    "lastUsed": "1:42:31 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 94,
+            "startTime": "1:40:57 PM",
+            "endTime": "1:42:31 PM"
+        }
+    ],
+    "totalUsage": 94,
+    "isActive": false
+}
+
+Before
+{
+    "id": 88080386,
+    "firstUsed": "1:42:31 PM",
+    "lastUsed": "",
+    "name": "org.gnome.Nautilus",
+    "title": "Search for \u201cem\u201d",
+    "session": [
+        {
+            "duration": 26,
+            "startTime": "1:42:31 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 349,
+    "isActive": true
+}
+
+After
+{
+    "id": 88080386,
+    "firstUsed": "1:42:31 PM",
+    "lastUsed": "01:42:58 PM",
+    "name": "org.gnome.Nautilus",
+    "title": "Search for \u201cem\u201d",
+    "session": [
+        {
+            "duration": 26,
+            "startTime": "1:42:31 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 349,
+    "isActive": true
+}
+
+Before
+{
+    "id": 88080386,
+    "firstUsed": "1:42:58 PM",
+    "lastUsed": "1:44:34 PM",
+    "name": "org.gnome.Nautilus",
+    "title": "Project",
+    "session": [
+        {
+            "duration": 40,
+            "startTime": "1:42:58 PM",
+            "endTime": "1:43:38 PM"
+        },
+        {
+            "duration": 51,
+            "startTime": "1:43:43 PM",
+            "endTime": "1:44:34 PM"
+        }
+    ],
+    "totalUsage": 96,
+    "isActive": false
+}
+
+After
+{
+    "id": 88080386,
+    "firstUsed": "1:42:58 PM",
+    "lastUsed": "1:44:34 PM",
+    "name": "org.gnome.Nautilus",
+    "title": "Project",
+    "session": [
+        {
+            "duration": 40,
+            "startTime": "1:42:58 PM",
+            "endTime": "1:43:38 PM"
+        },
+        {
+            "duration": 51,
+            "startTime": "1:43:43 PM",
+            "endTime": "1:44:34 PM"
+        }
+    ],
+    "totalUsage": 96,
+    "isActive": false
+}
+
+Before
+{
+    "id": 115343361,
+    "firstUsed": "1:43:38 PM",
+    "lastUsed": "1:43:43 PM",
+    "name": "Eog",
+    "title": "profile-photo-icon.svg",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "1:43:38 PM",
+            "endTime": "1:43:43 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+After
+{
+    "id": 115343361,
+    "firstUsed": "1:43:38 PM",
+    "lastUsed": "1:43:43 PM",
+    "name": "Eog",
+    "title": "profile-photo-icon.svg",
+    "session": [
+        {
+            "duration": 5,
+            "startTime": "1:43:38 PM",
+            "endTime": "1:43:43 PM"
+        }
+    ],
+    "totalUsage": 5,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:44:34 PM",
+    "lastUsed": "1:44:38 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "1:44:34 PM",
+            "endTime": "1:44:38 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:44:34 PM",
+    "lastUsed": "1:44:38 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "1:44:34 PM",
+            "endTime": "1:44:38 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:44:38 PM",
+    "lastUsed": "",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 20,
+            "startTime": "1:44:38 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 210,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:44:38 PM",
+    "lastUsed": "01:44:59 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 20,
+            "startTime": "1:44:38 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 210,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:44:59 PM",
+    "lastUsed": "1:46:46 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 13,
+            "startTime": "1:44:59 PM",
+            "endTime": "1:45:12 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "1:46:07 PM",
+            "endTime": "1:46:30 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "1:46:37 PM",
+            "endTime": "1:46:46 PM"
+        }
+    ],
+    "totalUsage": 107,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:44:59 PM",
+    "lastUsed": "1:46:46 PM",
+    "name": "Google-chrome",
+    "title": "Hrmware Tracker APIS - Google Chrome",
+    "session": [
+        {
+            "duration": 13,
+            "startTime": "1:44:59 PM",
+            "endTime": "1:45:12 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "1:46:07 PM",
+            "endTime": "1:46:30 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "1:46:37 PM",
+            "endTime": "1:46:46 PM"
+        }
+    ],
+    "totalUsage": 107,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:45:12 PM",
+    "lastUsed": "1:46:46 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 55,
+            "startTime": "1:45:12 PM",
+            "endTime": "1:46:07 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "1:46:30 PM",
+            "endTime": "1:46:37 PM"
+        },
+        {
+            "duration": 13,
+            "startTime": "1:46:46 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 176,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:45:12 PM",
+    "lastUsed": "1:46:46 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 55,
+            "startTime": "1:45:12 PM",
+            "endTime": "1:46:07 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "1:46:30 PM",
+            "endTime": "1:46:37 PM"
+        },
+        {
+            "duration": 13,
+            "startTime": "1:46:46 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 176,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:47:00 PM",
+    "lastUsed": "1:48:18 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 25,
+            "startTime": "1:47:00 PM",
+            "endTime": "1:47:25 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:47:33 PM",
+            "endTime": "1:47:41 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:48:13 PM",
+            "endTime": "1:48:18 PM"
+        }
+    ],
+    "totalUsage": 78,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:47:00 PM",
+    "lastUsed": "1:48:18 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 25,
+            "startTime": "1:47:00 PM",
+            "endTime": "1:47:25 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:47:33 PM",
+            "endTime": "1:47:41 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:48:13 PM",
+            "endTime": "1:48:18 PM"
+        }
+    ],
+    "totalUsage": 78,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:47:25 PM",
+    "lastUsed": "1:48:18 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 8,
+            "startTime": "1:47:25 PM",
+            "endTime": "1:47:33 PM"
+        },
+        {
+            "duration": 32,
+            "startTime": "1:47:41 PM",
+            "endTime": "1:48:13 PM"
+        },
+        {
+            "duration": 42,
+            "startTime": "1:48:18 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 951,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:47:25 PM",
+    "lastUsed": "1:48:18 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 8,
+            "startTime": "1:47:25 PM",
+            "endTime": "1:47:33 PM"
+        },
+        {
+            "duration": 32,
+            "startTime": "1:47:41 PM",
+            "endTime": "1:48:13 PM"
+        },
+        {
+            "duration": 42,
+            "startTime": "1:48:18 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 951,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:49:01 PM",
+    "lastUsed": "1:50:54 PM",
+    "name": "Google-chrome",
+    "title": "node.js - SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON - Stack Overflow - Google Chrome",
+    "session": [
+        {
+            "duration": 24,
+            "startTime": "1:49:01 PM",
+            "endTime": "1:49:25 PM"
+        },
+        {
+            "duration": 32,
+            "startTime": "1:49:42 PM",
+            "endTime": "1:50:14 PM"
+        },
+        {
+            "duration": 14,
+            "startTime": "1:50:31 PM",
+            "endTime": "1:50:45 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:50:54 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 140,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:49:01 PM",
+    "lastUsed": "1:50:54 PM",
+    "name": "Google-chrome",
+    "title": "node.js - SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON - Stack Overflow - Google Chrome",
+    "session": [
+        {
+            "duration": 24,
+            "startTime": "1:49:01 PM",
+            "endTime": "1:49:25 PM"
+        },
+        {
+            "duration": 32,
+            "startTime": "1:49:42 PM",
+            "endTime": "1:50:14 PM"
+        },
+        {
+            "duration": 14,
+            "startTime": "1:50:31 PM",
+            "endTime": "1:50:45 PM"
+        },
+        {
+            "duration": 8,
+            "startTime": "1:50:54 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 140,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:49:25 PM",
+    "lastUsed": "1:50:54 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 17,
+            "startTime": "1:49:25 PM",
+            "endTime": "1:49:42 PM"
+        },
+        {
+            "duration": 17,
+            "startTime": "1:50:14 PM",
+            "endTime": "1:50:31 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "1:50:45 PM",
+            "endTime": "1:50:54 PM"
+        }
+    ],
+    "totalUsage": 89,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:49:25 PM",
+    "lastUsed": "1:50:54 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 17,
+            "startTime": "1:49:25 PM",
+            "endTime": "1:49:42 PM"
+        },
+        {
+            "duration": 17,
+            "startTime": "1:50:14 PM",
+            "endTime": "1:50:31 PM"
+        },
+        {
+            "duration": 9,
+            "startTime": "1:50:45 PM",
+            "endTime": "1:50:54 PM"
+        }
+    ],
+    "totalUsage": 89,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:51:03 PM",
+    "lastUsed": "1:52:43 PM",
+    "name": "Google-chrome",
+    "title": "node.js - SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON - Stack Overflow - Google Chrome",
+    "session": [
+        {
+            "duration": 10,
+            "startTime": "1:51:03 PM",
+            "endTime": "1:51:13 PM"
+        },
+        {
+            "duration": 68,
+            "startTime": "1:51:35 PM",
+            "endTime": "1:52:43 PM"
+        }
+    ],
+    "totalUsage": 100,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:51:03 PM",
+    "lastUsed": "1:52:43 PM",
+    "name": "Google-chrome",
+    "title": "node.js - SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON - Stack Overflow - Google Chrome",
+    "session": [
+        {
+            "duration": 10,
+            "startTime": "1:51:03 PM",
+            "endTime": "1:51:13 PM"
+        },
+        {
+            "duration": 68,
+            "startTime": "1:51:35 PM",
+            "endTime": "1:52:43 PM"
+        }
+    ],
+    "totalUsage": 100,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:51:13 PM",
+    "lastUsed": "1:52:43 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 22,
+            "startTime": "1:51:13 PM",
+            "endTime": "1:51:35 PM"
+        },
+        {
+            "duration": 19,
+            "startTime": "1:52:43 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 212,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:51:13 PM",
+    "lastUsed": "1:52:43 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 22,
+            "startTime": "1:51:13 PM",
+            "endTime": "1:51:35 PM"
+        },
+        {
+            "duration": 19,
+            "startTime": "1:52:43 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 212,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:53:03 PM",
+    "lastUsed": "1:54:40 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 21,
+            "startTime": "1:53:03 PM",
+            "endTime": "1:53:24 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "1:53:31 PM",
+            "endTime": "1:53:34 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "1:53:39 PM",
+            "endTime": "1:54:02 PM"
+        },
+        {
+            "duration": 36,
+            "startTime": "1:54:04 PM",
+            "endTime": "1:54:40 PM"
+        }
+    ],
+    "totalUsage": 97,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:53:03 PM",
+    "lastUsed": "1:54:40 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 21,
+            "startTime": "1:53:03 PM",
+            "endTime": "1:53:24 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "1:53:31 PM",
+            "endTime": "1:53:34 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "1:53:39 PM",
+            "endTime": "1:54:02 PM"
+        },
+        {
+            "duration": 36,
+            "startTime": "1:54:04 PM",
+            "endTime": "1:54:40 PM"
+        }
+    ],
+    "totalUsage": 97,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:53:24 PM",
+    "lastUsed": "1:54:40 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 7,
+            "startTime": "1:53:24 PM",
+            "endTime": "1:53:31 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:53:34 PM",
+            "endTime": "1:53:39 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:54:02 PM",
+            "endTime": "1:54:04 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "1:54:40 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 316,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:53:24 PM",
+    "lastUsed": "1:54:40 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 7,
+            "startTime": "1:53:24 PM",
+            "endTime": "1:53:31 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "1:53:34 PM",
+            "endTime": "1:53:39 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "1:54:02 PM",
+            "endTime": "1:54:04 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "1:54:40 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 316,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:55:04 PM",
+    "lastUsed": "1:56:43 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 44,
+            "startTime": "1:55:04 PM",
+            "endTime": "1:55:48 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "1:56:07 PM",
+            "endTime": "1:56:10 PM"
+        },
+        {
+            "duration": 10,
+            "startTime": "1:56:33 PM",
+            "endTime": "1:56:43 PM"
+        }
+    ],
+    "totalUsage": 99,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:55:04 PM",
+    "lastUsed": "1:56:43 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 44,
+            "startTime": "1:55:04 PM",
+            "endTime": "1:55:48 PM"
+        },
+        {
+            "duration": 3,
+            "startTime": "1:56:07 PM",
+            "endTime": "1:56:10 PM"
+        },
+        {
+            "duration": 10,
+            "startTime": "1:56:33 PM",
+            "endTime": "1:56:43 PM"
+        }
+    ],
+    "totalUsage": 99,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:55:48 PM",
+    "lastUsed": "1:56:43 PM",
+    "name": "Google-chrome",
+    "title": "JSON Parsing Error Fix - Google Chrome",
+    "session": [
+        {
+            "duration": 19,
+            "startTime": "1:55:48 PM",
+            "endTime": "1:56:07 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "1:56:10 PM",
+            "endTime": "1:56:33 PM"
+        },
+        {
+            "duration": 21,
+            "startTime": "1:56:43 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 276,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:55:48 PM",
+    "lastUsed": "1:56:43 PM",
+    "name": "Google-chrome",
+    "title": "JSON Parsing Error Fix - Google Chrome",
+    "session": [
+        {
+            "duration": 19,
+            "startTime": "1:55:48 PM",
+            "endTime": "1:56:07 PM"
+        },
+        {
+            "duration": 23,
+            "startTime": "1:56:10 PM",
+            "endTime": "1:56:33 PM"
+        },
+        {
+            "duration": 21,
+            "startTime": "1:56:43 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 276,
+    "isActive": true
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "1:57:05 PM",
+    "lastUsed": "1:59:04 PM",
+    "name": "Google-chrome",
+    "title": "Tracker Basic Time Details \u2013 Django REST framework - Google Chrome",
+    "session": [
+        {
+            "duration": 119,
+            "startTime": "1:57:05 PM",
+            "endTime": "1:59:04 PM"
+        }
+    ],
+    "totalUsage": 119,
+    "isActive": false
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "1:57:05 PM",
+    "lastUsed": "1:59:04 PM",
+    "name": "Google-chrome",
+    "title": "Tracker Basic Time Details \u2013 Django REST framework - Google Chrome",
+    "session": [
+        {
+            "duration": 119,
+            "startTime": "1:57:05 PM",
+            "endTime": "1:59:04 PM"
+        }
+    ],
+    "totalUsage": 119,
+    "isActive": false
+}
+
+Before
+{
+    "id": 115343364,
+    "firstUsed": "1:59:04 PM",
+    "lastUsed": "1:59:05 PM",
+    "name": "Postman",
+    "title": "Postman",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "1:59:04 PM",
+            "endTime": "1:59:05 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+After
+{
+    "id": 115343364,
+    "firstUsed": "1:59:04 PM",
+    "lastUsed": "1:59:05 PM",
+    "name": "Postman",
+    "title": "Postman",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "1:59:04 PM",
+            "endTime": "1:59:05 PM"
+        }
+    ],
+    "totalUsage": 1,
+    "isActive": false
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:59:05 PM",
+    "lastUsed": "",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 0,
+            "startTime": "1:59:05 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 0,
+    "isActive": true
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:59:05 PM",
+    "lastUsed": "01:59:06 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 0,
+            "startTime": "1:59:05 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 0,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "1:59:06 PM",
+    "lastUsed": "1:59:38 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 32,
+            "startTime": "1:59:06 PM",
+            "endTime": "1:59:38 PM"
+        }
+    ],
+    "totalUsage": 32,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "1:59:06 PM",
+    "lastUsed": "1:59:38 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 32,
+            "startTime": "1:59:06 PM",
+            "endTime": "1:59:38 PM"
+        }
+    ],
+    "totalUsage": 32,
+    "isActive": false
+}
+
+Before
+{
+    "id": 115343364,
+    "firstUsed": "1:59:38 PM",
+    "lastUsed": "",
+    "name": "Postman",
+    "title": "get all - My Workspace",
+    "session": [
+        {
+            "duration": 6,
+            "startTime": "1:59:38 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 21,
+    "isActive": true
+}
+
+After
+{
+    "id": 115343364,
+    "firstUsed": "1:59:38 PM",
+    "lastUsed": "02:01:07 PM",
+    "name": "Postman",
+    "title": "get all - My Workspace",
+    "session": [
+        {
+            "duration": 6,
+            "startTime": "1:59:38 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 21,
+    "isActive": true
+}
+
+Before
+{
+    "id": 104857604,
+    "firstUsed": "2:34:52 PM",
+    "lastUsed": "2:35:00 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 8,
+            "startTime": "2:34:52 PM",
+            "endTime": "2:35:00 PM"
+        }
+    ],
+    "totalUsage": 8,
+    "isActive": false
+}
+
+After
+{
+    "id": 104857604,
+    "firstUsed": "2:34:52 PM",
+    "lastUsed": "2:35:00 PM",
+    "name": "hrmware_v2",
+    "title": "HRMWARE",
+    "session": [
+        {
+            "duration": 8,
+            "startTime": "2:34:52 PM",
+            "endTime": "2:35:00 PM"
+        }
+    ],
+    "totalUsage": 8,
+    "isActive": false
+}
+
+Before
+{
+    "id": 52428801,
+    "firstUsed": "2:35:00 PM",
+    "lastUsed": "2:35:09 PM",
+    "name": "Gjs",
+    "title": "@!0,0;BDHF",
+    "session": [
+        {
+            "duration": 9,
+            "startTime": "2:35:00 PM",
+            "endTime": "2:35:09 PM"
+        }
+    ],
+    "totalUsage": 9,
+    "isActive": false
+}
+
+After
+{
+    "id": 52428801,
+    "firstUsed": "2:35:00 PM",
+    "lastUsed": "2:35:09 PM",
+    "name": "Gjs",
+    "title": "@!0,0;BDHF",
+    "session": [
+        {
+            "duration": 9,
+            "startTime": "2:35:00 PM",
+            "endTime": "2:35:09 PM"
+        }
+    ],
+    "totalUsage": 9,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "2:35:09 PM",
+    "lastUsed": "2:36:33 PM",
+    "name": "Google-chrome",
+    "title": "JSON Parsing Error Fix - Google Chrome",
+    "session": [
+        {
+            "duration": 71,
+            "startTime": "2:35:09 PM",
+            "endTime": "2:36:20 PM"
+        },
+        {
+            "duration": 18,
+            "startTime": "2:36:33 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 242,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "2:35:09 PM",
+    "lastUsed": "2:36:33 PM",
+    "name": "Google-chrome",
+    "title": "JSON Parsing Error Fix - Google Chrome",
+    "session": [
+        {
+            "duration": 71,
+            "startTime": "2:35:09 PM",
+            "endTime": "2:36:20 PM"
+        },
+        {
+            "duration": 18,
+            "startTime": "2:36:33 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 242,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "2:36:20 PM",
+    "lastUsed": "2:36:33 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 13,
+            "startTime": "2:36:20 PM",
+            "endTime": "2:36:33 PM"
+        }
+    ],
+    "totalUsage": 13,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "2:36:20 PM",
+    "lastUsed": "2:36:33 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 13,
+            "startTime": "2:36:20 PM",
+            "endTime": "2:36:33 PM"
+        }
+    ],
+    "totalUsage": 13,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "2:36:52 PM",
+    "lastUsed": "2:38:53 PM",
+    "name": "Google-chrome",
+    "title": "JSON Parsing Error Fix - Google Chrome",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "2:36:52 PM",
+            "endTime": "2:36:55 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "2:37:17 PM",
+            "endTime": "2:37:19 PM"
+        },
+        {
+            "duration": 11,
+            "startTime": "2:37:53 PM",
+            "endTime": "2:38:04 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:38:11 PM",
+            "endTime": "2:38:41 PM"
+        },
+        {
+            "duration": 0,
+            "startTime": "2:38:53 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 109,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "2:36:52 PM",
+    "lastUsed": "2:38:53 PM",
+    "name": "Google-chrome",
+    "title": "JSON Parsing Error Fix - Google Chrome",
+    "session": [
+        {
+            "duration": 3,
+            "startTime": "2:36:52 PM",
+            "endTime": "2:36:55 PM"
+        },
+        {
+            "duration": 2,
+            "startTime": "2:37:17 PM",
+            "endTime": "2:37:19 PM"
+        },
+        {
+            "duration": 11,
+            "startTime": "2:37:53 PM",
+            "endTime": "2:38:04 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:38:11 PM",
+            "endTime": "2:38:41 PM"
+        },
+        {
+            "duration": 0,
+            "startTime": "2:38:53 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 109,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "2:36:55 PM",
+    "lastUsed": "2:38:53 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 22,
+            "startTime": "2:36:55 PM",
+            "endTime": "2:37:17 PM"
+        },
+        {
+            "duration": 34,
+            "startTime": "2:37:19 PM",
+            "endTime": "2:37:53 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "2:38:04 PM",
+            "endTime": "2:38:11 PM"
+        },
+        {
+            "duration": 12,
+            "startTime": "2:38:41 PM",
+            "endTime": "2:38:53 PM"
+        }
+    ],
+    "totalUsage": 118,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "2:36:55 PM",
+    "lastUsed": "2:38:53 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 22,
+            "startTime": "2:36:55 PM",
+            "endTime": "2:37:17 PM"
+        },
+        {
+            "duration": 34,
+            "startTime": "2:37:19 PM",
+            "endTime": "2:37:53 PM"
+        },
+        {
+            "duration": 7,
+            "startTime": "2:38:04 PM",
+            "endTime": "2:38:11 PM"
+        },
+        {
+            "duration": 12,
+            "startTime": "2:38:41 PM",
+            "endTime": "2:38:53 PM"
+        }
+    ],
+    "totalUsage": 118,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "2:38:54 PM",
+    "lastUsed": "2:40:49 PM",
+    "name": "Google-chrome",
+    "title": "JSON Parsing Error Fix - Google Chrome",
+    "session": [
+        {
+            "duration": 111,
+            "startTime": "2:38:54 PM",
+            "endTime": "2:40:45 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "2:40:49 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 126,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "2:38:54 PM",
+    "lastUsed": "2:40:49 PM",
+    "name": "Google-chrome",
+    "title": "JSON Parsing Error Fix - Google Chrome",
+    "session": [
+        {
+            "duration": 111,
+            "startTime": "2:38:54 PM",
+            "endTime": "2:40:45 PM"
+        },
+        {
+            "duration": 5,
+            "startTime": "2:40:49 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 126,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "2:40:45 PM",
+    "lastUsed": "2:40:49 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "2:40:45 PM",
+            "endTime": "2:40:49 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "2:40:45 PM",
+    "lastUsed": "2:40:49 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 4,
+            "startTime": "2:40:45 PM",
+            "endTime": "2:40:49 PM"
+        }
+    ],
+    "totalUsage": 4,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "2:40:55 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "2:40:55 PM",
+            "endTime": "2:40:56 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:42:10 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 193,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "2:40:55 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "2:40:55 PM",
+            "endTime": "2:40:56 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:42:10 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 193,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "2:40:56 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 74,
+            "startTime": "2:40:56 PM",
+            "endTime": "2:42:10 PM"
+        }
+    ],
+    "totalUsage": 74,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "2:40:56 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 74,
+            "startTime": "2:40:56 PM",
+            "endTime": "2:42:10 PM"
+        }
+    ],
+    "totalUsage": 74,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "2:43:14 PM",
+    "lastUsed": "2:43:58 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 14,
+            "startTime": "2:43:14 PM",
+            "endTime": "2:43:28 PM"
+        },
+        {
+            "duration": 57,
+            "startTime": "2:43:58 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1343,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "2:43:14 PM",
+    "lastUsed": "2:43:58 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 14,
+            "startTime": "2:43:14 PM",
+            "endTime": "2:43:28 PM"
+        },
+        {
+            "duration": 57,
+            "startTime": "2:43:58 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 1343,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "2:43:28 PM",
+    "lastUsed": "2:43:58 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 30,
+            "startTime": "2:43:28 PM",
+            "endTime": "2:43:58 PM"
+        }
+    ],
+    "totalUsage": 30,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "2:43:28 PM",
+    "lastUsed": "2:43:58 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 30,
+            "startTime": "2:43:28 PM",
+            "endTime": "2:43:58 PM"
+        }
+    ],
+    "totalUsage": 30,
+    "isActive": false
+}
