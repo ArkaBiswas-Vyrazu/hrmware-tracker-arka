@@ -1,3 +1,9 @@
+"""HRMWARE - Tracker API Tests
+
+Please note that this is a work in progress at this time,
+and this will not work as intended.
+"""
+
 import json
 
 from django.test import TestCase
@@ -33,7 +39,7 @@ class TestActivityLogCreate(TestCase):
                     #     }
                     # ],
                     "totalUsage": 31,
-                    "isActive": True
+                    "isActive": True,
                 },
                 {
                     "firstUsed": "12:45:45 PM",
@@ -54,7 +60,7 @@ class TestActivityLogCreate(TestCase):
                     #     }
                     # ],
                     "totalUsage": 5,
-                    "isActive": False
+                    "isActive": False,
                 },
                 {
                     "firstUsed": "12:45:46 PM",
@@ -70,7 +76,7 @@ class TestActivityLogCreate(TestCase):
                     #     }
                     # ],
                     "totalUsage": 1,
-                    "isActive": False
+                    "isActive": False,
                 },
                 {
                     "firstUsed": "12:45:50 PM",
@@ -86,16 +92,10 @@ class TestActivityLogCreate(TestCase):
                     #     }
                     # ],
                     "totalUsage": 2,
-                    "isActive": False
-                }
+                    "isActive": False,
+                },
             ],
-            "idleStates": [
-                {
-                    "startTime":"12:45:44 PM",
-                    "endTime": "12:45:47 PM",
-                    "duration": 3
-                }
-            ]
+            "idleStates": [{"startTime": "12:45:44 PM", "endTime": "12:45:47 PM", "duration": 3}],
         }
 
         response = c.post(url, data, format="json")
@@ -103,9 +103,8 @@ class TestActivityLogCreate(TestCase):
 
         self.assertEqual(ActivityLogs.objects.count(), len(data["allWindows"]))
         self.assertGreater(TrackerAppCategories.objects.count(), 0)
-        
-        tracker_apps = (
-            TrackerApps.objects
-            .filter(name__in=[data_item.get("name").strip().lower() for data_item in data["allWindows"]])
+
+        tracker_apps = TrackerApps.objects.filter(
+            name__in=[data_item.get("name").strip().lower() for data_item in data["allWindows"]]
         )
         self.assertEqual(tracker_apps.count(), len(data["allWindows"]))
