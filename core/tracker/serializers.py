@@ -285,9 +285,14 @@ class TrackerSetAppCategorySerializer(serializers.Serializer):
 
 
 class TrackerAppsSerializer(serializers.ModelSerializer):
+    category_uuid = serializers.SerializerMethodField()
+
     class Meta:
         model = TrackerApps
-        fields = ["uuid", "name", "category_id"]
+        fields = ["uuid", "name", "category_uuid"]
+
+    def get_category_uuid(self, obj):
+        return obj.category.uuid
 
 
 class TrackerProductiveBreakDownSerializer(serializers.Serializer):

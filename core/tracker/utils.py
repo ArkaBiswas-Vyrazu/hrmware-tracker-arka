@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.core.exceptions import FieldError
 from django.core.files.base import ContentFile
+
 # from django.core.files.storage import default_storage
 from rest_framework.request import Request
 
@@ -20,31 +21,34 @@ class TrackerAPIUtils:
     def get_default_category() -> TrackerAppCategories:
         default_category: str = settings.DEFAULT_TRACKER_CATEGORY
         if default_category is None:
-            msg = "No default category found, setting category " \
-                  f"as {settings.TRACKER_CATEGORY_PLACEHOLDER}"
+            msg = (
+                "No default category found, setting category "
+                f"as {settings.TRACKER_CATEGORY_PLACEHOLDER}"
+            )
             warnings.warn(msg)
             default_category: str = settings.TRACKER_CATEGORY_PLACEHOLDER
 
-        tracker_app_category, _ = (
-            TrackerAppCategories.objects
-            .get_or_create(name=default_category)
-        )
+        tracker_app_category, _ = TrackerAppCategories.objects.get_or_create(name=default_category)
 
         return tracker_app_category
 
     def create_new_app(self, app_name: str) -> TrackerApps:
         default_category = self.get_default_category()
-        tracker_app = TrackerApps.objects.create(
-            name=app_name,
-            category=default_category,
-        )
+        # tracker_app = TrackerApps.objects.create(
+        # name=app_name,
+        # category=default_category,
+        # )
+        tracker_app = TrackerApps()
+        tracker_app.name = app_name
+        tracker_app.category = default_category
+        tracker_app.save()
         return tracker_app
 
     @staticmethod
     def get_main_data(request: Request) -> tuple[dict[str, Any], bool]:
         """Retrieves data from request safely.
 
-        If data retrieval logic changes, please change this method.        
+        If data retrieval logic changes, please change this method.
         """
 
         serializer = ActivityLogsDataSerializer(data=request.data)
@@ -61,7 +65,7 @@ class TrackerAPIUtils:
 
     def extract_data(self, data: dict[str, Any]) -> dict[str, Any | None]:
         """Extracts required data from provided dictionary safely.
-        
+
         The returned dictionary would be suitable for use in
         creating a record in the ActivityLogs Model.
         If data retrieval logic changes, or model definition
@@ -98,10 +102,7 @@ class TrackerAPIUtils:
 
         if user is None:
             user = Users.objects.create_superuser(
-                "test",
-                "test@example.com",
-                "password",
-                employee_id=uniqid()
+                "test", "test@example.com", "password", employee_id=uniqid()
             )
 
         return user
@@ -109,22 +110,16 @@ class TrackerAPIUtils:
     def create_time_segments(self, main_data: dict, user):
         """Create time segment data for received activity logs"""
 
-        all_windows = (
-            [
-                self.extract_data(data) | {"activity_log": main_data.get("activity_logs", {}).get(data.get("id"))}
-                for data in main_data.get("allWindows", [])
-            ]
-        )
+        all_windows = [
+            self.extract_data(data)
+            | {"activity_log": main_data.get("activity_logs", {}).get(data.get("id"))}
+            for data in main_data.get("allWindows", [])
+        ]
         idle_states = main_data.get("idleStates", [])
 
         time_segments = []
         for data in all_windows:
-            app_category = (
-                TrackerApps.objects
-                .filter(name=data["app"])
-                .first()
-                .category
-            )
+            app_category = TrackerApps.objects.filter(name=data["app"]).first().category
 
             time_segment = TimeSegments.objects.create(
                 date=timezone.now().date(),
@@ -133,7 +128,7 @@ class TrackerAPIUtils:
                 duration=data.get("duration"),
                 segment_type=app_category.productivity_status_type,
                 user=user,
-                activity_log=data.get("activity_log")
+                activity_log=data.get("activity_log"),
             )
 
             time_segments.append(time_segment)
@@ -146,7 +141,7 @@ class TrackerAPIUtils:
                 duration=data.get("duration"),
                 segment_type="idle",
                 user=user,
-                activity_log=None
+                activity_log=None,
             )
 
             time_segments.append(time_segment)

@@ -6302,3 +6302,435 @@ Time recorded: 2025-07-18 13:52:27 PM
     }
 ]
 
+Time recorded: 2025-07-21 09:20:01 AM
+[
+    {
+        "exc_type": "TypeError",
+        "exc_value": "TrackerApps.save() missing 1 required positional argument: 'name'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 83,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7c62a0510b90>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 94371844, 'firstUsed': '2:40:55 PM', 'lastUsed': '2:42:10 PM', 'name': 'Google-chrome', 'title': 'Employee Activity Tracker - Google Chrome', 'session': [{'duration': 1, 'startTime': '2:40:55 PM', 'endTime': '2:40:56 PM'}, {'duration': 30, 'startTime': '2:42:10 PM', 'endTime': ''}], 'totalUsage': 193, 'isActive': True}, {'id': 33554465, 'firstUsed': '2:40:56 PM', 'lastUsed': '2:42:10 PM', 'name': 'Code', 'title': 'employee-activity-v1.html - Visual Studio Code', 'session': [{'duration': 74, 'startTime': '2:40:56 PM', 'endTime': '2:42:10 PM'}], 'totalUsage': 74, 'isActive': False}], 'idleStates': [{'duration': 20, 'startTime': '2:41:04 PM', 'endTime': '2:41:20 PM'}, {'duration': 8, 'startTime': '2:41:58 PM', 'endTime': '2:42:03 PM'}]}",
+                    "status": "True",
+                    "file_name": "'hrmware-tracker-sample-response.json'",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>",
+                    "activity_logs": "[]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 94371844, 'firstUsed': '2:40:55 PM', 'lastUsed': '2:42:10 PM', 'name': 'Google-chrome', 'title': 'Employee Activity Tracker - Google Chrome', 'session': [{'duration': 1, 'startTime': '2:40:55 PM', 'endTime': '2:40:56 PM'}, {'duration': 30, 'startTime': '2:42:10 PM', 'endTime': ''}], 'totalUsage': 193, 'isActive': True}",
+                    "extracted_data": "{'start_timestamp': datetime.datetime(2025, 7, 21, 14, 40, 55), 'end_timestamp': datetime.datetime(2025, 7, 21, 14, 42, 10), 'duration': 193, 'is_active': True, 'window_title': 'Employee Activity Tracker - Google Chrome', 'app': 'google-chrome', 'productivity_status': 'neutral'}",
+                    "tracker_app": "None",
+                    "e": "TypeError(\"TrackerApps.save() missing 1 required positional argument: 'name'\")"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/utils.py",
+                "lineno": 37,
+                "name": "create_new_app",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x7c62a0510b90>",
+                    "app_name": "'google-chrome'",
+                    "default_category": "<TrackerAppCategories: TrackerAppCategories object (1)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x7c62a05dcf80>",
+                    "args": "()",
+                    "kwargs": "{'name': 'google-chrome', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "name": "'create'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 663,
+                "name": "create",
+                "locals": {
+                    "self": "<QuerySet []>",
+                    "kwargs": "{'name': 'google-chrome', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "reverse_one_to_one_fields": "frozenset()",
+                    "obj": "<TrackerApps: TrackerApps object (None)>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-21 09:26:00 AM
+[
+    {
+        "exc_type": "IndexError",
+        "exc_value": "tuple index out of range",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 83,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x74c9cc3778f0>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 94371844, 'firstUsed': '2:40:55 PM', 'lastUsed': '2:42:10 PM', 'name': 'Google-chrome', 'title': 'Employee Activity Tracker - Google Chrome', 'session': [{'duration': 1, 'startTime': '2:40:55 PM', 'endTime': '2:40:56 PM'}, {'duration': 30, 'startTime': '2:42:10 PM', 'endTime': ''}], 'totalUsage': 193, 'isActive': True}, {'id': 33554465, 'firstUsed': '2:40:56 PM', 'lastUsed': '2:42:10 PM', 'name': 'Code', 'title': 'employee-activity-v1.html - Visual Studio Code', 'session': [{'duration': 74, 'startTime': '2:40:56 PM', 'endTime': '2:42:10 PM'}], 'totalUsage': 74, 'isActive': False}], 'idleStates': [{'duration': 20, 'startTime': '2:41:04 PM', 'endTime': '2:41:20 PM'}, {'duration': 8, 'startTime': '2:41:58 PM', 'endTime': '2:42:03 PM'}]}",
+                    "status": "True",
+                    "file_name": "'hrmware-tracker-sample-response.json'",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>",
+                    "activity_logs": "[]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 94371844, 'firstUsed': '2:40:55 PM', 'lastUsed': '2:42:10 PM', 'name': 'Google-chrome', 'title': 'Employee Activity Tracker - Google Chrome', 'session': [{'duration': 1, 'startTime': '2:40:55 PM', 'endTime': '2:40:56 PM'}, {'duration': 30, 'startTime': '2:42:10 PM', 'endTime': ''}], 'totalUsage': 193, 'isActive': True}",
+                    "extracted_data": "{'start_timestamp': datetime.datetime(2025, 7, 21, 14, 40, 55), 'end_timestamp': datetime.datetime(2025, 7, 21, 14, 42, 10), 'duration': 193, 'is_active': True, 'window_title': 'Employee Activity Tracker - Google Chrome', 'app': 'google-chrome', 'productivity_status': 'neutral'}",
+                    "tracker_app": "None",
+                    "e": "IndexError('tuple index out of range')"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/utils.py",
+                "lineno": 37,
+                "name": "create_new_app",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x74c9cc3778f0>",
+                    "app_name": "'google-chrome'",
+                    "default_category": "<TrackerAppCategories: TrackerAppCategories object (1)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x74c9cc5d12e0>",
+                    "args": "()",
+                    "kwargs": "{'name': 'google-chrome', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "name": "'create'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 663,
+                "name": "create",
+                "locals": {
+                    "self": "<QuerySet []>",
+                    "kwargs": "{'name': 'google-chrome', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "reverse_one_to_one_fields": "frozenset()",
+                    "obj": "<TrackerApps: TrackerApps object (None)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/models.py",
+                "lineno": 192,
+                "name": "save",
+                "locals": {
+                    "self": "<TrackerApps: TrackerApps object (None)>",
+                    "name": "None",
+                    "args": "()",
+                    "kwargs": "{'force_insert': True, 'using': 'default'}"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-21 09:28:11 AM
+[
+    {
+        "exc_type": "IntegrityError",
+        "exc_value": "null value in column \"actual_name\" of relation \"tracker_apps\" violates not-null constraint\nDETAIL:  Failing row contains (1, 98b4a392-8149-4381-8695-4c59de286946, google-chrome, 1, null).",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 83,
+                "name": "post",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x754ab3385f70>",
+                    "request": "<rest_framework.request.Request: POST '/tracker/'>",
+                    "main_data": "{'allWindows': [{'id': 94371844, 'firstUsed': '2:40:55 PM', 'lastUsed': '2:42:10 PM', 'name': 'Google-chrome', 'title': 'Employee Activity Tracker - Google Chrome', 'session': [{'duration': 1, 'startTime': '2:40:55 PM', 'endTime': '2:40:56 PM'}, {'duration': 30, 'startTime': '2:42:10 PM', 'endTime': ''}], 'totalUsage': 193, 'isActive': True}, {'id': 33554465, 'firstUsed': '2:40:56 PM', 'lastUsed': '2:42:10 PM', 'name': 'Code', 'title': 'employee-activity-v1.html - Visual Studio Code', 'session': [{'duration': 74, 'startTime': '2:40:56 PM', 'endTime': '2:42:10 PM'}], 'totalUsage': 74, 'isActive': False}], 'idleStates': [{'duration': 20, 'startTime': '2:41:04 PM', 'endTime': '2:41:20 PM'}, {'duration': 8, 'startTime': '2:41:58 PM', 'endTime': '2:42:03 PM'}]}",
+                    "status": "True",
+                    "file_name": "'hrmware-tracker-sample-response.json'",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>",
+                    "activity_logs": "[]",
+                    "request_user": "<Users: test@example.com>",
+                    "data": "{'id': 94371844, 'firstUsed': '2:40:55 PM', 'lastUsed': '2:42:10 PM', 'name': 'Google-chrome', 'title': 'Employee Activity Tracker - Google Chrome', 'session': [{'duration': 1, 'startTime': '2:40:55 PM', 'endTime': '2:40:56 PM'}, {'duration': 30, 'startTime': '2:42:10 PM', 'endTime': ''}], 'totalUsage': 193, 'isActive': True}",
+                    "extracted_data": "{'start_timestamp': datetime.datetime(2025, 7, 21, 14, 40, 55), 'end_timestamp': datetime.datetime(2025, 7, 21, 14, 42, 10), 'duration': 193, 'is_active': True, 'window_title': 'Employee Activity Tracker - Google Chrome', 'app': 'google-chrome', 'productivity_status': 'neutral'}",
+                    "tracker_app": "None",
+                    "e": "IntegrityError('null value in column \"actual_name\" of relation \"tracker_apps\" violates not-null constraint\\nDETAIL:  Failing row contains (1, 98b4a392-8149-4381-8695-4c59de286946, google-chrome, 1, null).')"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/utils.py",
+                "lineno": 37,
+                "name": "create_new_app",
+                "locals": {
+                    "self": "<tracker.views.TrackerAPIView object at 0x754ab3385f70>",
+                    "app_name": "'google-chrome'",
+                    "default_category": "<TrackerAppCategories: TrackerAppCategories object (1)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x754ab35d4d70>",
+                    "args": "()",
+                    "kwargs": "{'name': 'google-chrome', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "name": "'create'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 663,
+                "name": "create",
+                "locals": {
+                    "self": "<QuerySet []>",
+                    "kwargs": "{'name': 'google-chrome', 'category': <TrackerAppCategories: TrackerAppCategories object (1)>}",
+                    "reverse_one_to_one_fields": "frozenset()",
+                    "obj": "<TrackerApps: TrackerApps object (None)>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/models.py",
+                "lineno": 189,
+                "name": "save",
+                "locals": {
+                    "self": "<TrackerApps: TrackerApps object (None)>",
+                    "name": "None",
+                    "args": "()",
+                    "kwargs": "{'force_insert': True, 'using': 'default'}"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 902,
+                "name": "save",
+                "locals": {
+                    "self": "<TrackerApps: TrackerApps object (None)>",
+                    "force_insert": "True",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "args": "()",
+                    "deferred_non_generated_fields": "set()"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1008,
+                "name": "save_base",
+                "locals": {
+                    "self": "<TrackerApps: TrackerApps object (None)>",
+                    "raw": "False",
+                    "force_insert": "(<class 'tracker.models.TrackerApps'>,)",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "cls": "<class 'tracker.models.TrackerApps'>",
+                    "origin": "<class 'tracker.models.TrackerApps'>",
+                    "meta": "<Options for TrackerApps>",
+                    "context_manager": "<contextlib._GeneratorContextManager object at 0x754ab33b9f10>",
+                    "parent_inserted": "False"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1169,
+                "name": "_save_table",
+                "locals": {
+                    "self": "<TrackerApps: TrackerApps object (None)>",
+                    "raw": "False",
+                    "cls": "<class 'tracker.models.TrackerApps'>",
+                    "force_insert": "(<class 'tracker.models.TrackerApps'>,)",
+                    "force_update": "False",
+                    "using": "'default'",
+                    "update_fields": "None",
+                    "meta": "<Options for TrackerApps>",
+                    "pk_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "non_pks_non_generated": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.CharField: name>, <django.db.models.fields.CharField: actual_name>, <django.db.models.fields.related.ForeignKey: category>]",
+                    "pk_val": "None",
+                    "pk_set": "False",
+                    "updated": "False",
+                    "fields": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.CharField: name>, <django.db.models.fields.CharField: actual_name>, <django.db.models.fields.related.ForeignKey: category>]",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/base.py",
+                "lineno": 1210,
+                "name": "_do_insert",
+                "locals": {
+                    "self": "<TrackerApps: TrackerApps object (None)>",
+                    "manager": "<django.db.models.manager.Manager object at 0x754ab3387980>",
+                    "using": "'default'",
+                    "fields": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.CharField: name>, <django.db.models.fields.CharField: actual_name>, <django.db.models.fields.related.ForeignKey: category>]",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "raw": "False"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/manager.py",
+                "lineno": 87,
+                "name": "manager_method",
+                "locals": {
+                    "self": "<django.db.models.manager.Manager object at 0x754ab3387980>",
+                    "args": "([<TrackerApps: TrackerApps object (None)>],)",
+                    "kwargs": "{'fields': [<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.CharField: name>, <django.db.models.fields.CharField: actual_name>, <django.db.models.fields.related.ForeignKey: category>], 'returning_fields': [<django.db.models.fields.BigAutoField: id>], 'using': 'default', 'raw': False}",
+                    "name": "'_insert'"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py",
+                "lineno": 1868,
+                "name": "_insert",
+                "locals": {
+                    "self": "<QuerySet []>",
+                    "objs": "[<TrackerApps: TrackerApps object (None)>]",
+                    "fields": "[<django.db.models.fields.UUIDField: uuid>, <django.db.models.fields.CharField: name>, <django.db.models.fields.CharField: actual_name>, <django.db.models.fields.related.ForeignKey: category>]",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "raw": "False",
+                    "using": "'default'",
+                    "on_conflict": "None",
+                    "update_fields": "None",
+                    "unique_fields": "None",
+                    "query": "<django.db.models.sql.subqueries.InsertQuery object at 0x754ab33ba270>"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py",
+                "lineno": 1882,
+                "name": "execute_sql",
+                "locals": {
+                    "self": "<SQLInsertCompiler model=TrackerApps connection=<DatabaseWrapper vendor='postgresql' alias='default'> using='default'>",
+                    "returning_fields": "[<django.db.models.fields.BigAutoField: id>]",
+                    "opts": "<Options for TrackerApps>",
+                    "cols": "[]",
+                    "cursor": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>",
+                    "sql": "'INSERT INTO \"tracker_apps\" (\"uuid\", \"name\", \"actual_name\", \"category_id\") VALUES (%s, %s, %s, %s) RETURNING \"tracker_apps\".\"id\"'",
+                    "params": "(UUID('98b4a392-8149-4381-8695-4c59de286946'), 'google-chrome', None, 1)"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 122,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>",
+                    "sql": "'INSERT INTO \"tracker_apps\" (\"uuid\", \"name\", \"actual_name\", \"category_id\") VALUES (%s, %s, %s, %s) RETURNING \"tracker_apps\".\"id\"'",
+                    "params": "(UUID('98b4a392-8149-4381-8695-4c59de286946'), 'google-chrome', None, 1)"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 79,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>",
+                    "sql": "'INSERT INTO \"tracker_apps\" (\"uuid\", \"name\", \"actual_name\", \"category_id\") VALUES (%s, %s, %s, %s) RETURNING \"tracker_apps\".\"id\"'",
+                    "params": "(UUID('98b4a392-8149-4381-8695-4c59de286946'), 'google-chrome', None, 1)"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 92,
+                "name": "_execute_with_wrappers",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>",
+                    "sql": "'INSERT INTO \"tracker_apps\" (\"uuid\", \"name\", \"actual_name\", \"category_id\") VALUES (%s, %s, %s, %s) RETURNING \"tracker_apps\".\"id\"'",
+                    "params": "(UUID('98b4a392-8149-4381-8695-4c59de286946'), 'google-chrome', None, 1)",
+                    "many": "False",
+                    "executor": "<bound method CursorWrapper._execute of <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>>",
+                    "context": "{'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>}"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 100,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>",
+                    "sql": "'INSERT INTO \"tracker_apps\" (\"uuid\", \"name\", \"actual_name\", \"category_id\") VALUES (%s, %s, %s, %s) RETURNING \"tracker_apps\".\"id\"'",
+                    "params": "(UUID('98b4a392-8149-4381-8695-4c59de286946'), 'google-chrome', None, 1)",
+                    "ignored_wrapper_args": "(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>})"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/utils.py",
+                "lineno": 91,
+                "name": "__exit__",
+                "locals": {
+                    "self": "<django.db.utils.DatabaseErrorWrapper object at 0x754ab3a09640>",
+                    "exc_type": "<class 'psycopg.errors.NotNullViolation'>",
+                    "exc_value": "NotNullViolation('null value in column \"actual_name\" of relation \"tracker_apps\" violates not-null constraint\\nDETAIL:  Failing row contains (1, 98b4a392-8149-4381-8695-4c59de286946, google-chrome, 1, null).')",
+                    "traceback": "<traceback object at 0x754ab33fed00>",
+                    "dj_exc_type": "<class 'django.db.utils.IntegrityError'>",
+                    "db_exc_type": "<class 'psycopg.IntegrityError'>",
+                    "dj_exc_value": "IntegrityError('null value in column \"actual_name\" of relation \"tracker_apps\" violates not-null constraint\\nDETAIL:  Failing row contains (1, 98b4a392-8149-4381-8695-4c59de286946, google-chrome, 1, null).')"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 105,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>",
+                    "sql": "'INSERT INTO \"tracker_apps\" (\"uuid\", \"name\", \"actual_name\", \"category_id\") VALUES (%s, %s, %s, %s) RETURNING \"tracker_apps\".\"id\"'",
+                    "params": "(UUID('98b4a392-8149-4381-8695-4c59de286946'), 'google-chrome', None, 1)",
+                    "ignored_wrapper_args": "(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>})"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/psycopg/cursor.py",
+                "lineno": 97,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=localhost user=vyrazu-35 database=test_hrmware_tracker_2) at 0x754ab3311c10>",
+                    "query": "'INSERT INTO \"tracker_apps\" (\"uuid\", \"name\", \"actual_name\", \"category_id\") VALUES (%s, %s, %s, %s) RETURNING \"tracker_apps\".\"id\"'",
+                    "params": "(UUID('98b4a392-8149-4381-8695-4c59de286946'), 'google-chrome', None, 1)",
+                    "prepare": "None",
+                    "binary": "None"
+                }
+            }
+        ]
+    },
+    {
+        "exc_type": "NotNullViolation",
+        "exc_value": "null value in column \"actual_name\" of relation \"tracker_apps\" violates not-null constraint\nDETAIL:  Failing row contains (1, 98b4a392-8149-4381-8695-4c59de286946, google-chrome, 1, null).",
+        "syntax_error": null,
+        "is_cause": true,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py",
+                "lineno": 105,
+                "name": "_execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>",
+                    "sql": "'INSERT INTO \"tracker_apps\" (\"uuid\", \"name\", \"actual_name\", \"category_id\") VALUES (%s, %s, %s, %s) RETURNING \"tracker_apps\".\"id\"'",
+                    "params": "(UUID('98b4a392-8149-4381-8695-4c59de286946'), 'google-chrome', None, 1)",
+                    "ignored_wrapper_args": "(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x754ab33ba240>})"
+                }
+            },
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/psycopg/cursor.py",
+                "lineno": 97,
+                "name": "execute",
+                "locals": {
+                    "self": "<django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=localhost user=vyrazu-35 database=test_hrmware_tracker_2) at 0x754ab3311c10>",
+                    "query": "'INSERT INTO \"tracker_apps\" (\"uuid\", \"name\", \"actual_name\", \"category_id\") VALUES (%s, %s, %s, %s) RETURNING \"tracker_apps\".\"id\"'",
+                    "params": "(UUID('98b4a392-8149-4381-8695-4c59de286946'), 'google-chrome', None, 1)",
+                    "prepare": "None",
+                    "binary": "None"
+                }
+            }
+        ]
+    }
+]
+

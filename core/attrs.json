@@ -8506,3 +8506,331 @@ After
     "totalUsage": 30,
     "isActive": false
 }
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "2:40:55 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "2:40:55 PM",
+            "endTime": "2:40:56 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:42:10 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 193,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "2:40:55 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "2:40:55 PM",
+            "endTime": "2:40:56 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:42:10 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 193,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "2:40:56 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 74,
+            "startTime": "2:40:56 PM",
+            "endTime": "2:42:10 PM"
+        }
+    ],
+    "totalUsage": 74,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "2:40:56 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 74,
+            "startTime": "2:40:56 PM",
+            "endTime": "2:42:10 PM"
+        }
+    ],
+    "totalUsage": 74,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "2:40:55 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "2:40:55 PM",
+            "endTime": "2:40:56 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:42:10 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 193,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "2:40:55 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "2:40:55 PM",
+            "endTime": "2:40:56 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:42:10 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 193,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "2:40:56 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 74,
+            "startTime": "2:40:56 PM",
+            "endTime": "2:42:10 PM"
+        }
+    ],
+    "totalUsage": 74,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "2:40:56 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 74,
+            "startTime": "2:40:56 PM",
+            "endTime": "2:42:10 PM"
+        }
+    ],
+    "totalUsage": 74,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "2:40:55 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "2:40:55 PM",
+            "endTime": "2:40:56 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:42:10 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 193,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "2:40:55 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "2:40:55 PM",
+            "endTime": "2:40:56 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:42:10 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 193,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "2:40:56 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 74,
+            "startTime": "2:40:56 PM",
+            "endTime": "2:42:10 PM"
+        }
+    ],
+    "totalUsage": 74,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "2:40:56 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 74,
+            "startTime": "2:40:56 PM",
+            "endTime": "2:42:10 PM"
+        }
+    ],
+    "totalUsage": 74,
+    "isActive": false
+}
+
+Before
+{
+    "id": 94371844,
+    "firstUsed": "2:40:55 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "2:40:55 PM",
+            "endTime": "2:40:56 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:42:10 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 193,
+    "isActive": true
+}
+
+After
+{
+    "id": 94371844,
+    "firstUsed": "2:40:55 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Google-chrome",
+    "title": "Employee Activity Tracker - Google Chrome",
+    "session": [
+        {
+            "duration": 1,
+            "startTime": "2:40:55 PM",
+            "endTime": "2:40:56 PM"
+        },
+        {
+            "duration": 30,
+            "startTime": "2:42:10 PM",
+            "endTime": ""
+        }
+    ],
+    "totalUsage": 193,
+    "isActive": true
+}
+
+Before
+{
+    "id": 33554465,
+    "firstUsed": "2:40:56 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 74,
+            "startTime": "2:40:56 PM",
+            "endTime": "2:42:10 PM"
+        }
+    ],
+    "totalUsage": 74,
+    "isActive": false
+}
+
+After
+{
+    "id": 33554465,
+    "firstUsed": "2:40:56 PM",
+    "lastUsed": "2:42:10 PM",
+    "name": "Code",
+    "title": "employee-activity-v1.html - Visual Studio Code",
+    "session": [
+        {
+            "duration": 74,
+            "startTime": "2:40:56 PM",
+            "endTime": "2:42:10 PM"
+        }
+    ],
+    "totalUsage": 74,
+    "isActive": false
+}

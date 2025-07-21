@@ -17,7 +17,7 @@ from django.contrib.auth.hashers import (
     acheck_password,
     is_password_usable,
     make_password,
-    check_password
+    check_password,
 )
 from django.utils import timezone
 from django.core.files.storage import FileSystemStorage
@@ -29,14 +29,14 @@ class ActivityLogs(models.Model):
     window_title = models.TextField()
     start_timestamp = models.DateTimeField()
     end_timestamp = models.DateTimeField()
-    app: "TrackerApps" = models.ForeignKey('TrackerApps', models.CASCADE)
-    category = models.ForeignKey('TrackerAppCategories', models.CASCADE)
+    app: "TrackerApps" = models.ForeignKey("TrackerApps", models.CASCADE)
+    category = models.ForeignKey("TrackerAppCategories", models.CASCADE)
     is_active = models.BooleanField()
 
     # Here, duration does not mean end_time - start_time
     # It is the duration measured from start_time to the time the
     # currently tracked activity ends
-    duration = models.IntegerField(db_comment='Measured in seconds')
+    duration = models.IntegerField(db_comment="Measured in seconds")
 
     PRODUCTIVITY_STATUS_CHOICES = {
         "productive": "productive",
@@ -45,28 +45,25 @@ class ActivityLogs(models.Model):
     }
 
     productivity_status = models.CharField(max_length=255, choices=PRODUCTIVITY_STATUS_CHOICES)
-    user = models.ForeignKey('Users', models.CASCADE)
+    user = models.ForeignKey("Users", models.CASCADE)
 
     class Meta:
         managed = True
-        db_table = 'activity_logs'
+        db_table = "activity_logs"
 
     def get_actual_end_time(self) -> datetime:
-        return (
-            self.start_timestamp
-            + timedelta(seconds=self.duration)
-        )
+        return self.start_timestamp + timedelta(seconds=self.duration)
 
 
 class Screenshots(models.Model):
     id = models.BigAutoField(primary_key=True)
     uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
-    user = models.ForeignKey('Users', models.CASCADE)
+    user = models.ForeignKey("Users", models.CASCADE)
     capture_time = models.DateTimeField()
 
     class Meta:
         managed = True
-        db_table = 'screenshots'
+        db_table = "screenshots"
 
 
 class TimeSegments(models.Model):
@@ -98,12 +95,12 @@ class TimeSegments(models.Model):
         related_name="time_segment",
         null=True,
         blank=False,
-        default=None
+        default=None,
     )
 
     class Meta:
         managed = True
-        db_table = 'time_segments'
+        db_table = "time_segments"
 
     def get_actual_end_time(self) -> datetime:
         return (
@@ -124,21 +121,19 @@ class TrackerAppCategories(models.Model):
         "neutral": "neutral",
     }
     productivity_status_type = models.CharField(
-        max_length=255,
-        choices=PRODUCTIVITY_STATUS_CHOICES,
-        default="neutral"
+        max_length=255, choices=PRODUCTIVITY_STATUS_CHOICES, default="neutral"
     )
 
     class Meta:
         managed = True
-        db_table = 'tracker_app_categories'
+        db_table = "tracker_app_categories"
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
         activity_logs = ActivityLogs.objects.filter(category=self)
         if not activity_logs.exists():
-            return 
+            return
 
         for activity_log in activity_logs:
             activity_log.productivity_status = self.productivity_status_type
@@ -148,7 +143,7 @@ class TrackerAppCategories(models.Model):
             for time_segment in time_segments:
                 time_segment.segment_type = activity_log.productivity_status
                 time_segment.save()
-        
+
         return
 
 
@@ -158,38 +153,39 @@ class TrackerApps(models.Model):
     name = models.CharField(unique=True, max_length=255)
     actual_name = models.CharField(max_length=255)
     category: "TrackerAppCategories" = models.ForeignKey(
-        "TrackerAppCategories",
-        models.CASCADE,
-        related_name="apps"
+        "TrackerAppCategories", models.CASCADE, related_name="apps"
     )
 
     class Meta:
         managed = True
-        db_table = 'tracker_apps'
+        db_table = "tracker_apps"
 
     def update(self, *args, **kwargs):
         self.save(*args, **kwargs)
 
-        activity_logs = (
-            ActivityLogs.objects
-            .filter(app=self)
-            .exclude(productivity_status=self.category.productivity_status_type)
+        activity_logs = ActivityLogs.objects.filter(app=self).exclude(
+            productivity_status=self.category.productivity_status_type
         )
         for activity_log in activity_logs:
             if activity_log.productivity_status != self.category.productivity_status_type:
                 activity_log.productivity_status = self.category.productivity_status_type
                 activity_log.save()
-            
+
             time_segments = TimeSegments.objects.filter(activity_log=activity_log)
             for time_segment in time_segment:
                 if time_segment.segment_type != activity_log.productivity_status:
                     time_segment.segment_type = activity_log.productivity_status
                     time_segment.save()
-        
+
         return
 
-    def save(self, name, *args, **kwargs):
-        self.actual_name = name 
+    def save(self, name=None, *args, **kwargs):
+        self.actual_name = name or kwargs.get("name") or getattr(self, "name", None)
+        if self.actual_name is None:
+            try:
+                self.actual_name = args[0]
+            except IndexError:
+                self.actual_name = None
         return super().save(*args, **kwargs)
 
 
@@ -203,23 +199,23 @@ class TrackerSummaries(models.Model):
     productive_time = models.IntegerField()
     non_productive_time = models.IntegerField()
     away_time = models.IntegerField()
-    user = models.ForeignKey('Users', models.CASCADE)
+    user = models.ForeignKey("Users", models.CASCADE)
 
     class Meta:
         managed = True
-        db_table = 'tracker_summaries'
+        db_table = "tracker_summaries"
 
 
 class UserManager(BaseUserManager):
     def create_user(self, first_name, email, password, **extra_fields):
         if not email:
-            raise ValueError('User must have an email address')
-        user = self.model(email=self.normalize_email(email),first_name=first_name,**extra_fields)
+            raise ValueError("User must have an email address")
+        user = self.model(email=self.normalize_email(email), first_name=first_name, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
 
         return user
-    
+
     def create_superuser(self, first_name, email, password, **fields):
         user = self.create_user(first_name=first_name, email=email, password=password, **fields)
         user.is_admin = True
@@ -294,11 +290,11 @@ class AbstractBaseUser(models.Model):
             self._password = None
             self.save(update_fields=["password"])
 
-        if self.password.startswith(('$2b', '$2a', '$2x', '$2y')):
+        if self.password.startswith(("$2b", "$2a", "$2x", "$2y")):
             # if self.password.startswith(('$2x','$2y')):
             #     print(self.password, 'bcrypt$$2b'+self.password[3:])
             #     return check_password(raw_password, 'bcrypt$$2b'+self.password[3:], setter)
-            return check_password(raw_password, 'bcrypt$'+self.password, setter)
+            return check_password(raw_password, "bcrypt$" + self.password, setter)
 
         return check_password(raw_password, self.password, setter)
 
@@ -351,11 +347,8 @@ class AbstractBaseUser(models.Model):
 
     @classmethod
     def normalize_username(cls, username):
-        return (
-            unicodedata.normalize("NFKC", username)
-            if isinstance(username, str)
-            else username
-        )
+        return unicodedata.normalize("NFKC", username) if isinstance(username, str) else username
+
 
 # A few helper functions for common logic between User and AnonymousUser.
 def _user_get_permissions(user, obj, from_name):
@@ -469,8 +462,8 @@ class Users(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name']
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["first_name"]
 
     @property
     def is_staff(self):
@@ -480,8 +473,8 @@ class Users(AbstractBaseUser, PermissionsMixin):
         return self.email
 
     class Meta:
-        db_table = 'users'
-        ordering = ['id']
+        db_table = "users"
+        ordering = ["id"]
 
     def getFullNameAttribute(self):
         return self.first_name + " " + self.last_name
