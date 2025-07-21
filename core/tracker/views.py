@@ -10,7 +10,7 @@ from datetime import datetime
 from datetime import time as std_time
 from datetime import timedelta
 from datetime import timezone as std_timezone
-from typing import Literal, Optional, Callable
+from typing import Literal, Optional, Callable, Any
 from zoneinfo import ZoneInfo
 
 from core.helpers import get_traceback
@@ -46,6 +46,7 @@ from .serializers import (
     TrackerProductivityStatusRequestSerializer,
     TrackerSetAppCategorySerializer,
     TrackerWebsitesVistedViewSerializer,
+    TrackerUserStatusSerializer,
 )
 from .typing import TimeBarDataItem, TimeTracker, Weekday
 from .utils import TrackerAPIUtils
@@ -60,7 +61,7 @@ class TrackerAPIView(APIView, TrackerAPIUtils):
         try:
             main_data, status = self.get_main_data(request)
             if status is False:
-                return Response(status=400, data=main_data.errors)
+                return Response(status=400, data=main_data)
 
             file_name = "hrmware-tracker-sample-response.json"
             with open(file_name, "a") as file:
@@ -74,7 +75,7 @@ class TrackerAPIView(APIView, TrackerAPIUtils):
                 warnings.warn("No request user found, using default superuser")
                 request_user = self.get_superuser()
 
-            for data in main_data.get("allWindows"):
+            for data in main_data.get("allWindows", []):
                 extracted_data = self.extract_data(data)
 
                 tracker_app = TrackerApps.objects.filter(name=extracted_data["app"]).first()
@@ -1116,9 +1117,10 @@ class TrackerAppCategoryView(APIView):
 
         try:
             tracker_categories = TrackerAppCategories.objects.all()
-            response = {
-                "app_categories": TrackerAppCategoriesSerializer(tracker_categories, many=True).data
-            }
+            # response = {
+            # "app_categories": TrackerAppCategoriesSerializer(tracker_categories, many=True).data
+            # }
+            response = TrackerAppCategoriesSerializer(tracker_categories, many=True).data
             return Response(status=200, data=response)
         except Exception as e:
             print(json.dumps(get_traceback(), indent=4))
@@ -1608,10 +1610,6 @@ class TrackerProductiveBreakDownView(APIView):
             function_to_call = getattr(self, f"calculate_{response_key}_time_with_percentage")
             function_result = function_to_call(user, week_day, start_time, end_time)
 
-            print(
-                f"Total {response_key} time on {week_day.strftime("%Y-%m-%d")}: ",
-                function_result,
-            )
             if function_result[f"{response_key}_time"] is not None:
                 this_week_calculations += function_result[f"{response_key}_time"]
 
@@ -2174,9 +2172,14 @@ class TrackerApplicationGroupsView(APIView):
                         app_count.get("total_percentage"),
                     )
 
+                    # response[productivity_choice][window_title] = {
+                    #     "duration": self.format_time(float(total_duration)),
+                    #     "percentage": f"{round(total_percentage, 2)}%",
+                    # }
+
                     response[productivity_choice][window_title] = {
-                        "duration": self.format_time(float(total_duration)),
-                        "percentage": f"{round(total_percentage, 2)}%",
+                        "duration": float(total_duration),
+                        "percentage": round(total_percentage, 2),
                     }
 
             return Response(status=200, data=response)
@@ -2377,4 +2380,35 @@ class TrackerLiveFeedView(APIView):
                 file.write(json.dumps(get_traceback()))
                 file.write("\n\n")
 
-            return ResourceWarning(status=500, data=get_traceback())
+            return Response(status=500, data=get_traceback())
+
+
+class TrackerUserStatusView(APIView):
+    serializer_class = TrackerUserStatusSerializer
+
+    def put(self, request: Request):
+        """API for changing the Tracker User status
+
+        Simply calling this API should toggle the user status,
+        otherwise user status can be forced using the user_status
+        argument.
+        """
+        try:
+            serializer = self.serializer_class(data=request.data)
+            if not serializer.is_valid():
+                return Response(status=400, data=serializer.errors)
+
+            data: dict[str, Any] = serializer.validated_data
+            user = data.get("user")
+            user_status: Optional[Literal["active"] | Literal["inactive"]] = data.get("user_status")
+        except Exception as e:
+            print(json.dumps(get_traceback(), indent=4))
+
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
+
+            return Response(status=500, data=get_traceback())

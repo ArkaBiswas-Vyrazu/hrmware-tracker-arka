@@ -278,10 +278,26 @@ At the moment, this will not be a true live feed, but will instead just return a
     "live_feed": [
         {
             "app": "google-chrome",
-            "status": "visited",
+            "status": "vistied",
             "time": "05:45 PM"
         },
         "..."
     ]
 }
 ```
+
+### Current Status
+
+Status Bar on the dashboard that states whether the user is currently online or offline
+
+#### Current Workflow Idea
+
+```
+  - - - - -  Notifies  - - - - -   Notifies   - - - - - -
+ | TRACKER | =======> |  SERVER  | ========> | DASHBOARD |
+  - - - - -            - - - - -              - - - - - -
+```
+
+#### Additional Notes
+
+The server notification part could be handled using Server Sent Events.

@@ -44,9 +44,7 @@ class ActivityLogsDataItemsSerializer(serializers.Serializer):
             file.write("\n")
 
         if attrs["lastUsed"] == "" and attrs["isActive"] != True:
-            raise serializers.ValidationError(
-                "lastUsed cannot be blank when isActive is False"
-            )
+            raise serializers.ValidationError("lastUsed cannot be blank when isActive is False")
 
         if attrs["lastUsed"] == "":
             attrs["lastUsed"] = datetime.now().strftime("%I:%M:%S %p")
@@ -93,8 +91,7 @@ class GetTimeSegmentsSerializer(serializers.Serializer):
         if (
             time_start is not None
             and time_end is not None
-            and datetime.strptime(time_start, "%H:%M:%S")
-            > datetime.strptime(time_end, "%H:%M:%S")
+            and datetime.strptime(time_start, "%H:%M:%S") > datetime.strptime(time_end, "%H:%M:%S")
         ):
             msg = "Please provide valid time_start and time_end arguments"
             raise serializers.ValidationError(msg)
@@ -311,9 +308,7 @@ class TrackerProductiveBreakDownSerializer(serializers.Serializer):
     )
 
     number_of_days_in_work_week = serializers.IntegerField(required=False, default=5)
-    work_days_to_ignore = serializers.CharField(
-        required=False, default="saturday,sunday"
-    )
+    work_days_to_ignore = serializers.CharField(required=False, default="saturday,sunday")
 
     VALID_WEEK_NAMES = (
         "monday",
@@ -352,9 +347,7 @@ class TrackerProductiveBreakDownSerializer(serializers.Serializer):
 
     def validate_number_of_days_in_work_week(self, number_of_days_in_work_week):
         if number_of_days_in_work_week <= 0 or number_of_days_in_work_week > 7:
-            msg = (
-                "Number of days in work week cannot be less than 0 or " + "more than 7"
-            )
+            msg = "Number of days in work week cannot be less than 0 or " + "more than 7"
             raise serializers.ValidationError(msg)
         return number_of_days_in_work_week
 
@@ -415,9 +408,9 @@ class TrackerProductiveBreakDownSerializer(serializers.Serializer):
             raise serializers.ValidationError(msg)
 
         if isinstance(start_time, str):
-            start_time = datetime.strptime(
-                start_time, api_settings.TIME_FORMAT
-            ).replace(tzinfo=ZoneInfo(settings.TIME_ZONE))
+            start_time = datetime.strptime(start_time, api_settings.TIME_FORMAT).replace(
+                tzinfo=ZoneInfo(settings.TIME_ZONE)
+            )
         if isinstance(end_time, str):
             end_time = datetime.strptime(end_time, api_settings.TIME_FORMAT).replace(
                 tzinfo=ZoneInfo(settings.TIME_ZONE)
@@ -480,9 +473,9 @@ class TrackerCategoryBreakDownSerializer(serializers.Serializer):
             raise serializers.ValidationError(msg)
 
         if isinstance(start_time, str):
-            start_time = datetime.strptime(
-                start_time, api_settings.TIME_FORMAT
-            ).replace(tzinfo=ZoneInfo(settings.TIME_ZONE))
+            start_time = datetime.strptime(start_time, api_settings.TIME_FORMAT).replace(
+                tzinfo=ZoneInfo(settings.TIME_ZONE)
+            )
         if isinstance(end_time, str):
             end_time = datetime.strptime(end_time, api_settings.TIME_FORMAT).replace(
                 tzinfo=ZoneInfo(settings.TIME_ZONE)
@@ -545,9 +538,9 @@ class TrackerApplicationGroupsSerializer(serializers.Serializer):
             raise serializers.ValidationError(msg)
 
         if isinstance(start_time, str):
-            start_time = datetime.strptime(
-                start_time, api_settings.TIME_FORMAT
-            ).replace(tzinfo=ZoneInfo(settings.TIME_ZONE))
+            start_time = datetime.strptime(start_time, api_settings.TIME_FORMAT).replace(
+                tzinfo=ZoneInfo(settings.TIME_ZONE)
+            )
         if isinstance(end_time, str):
             end_time = datetime.strptime(end_time, api_settings.TIME_FORMAT).replace(
                 tzinfo=ZoneInfo(settings.TIME_ZONE)
@@ -662,9 +655,7 @@ class TrackerLiveFeedSerializer(serializers.Serializer):
 
 
 class TrackerBasicDetailsRequestSerializer(serializers.Serializer):
-    date = serializers.DateField(
-        default=datetime.now(tz=ZoneInfo(settings.TIME_ZONE)).date()
-    )
+    date = serializers.DateField(default=datetime.now(tz=ZoneInfo(settings.TIME_ZONE)).date())
     user = serializers.CharField()
     time_start = serializers.TimeField()
     time_end = serializers.TimeField()
@@ -712,9 +703,7 @@ class TrackerBasicDetailsRequestSerializer(serializers.Serializer):
 
 
 class TrackerProductivityStatusRequestSerializer(serializers.Serializer):
-    date = serializers.DateField(
-        default=datetime.now(tz=ZoneInfo(settings.TIME_ZONE)).date()
-    )
+    date = serializers.DateField(default=datetime.now(tz=ZoneInfo(settings.TIME_ZONE)).date())
     user = serializers.CharField()
     start_time = serializers.TimeField(required=False)
     end_time = serializers.TimeField(required=False)
@@ -775,3 +764,17 @@ class TrackerProductivityStatusRequestSerializer(serializers.Serializer):
         attrs["start_time"] = start_time
         attrs["end_time"] = end_time
         return attrs
+
+
+class TrackerUserStatusSerializer(serializers.Serializer):
+    user = serializers.CharField()
+
+    USER_STATUS_CHOICES = ("active", "inactive")
+    user_status = serializers.ChoiceField(choices=USER_STATUS_CHOICES, required=False)
+
+    def validate_user(self, user):
+        user_object = Users.objects.filter(employee_id=user).first()
+        if user_object is None:
+            msg = "Provided user id does not exist"
+            raise serializers.ValidationError(msg)
+        return user_object

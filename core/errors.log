@@ -5822,3 +5822,483 @@ Time recorded: 2025-07-18 08:29:45 AM
 Time recorded: 2025-07-18 09:08:07 AM
 [{"exc_type": "ProgrammingError", "exc_value": "cannot cast type interval to integer\nLINE 1: ..._timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer ...\n                                                             ^", "syntax_error": null, "is_cause": false, "frames": [{"filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py", "lineno": 1988, "name": "get", "locals": {"self": "<tracker.views.TrackerCategoryBreakDownView object at 0x73f551f45490>", "request": "<rest_framework.request.Request: GET '/tracker/category-breakdown?date=2025-07-11&end_time=18%3A00%3A00&start_time=09%3A00%3A00&user=32ba42628aa0e8'>", "serializer": "TrackerCategoryBreakDownSerializer(data=<QueryDict: {'date': ['2025-07-11'], 'end_time': ['18:00:00'], 'start_time': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField()\n    user = CharField()\n    start_time = TimeField()\n    end_time = TimeField()", "data": "{'date': datetime.date(2025, 7, 11), 'user': <Users: test@example.com>, 'start_time': datetime.time(3, 30), 'end_time': datetime.time(12, 30)}", "date": "datetime.date(2025, 7, 11)", "user": "<Users: test@example.com>", "start_time": "datetime.time(3, 30)", "end_time": "datetime.time(12, 30)", "total_work_duration": "32400.0", "category_counts": "<repr-error 'cannot cast type interval to integer\\nLINE 1: ..._timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer ...\\n                                                             ^'>", "categories_not_recorded": "<QuerySet [<TrackerAppCategories: TrackerAppCategories object (3)>]>", "e": "ProgrammingError('cannot cast type interval to integer\\nLINE 1: ..._timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer ...\\n                                                             ^')", "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py", "lineno": 360, "name": "__repr__", "locals": {"self": "<repr-error 'cannot cast type interval to integer\\nLINE 1: ..._timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer ...\\n                                                             ^'>"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py", "lineno": 384, "name": "__iter__", "locals": {"self": "<repr-error 'cannot cast type interval to integer\\nLINE 1: ..._timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer ...\\n                                                             ^'>"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py", "lineno": 1949, "name": "_fetch_all", "locals": {"self": "<repr-error 'cannot cast type interval to integer\\nLINE 1: ..._timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer ...\\n                                                             ^'>"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/query.py", "lineno": 216, "name": "__iter__", "locals": {"self": "<django.db.models.query.ValuesIterable object at 0x73f55182d760>", "queryset": "<repr-error 'cannot cast type interval to integer\\nLINE 1: ..._timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer ...\\n                                                             ^'>", "query": "<django.db.models.sql.query.Query object at 0x73f551f29520>", "compiler": "<SQLCompiler model=ActivityLogs connection=<DatabaseWrapper vendor='postgresql' alias='default'> using='default'>", "names": "['name', 'total_duration', 'total_percentage']", "indexes": "range(0, 3)"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", "lineno": 1572, "name": "results_iter", "locals": {"self": "<SQLCompiler model=ActivityLogs connection=<DatabaseWrapper vendor='postgresql' alias='default'> using='default'>", "results": "None", "tuple_expected": "False", "chunked_fetch": "False", "chunk_size": "100"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", "lineno": 1623, "name": "execute_sql", "locals": {"self": "<SQLCompiler model=ActivityLogs connection=<DatabaseWrapper vendor='postgresql' alias='default'> using='default'>", "result_type": "'multi'", "chunked_fetch": "False", "chunk_size": "100", "sql": "'SELECT \"tracker_app_categories\".\"name\" AS \"name\", (SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer AS \"total_duration\", (((SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer / %s) * %s) AS \"total_percentage\" FROM \"activity_logs\" INNER JOIN \"tracker_app_categories\" ON (\"activity_logs\".\"category_id\" = \"tracker_app_categories\".\"id\") WHERE ((\"activity_logs\".\"start_timestamp\" AT TIME ZONE %s)::date = %s AND \"activity_logs\".\"user_id\" = %s) GROUP BY 1 LIMIT 21'", "params": "(32400.0, Int4(100), 'Asia/Kolkata', datetime.date(2025, 7, 11), 1)", "cursor": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py", "lineno": 122, "name": "execute", "locals": {"self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>", "sql": "'SELECT \"tracker_app_categories\".\"name\" AS \"name\", (SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer AS \"total_duration\", (((SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer / %s) * %s) AS \"total_percentage\" FROM \"activity_logs\" INNER JOIN \"tracker_app_categories\" ON (\"activity_logs\".\"category_id\" = \"tracker_app_categories\".\"id\") WHERE ((\"activity_logs\".\"start_timestamp\" AT TIME ZONE %s)::date = %s AND \"activity_logs\".\"user_id\" = %s) GROUP BY 1 LIMIT 21'", "params": "(32400.0, Int4(100), 'Asia/Kolkata', datetime.date(2025, 7, 11), 1)"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py", "lineno": 79, "name": "execute", "locals": {"self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>", "sql": "'SELECT \"tracker_app_categories\".\"name\" AS \"name\", (SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer AS \"total_duration\", (((SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer / %s) * %s) AS \"total_percentage\" FROM \"activity_logs\" INNER JOIN \"tracker_app_categories\" ON (\"activity_logs\".\"category_id\" = \"tracker_app_categories\".\"id\") WHERE ((\"activity_logs\".\"start_timestamp\" AT TIME ZONE %s)::date = %s AND \"activity_logs\".\"user_id\" = %s) GROUP BY 1 LIMIT 21'", "params": "(32400.0, Int4(100), 'Asia/Kolkata', datetime.date(2025, 7, 11), 1)"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py", "lineno": 92, "name": "_execute_with_wrappers", "locals": {"self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>", "sql": "'SELECT \"tracker_app_categories\".\"name\" AS \"name\", (SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer AS \"total_duration\", (((SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer / %s) * %s) AS \"total_percentage\" FROM \"activity_logs\" INNER JOIN \"tracker_app_categories\" ON (\"activity_logs\".\"category_id\" = \"tracker_app_categories\".\"id\") WHERE ((\"activity_logs\".\"start_timestamp\" AT TIME ZONE %s)::date = %s AND \"activity_logs\".\"user_id\" = %s) GROUP BY 1 LIMIT 21'", "params": "(32400.0, Int4(100), 'Asia/Kolkata', datetime.date(2025, 7, 11), 1)", "many": "False", "executor": "<bound method CursorWrapper._execute of <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>>", "context": "{'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>}"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py", "lineno": 100, "name": "_execute", "locals": {"self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>", "sql": "'SELECT \"tracker_app_categories\".\"name\" AS \"name\", (SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer AS \"total_duration\", (((SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer / %s) * %s) AS \"total_percentage\" FROM \"activity_logs\" INNER JOIN \"tracker_app_categories\" ON (\"activity_logs\".\"category_id\" = \"tracker_app_categories\".\"id\") WHERE ((\"activity_logs\".\"start_timestamp\" AT TIME ZONE %s)::date = %s AND \"activity_logs\".\"user_id\" = %s) GROUP BY 1 LIMIT 21'", "params": "(32400.0, Int4(100), 'Asia/Kolkata', datetime.date(2025, 7, 11), 1)", "ignored_wrapper_args": "(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>})"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/utils.py", "lineno": 91, "name": "__exit__", "locals": {"self": "<django.db.utils.DatabaseErrorWrapper object at 0x73f551fd2810>", "exc_type": "<class 'psycopg.errors.CannotCoerce'>", "exc_value": "CannotCoerce('cannot cast type interval to integer\\nLINE 1: ..._timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer ...\\n                                                             ^')", "traceback": "<traceback object at 0x73f551836880>", "dj_exc_type": "<class 'django.db.utils.ProgrammingError'>", "db_exc_type": "<class 'psycopg.ProgrammingError'>", "dj_exc_value": "ProgrammingError('cannot cast type interval to integer\\nLINE 1: ..._timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer ...\\n                                                             ^')"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py", "lineno": 105, "name": "_execute", "locals": {"self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>", "sql": "'SELECT \"tracker_app_categories\".\"name\" AS \"name\", (SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer AS \"total_duration\", (((SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer / %s) * %s) AS \"total_percentage\" FROM \"activity_logs\" INNER JOIN \"tracker_app_categories\" ON (\"activity_logs\".\"category_id\" = \"tracker_app_categories\".\"id\") WHERE ((\"activity_logs\".\"start_timestamp\" AT TIME ZONE %s)::date = %s AND \"activity_logs\".\"user_id\" = %s) GROUP BY 1 LIMIT 21'", "params": "(32400.0, Int4(100), 'Asia/Kolkata', datetime.date(2025, 7, 11), 1)", "ignored_wrapper_args": "(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>})"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/psycopg/cursor.py", "lineno": 97, "name": "execute", "locals": {"self": "<django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=localhost user=vyrazu-35 database=test_hrmware_tracker) at 0x73f5519525d0>", "query": "'SELECT \"tracker_app_categories\".\"name\" AS \"name\", (SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer AS \"total_duration\", (((SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer / %s) * %s) AS \"total_percentage\" FROM \"activity_logs\" INNER JOIN \"tracker_app_categories\" ON (\"activity_logs\".\"category_id\" = \"tracker_app_categories\".\"id\") WHERE ((\"activity_logs\".\"start_timestamp\" AT TIME ZONE %s)::date = %s AND \"activity_logs\".\"user_id\" = %s) GROUP BY 1 LIMIT 21'", "params": "(32400.0, Int4(100), 'Asia/Kolkata', datetime.date(2025, 7, 11), 1)", "prepare": "None", "binary": "None"}}]}, {"exc_type": "CannotCoerce", "exc_value": "cannot cast type interval to integer\nLINE 1: ..._timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer ...\n                                                             ^", "syntax_error": null, "is_cause": true, "frames": [{"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/django/db/backends/utils.py", "lineno": 105, "name": "_execute", "locals": {"self": "<django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>", "sql": "'SELECT \"tracker_app_categories\".\"name\" AS \"name\", (SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer AS \"total_duration\", (((SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer / %s) * %s) AS \"total_percentage\" FROM \"activity_logs\" INNER JOIN \"tracker_app_categories\" ON (\"activity_logs\".\"category_id\" = \"tracker_app_categories\".\"id\") WHERE ((\"activity_logs\".\"start_timestamp\" AT TIME ZONE %s)::date = %s AND \"activity_logs\".\"user_id\" = %s) GROUP BY 1 LIMIT 21'", "params": "(32400.0, Int4(100), 'Asia/Kolkata', datetime.date(2025, 7, 11), 1)", "ignored_wrapper_args": "(False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.postgresql.base.CursorDebugWrapper object at 0x73f55182e150>})"}}, {"filename": "/home/vyrazu-35/Projects/hrmware-tracker/venv/lib/python3.12/site-packages/psycopg/cursor.py", "lineno": 97, "name": "execute", "locals": {"self": "<django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=localhost user=vyrazu-35 database=test_hrmware_tracker) at 0x73f5519525d0>", "query": "'SELECT \"tracker_app_categories\".\"name\" AS \"name\", (SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer AS \"total_duration\", (((SUM((\"activity_logs\".\"end_timestamp\" - \"activity_logs\".\"start_timestamp\")))::integer / %s) * %s) AS \"total_percentage\" FROM \"activity_logs\" INNER JOIN \"tracker_app_categories\" ON (\"activity_logs\".\"category_id\" = \"tracker_app_categories\".\"id\") WHERE ((\"activity_logs\".\"start_timestamp\" AT TIME ZONE %s)::date = %s AND \"activity_logs\".\"user_id\" = %s) GROUP BY 1 LIMIT 21'", "params": "(32400.0, Int4(100), 'Asia/Kolkata', datetime.date(2025, 7, 11), 1)", "prepare": "None", "binary": "None"}}]}]
 
+Time recorded: 2025-07-18 13:19:48 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba4090560>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-19&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-19'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 19), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 19)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:20:41 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba405fa70>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-10&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-10'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 10), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 10)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:21:53 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba415d040>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-10&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-10'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 10), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 10)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:22:52 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba4163e30>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-10&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-10'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 10), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 10)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:27:32 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba40dcad0>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-10&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-10'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 10), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 10)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:29:35 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba414eb70>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-10&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-10'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 10), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 10)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:35:55 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba4161310>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-03&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-03'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 3), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 3)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:37:09 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba4152ae0>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-16&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-16'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 16), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 16)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:42:07 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba4132bd0>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-03&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-03'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 3), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 3)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:42:18 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba405eb40>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-05&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-05'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 5), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 5)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:42:33 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba4039190>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-01&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-01'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 1), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 1)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:42:56 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba4093b30>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-17&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-17'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 17), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 17)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:45:34 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba415e3f0>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-03&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-03'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 3), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 3)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:48:58 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba4133d40>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-03&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-03'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 3), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 3)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:51:29 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba403ac90>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-08&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-08'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 8), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 8)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
+Time recorded: 2025-07-18 13:52:27 PM
+[
+    {
+        "exc_type": "AttributeError",
+        "exc_value": "'NoneType' object has no attribute 'start_timestamp'",
+        "syntax_error": null,
+        "is_cause": false,
+        "frames": [
+            {
+                "filename": "/home/vyrazu-35/Projects/hrmware-tracker/core/tracker/views.py",
+                "lineno": 789,
+                "name": "get",
+                "locals": {
+                    "self": "<tracker.views.TrackerBasicTimeDetailsView object at 0x75fba41619a0>",
+                    "request": "<rest_framework.request.Request: GET '/tracker/basic-details?date=2025-07-03&time_end=18%3A00%3A00&time_start=09%3A00%3A00&user=32ba42628aa0e8'>",
+                    "serializer": "TrackerBasicDetailsRequestSerializer(data=<QueryDict: {'date': ['2025-07-03'], 'time_end': ['18:00:00'], 'time_start': ['09:00:00'], 'user': ['32ba42628aa0e8']}>):\n    date = DateField(default=datetime.date(2025, 7, 18))\n    user = CharField()\n    time_start = TimeField()\n    time_end = TimeField()",
+                    "data": "{'date': datetime.date(2025, 7, 3), 'user': <Users: test@example.com>, 'time_start': datetime.time(3, 30), 'time_end': datetime.time(12, 30)}",
+                    "date": "datetime.date(2025, 7, 3)",
+                    "user": "<Users: test@example.com>",
+                    "time_start": "datetime.time(3, 30)",
+                    "time_end": "datetime.time(12, 30)",
+                    "activity_logs": "<QuerySet []>",
+                    "e": "AttributeError(\"'NoneType' object has no attribute 'start_timestamp'\")",
+                    "file": "<_io.TextIOWrapper name='errors.log' mode='a' encoding='UTF-8'>"
+                }
+            }
+        ]
+    }
+]
+
