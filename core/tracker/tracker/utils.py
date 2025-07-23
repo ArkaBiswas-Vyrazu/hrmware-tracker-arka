@@ -2,18 +2,17 @@ import warnings
 from datetime import datetime
 from typing import Any
 
+from core.helpers import uniqid
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.core.exceptions import FieldError, ObjectDoesNotExist
+from django.core.exceptions import FieldError
 from django.core.files.base import ContentFile
 from django.utils import timezone
-
 # from django.core.files.storage import default_storage
 from rest_framework.request import Request
 
-from common.helpers import uniqid
-
-from .models import Screenshots, TimeSegments, TrackerAppCategories, TrackerApps
+from .models import (Screenshots, TimeSegments, TrackerAppCategories,
+                     TrackerApps)
 from .serializers import ActivityLogsDataSerializer
 
 
@@ -99,15 +98,7 @@ class TrackerAPIUtils:
         try:
             user = Users.objects.filter(is_superuser=True).first()
         except FieldError:
-            # user = Users.objects.filter(is_admin=True).first()
-            for user_obj in Users.objects.all():
-                try:
-                    role = user_obj.getEmployeeProfessionalDetails().getUserRoles()
-                    if role.name == "Admin":
-                        user = user_obj
-                        break
-                except ObjectDoesNotExist:
-                    continue
+            user = Users.objects.filter(is_admin=True).first()
 
         if user is None:
             user = Users.objects.create_superuser(

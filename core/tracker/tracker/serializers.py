@@ -5,16 +5,15 @@ from datetime import date as std_date
 from datetime import datetime
 from datetime import time as std_time
 from datetime import timezone as std_timezone
-from typing import Optional, Any
+from typing import Optional
 from zoneinfo import ZoneInfo
 
 from django.conf import settings
 from rest_framework import serializers
 from rest_framework.settings import api_settings
 
-from authentication.models import Users
-
-from .models import ActivityLogs, TimeSegments, TrackerAppCategories, TrackerApps
+from .models import (ActivityLogs, TimeSegments, TrackerAppCategories,
+                     TrackerApps, Users)
 
 
 class ActivityLogsSerializer(serializers.ModelSerializer):
@@ -29,53 +28,13 @@ class ActivityLogsDataIdleStatesSerializer(serializers.Serializer):
     endTime = serializers.CharField(allow_blank=True)
 
 
-class ActivityLogsDataItemsTitleField(serializers.Field):
-    """The title field can either be a string or a list of dictionaries"""
-
-    def to_internal_value(self, data: str):
-        if isinstance(data, str):
-            try:
-                data = json.loads(data)
-            except json.JSONDecodeError:
-                return data
-
-        if not isinstance(data, list):
-            msg = "Field can either be string or list of objects"
-            raise serializers.ValidationError(msg)
-
-        for index, obj in enumerate(data):
-            if not isinstance(obj, dict):
-                msg = "Field can either be a string or a list of objects"
-                raise serializers.ValidationError()
-
-            FIELDS_TO_CHECK = {"duration": int, "title": str}
-            for field, field_type in FIELDS_TO_CHECK.items():
-                if field in obj and isinstance(obj.get(field), field_type):
-                    continue
-
-                if field not in obj:
-                    msg = f"Missing {field} field in object at index {index}"
-                elif not isinstance(obj.get(field), field_type):
-                    msg = f"{field} field in object at index {index} is not of type {field_type}"
-                else:
-                    msg = f"Unknown System Error, please contact administrator"
-                raise serializers.ValidationError(msg)
-
-        return data
-
-    def to_representation(self, value):
-        if isinstance(value, list):
-            return json.dumps(value)
-        return value
-
-
 class ActivityLogsDataItemsSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     firstUsed = serializers.CharField()
     lastUsed = serializers.CharField(allow_blank=True, required=True)
     name = serializers.CharField()
-    title = ActivityLogsDataItemsTitleField()
-    # session = ActivityLogsDataIdleStatesSerializer(many=True)
+    title = serializers.CharField()
+    session = ActivityLogsDataIdleStatesSerializer(many=True)
     totalUsage = serializers.IntegerField()
     isActive = serializers.BooleanField()
 
@@ -267,8 +226,7 @@ class TrackerAppCategoryPatchSerializer(serializers.Serializer):
     uuid = serializers.CharField()
     name = serializers.CharField(required=False)
     productivity_status_type = serializers.ChoiceField(
-        # choices=tuple(TrackerAppCategories.PRODUCTIVITY_STATUS_CHOICES.keys()),
-        choices=[choice[0] for choice in TrackerAppCategories.PRODUCTIVITY_STATUS_CHOICES],
+        choices=tuple(TrackerAppCategories.PRODUCTIVITY_STATUS_CHOICES.keys()),
         required=False,
     )
 
@@ -296,8 +254,7 @@ class TrackerAppCategoryPatchSerializer(serializers.Serializer):
 class TrackerAppCategoryPostSerializer(serializers.Serializer):
     name = serializers.CharField()
     productivity_status_type = serializers.ChoiceField(
-        # choices=tuple(TrackerAppCategories.PRODUCTIVITY_STATUS_CHOICES.keys()),
-        choices=[choice[0] for choice in TrackerAppCategories.PRODUCTIVITY_STATUS_CHOICES],
+        choices=tuple(TrackerAppCategories.PRODUCTIVITY_STATUS_CHOICES.keys()),
         required=False,
         default="neutral",
     )

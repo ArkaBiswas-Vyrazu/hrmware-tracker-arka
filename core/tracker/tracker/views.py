@@ -3,6 +3,7 @@
 Last Revision Date: June 30 2025 14:48 PM
 """
 
+import json
 import warnings
 from datetime import date as std_date
 from datetime import datetime
@@ -12,11 +13,11 @@ from datetime import timezone as std_timezone
 from typing import Any, Callable, Literal, Optional
 from zoneinfo import ZoneInfo
 
+from core.helpers import get_traceback
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
-from django.contrib.auth import get_user_model
-from django.db.models import F, DurationField, FloatField, Sum
-from django.db.models.functions import Cast
+from django.db.models import F, Sum
+from django.db.models.functions import Extract
 from django.db.models.query import QuerySet
 from django.utils import timezone
 from drf_spectacular.types import OpenApiTypes
@@ -25,30 +26,25 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from common.helpers import get_traceback
-
 from .exceptions import NoActivityLogFound
-from .models import ActivityLogs, TimeSegments, TrackerAppCategories, TrackerApps
-from .serializers import (
-    ActivityLogsDataSerializer,
-    ActivityLogsSerializer,
-    GetTimeSegmentsSerializer,
-    GetWeeklyHoursSerializer,
-    TimeSegmentsSerializer,
-    TrackerAppCategoriesSerializer,
-    TrackerAppCategoryPatchSerializer,
-    TrackerAppCategoryPostSerializer,
-    TrackerApplicationGroupsSerializer,
-    TrackerAppsSerializer,
-    TrackerBasicDetailsRequestSerializer,
-    TrackerCategoryBreakDownSerializer,
-    TrackerLiveFeedSerializer,
-    TrackerProductiveBreakDownSerializer,
-    TrackerProductivityStatusRequestSerializer,
-    TrackerSetAppCategorySerializer,
-    TrackerUserStatusSerializer,
-    TrackerWebsitesVistedViewSerializer,
-)
+from .models import (ActivityLogs, TimeSegments, TrackerAppCategories,
+                     TrackerApps)
+from .serializers import (ActivityLogsDataSerializer, ActivityLogsSerializer,
+                          GetTimeSegmentsSerializer, GetWeeklyHoursSerializer,
+                          TimeSegmentsSerializer,
+                          TrackerAppCategoriesSerializer,
+                          TrackerAppCategoryPatchSerializer,
+                          TrackerAppCategoryPostSerializer,
+                          TrackerApplicationGroupsSerializer,
+                          TrackerAppsSerializer,
+                          TrackerBasicDetailsRequestSerializer,
+                          TrackerCategoryBreakDownSerializer,
+                          TrackerLiveFeedSerializer,
+                          TrackerProductiveBreakDownSerializer,
+                          TrackerProductivityStatusRequestSerializer,
+                          TrackerSetAppCategorySerializer,
+                          TrackerUserStatusSerializer,
+                          TrackerWebsitesVistedViewSerializer)
 from .typing import TimeBarDataItem, TimeTracker, Weekday
 from .utils import TrackerAPIUtils
 
@@ -64,22 +60,15 @@ class TrackerAPIView(APIView, TrackerAPIUtils):
             if status is False:
                 return Response(status=400, data=main_data)
 
-            # file_name = "hrmware-tracker-sample-response.json"
-            # with open(file_name, "a") as file:
-            #     file.write("\n")
-            #     file.write(json.dumps(main_data, indent=4))
-            #     file.write("\n")
+            file_name = "hrmware-tracker-sample-response.json"
+            with open(file_name, "a") as file:
+                file.write("\n")
+                file.write(json.dumps(main_data, indent=4))
+                file.write("\n")
 
             activity_logs = []
             request_user = request.user
-            if (
-                isinstance(request_user, AnonymousUser)
-                or (
-                    isinstance(request_user, get_user_model())
-                    and not getattr(request_user, "id", None)
-                )
-                and settings.DEBUG is True
-            ):
+            if isinstance(request_user, AnonymousUser) and settings.DEBUG is True:
                 warnings.warn("No request user found, using default superuser")
                 request_user = self.get_superuser()
 
@@ -96,44 +85,20 @@ class TrackerAPIView(APIView, TrackerAPIUtils):
                 )
                 extracted_data["app"] = tracker_app
 
-                if not isinstance(extracted_data["window_title"], list):
-                    activity_log = ActivityLogs.objects.create(
-                        **extracted_data,
-                        user=request_user,
-                    )
-                    activity_logs.append(activity_log)
+                activity_log = ActivityLogs.objects.create(
+                    **extracted_data,
+                    user=request_user,
+                )
 
-                    # Tracking created activity log in main data
-                    # for creating time segments later
-                    if "activity_logs" not in main_data:
-                        main_data["activity_logs"] = {}
+                activity_logs.append(activity_log)
 
-                    # Assuming each id passed is unique
-                    main_data["activity_logs"][data.get("id")] = activity_log
+                # Tracking created activity log in main data
+                # for creating time segments later
+                if "activity_logs" not in main_data:
+                    main_data["activity_logs"] = {}
 
-                else:
-                    for window_title in extracted_data["window_title"]:
-                        activity_log = ActivityLogs.objects.create(
-                            **(
-                                {
-                                    key: value
-                                    for key, value in extracted_data.items()
-                                    if key not in ("window_title", "duration")
-                                }
-                            ),
-                            window_title=window_title.get("title"),
-                            duration=window_title.get("duration"),
-                            user=request_user,
-                        )
-                    activity_logs.append(activity_log)
-
-                    # Tracking created activity log in main data
-                    # for creating time segments later
-                    if "activity_logs" not in main_data:
-                        main_data["activity_logs"] = {}
-
-                    # Assuming each id passed is unique
-                    main_data["activity_logs"][data.get("id")] = activity_log
+                # Assuming each id passed is unique
+                main_data["activity_logs"][data.get("id")] = activity_log
 
             activity_logs = ActivityLogsSerializer(activity_logs, many=True).data
             time_segments = self.create_time_segments(main_data, request_user)
@@ -148,14 +113,14 @@ class TrackerAPIView(APIView, TrackerAPIUtils):
             return Response(status=200, data=response_data)
 
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback(), indent=4))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback(), indent=4))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -575,14 +540,14 @@ class TrackerTimeBarView(APIView):
             )
 
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback(), indent=4))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback(), indent=4))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -599,7 +564,7 @@ class TrackerProductivityStatusView(APIView):
             result = ""
 
             if time_object.days is not None and time_object.days != 0:
-                result += f"{time_object.days} day{abs(time_object.days) != 1 and 's' or ''} "
+                result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
             if hours is not None and hours != 0:
                 result += f"{hours}h "
             if minutes is not None and minutes != 0:
@@ -704,8 +669,7 @@ class TrackerProductivityStatusView(APIView):
 
             for index, activity_log in enumerate(activity_logs):
                 time_tracker[f"{activity_log.productivity_status}_time"] += int(
-                    # (activity_log.end_timestamp - activity_log.start_timestamp).total_seconds()
-                    activity_log.duration
+                    (activity_log.end_timestamp - activity_log.start_timestamp).total_seconds()
                 )
 
                 if "away_time" in time_tracker:
@@ -731,18 +695,18 @@ class TrackerProductivityStatusView(APIView):
                         if time_gap > timedelta(seconds=settings.TIME_GAP_LIMIT):
                             time_tracker["away_time"] += time_gap.total_seconds()
 
-            time_tracker = self.format_time(time_tracker)
+            time_tracker = time_tracker
             return Response(status=200, data={"productivity_tracker": time_tracker})
 
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p" + "\n")
-            #     )
-            #     file.write(json.dumps(get_traceback(), indent=4))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p" + "\n")
+                )
+                file.write(json.dumps(get_traceback(), indent=4))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -757,7 +721,7 @@ class TrackerBasicTimeDetailsView(APIView):
         result = ""
 
         if time_object.days is not None and time_object.days != 0:
-            result += f"{time_object.days} day{abs(time_object.days) != 1 and 's' or ''} "
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
         if hours is not None and hours != 0:
             result += f"{int(hours)}h "
         if minutes is not None and minutes != 0:
@@ -820,10 +784,6 @@ class TrackerBasicTimeDetailsView(APIView):
                 user=user, start_timestamp__date=date
             ).order_by("start_timestamp")
 
-            if activity_logs.count() == 0:
-                msg = "No records found for requested date"
-                return Response(status=400, data={"message": msg})
-
             start_time = activity_logs.first().start_timestamp
             last_seen = activity_logs.last().end_timestamp
             working_time = 0
@@ -875,14 +835,14 @@ class TrackerBasicTimeDetailsView(APIView):
             return Response(status=200, data=response)
 
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p" + "\n")
-            #     )
-            #     file.write(json.dumps(get_traceback(), indent=4))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p" + "\n")
+                )
+                file.write(json.dumps(get_traceback(), indent=4))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -938,7 +898,7 @@ class TrackerWeeklySummary(APIView):
         result = ""
 
         if time_object.days is not None and time_object.days != 0:
-            result += f"{time_object.days} day{abs(time_object.days) != 1 and 's' or ''} "
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
         if hours is not None and hours != 0:
             result += f"{int(hours)}h "
         if minutes is not None and minutes != 0:
@@ -971,7 +931,7 @@ class TrackerWeeklySummary(APIView):
                 location=OpenApiParameter.QUERY,
                 required=False,
                 type=OpenApiTypes.STR,
-                description=f"Allowed Values: {', '.join(tuple(GetWeeklyHoursSerializer.SHORTCUT_NAMES.keys()))}",
+                description=f"Allowed Values: {", ".join(tuple(GetWeeklyHoursSerializer.SHORTCUT_NAMES.keys()))}",
             ),
             OpenApiParameter(
                 name="time_start",
@@ -992,7 +952,7 @@ class TrackerWeeklySummary(APIView):
                 location=OpenApiParameter.QUERY,
                 required=False,
                 type=OpenApiTypes.STR,
-                description=f"Allowed Values: {', '.join(tuple(GetWeeklyHoursSerializer.PROGRESSION_VALUES))}",
+                description=f"Allowed Values: {", ".join(tuple(GetWeeklyHoursSerializer.PROGRESSION_VALUES))}",
                 default="forward",
             ),
             OpenApiParameter(
@@ -1136,14 +1096,14 @@ class TrackerWeeklySummary(APIView):
 
             return Response(status=200, data=response)
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p" + "\n")
-            #     )
-            #     file.write(json.dumps(get_traceback(), indent=4))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p" + "\n")
+                )
+                file.write(json.dumps(get_traceback(), indent=4))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -1160,14 +1120,14 @@ class TrackerAppCategoryView(APIView):
             response = TrackerAppCategoriesSerializer(tracker_categories, many=True).data
             return Response(status=200, data=response)
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback()))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -1200,14 +1160,14 @@ class TrackerAppCategoryView(APIView):
                 data={"app_category": TrackerAppCategoriesSerializer(app_category).data},
             )
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback()))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -1229,14 +1189,14 @@ class TrackerAppCategoryView(APIView):
                 data=TrackerAppCategoriesSerializer(tracker_app_category).data,
             )
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback()))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -1249,14 +1209,14 @@ class TrackerAppsView(APIView):
             apps = TrackerApps.objects.all()
             return Response(status=200, data=TrackerAppsSerializer(apps, many=True).data)
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback()))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -1282,14 +1242,14 @@ class TrackerSetAppCategoryView(APIView):
 
             return Response(status=200, data={"app": TrackerAppsSerializer(app).data})
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback()))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -1307,7 +1267,7 @@ class TrackerProductiveBreakDownView(APIView):
         result = ""
 
         if time_object.days is not None and time_object.days != 0:
-            result += f"{time_object.days} day{abs(time_object.days) != 1 and 's' or ''} "
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
         if hours is not None and hours != 0:
             result += f"{int(hours)}h "
         if minutes is not None and minutes != 0:
@@ -1362,7 +1322,7 @@ class TrackerProductiveBreakDownView(APIView):
 
         first_entry = activity_logs.order_by("start_timestamp").first()
         if first_entry is None:
-            raise NoActivityLogFound(f"No entry found for user on date {date.strftime('%Y-%m-%d')}")
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
 
         start_time = first_entry.start_timestamp.time()
         return start_time
@@ -1384,7 +1344,7 @@ class TrackerProductiveBreakDownView(APIView):
 
         last_entry = activity_logs.order_by("start_timestamp").last()
         if last_entry is None:
-            raise NoActivityLogFound(f"No entry found for user on date {date.strftime('%Y-%m-%d')}")
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
 
         end_time = last_entry.end_timestamp.time()
         return end_time
@@ -1783,7 +1743,7 @@ class TrackerProductiveBreakDownView(APIView):
                 location=OpenApiParameter.QUERY,
                 required=False,
                 type=OpenApiTypes.STR,
-                description=f"Allowed Values: {', '.join(TrackerProductiveBreakDownSerializer.OUTPUT_FORMAT_CHOICES)}",
+                description=f"Allowed Values: {", ".join(TrackerProductiveBreakDownSerializer.OUTPUT_FORMAT_CHOICES)}",
                 default="activity",
             ),
             OpenApiParameter(
@@ -1791,13 +1751,9 @@ class TrackerProductiveBreakDownView(APIView):
                 location=OpenApiParameter.QUERY,
                 required=False,
                 type=OpenApiTypes.STR,
-                description=(
-                    "Allowed Values: "
-                    + (
-                        ", ".join(TrackerProductiveBreakDownSerializer.SHORTCUT_NAMES)
-                        + ", ".join(TrackerProductiveBreakDownSerializer.VALID_WEEK_NAMES)
-                    )
-                ),
+                description=f"Allowed Values: {", ".join(TrackerProductiveBreakDownSerializer.SHORTCUT_NAMES)
+                                            + ", "
+                                            + ", ".join(TrackerProductiveBreakDownSerializer.VALID_WEEK_NAMES)}",
                 default="monday",
             ),
             OpenApiParameter(
@@ -1865,14 +1821,14 @@ class TrackerProductiveBreakDownView(APIView):
             return Response(status=200, data=response)
 
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback()))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -1890,7 +1846,7 @@ class TrackerCategoryBreakDownView(APIView):
         result = ""
 
         if time_object.days is not None and time_object.days != 0:
-            result += f"{time_object.days} day{abs(time_object.days) != 1 and 's' or ''} "
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
         if hours is not None and hours != 0:
             result += f"{int(hours)}h "
         if minutes is not None and minutes != 0:
@@ -1920,7 +1876,7 @@ class TrackerCategoryBreakDownView(APIView):
 
         first_entry = activity_logs.order_by("start_timestamp").first()
         if first_entry is None:
-            raise NoActivityLogFound(f"No entry found for user on date {date.strftime('%Y-%m-%d')}")
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
 
         start_time = first_entry.start_timestamp.time()
         return start_time
@@ -1942,7 +1898,7 @@ class TrackerCategoryBreakDownView(APIView):
 
         last_entry = activity_logs.order_by("start_timestamp").last()
         if last_entry is None:
-            raise NoActivityLogFound(f"No entry found for user on date {date.strftime('%Y-%m-%d')}")
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
 
         end_time = last_entry.end_timestamp.time()
         return end_time
@@ -2009,23 +1965,12 @@ class TrackerCategoryBreakDownView(APIView):
                 )
                 .annotate(name=F("category__name"))
                 .values("name")
-                .annotate(total_duration=Sum("duration"))
-                .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
-                # .annotate(
-                #     total_duration=Extract(Sum(F("end_timestamp") - F("start_timestamp")), "epoch")
-                # )
-                # .annotate(total_percentage=(F("total_duration") / total_work_duration) * 100)
-                # .order_by()
-                # .annotate(
-                # total_duration=Cast(
-                # Cast(
-                # F("end_timestamp") - F("start_timestamp"),
-                # output_field=DurationField(),
-                # ),
-                # output_field=FloatField(),
-                # )
-                # )
-                # .annotate(total_percentage=(F("total_duration") / total_work_duration) * 100)
+                # .annotate(total_duration=Sum("duration"))
+                # .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
+                .annotate(
+                    total_duration=Extract(Sum(F("end_timestamp") - F("start_timestamp")), "epoch")
+                )
+                .annotate(total_percentage=(F("total_duration") / total_work_duration) * 100)
                 .order_by()
             )
             categories_not_recorded = TrackerAppCategories.objects.exclude(
@@ -2058,14 +2003,14 @@ class TrackerCategoryBreakDownView(APIView):
             return Response(status=200, data={"category_breakdown": response})
 
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback()))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -2083,7 +2028,7 @@ class TrackerApplicationGroupsView(APIView):
         result = ""
 
         if time_object.days is not None and time_object.days != 0:
-            result += f"{time_object.days} day{abs(time_object.days) != 1 and 's' or ''} "
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
         if hours is not None and hours != 0:
             result += f"{int(hours)}h "
         if minutes is not None and minutes != 0:
@@ -2113,7 +2058,7 @@ class TrackerApplicationGroupsView(APIView):
 
         first_entry = activity_logs.order_by("start_timestamp").first()
         if first_entry is None:
-            raise NoActivityLogFound(f"No entry found for user on date {date.strftime('%Y-%m-%d')}")
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
 
         start_time = first_entry.start_timestamp.time()
         return start_time
@@ -2135,7 +2080,7 @@ class TrackerApplicationGroupsView(APIView):
 
         last_entry = activity_logs.order_by("start_timestamp").last()
         if last_entry is None:
-            raise NoActivityLogFound(f"No entry found for user on date {date.strftime('%Y-%m-%d')}")
+            raise NoActivityLogFound(f"No entry found for user on date {date.strftime("%Y-%m-%d")}")
 
         end_time = last_entry.end_timestamp.time()
         return end_time
@@ -2197,8 +2142,7 @@ class TrackerApplicationGroupsView(APIView):
             ).total_seconds()
 
             response = {
-                # productivity_choice: {}
-                productivity_choice[0]: {}
+                productivity_choice: {}
                 for productivity_choice in ActivityLogs.PRODUCTIVITY_STATUS_CHOICES
             }
             for productivity_choice in ActivityLogs.PRODUCTIVITY_STATUS_CHOICES:
@@ -2206,27 +2150,15 @@ class TrackerApplicationGroupsView(APIView):
                     ActivityLogs.objects.filter(
                         user=user,
                         start_timestamp__date=date,
-                        # productivity_status=productivity_choice,
-                        productivity_status=productivity_choice[0],
+                        productivity_status=productivity_choice,
                     )
                     .values("window_title")
-                    .annotate(total_duration=Sum("duration"))
-                    .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
-                    # This will only work for a Postgresql Database
-                    # .annotate(
-                    #     total_duration=Extract(F("end_timestamp") - F("start_timestamp"), "epoch")
-                    # )
-                    # .annotate(total_percentage=(F("total_duration") / total_work_duration) * 100)
-                    # .annotate(
-                    # total_duration=Cast(
-                    # Cast(
-                    # F("end_timestamp") - F("start_timestamp"),
-                    # output_field=DurationField(),
-                    # ),
-                    # output_field=FloatField(),
-                    # )
-                    # )
-                    # .annotate(total_percentage=(F("total_duration") / total_work_duration) * 100)
+                    # .annotate(total_duration=Sum("duration"))
+                    # .annotate(total_percentage=(Sum("duration") / total_work_duration) * 100)
+                    .annotate(
+                        total_duration=Extract(F("end_timestamp") - F("start_timestamp"), "epoch")
+                    )
+                    .annotate(total_percentage=(F("total_duration") / total_work_duration) * 100)
                     .order_by()
                 )
 
@@ -2242,8 +2174,7 @@ class TrackerApplicationGroupsView(APIView):
                     #     "percentage": f"{round(total_percentage, 2)}%",
                     # }
 
-                    # response[productivity_choice][window_title] = {
-                    response[productivity_choice[0]][window_title] = {
+                    response[productivity_choice][window_title] = {
                         "duration": float(total_duration),
                         "percentage": round(total_percentage, 2),
                     }
@@ -2251,14 +2182,14 @@ class TrackerApplicationGroupsView(APIView):
             return Response(status=200, data=response)
 
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback()))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -2276,7 +2207,7 @@ class TrackerWebsitesVistedView(APIView):
         result = ""
 
         if time_object.days is not None and time_object.days != 0:
-            result += f"{time_object.days} day{abs(time_object.days) != 1 and 's' or ''} "
+            result += f"{time_object.days} day{abs(time_object.days) != 1 and "s" or ""} "
         if hours is not None and hours != 0:
             result += f"{int(hours)}h "
         if minutes is not None and minutes != 0:
@@ -2355,14 +2286,14 @@ class TrackerWebsitesVistedView(APIView):
             return Response(status=200, data={"top_websites_visited": duration_mapper})
 
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback()))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -2437,14 +2368,14 @@ class TrackerLiveFeedView(APIView):
             return Response(status=200, data={"live_feed": latest_feed})
 
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback()))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
 
@@ -2468,13 +2399,13 @@ class TrackerUserStatusView(APIView):
             user = data.get("user")
             user_status: Optional[Literal["active"] | Literal["inactive"]] = data.get("user_status")
         except Exception as e:
-            # print(json.dumps(get_traceback(), indent=4))
+            print(json.dumps(get_traceback(), indent=4))
 
-            # with open("errors.log", "a") as file:
-            #     file.write(
-            #         "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
-            #     )
-            #     file.write(json.dumps(get_traceback()))
-            #     file.write("\n\n")
+            with open("errors.log", "a") as file:
+                file.write(
+                    "Time recorded: " + timezone.now().strftime("%Y-%m-%d %H:%M:%S %p") + "\n"
+                )
+                file.write(json.dumps(get_traceback()))
+                file.write("\n\n")
 
             return Response(status=500, data=get_traceback())
