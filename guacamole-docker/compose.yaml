@@ -1,49 +1,19 @@
+---
 services:
   guacd:
-    container_name: guacd
     image: guacamole/guacd
-    restart: unless-stopped
+    container_name: some-guacd
     networks:
-      guac-net:
-        ipv4_address:
-
-  guacweb:
-    container_name: guac_web
+      - guacnet # May need to create this manually
+  guacamole:
     image: guacamole/guacamole
-    restart: unless-stopped
+    container_name: some-guacamole
+    networks:
+      - guacnet
     ports:
-      - 8080:8080
-    environment:
-      MYSQL_DATABASE: guacamole_db
-      MYSQL_HOSTNAME: 
-      MYSQL_PASSWORD: pass
-      MYSQL_USER: guacamole_user
-      GUACD_HOSTNAME:
+      - "8080:8080"
     depends_on:
-      - guacamole-sql
       - guacd
-    networks:
-      guac-net:
-
-  guacamole-sql:
-    container_name: guac-sql
-    image: mysql
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: pass
-    volumes:
-      - dbdata:/var/lib/mysql
-    networks:
-      guac-net:
-        ipv4_address:
-
-volumes:
-  dbdata:
-
 networks:
-  guac-net:
+  guacnet:
     driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 
