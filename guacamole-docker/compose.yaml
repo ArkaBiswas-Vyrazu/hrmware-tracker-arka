@@ -3,17 +3,62 @@ services:
   guacd:
     image: guacamole/guacd
     container_name: some-guacd
+    restart: always
     networks:
-      - guacnet # May need to create this manually
+      - guacnet
   guacamole:
     image: guacamole/guacamole
     container_name: some-guacamole
+    restart: always
     networks:
       - guacnet
     ports:
       - "8080:8080"
     depends_on:
       - guacd
+      - db
+    links:
+      - guacd
+      - db
+    environment:
+      MYSQL_DATABASE: guacamole_db
+      # MYSQL_ENABLED: true
+      # MYSQL_DRIVER: mysql
+      # MYSQL_SSL_MODE: disabled
+      MYSQL_USER: guacdb_user
+      MYSQL_PASSWORD: password
+      MYSQL_HOSTNAME: db
+      MYSQL_SERVER_TIMEZONE: Asia/Kolkata # Just to make sure this won't create errors
+      MYSQL_ENFORCE_ACCESS_WINDOWS_FOR_ACTIVE_SESSIONS: true
+    volumes:
+      - "initdb:/opt/guacamole/extensions/guacamole-auth-jdbc/mysql/schema:ro"
+  db:
+    image: mysql
+    container_name: guacdb
+    restart: always
+    networks:
+      - guacnet
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: guacamole_db
+      MYSQL_USER: guacdb_user
+      MYSQL_PASSWORD: password
+    volumes:
+      - "initdb:/docker-entrypoint-initdb.d:ro"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    networks:
+      - guacnet
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "8081:80"
 networks:
   guacnet:
     driver: bridge
+volumes:
+  initdb:
